@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
+import CookieBanner from "@/components/CookieBanner";
 import { AcousticExpertChat } from "@/components/AcousticExpertChat";
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
             <Footer />
             <AcousticExpertChat />
             <MobileCTABar />
+            <CookieBanner />
           </div>
         </Providers>
       </body>

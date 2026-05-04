@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import ExploreMore from "@/components/ExploreMore";
+import QuoteCTA from "@/components/QuoteCTA";
 
 // Hero image
 import heroImage from "@/assets/categories/solutions.webp";
@@ -131,6 +132,10 @@ const Solutions = () => {
         </div>
       </section>
 
+      <QuoteCTA
+        title="Un projet sectoriel à étudier ?"
+        description="Hôtellerie, ERP, équipements sportifs, collectivités : nos experts conçoivent la solution adaptée à votre cahier des charges."
+      />
       <ExploreMore currentPath="/solutions" />
     </Layout>
   );

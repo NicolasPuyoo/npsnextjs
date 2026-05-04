@@ -2,14 +2,49 @@
 
 import Link from "next/link";
 import { useParams, notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, FileText } from "lucide-react";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import ExploreMore from "@/components/ExploreMore";
 import VibraProductSchema from "@/components/VibraProductSchema";
 import ChapeAcousticsChart from "@/components/ChapeAcousticsChart";
 import RevetementSolsChart from "@/components/RevetementSolsChart";
+import { Button } from "@/components/ui/button";
 import { getSolutionById } from "@/data/solutionProducts";
+
+// Cross-linking : chaque solution sectorielle pointe vers la sous-catégorie produit correspondante
+const RELATED_PATHS: Record<string, { label: string; href: string; reason: string }> = {
+  "fitness-gym": {
+    label: "Voir le catalogue Fitness & Gym",
+    href: "/sport/fitness",
+    reason: "Pour parcourir tous les produits SPORTEC adaptés à votre activité (cardio, musculation, yoga…).",
+  },
+  hotels: {
+    label: "Voir l'isolation sous chape",
+    href: "/batiment/isolation-sous-chape",
+    reason: "Solutions techniques pour bruits d'impact entre étages dans les chambres et couloirs.",
+  },
+  "toitures-terrasses": {
+    label: "Voir les solutions extérieures bâtiment",
+    href: "/batiment/solutions-exterieures",
+    reason: "Gamme KRAITEC complète pour toitures et terrasses.",
+  },
+  piscine: {
+    label: "Voir le détail piscine sport",
+    href: "/sport/outdoor/piscine",
+    reason: "Plus de détails sur les revêtements antidérapants pour bassins et plages.",
+  },
+  supermarches: {
+    label: "Voir les sols magasins & commerces",
+    href: "/sport/commerce/magasins",
+    reason: "Revêtements résistants au passage intensif pour points de vente.",
+  },
+  desolidarisation: {
+    label: "Voir l'isolation acoustique bâtiment",
+    href: "/batiment/isolation-acoustique",
+    reason: "Toute la gamme DAMTEC vibra pour la désolidarisation anti-vibratoire.",
+  },
+};
 
 // Images des solutions
 import fitnessImage from "@/assets/solutions/fitness-gym.jpg";
@@ -37,6 +72,7 @@ const SolutionDetail = () => {
   }
 
   const heroImage = solutionImages[solution.id];
+  const related = RELATED_PATHS[solution.id];
 
   // Déterminer quels schémas/graphiques afficher selon la solution
   const showVibraSchema = solution.id === "desolidarisation";
@@ -68,6 +104,26 @@ const SolutionDetail = () => {
           </p>
         </div>
       </section>
+
+      {/* Cross-link vers la sous-catégorie produit correspondante */}
+      {related && (
+        <section className="py-8 bg-muted/30 border-b border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="rounded-2xl border border-border bg-card p-5 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+              <div className="flex-1">
+                <p className="text-sm text-muted-foreground mb-1">Vous cherchez plutôt le catalogue produit ?</p>
+                <p className="text-base font-medium text-foreground">{related.reason}</p>
+              </div>
+              <Button asChild variant="outline" className="rounded-full whitespace-nowrap shrink-0">
+                <Link href={related.href} className="flex items-center gap-2">
+                  {related.label}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Schémas et graphiques conditionnels */}
       {showVibraSchema && <VibraProductSchema />}

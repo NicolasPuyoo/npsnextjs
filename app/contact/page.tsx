@@ -22,10 +22,13 @@ const Contact = () => {
     prenom: "",
     email: "",
     telephone: "",
+    projectType: "",
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -41,7 +44,7 @@ const Contact = () => {
       if (error) throw error;
 
       toast.success("Votre message a été envoyé avec succès !");
-      setFormData({ nom: "", prenom: "", email: "", telephone: "", message: "" });
+      setFormData({ nom: "", prenom: "", email: "", telephone: "", projectType: "", message: "" });
     } catch (error: any) {
       console.error("Error sending message:", error);
       toast.error("Une erreur est survenue. Veuillez réessayer.");
@@ -182,12 +185,31 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
+                  <label className="block text-base font-medium text-foreground mb-3" htmlFor="projectType">
+                    Type de projet
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    className="w-full h-14 text-lg rounded-xl border border-border bg-background px-4 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  >
+                    <option value="">— Choisir (facultatif) —</option>
+                    <option value="batiment">Bâtiment / Industrie (architecte, BET, entrepreneur)</option>
+                    <option value="sport">Sport / Fitness (gym, salle, terrain)</option>
+                    <option value="hotel-commerce">Hôtel / Commerce / Collectivité</option>
+                    <option value="bricolage">Bricolage / Particulier</option>
+                    <option value="autre">Autre / je ne sais pas</option>
+                  </select>
+                </div>
+                <div>
                   <label className="block text-base font-medium text-foreground mb-3">Message *</label>
-                  <Textarea 
+                  <Textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Décrivez votre projet ou posez votre question..." 
+                    placeholder="Décrivez votre projet : surface, contraintes, performance acoustique recherchée…"
                     rows={6}
                     required
                     className="text-lg rounded-xl resize-none"

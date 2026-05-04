@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import { sportProducts } from "@/data/products";
 import ExploreMore from "@/components/ExploreMore";
+import QuoteCTA from "@/components/QuoteCTA";
 import sportHeroImage from "@/assets/categories/sport-hero.webp";
 import fitnessImage from "@/assets/categories/fitness.webp";
 
@@ -252,6 +253,10 @@ const Sport = () => {
         </div>
       </section>
 
+      <QuoteCTA
+        title="Un projet sportif à équiper ?"
+        description="Salles de sport, gymnases, terrains, stands de tir : on vous aide à choisir le sol et l'acoustique adaptés."
+      />
       <ExploreMore currentPath="/sport" />
     </Layout>
   );

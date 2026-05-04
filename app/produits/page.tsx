@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import { allProducts, categories, batimentSubcategories, Product } from "@/data/products";
 import { Button } from "@/components/ui/button";
+import QuoteCTA from "@/components/QuoteCTA";
 
 // Hero image
 import heroImage from "@/assets/categories/produits.webp";
@@ -257,6 +258,10 @@ const ProduitsInner = () => {
           )}
         </div>
       </section>
+      <QuoteCTA
+        title="Vous hésitez entre plusieurs produits ?"
+        description="Décrivez-nous votre projet — surface, contraintes, performances visées — et on vous oriente vers la bonne référence."
+      />
     </Layout>
   );
 };

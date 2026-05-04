@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import ExploreMore from "@/components/ExploreMore";
+import QuoteCTA from "@/components/QuoteCTA";
 import { batimentProducts } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -291,6 +292,10 @@ const Batiment = () => {
         </div>
       </section>
 
+      <QuoteCTA
+        title="Un projet bâtiment ou industrie ?"
+        description="Architectes, BET, entrepreneurs : nos experts vous accompagnent du diagnostic à la mise en œuvre."
+      />
       <ExploreMore currentPath="/batiment" />
     </Layout>
   );
