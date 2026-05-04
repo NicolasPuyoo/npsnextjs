@@ -1,0 +1,151 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 228 17% 95%;
+    --foreground: 220 15% 15%;
+
+    --card: 231 43% 96%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 231 43% 96%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 107 50% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 107 20% 94%;
+    --secondary-foreground: 107 50% 25%;
+
+    --muted: 228 17% 90%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 107 20% 92%;
+    --accent-foreground: 107 50% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 228 15% 88%;
+    --input: 228 15% 88%;
+    --ring: 107 50% 38%;
+
+    --radius: 1rem;
+
+    --hero-gradient: linear-gradient(135deg, hsl(107 50% 38%) 0%, hsl(107 45% 48%) 100%);
+    --text-gradient: linear-gradient(90deg, hsl(107 50% 38%) 0%, hsl(107 45% 48%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(107 50% 38% / 0.2);
+    --shadow-card: 0 2px 12px -2px hsl(220 15% 15% / 0.08);
+
+    --sidebar-background: 228 17% 95%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 231 43% 96%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 228 15% 88%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --panel: 220 4% 23%;
+    --panel-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 15% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 15% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 107 50% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 220 15% 20%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 107 50% 50%;
+    --panel: 220 4% 23%;
+    --panel-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased text-xl;
+    font-family: 'Satoshi', sans-serif;
+  }
+
+  h1 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    @apply text-5xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    @apply text-4xl md:text-5xl;
+  }
+
+  h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    @apply text-3xl md:text-4xl;
+  }
+
+  h4, h5, h6 {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    @apply text-2xl;
+  }
+
+  p {
+    @apply text-xl leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .text-gradient {
+    background: var(--text-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+}
