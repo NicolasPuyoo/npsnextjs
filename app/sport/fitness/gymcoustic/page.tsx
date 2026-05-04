@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Volume2, Target, Palette, Ruler, Maximize, Percent, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
+import NumberedFeatures from "@/components/NumberedFeatures";
 import gymcousticImage from "@/assets/categories/fitness/gymcoustic.webp";
 import layersSchema from "@/assets/gymcoustic/layers-schema.png";
 import gym3dView from "@/assets/gymcoustic/gym-3d-view.png";
@@ -352,51 +353,19 @@ const Gymcoustic = () => {
       </section>
 
       {/* Key Benefits */}
-      <section className="py-16 bg-[#3a3a3a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Avantages clés
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { icon: Volume2, title: "Isolation acoustique", desc: "Jusqu'à 38 dB de réduction sonore" },
-              { icon: Target, title: "Absorption des chocs", desc: "Jusqu'à 70% d'absorption" },
-              { icon: Palette, title: "Design personnalisable", desc: "Large choix de couleurs et finitions" },
-              { icon: Ruler, title: "Épaisseurs variées", desc: "De 20 à 40 mm selon les besoins" },
-              { icon: Maximize, title: "Formats modulaires", desc: "Dalles et rouleaux disponibles" },
-              { icon: Percent, title: "100% recyclable", desc: "Fabriqué à partir de caoutchouc recyclé" },
-            ].map((benefit, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="bg-[#4a4a4a] rounded-2xl p-6 text-center"
-              >
-                <div className="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
-                  <benefit.icon className="w-8 h-8 text-white/80" />
-                </div>
-                <h3 className="text-primary font-semibold text-lg mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-white/70 text-sm">
-                  {benefit.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NumberedFeatures
+        items={[
+          { title: "Isolation acoustique", description: "Jusqu'à 38 dB de réduction sonore. Le bruit reste dans la salle, vos voisins de bâtiment retrouvent le calme." },
+          { title: "Absorption des chocs", description: "Jusqu'à 70 % d'absorption pour protéger les articulations des pratiquants et le sol des charges lourdes." },
+          { title: "Design personnalisable", description: "Large choix de couleurs et de finitions pour aligner le revêtement avec votre identité visuelle." },
+          { title: "Épaisseurs variées", description: "De 20 à 40 mm selon le profil de votre activité : cardio, musculation, fonctionnel." },
+          { title: "Formats modulaires", description: "Dalles emboîtables ou rouleaux. Installation rapide, démontage et reconfiguration possibles." },
+          { title: "100 % recyclable", description: "Fabriqué à partir de caoutchouc recyclé. Démarche RSE et seconde vie en fin de cycle." },
+        ]}
+        variant="dark"
+        eyebrow="Avantages clés"
+        heading="Une salle de sport pensée comme un produit fini."
+      />
 
       {/* CTA Section */}
       <section className="py-16 bg-background">

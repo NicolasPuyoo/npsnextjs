@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Target, ShieldOff, Volume2, Snowflake, Award, Wrench, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
+import NumberedFeatures from "@/components/NumberedFeatures";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
 import { sportProducts } from "@/data/products";
@@ -12,37 +12,30 @@ import heroImage from "@/assets/categories/sport/stand-tir.webp";
 
 const features = [
   {
-    icon: Target,
     title: "absorption du projectile",
     description: "adapté à tout les calibres pour le tir sportive ou l'entrainement policier"
   },
   {
-    icon: ShieldOff,
     title: "éviter des ricochets",
     description: "absorption de la balle grâce à sa surface poreux et élastique"
   },
   {
-    icon: Volume2,
     title: "propriétés insonorisants",
     description: "moins de bruit de tir et d'impact dans le champs de tir"
   },
   {
-    icon: Snowflake,
     title: "résistance aux intempéries",
     description: "caoutchouc imputrescible qui assure la résistance aux intempéries"
   },
   {
-    icon: Award,
     title: "certifié",
     description: "assurer la sécurité et l'acceptation du produit pour les champs de tir (« bureau de formation aux armes » à Munich)"
   },
   {
-    icon: Wrench,
     title: "installation facile",
     description: "simplement intercaler les dalles ou les fixer sur un support en bois"
   },
   {
-    icon: Sparkles,
     title: "entretien facile et rapide",
     description: "changement d'emplacement des blocs et des dalles afin d'éviter des fermetures du champ de tir"
   }
@@ -80,34 +73,12 @@ const StandTir = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-[#3a3a3a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="bg-[#4a4a4a] rounded-2xl p-6 text-center"
-              >
-                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
-                  <feature.icon className="w-10 h-10 text-white/80" />
-                </div>
-                <h3 className="text-primary font-semibold text-lg mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NumberedFeatures
+        items={features}
+        variant="dark"
+        eyebrow="Pourquoi nos sols"
+        heading="Pensés pour stand de tir."
+      />
 
       {/* Products Section */}
       <section className="py-16 bg-[#3a3a3a]">

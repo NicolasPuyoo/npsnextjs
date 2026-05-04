@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PersonStanding, Flame, Network, Leaf, Volume2, Footprints, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
+import NumberedFeatures from "@/components/NumberedFeatures";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
 import { sportProducts } from "@/data/products";
@@ -12,37 +12,30 @@ import bureauImage from "@/assets/categories/commerce/bureaux.webp";
 
 const features = [
   {
-    icon: PersonStanding,
     title: "anti-glisse",
     description: "la résistance au glissement R10 (DIN 51130) et Label DS; éviter des chutes ou des blessures des clients ou des employées"
   },
   {
-    icon: Flame,
     title: "classification au feu",
     description: "certification au feu Cfl-s1 « difficilement inflammable » (purcolor, variant, UNI classic)"
   },
   {
-    icon: Network,
     title: "design moderne",
     description: "intégration facile dans le style du bureau et l'architecture du bâtiment"
   },
   {
-    icon: Leaf,
     title: "faibles émissions",
     description: "fournir un environnement sain pour les employées (SPORTEC® purcolor certifié A+ selon les critères AFFSET (COV's))"
   },
   {
-    icon: Volume2,
     title: "propriétés insonorisants",
     description: "moins de bruit dans le studio et dans des bâtiments à plusieurs étages en minimisant les impacts et les vibrations dans les pièces adjacentes (-16 dB à 6 mm d'épaisseur)"
   },
   {
-    icon: Footprints,
     title: "confort de marche",
     description: "le revêtement de sol en caoutchouc assure l'élasticité et protège les articulations, ce qui est ergonomique pour les clients et les travailleurs"
   },
   {
-    icon: Sparkles,
     title: "nettoyage facile",
     description: "un nettoyage facile de la surface grâce au vernissage; minimisant les coûts d'entretien des revêtements de sol hautement fréquentés"
   }
@@ -79,34 +72,12 @@ const Bureaux = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-[#3a3a3a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="bg-[#4a4a4a] rounded-2xl p-6 text-center"
-              >
-                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
-                  <feature.icon className="w-10 h-10 text-white/80" />
-                </div>
-                <h3 className="text-primary font-semibold text-lg mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <NumberedFeatures
+        items={features}
+        variant="dark"
+        eyebrow="Pourquoi nos sols"
+        heading="Pensés pour bureaux."
+      />
 
       {/* Products Section */}
       <section className="py-16 bg-[#3a3a3a]">
