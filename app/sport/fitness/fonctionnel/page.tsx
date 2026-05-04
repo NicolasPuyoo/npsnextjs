@@ -119,10 +119,14 @@ const Fonctionnel = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Produits utilisés
+              Notre recommandation
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Découvrez notre gamme de revêtements SPORTEC® adaptés à l'entraînement fonctionnel
+            <p className="text-white/75 max-w-3xl mx-auto leading-relaxed">
+              Pour le cross-training et l'entraînement fonctionnel, le
+              <strong className="text-white"> SPORTEC® PUZZLE 2.0</strong> modulaire offre la
+              flexibilité nécessaire : dalles emboîtables sans colle, démontables. Le
+              <strong className="text-white"> SPORTEC® COLOR</strong> couvre les zones fixes
+              à fort passage. Voici la gamme complète disponible.
             </p>
           </motion.div>
           

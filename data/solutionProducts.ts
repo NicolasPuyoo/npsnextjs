@@ -57,14 +57,8 @@ export const toituresProducts = findAllBySlugs([
 ]);
 
 // Piscine / Bassin aquatique - KRAITEC STEP + SONIC DRAIN PLUS + VIBRA
+// Piscine : revêtements antidérapants drainants pour plages et abords de bassin (KRAITEC step + drainage)
 export const piscineProducts = findAllBySlugs([
-  "damtec-vibra-30",
-  "damtec-vibra-50",
-  "damtec-vibra-100",
-  "damtec-vibra-170",
-  "damtec-vibra-280",
-  "damtec-vibra-700",
-  "damtec-vibra-1500",
   "kraitec-step",
   "kraitec-step-color",
   "kraitec-step-cross",

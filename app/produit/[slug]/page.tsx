@@ -7,8 +7,19 @@ import BackButton from "@/components/BackButton";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import ProductDocuments from "@/components/product/ProductDocuments";
+import VibraProductSchema from "@/components/VibraProductSchema";
 import { Button } from "@/components/ui/button";
 import { findProductBySlug, getSimilarProducts, categories } from "@/data/products";
+
+// Détecte la marque pour afficher mention "Distributeur officiel Kraiburg"
+const getKraiburgBrand = (productName: string): "DAMTEC" | "KRAITEC" | null => {
+  if (/^damtec/i.test(productName)) return "DAMTEC";
+  if (/^kraitec/i.test(productName)) return "KRAITEC";
+  return null;
+};
+
+// Détecte si le produit fait partie de la gamme DAMTEC vibra (pour comparateur intra-gamme)
+const isDamtecVibra = (slug: string) => /^damtec-vibra-\d+$/i.test(slug);
 
 // Extract max acoustic dB from product specifications
 const getAcousticPerformance = (product: ReturnType<typeof findProductBySlug>): string | null => {
@@ -41,6 +52,8 @@ const ProductDetail = () => {
   const similarProducts = getSimilarProducts(product, 3);
   const categoryName = categories.find(c => c.id === product.category)?.name || product.category;
   const acousticDb = getAcousticPerformance(product);
+  const kraiburgBrand = getKraiburgBrand(product.name);
+  const showVibraComparator = isDamtecVibra(product.slug);
   
   const getCategoryPath = () => {
     switch (product.category) {
@@ -95,6 +108,11 @@ const ProductDetail = () => {
               {/* Title, badges and description */}
               <div>
                 <div className="flex flex-wrap items-center gap-3 mb-4">
+                  {kraiburgBrand && (
+                    <div className="inline-flex items-center gap-1.5 bg-foreground text-background rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-wide">
+                      Distributeur officiel Kraiburg
+                    </div>
+                  )}
                   {acousticDb && (
                     <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary rounded-full px-3 py-1.5 text-sm font-semibold">
                       <Volume2 className="h-4 w-4" />
@@ -108,7 +126,7 @@ const ProductDetail = () => {
                     </div>
                   ))}
                 </div>
-                
+
                 <h1 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
                   {product.name}
                 </h1>
@@ -262,8 +280,11 @@ const ProductDetail = () => {
         </div>
       </section>
 
+      {/* Comparateur intra-gamme DAMTEC vibra (uniquement pour les vibra) */}
+      {showVibraComparator && <VibraProductSchema />}
+
       {/* Similar products */}
-      {similarProducts.length > 0 && (
+      {similarProducts.length > 0 && !showVibraComparator && (
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-foreground mb-8">

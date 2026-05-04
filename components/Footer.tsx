@@ -11,9 +11,12 @@ const Footer = () => {
             <div className="flex items-center mb-4">
               <img src={logoNps.src} alt="NPS Acoustique" className="h-16 w-auto brightness-0 invert" />
             </div>
-            <p className="text-background/70 text-sm">
+            <p className="text-background/70 text-sm mb-3">
               Experts en solutions acoustiques depuis plus de 20 ans.
               Nous accompagnons les professionnels et particuliers dans leurs projets d'isolation phonique.
+            </p>
+            <p className="text-background/50 text-xs uppercase tracking-wide">
+              Distributeur officiel Kraiburg Relastec
             </p>
           </div>
 

@@ -220,7 +220,7 @@ const Contact = () => {
                   className="w-full h-14 text-lg font-semibold rounded-full shadow-soft hover:scale-[1.02] transition-transform" 
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+                  {isSubmitting ? "Envoi en cours..." : "Envoyer ma demande"}
                 </Button>
               </form>
             </div>

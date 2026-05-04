@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BookOpen, ChevronRight, Building2, Dumbbell, Hotel, Wrench, ArrowRight } from "lucide-react";
+import { BookOpen, ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import HeroCarousel from "@/components/HeroCarousel";
 import { Button } from "@/components/ui/button";
@@ -38,37 +38,6 @@ const services = [
   },
 ];
 
-const personas = [
-  {
-    icon: Building2,
-    title: "Architecte / BET / Entrepreneur",
-    desc: "Vous spécifiez ou installez. Fiches techniques, performances dB, certifications ATE.",
-    cta: "Solutions bâtiment",
-    href: "/batiment",
-  },
-  {
-    icon: Dumbbell,
-    title: "Pro fitness / sport",
-    desc: "Salle de sport, gymnase, terrain. Revêtements et acoustique adaptés à votre activité.",
-    cta: "Solutions sport",
-    href: "/sport",
-  },
-  {
-    icon: Hotel,
-    title: "Hôtel / commerce / collectivité",
-    desc: "Solutions sectorielles clé en main : hôtels, supermarchés, écoles, piscines, toitures.",
-    cta: "Solutions sectorielles",
-    href: "/solutions",
-  },
-  {
-    icon: Wrench,
-    title: "Particulier / bricoleur",
-    desc: "Machine à laver, voisinage, garage, sol vibrant. Produits prêts à poser.",
-    cta: "Solutions bricolage",
-    href: "/bricolage",
-  },
-];
-
 const solutionFeatures = [
   "Diagnostic acoustique complet",
   "Études et simulations",
@@ -82,60 +51,6 @@ const Index = () => {
     <Layout>
       {/* Hero Video Carousel */}
       <HeroCarousel />
-
-      {/* Persona-based entry points */}
-      <section className="py-14 lg:py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-10"
-          >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
-              Trouvez votre parcours
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              4 entrées adaptées à votre profil. Choisissez celle qui vous correspond pour aller direct aux bonnes solutions.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {personas.map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <motion.div
-                  key={p.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                >
-                  <Link
-                    href={p.href}
-                    className="block h-full bg-card border border-border rounded-2xl p-6 hover:border-primary hover:shadow-soft transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2 leading-tight">
-                      {p.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {p.desc}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">
-                      {p.cta}
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* Services Grid */}
       <section className="py-20 lg:py-28 bg-muted/30">

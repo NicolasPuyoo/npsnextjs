@@ -251,34 +251,10 @@ export const batimentProducts: Product[] = [
       ],
     }
   },
-  { 
-    name: "DAMTEC® VIBRA 700", 
-    slug: "damtec-vibra-700", 
-    image: damtecVibra700Bat.src, 
-    category: "batiment", 
-    subcategory: "isolation-acoustique-antivibratoire",
-    details: {
-      description: "DAMTEC® vibra 700 est une couche élastique haute densité avec des propriétés d'amortissement des vibrations pour charges lourdes. Le domaine d'application idéal est avec une pression de matériau allant jusqu'à 0,70 N/mm².",
-      specifications: [
-        { label: "Matériau", value: "Granulés de caoutchouc recyclé liés au polyuréthane" },
-        { label: "Couleur", value: "noir ou noir/multicolore" },
-        { label: "Largeur de bande", value: "1.250 mm (± 1,5 %)" },
-        { label: "Longueur de rouleau", value: "1.000 mm (± 1,5 %)" },
-        { label: "Epaisseur", value: "15, 20 mm (± 1 mm)" },
-        { label: "Résistance à la traction", value: "> 0,5 N/mm² (ISO 1798)" },
-        { label: "Allongement à la rupture", value: "> 50 % (ISO 1798)" },
-        { label: "Densité", value: "800 - 900 kg/m³" },
-        { label: "Compression maximale", value: "0,70 N/mm² (EN 826)" },
-        { label: "Fréquence propre", value: "13 - 30 Hz" },
-        { label: "Certifications", value: "A+, AgBB, Indoor Air Comfort Gold" },
-      ],
-      dataSheetUrl: "/fiches-techniques/Vibra_280.pdf",
-    }
-  },
-  { 
-    name: "DAMTEC® VIBRA 700", 
-    slug: "damtec-vibra-700", 
-    image: damtecVibra700Bat.src, 
+  {
+    name: "DAMTEC® VIBRA 700",
+    slug: "damtec-vibra-700",
+    image: damtecVibra700Bat.src,
     category: "batiment", 
     subcategory: "isolation-acoustique-antivibratoire",
     details: {

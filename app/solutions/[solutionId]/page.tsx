@@ -105,22 +105,16 @@ const SolutionDetail = () => {
         </div>
       </section>
 
-      {/* Cross-link vers la sous-catégorie produit correspondante */}
+      {/* Cross-link sobre vers la sous-catégorie produit correspondante */}
       {related && (
-        <section className="py-8 bg-muted/30 border-b border-border">
+        <section className="pt-10 pb-2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl border border-border bg-card p-5 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
-              <div className="flex-1">
-                <p className="text-sm text-muted-foreground mb-1">Vous cherchez plutôt le catalogue produit ?</p>
-                <p className="text-base font-medium text-foreground">{related.reason}</p>
-              </div>
-              <Button asChild variant="outline" className="rounded-full whitespace-nowrap shrink-0">
-                <Link href={related.href} className="flex items-center gap-2">
-                  {related.label}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
+            <p className="text-base text-muted-foreground max-w-3xl">
+              {related.reason}{" "}
+              <Link href={related.href} className="text-primary hover:underline font-medium">
+                {related.label} →
+              </Link>
+            </p>
           </div>
         </section>
       )}

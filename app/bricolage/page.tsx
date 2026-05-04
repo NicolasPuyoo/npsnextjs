@@ -1,6 +1,6 @@
 "use client";
 
-import { Wrench, ArrowRight, Volume2, Disc, Bike, ShieldCheck } from "lucide-react";
+import { Wrench, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
@@ -11,39 +11,6 @@ import { Button } from "@/components/ui/button";
 
 // Hero image
 import heroImage from "@/assets/categories/bricolage.jpg";
-
-// Use cases mapped to specific products via slug
-const useCases = [
-  {
-    icon: Disc,
-    title: "Ma machine à laver / sèche-linge vibre",
-    desc: "Tapis anti-vibration épais qui absorbe les chocs et le bruit, protège le sol.",
-    productSlug: "top-vib-wash",
-    productName: "TOP VIB WASH",
-  },
-  {
-    icon: Bike,
-    title: "Je gare mon vélo / moto à l'intérieur",
-    desc: "Tapis qui protège le sol des marques de pneus et amortit le passage. Plusieurs largeurs.",
-    productSlug: "profimat-wheelprotect-13-18",
-    productName: "PROFIMAT WHEELPROTECT",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Je veux protéger mon sol garage / atelier",
-    desc: "Revêtement caoutchouc résistant pour atelier, cave, garage. Antichoc et antidérapant.",
-    productSlug: "profimat-bumpy",
-    productName: "PROFIMAT BUMPY",
-  },
-  {
-    icon: Volume2,
-    title: "Mon voisin du dessus me dérange",
-    desc: "Pour les bruits d'impact, regardez côté bâtiment : sous-couches sous parquet/laminé.",
-    productSlug: null,
-    href: "/batiment/isolation-revetements-sols",
-    cta: "Voir les solutions sous revêtement",
-  },
-];
 
 const Bricolage = () => {
   return (
@@ -69,87 +36,26 @@ const Bricolage = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               Bricolage
             </h1>
-            <p className="text-lg md:text-xl text-white/85 mb-6">
+            <p className="text-lg md:text-xl text-white/85">
               Solutions acoustiques et anti-vibratoires pour les particuliers.
-              Produits prêts à poser, faciles à installer.
+              Tapis machine à laver, protections de sol, accessoires antichoc :
+              produits prêts à poser, faciles à installer.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="#besoins"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
-              >
-                Trouver mon produit
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white border border-white/30 px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-colors"
-              >
-                Conseil gratuit
-              </Link>
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Use Cases — Quel est votre besoin ? */}
-      <section id="besoins" className="py-16 bg-muted/30 scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Quel est votre besoin ?
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Identifiez votre problème pour aller direct au produit adapté.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {useCases.map((uc, i) => {
-              const Icon = uc.icon;
-              const href = uc.productSlug ? `/produit/${uc.productSlug}` : uc.href!;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                >
-                  <Link
-                    href={href}
-                    className="block h-full bg-card border border-border rounded-2xl p-6 hover:border-primary hover:shadow-soft transition-all duration-300 group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-base font-bold text-foreground mb-2 leading-tight">
-                      {uc.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {uc.desc}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">
-                      {uc.cta || `Voir ${uc.productName}`}
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Products Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                Nos produits Bricolage
+                Nos produits pour particuliers
               </h2>
-              <p className="text-muted-foreground mt-1">{bricolageProducts.length} produits disponibles</p>
+              <p className="text-muted-foreground mt-1">
+                {bricolageProducts.length} produits disponibles
+              </p>
             </div>
             <Button asChild variant="outline" className="rounded-full">
               <Link href="/contact" className="flex items-center gap-2">
@@ -178,21 +84,27 @@ const Bricolage = () => {
         </div>
       </section>
 
-      {/* CTA bandeau */}
+      {/* CTA bandeau pour conseil + voisinage */}
       <section className="py-16 bg-foreground/95">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Pas sûr du produit qui vous convient ?
           </h2>
-          <p className="text-white/70 mb-6 max-w-2xl mx-auto">
+          <p className="text-white/75 mb-2 max-w-2xl mx-auto">
             Décrivez-nous votre problème, on vous oriente. Conseil gratuit, sans engagement.
+          </p>
+          <p className="text-white/60 mb-6 max-w-2xl mx-auto text-sm">
+            Pour un problème de bruit avec un voisin du dessus, voir aussi{" "}
+            <Link href="/batiment/isolation-revetements-sols" className="text-primary hover:underline">
+              les sous-couches sous parquet et carrelage
+            </Link>.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button asChild size="lg" className="rounded-full">
               <Link href="/contact">Demander un conseil</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full bg-transparent text-white border-white hover:bg-white hover:text-foreground">
-              <a href="tel:0558775589">📞 05 58 77 55 89</a>
+              <a href="tel:0558775589">05 58 77 55 89</a>
             </Button>
           </div>
         </div>

@@ -114,10 +114,14 @@ const Cardio = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Produits utilisés
+              Notre recommandation
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto">
-              Découvrez notre gamme de revêtements SPORTEC® adaptés aux zones cardio
+            <p className="text-white/75 max-w-3xl mx-auto leading-relaxed">
+              Pour les zones cardio (tapis, vélos, elliptiques), notre référence est le
+              <strong className="text-white"> SPORTEC® ABSORBER PADS</strong> qui absorbe les chocs
+              sous les appareils. Le
+              <strong className="text-white"> SPORTEC® COLOR</strong> couvre les couloirs de
+              circulation et les zones de transition. Voici la gamme complète disponible.
             </p>
           </motion.div>
           
