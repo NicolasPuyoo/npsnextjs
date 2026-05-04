@@ -3,21 +3,18 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MobileCTABar from "@/components/MobileCTABar";
 import { AcousticExpertChat } from "@/components/AcousticExpertChat";
 
 export const metadata: Metadata = {
-  title: {
-    default: "NPS Acoustique — Solutions d'isolation acoustique et anti-vibratoire",
-    template: "%s | NPS Acoustique",
-  },
+  metadataBase: new URL("https://nps-france.com"),
+  title: "NPS Acoustique | Isolation acoustique et anti-vibratoire",
   description:
-    "Experts en solutions acoustiques depuis plus de 20 ans. Produits Vibrafoam, Damtec, Kraitec pour le bâtiment, le sport et le bricolage.",
+    "Spécialiste de l'isolation acoustique et anti-vibratoire depuis plus de 20 ans. Produits Vibrafoam, Damtec, Kraitec, Sportec pour le bâtiment, le sport et le bricolage.",
   authors: [{ name: "NPS Acoustique" }],
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    title: "NPS Acoustique",
-    description: "Solutions d'isolation acoustique et anti-vibratoire",
     siteName: "NPS Acoustique",
   },
   twitter: {
@@ -39,6 +36,7 @@ export default function RootLayout({
             <main className="flex-1">{children}</main>
             <Footer />
             <AcousticExpertChat />
+            <MobileCTABar />
           </div>
         </Providers>
       </body>

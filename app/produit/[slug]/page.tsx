@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, notFound } from "next/navigation";
 import { ChevronRight, Volume2, Shield, CheckCircle2 } from "lucide-react";
 import BackButton from "@/components/BackButton";
 import Layout from "@/components/Layout";
@@ -32,23 +32,9 @@ const ProductDetail = () => {
   const pathname = usePathname();
   
   const product = slug ? findProductBySlug(slug) : undefined;
-  
+
   if (!product) {
-    return (
-      <Layout>
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-foreground mb-4">Produit non trouvé</h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Le produit que vous recherchez n'existe pas.
-            </p>
-            <Button asChild className="rounded-full">
-              <Link href="/produits">Voir tous les produits</Link>
-            </Button>
-          </div>
-        </div>
-      </Layout>
-    );
+    notFound();
   }
   
   const cameFromProduits = false;
@@ -195,7 +181,7 @@ const ProductDetail = () => {
                     Notre équipe est à votre disposition pour répondre à toutes vos questions.
                   </p>
                   <Button asChild className="rounded-full">
-                    <Link href="/contact">Nous contacter</Link>
+                    <Link href="/contact">Demander un devis</Link>
                   </Button>
                 </div>
               )}
@@ -267,7 +253,7 @@ const ProductDetail = () => {
                     Notre équipe est à votre disposition.
                   </p>
                   <Button asChild className="rounded-full w-full">
-                    <Link href="/contact">Nous contacter</Link>
+                    <Link href="/contact">Demander un devis</Link>
                   </Button>
                 </div>
               </div>

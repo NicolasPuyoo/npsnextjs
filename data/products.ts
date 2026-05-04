@@ -939,7 +939,7 @@ export const allProducts: Product[] = [
 
 export const categories = [
   { id: "all", name: "Tous" },
-  { id: "batiment", name: "Bâtiment & Industrie" },
+  { id: "batiment", name: "Bâtiment" },
   { id: "sport", name: "Sport" },
   { id: "bricolage", name: "Bricolage" },
 ] as const;

@@ -12,16 +12,25 @@ import { Button } from "@/components/ui/button";
 // Hero image
 import heroImage from "@/assets/categories/produits.webp";
 
-const PRODUCTS_PER_PAGE = 12;
+const PRODUCTS_PER_PAGE = 24;
+
+// Brand list extracted from product names (DAMTEC, KRAITEC, SPORTEC, VIBRA, PROFIMAT, TOP)
+const BRANDS = [
+  { id: "all", name: "Toutes marques" },
+  { id: "damtec", name: "DAMTEC" },
+  { id: "kraitec", name: "KRAITEC" },
+  { id: "sportec", name: "SPORTEC" },
+  { id: "vibra", name: "VIBRA" },
+  { id: "profimat", name: "PROFIMAT" },
+];
 
 const filteredCategories = categories;
 
 // Labels for categories and subcategories
 const categoryLabels: Record<string, string> = {
-  batiment: "Bâtiment & Industrie",
+  batiment: "Bâtiment",
   sport: "Sport",
   bricolage: "Bricolage",
-  
 };
 
 const subcategoryLabels: Record<string, string> = Object.fromEntries(
@@ -181,7 +190,7 @@ const ProduitsInner = () => {
                       : "bg-muted text-muted-foreground hover:bg-accent hover:text-foreground"
                   }`}
                 >
-                  {category.id === "batiment" ? "Bâtiment & Industrie" : category.name}
+                  {category.name}
                 </button>
               ))}
             </div>
@@ -194,9 +203,9 @@ const ProduitsInner = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-              {selectedCategory === "all" ? "Tous nos produits" : 
-               selectedCategory === "batiment" ? "Bâtiment & Industrie" :
-               filteredCategories.find(c => c.id === selectedCategory)?.name}
+              {selectedCategory === "all"
+                ? "Tous nos produits"
+                : filteredCategories.find((c) => c.id === selectedCategory)?.name}
             </h2>
             <span className="text-muted-foreground">
               {visibleProducts.length} sur {filteredProducts.length} produit{filteredProducts.length > 1 ? "s" : ""}

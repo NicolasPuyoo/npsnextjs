@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
@@ -33,16 +33,7 @@ const SolutionDetail = () => {
   const solution = getSolutionById(solutionId || "");
 
   if (!solution) {
-    return (
-      <Layout>
-        <div className="pt-28 pb-16 text-center">
-          <h1 className="text-2xl font-bold text-foreground">Solution non trouvée</h1>
-          <Link href="/solutions" className="text-primary hover:underline mt-4 inline-block">
-            Retour aux solutions
-          </Link>
-        </div>
-      </Layout>
-    );
+    notFound();
   }
 
   const heroImage = solutionImages[solution.id];

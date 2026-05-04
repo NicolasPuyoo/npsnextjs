@@ -118,11 +118,12 @@ export const AcousticExpertChat = () => {
       <Button
         onClick={() => setIsOpen(true)}
         className={cn(
-          "fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-lg",
+          "fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-50 h-14 w-14 rounded-full shadow-lg",
           "bg-primary hover:bg-primary/90 text-primary-foreground",
           isOpen && "hidden"
         )}
         size="icon"
+        aria-label="Ouvrir le chat acoustique"
       >
         <MessageCircle className="h-6 w-6" />
       </Button>
@@ -130,7 +131,7 @@ export const AcousticExpertChat = () => {
       {/* Chat Window */}
       <div
         className={cn(
-          "fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)]",
+          "fixed bottom-20 lg:bottom-6 right-4 lg:right-6 z-50 w-[380px] max-w-[calc(100vw-32px)]",
           "bg-background border border-border rounded-2xl shadow-2xl",
           "flex flex-col overflow-hidden transition-all duration-300",
           isOpen ? "h-[600px] max-h-[calc(100vh-100px)] opacity-100" : "h-0 opacity-0 pointer-events-none"
