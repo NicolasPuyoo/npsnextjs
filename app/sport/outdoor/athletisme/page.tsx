@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { ShieldCheck, Footprints, Award, Snowflake, Droplet, PersonStanding, Wrench, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
-import NumberedFeatures from "@/components/NumberedFeatures";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
 import { sportProducts } from "@/data/products";
@@ -12,34 +12,42 @@ import heroImage from "@/assets/categories/sport/outdoor.webp";
 
 const features = [
   {
+    icon: ShieldCheck,
     title: "Protection de l'athlète",
     description: "ergonomie et diffusion de force pour les athlètes, assure la protection des articulations des athlètes"
   },
   {
+    icon: Footprints,
     title: "Résistance aux pointes",
     description: "résistant aux pointes grâce à une couche de finition à pores ouvert et une couche élastique épaisse"
   },
   {
+    icon: Award,
     title: "Certification du système",
     description: "Les produits SPORTEC® sont certifiés selon la norme EN 14877 ou IAAF"
   },
   {
+    icon: Snowflake,
     title: "Résistance aux intempéries",
     description: "le revêtement peut être utilisé dans tous les endroits et sous tous les climats du monde"
   },
   {
+    icon: Droplet,
     title: "Séchage rapide",
     description: "utilisation rapide après une averse (séchage rapide grâce à une structure en pore ouvert de la couche de finition)"
   },
   {
+    icon: PersonStanding,
     title: "Couche de finition non glissante",
     description: "résistance au glissement classement R10 (DIN 51130) et coefficient de friction de env. 0.8μ"
   },
   {
+    icon: Wrench,
     title: "Installation facile",
     description: "simplement dérouler, découper et coller (sans équipement particulier = économie de coûts d'installation)"
   },
   {
+    icon: Sparkles,
     title: "Nettoyage et entretien facile",
     description: "balayer et laver avec de l'eau clair est suffisant"
   }
@@ -76,12 +84,34 @@ const Athletisme = () => {
           </motion.div>
         </div>
       </section>
-      <NumberedFeatures
-        items={features}
-        variant="dark"
-        eyebrow="Pourquoi nos sols"
-        heading="Pensés pour athlétisme."
-      />
+
+      {/* Features Section */}
+      <section className="py-16 bg-[#3a3a3a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-[#4a4a4a] rounded-2xl p-6 text-center"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
+                  <feature.icon className="w-10 h-10 text-white/80" />
+                </div>
+                <h3 className="text-primary font-semibold text-lg mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section className="py-16 bg-[#3a3a3a]">

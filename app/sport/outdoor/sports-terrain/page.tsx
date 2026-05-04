@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { Layers, Circle, Droplet, FlaskRound, Snowflake, Wrench, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
-import NumberedFeatures from "@/components/NumberedFeatures";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
 import { sportProducts } from "@/data/products";
@@ -12,30 +12,37 @@ import heroImage from "@/assets/categories/sport/outdoor.webp";
 
 const features = [
   {
+    icon: Layers,
     title: "polyvalence",
     description: "adapté aux besoins de plusieurs types de gazon artificiel pour le foot – une couche élastique pour toute système; adapté aux systèmes de gazon artificiel pour le foot – avec ou sans lestage"
   },
   {
+    icon: Circle,
     title: "caractéristiques de rebond",
     description: "rebond de ballon ajustable selon l'épaisseur du système (permets le système de gazon synthétique d'être parfaitement adapté au foot)"
   },
   {
+    icon: Droplet,
     title: "perméable",
     description: "terrain doit rester sec et libre de flaques d'eau; perméabilité haute avec 4500 cm/h (EN 12616) avec SPORTEC® team cup"
   },
   {
+    icon: FlaskRound,
     title: "absorption de choc élevé",
     description: "absorption de choc performant grâce a une structure en pore ouvert; protège le jouer des blessures"
   },
   {
+    icon: Snowflake,
     title: "résistant et robuste",
     description: "la couche élastique peut être utilisé dans tous les endroits et sous tous les climats du monde et est rentable au longe-terme (caoutchouc imputrescible qui assure la durabilité)"
   },
   {
+    icon: Wrench,
     title: "installation facile",
     description: "simplement dérouler et découper comme nécessaire"
   },
   {
+    icon: Award,
     title: "conformité aux normes",
     description: "contribue à la réalisation des exigences normatives des systèmes de gazon artificiels"
   }
@@ -72,12 +79,34 @@ const SportsTerrain = () => {
           </motion.div>
         </div>
       </section>
-      <NumberedFeatures
-        items={features}
-        variant="dark"
-        eyebrow="Pourquoi nos sols"
-        heading="Pensés pour sports de terrain."
-      />
+
+      {/* Features Section */}
+      <section className="py-16 bg-[#3a3a3a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-[#4a4a4a] rounded-2xl p-6 text-center"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
+                  <feature.icon className="w-10 h-10 text-white/80" />
+                </div>
+                <h3 className="text-primary font-semibold text-lg mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section className="py-16 bg-[#3a3a3a]">

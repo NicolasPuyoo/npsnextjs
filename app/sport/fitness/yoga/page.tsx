@@ -1,39 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Heart, Target, Dumbbell, Sparkles, CircleDot, Wrench } from "lucide-react";
+import Link from "next/link";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
-import NumberedFeatures from "@/components/NumberedFeatures";
 import { sportProducts } from "@/data/products";
 import yogaImage from "@/assets/categories/fitness/yoga.webp";
 
 const features = [
   {
-    title: "Protection des articulations",
-    description: "Revêtement de sol adapté aux personnes âgées aussi bien qu'à celles en rééducation. Le confort articulaire est notre priorité.",
+    icon: Heart,
+    title: "protection des articulations",
+    description: "revêtement de sol adapté aux personnes âgées aussi bien que ceux en rééducation"
   },
   {
-    title: "Absorption de choc élevée",
-    description: "Très haute absorption de choc (44%) avec seulement 9 mm d'épaisseur. Idéal pour les chutes en yoga ou pilates.",
+    icon: Target,
+    title: "absorption de choc élevé",
+    description: "très haute absorption de choc (44%) avec seulement 9mm d'épaisseur"
   },
   {
-    title: "Durabilité longue durée",
-    description: "Évite le remplacement régulier des tapis. Économie de temps et d'argent sur la durée d'exploitation.",
+    icon: Dumbbell,
+    title: "durabilité",
+    description: "éviter le remplacement régulier des tapis; épargne du temps et de l'argent"
   },
   {
-    title: "Nettoyage facile",
-    description: "Surface imperméable qui se nettoie en quelques minutes. Hygiène et sécurité dans les espaces de pratique partagés.",
+    icon: Sparkles,
+    title: "nettoyage facile",
+    description: "un nettoyage facile grâce à sa surface imperméable"
   },
   {
-    title: "Polyvalence d'usage",
-    description: "Dalles puzzle amovibles à très haute élasticité. Reconfiguration rapide pour adapter la salle à chaque cours.",
+    icon: CircleDot,
+    title: "polyvalence",
+    description: "dalle puzzle amovible avec très haute élasticité"
   },
   {
-    title: "Confort pieds nus",
-    description: "Finition « peau de vache » offrant un toucher haut de gamme. Les pratiquants restent pieds nus en confort.",
-  },
+    icon: Wrench,
+    title: "sol confortable",
+    description: "finition « peau de vache » de haut confort"
+  }
 ];
 
 const Yoga = () => {
@@ -68,14 +75,33 @@ const Yoga = () => {
         </div>
       </section>
 
-      {/* Pourquoi nos sols pour le yoga — pattern numéroté */}
-      <NumberedFeatures
-        items={features}
-        variant="dark"
-        eyebrow="Pourquoi nos sols"
-        heading="Pensés pour le confort et la sécurité de vos pratiquants."
-      />
-
+      {/* Features Section */}
+      <section className="py-16 bg-[#3a3a3a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-[#4a4a4a] rounded-2xl p-6 text-center"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
+                  <feature.icon className="w-10 h-10 text-white/80" />
+                </div>
+                <h3 className="text-primary font-semibold text-lg mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section className="py-16 bg-[#3a3a3a]">
