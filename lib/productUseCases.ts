@@ -30,22 +30,22 @@ export const PRODUCT_USE_CASE: Record<string, string> = {
   vibrafoam: "Anti-vibration en rouleau",
   vibradyn: "Anti-vibration haute densité",
 
-  // BÂTIMENT — Sous chape avec ATE
-  "damtec-standard": "Sous chape avec ATE",
-  "damtec-black-uni": "Sous chape avec ATE",
-  "damtec-black-uni-b1": "Sous chape ATE coupe-feu",
-  "damtec-estra": "Sous chape ATE",
-  "damtec-estra-3d": "Sous chape ATE 3D haute performance",
-  "damtec-wave-3d": "Sous chape ATE 3D",
-  "damtec-3d-17-8": "Sous chape ATE 3D mince",
+  // BÂTIMENT — Sous chape avec ATE (DAMTEC estra & 3D)
+  "damtec-estra": "Sous chape flottante",
+  "damtec-estra-3d": "Sous chape flottante 3D",
+  "damtec-wave-3d": "Sous chape flottante 3D",
+  "damtec-3d-17-8": "Sous chape flottante 3D mince",
 
-  // BÂTIMENT — Sous revêtements de sols (parquet, laminé, vinyle)
+  // BÂTIMENT — Sous revêtements de sols (parquet, stratifié, moquette, vinyle, carrelage)
+  "damtec-standard": "Sous parquet, stratifié, carrelage",
+  "damtec-black-uni": "Sous parquet, stratifié, moquette",
+  "damtec-black-uni-b1": "Sous revêtements coupe-feu",
   "damtec-itapur": "Sous parquet, laminé, vinyle",
-  "damtec-itapur-b1": "Sous parquet coupe-feu",
+  "damtec-itapur-b1": "Sous revêtements coupe-feu",
 
   // BÂTIMENT — Sans ATE
   "top-acoustique-rubber-ecomat": "Sous chape sans ATE",
-  "top-rubbercork": "Sous chape liège-caoutchouc",
+  "top-rubbercork": "Sous parquet, stratifié (liège-caoutchouc)",
 
   // BÂTIMENT — KRAITEC (toitures, terrasses, extérieur)
   "kraitec-protect": "Protection mécanique toiture-terrasse",
