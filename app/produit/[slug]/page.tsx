@@ -10,6 +10,7 @@ import ProductDocuments from "@/components/product/ProductDocuments";
 import VibraProductSchema from "@/components/VibraProductSchema";
 import { Button } from "@/components/ui/button";
 import { findProductBySlug, getSimilarProducts, categories } from "@/data/products";
+import { getUseCase } from "@/lib/productUseCases";
 
 // Détecte la marque pour afficher mention "Distributeur officiel Kraiburg"
 const getKraiburgBrand = (productName: string): "DAMTEC" | "KRAITEC" | null => {
@@ -54,6 +55,7 @@ const ProductDetail = () => {
   const acousticDb = getAcousticPerformance(product);
   const kraiburgBrand = getKraiburgBrand(product.name);
   const showVibraComparator = isDamtecVibra(product.slug);
+  const useCase = getUseCase(product.slug);
   
   const getCategoryPath = () => {
     switch (product.category) {
@@ -127,6 +129,11 @@ const ProductDetail = () => {
                   ))}
                 </div>
 
+                {useCase && (
+                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-3">
+                    {useCase}
+                  </p>
+                )}
                 <h1 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
                   {product.name}
                 </h1>

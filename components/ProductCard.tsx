@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Volume2 } from "lucide-react";
 import { Product } from "@/data/products";
+import { getUseCase } from "@/lib/productUseCases";
 
 interface ProductCardProps {
   product: Product;
@@ -27,11 +28,12 @@ const getAcousticPerformance = (product: Product): string | null => {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const acousticDb = getAcousticPerformance(product);
+  const useCase = getUseCase(product.slug);
 
   return (
     <Link
       href={`/produit/${product.slug}`}
-      className="block bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
+      className="block bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col"
     >
       <div className="aspect-square bg-white p-4 flex items-center justify-center relative">
         <img
@@ -47,12 +49,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
         )}
       </div>
-      <div className="p-4 border-t border-border">
-        <h3 className="font-semibold text-foreground text-sm leading-tight group-hover:text-primary transition-colors">
+      <div className="p-5 border-t border-border flex-1 flex flex-col">
+        {useCase && (
+          <p className="text-[11px] uppercase tracking-[0.12em] text-primary font-semibold mb-2 leading-tight">
+            {useCase}
+          </p>
+        )}
+        <h3 className="font-bold text-foreground text-base leading-tight group-hover:text-primary transition-colors mb-2">
           {product.name}
         </h3>
         {product.details?.description && (
-          <p className="text-xs text-muted-foreground mt-1.5 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
             {product.details.description}
           </p>
         )}
