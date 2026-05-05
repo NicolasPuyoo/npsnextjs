@@ -1,21 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/Layout";
 import ExploreMore from "@/components/ExploreMore";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 // Hero image - using batiment image as contact background
 import heroImage from "@/assets/categories/batiment.jpg";
 
 const Contact = () => {
-  const pathname = usePathname();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nom: "",
@@ -37,6 +34,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      // Lazy-load Supabase client only on submit (saves ~130 KB on first paint)
+      const { supabase } = await import("@/integrations/supabase/client");
       const { error } = await supabase.functions.invoke("send-contact-email", {
         body: formData,
       });
@@ -45,9 +44,24 @@ const Contact = () => {
 
       toast.success("Votre message a été envoyé avec succès !");
       setFormData({ nom: "", prenom: "", email: "", telephone: "", projectType: "", message: "" });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error sending message:", error);
-      toast.error("Une erreur est survenue. Veuillez réessayer.");
+      // Fallback : if Supabase is unreachable, propose mailto so the user is never stuck
+      const subject = encodeURIComponent(`Demande NPS Acoustique — ${formData.projectType || "à préciser"}`);
+      const body = encodeURIComponent(
+        `Bonjour,\n\nNom : ${formData.nom}\nPrénom : ${formData.prenom}\nEmail : ${formData.email}\nTéléphone : ${formData.telephone}\nType de projet : ${formData.projectType}\n\nMessage :\n${formData.message}`,
+      );
+      toast.error(
+        "L'envoi automatique a échoué. Cliquez ici pour ouvrir votre messagerie.",
+        {
+          action: {
+            label: "Ouvrir l'email",
+            onClick: () => {
+              window.location.href = `mailto:contact@nps-france.com?subject=${subject}&body=${body}`;
+            },
+          },
+        },
+      );
     } finally {
       setIsSubmitting(false);
     }

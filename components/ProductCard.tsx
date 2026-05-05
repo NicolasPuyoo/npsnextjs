@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Volume2 } from "lucide-react";
 import { Product } from "@/data/products";
 import { getUseCase } from "@/lib/productUseCases";
@@ -36,14 +37,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
       className="block bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col"
     >
       <div className="aspect-square bg-white p-4 flex items-center justify-center relative">
-        <img
+        <Image
           src={product.image}
           alt={product.name}
-          loading="lazy"
-          className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain group-hover:scale-105 transition-transform duration-300"
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
         />
         {acousticDb && (
-          <div className="absolute top-3 right-3 bg-primary text-primary-foreground rounded-full px-2.5 py-1 flex items-center gap-1 shadow-md">
+          <div className="absolute top-3 right-3 bg-primary text-primary-foreground rounded-full px-2.5 py-1 flex items-center gap-1 shadow-md z-10">
             <Volume2 className="h-3 w-3" />
             <span className="text-xs font-bold">jusqu'à {acousticDb} dB</span>
           </div>
