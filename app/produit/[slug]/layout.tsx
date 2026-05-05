@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { findProductBySlug } from "@/data/products";
+import { allProducts, findProductBySlug } from "@/data/products";
 
 const SITE_URL = "https://nps-france.com";
 const BRAND = "NPS Acoustique";
+
+// Pre-generate every product page at build time → static HTML, instant page loads
+export async function generateStaticParams() {
+  return allProducts.map((product) => ({ slug: product.slug }));
+}
 
 export async function generateMetadata({
   params,

@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { getSolutionById } from "@/data/solutionProducts";
+import { getSolutionById, solutionsData } from "@/data/solutionProducts";
+
+// Pre-generate every solution page at build time → static HTML, instant loads
+export async function generateStaticParams() {
+  return solutionsData.map((s) => ({ solutionId: s.id }));
+}
 
 export async function generateMetadata({
   params,
