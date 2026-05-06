@@ -255,6 +255,13 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     title: `Mentions légales | ${BRAND}`,
     description: "Mentions légales, politique de confidentialité et conditions générales de vente de NPS Acoustique.",
   },
+
+  "/notre-expertise": {
+    title: `Notre expertise acoustique | ${BRAND}`,
+    description:
+      "Plus de 20 ans d'expertise en isolation acoustique et anti-vibratoire. Conseil technique, gamme dédiée, accompagnement projet pour bâtiment, sport, hôtellerie, bricolage.",
+    keywords: [...COMMON_KEYWORDS, "expert acoustique", "spécialiste isolation phonique", "conseil acoustique"],
+  },
 };
 
 export function metaForRoute(route: string): Metadata {

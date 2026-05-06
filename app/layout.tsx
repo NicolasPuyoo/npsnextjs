@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
 import CookieBanner from "@/components/CookieBanner";
 import { AcousticExpertChat } from "@/components/AcousticExpertChat";
-import { localBusiness } from "@/lib/jsonLd";
+import { localBusiness, website } from "@/lib/jsonLd";
 
 const SITE_URL = "https://nps-france.com";
 
@@ -57,6 +57,7 @@ const organizationJsonLd = {
 };
 
 const localBusinessJsonLd = localBusiness();
+const websiteJsonLd = website();
 
 export default function RootLayout({
   children,
@@ -73,6 +74,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
       <body>

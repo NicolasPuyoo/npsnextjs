@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import ProductDocuments from "@/components/product/ProductDocuments";
 import VibraProductSchema from "@/components/VibraProductSchema";
+import RelatedGuides from "@/components/product/RelatedGuides";
 import { Button } from "@/components/ui/button";
 import { findProductBySlug, getSimilarProducts, categories } from "@/data/products";
 import { getUseCase } from "@/lib/productUseCases";
@@ -286,6 +287,9 @@ const ProductDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Guides liés (internal linking + boost SEO du fiche produit) */}
+      <RelatedGuides product={product} />
 
       {/* Comparateur intra-gamme DAMTEC vibra (uniquement pour les vibra) */}
       {showVibraComparator && <VibraProductSchema />}

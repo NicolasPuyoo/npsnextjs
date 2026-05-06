@@ -104,3 +104,44 @@ export function jsonLdScript(obj: object) {
     __html: JSON.stringify(obj),
   };
 }
+
+// WebSite + SearchAction enables Google sitelinks search box (rare but valuable
+// for branded queries). Targets the on-site /produits search.
+export function website() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: BRAND,
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/produits?search={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+    inLanguage: "fr-FR",
+  };
+}
+
+export type ItemListEntry = { name: string; url: string };
+
+// ItemList JSON-LD signals a curated list to Google. Used on /produits and
+// /solutions index pages to help Google understand the catalog structure.
+export function itemList(name: string, items: ItemListEntry[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      url: it.url.startsWith("http") ? it.url : `${SITE_URL}${it.url}`,
+    })),
+  };
+}

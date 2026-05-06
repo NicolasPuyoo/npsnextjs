@@ -6,7 +6,9 @@ import { ChevronRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import EpaisseurCalculator from "@/components/guide/EpaisseurCalculator";
-import { getGuideBySlug } from "@/data/guides";
+import AuthorByline from "@/components/guide/AuthorByline";
+import StickyTOC, { slugify } from "@/components/guide/StickyTOC";
+import { getGuideBySlug, guides as allGuides } from "@/data/guides";
 import { findProductBySlug } from "@/data/products";
 
 // Render markdown-light: paragraphs separated by \n\n, **bold** inline.
@@ -84,31 +86,48 @@ const GuidePage = () => {
         </div>
       </section>
 
-      {/* Body */}
+      {/* Body with sticky TOC sidebar on desktop */}
       <article className="pb-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          {guide.sections.map((section, i) => (
-            <div key={i} className="mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 mt-12 first:mt-0">
-                {section.heading}
-              </h2>
-              {renderBody(section.body)}
-              {section.bullets && section.bullets.length > 0 && (
-                <ul className="space-y-2 mt-4">
-                  {section.bullets.map((b, j) => (
-                    <li
-                      key={j}
-                      className="flex gap-3 text-foreground/90 leading-relaxed"
-                    >
-                      <span className="text-primary font-bold mt-0.5">·</span>
-                      <span>{renderInline(b)}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {i === calcAfterIndex && <EpaisseurCalculator />}
-            </div>
-          ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:grid lg:grid-cols-[240px,minmax(0,1fr)] lg:gap-10">
+          <aside className="lg:order-1">
+            <StickyTOC sections={guide.sections.map((s) => ({ heading: s.heading }))} />
+          </aside>
+
+          <div className="max-w-3xl mx-auto lg:mx-0 lg:order-2">
+            <AuthorByline
+              publishedAt={guide.publishedAt}
+              updatedAt={guide.updatedAt}
+              readingMinutes={guide.readingMinutes}
+            />
+            {guide.sections.map((section, i) => {
+              const slug = slugify(section.heading);
+              return (
+                <div key={i} className="mb-10">
+                  <h2
+                    id={slug}
+                    className="text-2xl md:text-3xl font-bold text-foreground mb-4 mt-12 first:mt-0 scroll-mt-32"
+                  >
+                    {section.heading}
+                  </h2>
+                  {renderBody(section.body)}
+                  {section.bullets && section.bullets.length > 0 && (
+                    <ul className="space-y-2 mt-4">
+                      {section.bullets.map((b, j) => (
+                        <li
+                          key={j}
+                          className="flex gap-3 text-foreground/90 leading-relaxed"
+                        >
+                          <span className="text-primary font-bold mt-0.5">·</span>
+                          <span>{renderInline(b)}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {i === calcAfterIndex && <EpaisseurCalculator />}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </article>
 
@@ -161,6 +180,40 @@ const GuidePage = () => {
                   </p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related guides — internal linking */}
+      {guide.related && guide.related.length > 0 && (
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              Guides liés
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Continuez à creuser le sujet avec ces articles.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {guide.related
+                .map((slug) => allGuides.find((g) => g.slug === slug))
+                .filter((g): g is NonNullable<typeof g> => Boolean(g))
+                .map((g) => (
+                  <Link
+                    key={g.slug}
+                    href={`/guide/${g.slug}`}
+                    className="group rounded-2xl border border-border bg-card p-5 hover:border-primary hover:shadow-card transition-all"
+                  >
+                    <p className="text-xs text-muted-foreground mb-2">
+                      {g.readingMinutes} min · Guide expert
+                    </p>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
+                      {g.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{g.description}</p>
+                  </Link>
+                ))}
             </div>
           </div>
         </section>
