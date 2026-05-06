@@ -43,7 +43,7 @@ const SportsHiver = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
@@ -61,10 +61,10 @@ const SportsHiver = () => {
       </section>
 
       {/* Categories Grid */}
-      <section className="py-16 bg-[#3a3a3a]">
+      <section className="py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
@@ -82,14 +82,14 @@ const SportsHiver = () => {
             {winterCategories.map((category, index) => (
               <motion.div
                 key={category.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}
               >
                 <Link
                   href={category.path}
-                  className="block bg-[#4a4a4a] rounded-2xl overflow-hidden hover:bg-[#555555] transition-colors group"
+                  className="block bg-foreground/95 rounded-2xl overflow-hidden hover:bg-foreground/85 transition-colors group"
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img 

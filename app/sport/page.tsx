@@ -61,7 +61,7 @@ const commerceCategories: SubCategory[] = [
 
 const SubCategoryCard = ({ item, index }: { item: SubCategory; index: number }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: 12 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: index * 0.04, duration: 0.4 }}
@@ -99,7 +99,7 @@ const Sport = () => {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
@@ -231,7 +231,7 @@ const Sport = () => {
             {sportProducts.map((product, index) => (
               <motion.div
                 key={product.slug}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}

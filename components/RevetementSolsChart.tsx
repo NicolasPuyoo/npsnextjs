@@ -23,13 +23,13 @@ const RevetementSolsChart = () => {
   const maxdB = 30;
 
   return (
-    <section className="py-16 bg-[#4a4a4a]">
+    <section className="py-16 bg-foreground/95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">
           Performances acoustiques ΔLw
         </h2>
         
-        <div className="bg-[#3a3a3a] rounded-2xl p-8 border border-gray-600">
+        <div className="bg-foreground rounded-2xl p-8 border border-gray-600">
           <div className="space-y-4">
             {chartData.map((item, index) => (
               <motion.div
@@ -50,7 +50,7 @@ const RevetementSolsChart = () => {
                 {/* Bar */}
                 <div className="flex-1 relative flex items-center gap-4">
                   <motion.div
-                    className="h-8 bg-[#9b6b8a] rounded-sm flex items-center justify-center shrink-0"
+                    className="h-8 bg-primary rounded-sm flex items-center justify-center shrink-0"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${(item.dB / maxdB) * 100}%` }}
                     transition={{ duration: 0.6, delay: index * 0.08 + 0.2 }}

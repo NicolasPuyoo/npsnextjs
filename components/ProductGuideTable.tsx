@@ -32,7 +32,7 @@ const ProductGuideTable = ({ guide }: ProductGuideTableProps) => {
       {/* Desktop Table */}
       <div className="hidden lg:block overflow-hidden rounded-xl border border-border/30">
         {/* Header with categories */}
-        <div className="bg-[#4a4a4a]">
+        <div className="bg-foreground/95">
           <div
             className="grid"
             style={{ gridTemplateColumns: `280px repeat(${guide.categories.length}, 1fr)` }}

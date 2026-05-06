@@ -12,14 +12,17 @@ interface VibraProduct {
   textColor: string;
 }
 
+// Palette pensée pour différencier visuellement chaque variante du gamme vibra,
+// du plus léger (haut, light beige) au plus dense (bas, foreground sombre).
+// Les beiges/vert sont des accents designés ; le reste est dérivé du foreground.
 const vibraProducts: VibraProduct[] = [
   { name: "DAMTEC® vibra 30", slug: "damtec-vibra-30", pressureMin: "0,03", pressureMax: "0,07", bgColor: "bg-[#e8e4d9]", textColor: "text-foreground" },
-  { name: "DAMTEC® vibra 50", slug: "damtec-vibra-50", pressureMin: "0,05", pressureMax: "0,15", bgColor: "bg-[#3a3a3a]", textColor: "text-white" },
-  { name: "DAMTEC® vibra 100", slug: "damtec-vibra-100", pressureMin: "0,10", pressureMax: "0,30", bgColor: "bg-[#4a6b4a]", textColor: "text-white" },
+  { name: "DAMTEC® vibra 50", slug: "damtec-vibra-50", pressureMin: "0,05", pressureMax: "0,15", bgColor: "bg-foreground/70", textColor: "text-white" },
+  { name: "DAMTEC® vibra 100", slug: "damtec-vibra-100", pressureMin: "0,10", pressureMax: "0,30", bgColor: "bg-primary/80", textColor: "text-white" },
   { name: "DAMTEC® vibra 170", slug: "damtec-vibra-170", pressureMin: "0,07", pressureMax: "0,70", bgColor: "bg-[#d4cfc4]", textColor: "text-foreground" },
-  { name: "DAMTEC® vibra 280", slug: "damtec-vibra-280", pressureMin: "0,28", pressureMax: "1,50", bgColor: "bg-[#2d2d2d]", textColor: "text-white" },
-  { name: "DAMTEC® vibra 700", slug: "damtec-vibra-700", pressureMin: "0,70", pressureMax: "3,00", bgColor: "bg-[#1f1f1f]", textColor: "text-white" },
-  { name: "DAMTEC® vibra 1500", slug: "damtec-vibra-1500", pressureMin: "1,50", pressureMax: "4,00", bgColor: "bg-[#2a2a2a]", textColor: "text-white" },
+  { name: "DAMTEC® vibra 280", slug: "damtec-vibra-280", pressureMin: "0,28", pressureMax: "1,50", bgColor: "bg-foreground/85", textColor: "text-white" },
+  { name: "DAMTEC® vibra 700", slug: "damtec-vibra-700", pressureMin: "0,70", pressureMax: "3,00", bgColor: "bg-foreground/95", textColor: "text-white" },
+  { name: "DAMTEC® vibra 1500", slug: "damtec-vibra-1500", pressureMin: "1,50", pressureMax: "4,00", bgColor: "bg-foreground", textColor: "text-white" },
 ];
 
 const PressureChart = ({ min, max, isLight }: { min: string; max: string; isLight: boolean }) => {
@@ -41,10 +44,10 @@ const PressureChart = ({ min, max, isLight }: { min: string; max: string; isLigh
             key={index}
             className={`w-3 rounded-t transition-all ${
               index === 0
-                ? "bg-[#a855f7]"
+                ? "bg-primary"
                 : isLight
-                  ? "bg-gray-600/60"
-                  : "bg-white/70"
+                  ? "bg-foreground/40"
+                  : "bg-background/60"
             }`}
             style={{ height: `${height}px` }}
           />
@@ -67,12 +70,12 @@ const VibraProductSchema = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {vibraProducts.map((product, index) => {
-            const isLight = product.bgColor.includes("e8e4d9") || product.bgColor.includes("d4cfc4");
+            const isLight = product.bgColor.includes("[#e8e4d9]") || product.bgColor.includes("[#d4cfc4]");
 
             return (
               <motion.div
                 key={product.slug}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 viewport={{ once: true }}

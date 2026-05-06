@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useState, useEffect, useMemo } from "react";
+import Image from "next/image";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
@@ -131,17 +132,20 @@ const ProduitsInner = () => {
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 lg:pt-52 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={heroImage.src}
+          <Image
+            src={heroImage}
             alt="Nos Produits"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"

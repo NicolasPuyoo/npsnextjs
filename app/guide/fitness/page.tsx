@@ -27,7 +27,7 @@ const GuideFitness = () => {
           <BackButton label="Retour à l'accueil" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8 group" />
           
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
@@ -46,7 +46,7 @@ const GuideFitness = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >

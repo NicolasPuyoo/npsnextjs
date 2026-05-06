@@ -59,7 +59,7 @@ const Piscine = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
@@ -76,17 +76,17 @@ const Piscine = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-[#3a3a3a]">
+      <section className="py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}
-                className="bg-[#4a4a4a] rounded-2xl p-6 text-center"
+                className="bg-foreground/95 rounded-2xl p-6 text-center"
               >
                 <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
                   <feature.icon className="w-10 h-10 text-white/80" />
@@ -104,10 +104,10 @@ const Piscine = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-16 bg-[#3a3a3a]">
+      <section className="py-16 bg-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
@@ -125,7 +125,7 @@ const Piscine = () => {
             {sportProducts.map((product, index) => (
               <motion.div
                 key={product.slug}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 viewport={{ once: true }}

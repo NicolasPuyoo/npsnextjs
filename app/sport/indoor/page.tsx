@@ -25,7 +25,7 @@ const SportIndoor = () => {
           <BackButton label="Retour à Sport" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8 group" />
           
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl"

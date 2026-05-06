@@ -56,7 +56,7 @@ const Index = () => {
       <section className="py-20 lg:py-28 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -74,7 +74,7 @@ const Index = () => {
             {services.map((service, index) => (
               <motion.div
                 key={service.path}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}
@@ -109,8 +109,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Guide Fitness Section */}
-      <section className="py-20 lg:py-28 bg-[#3a3a3a]">
+      {/* Sport & Fitness Section */}
+      <section className="py-20 lg:py-28 bg-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <motion.div
@@ -120,9 +120,9 @@ const Index = () => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="relative h-72 lg:h-[420px] rounded-3xl overflow-hidden"
             >
-              <img 
+              <img
                 src={fitnessImg.src}
-                alt="Guide Fitness"
+                alt="Sols sportifs et fitness"
                 loading="lazy"
                 className="w-full h-full object-cover"
               />
@@ -137,19 +137,19 @@ const Index = () => {
             >
               <div className="inline-flex items-center gap-2 text-primary mb-6">
                 <BookOpen className="w-5 h-5" />
-                <span className="font-medium">Guide Produits</span>
+                <span className="font-medium">Sport & Fitness</span>
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-5 leading-tight">
-                Guide Fitness
+                Sols sportifs professionnels
               </h2>
               <p className="text-lg text-white/70 mb-8 leading-relaxed">
-                Trouvez le revêtement idéal pour chaque activité : cardio, musculation, yoga, 
-                entraînement fonctionnel et bien plus. Notre guide comparatif vous aide à 
-                identifier la meilleure solution selon votre secteur.
+                Revêtements adaptés à chaque activité : cardio, musculation, haltérophilie,
+                yoga, entraînement fonctionnel, sport indoor et outdoor. Toute la gamme
+                SPORTEC pour les pros.
               </p>
               <Button asChild size="lg" className="rounded-full group">
-                <Link href="/guide/fitness" className="flex items-center gap-2">
-                  Consulter le guide
+                <Link href="/sport/fitness" className="flex items-center gap-2">
+                  Voir les solutions
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
