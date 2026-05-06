@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
-import { allProducts, findProductBySlug } from "@/data/products";
+import { allProducts, findProductBySlug, categories } from "@/data/products";
+import { breadcrumbList } from "@/lib/jsonLd";
 
 const SITE_URL = "https://nps-france.com";
 const BRAND = "NPS Acoustique";
+
+const categoryPath = (cat: string) => {
+  switch (cat) {
+    case "batiment": return "/batiment";
+    case "sport": return "/sport";
+    case "bricolage": return "/bricolage";
+    default: return "/produits";
+  }
+};
 
 // Pre-generate every product page at build time → static HTML, instant page loads
 export async function generateStaticParams() {
@@ -53,6 +63,16 @@ export default async function ProductLayout({
   const { slug } = await params;
   const product = findProductBySlug(slug);
 
+  const categoryName =
+    categories.find((c) => c.id === product?.category)?.name || product?.category || "";
+  const breadcrumbsJsonLd = product
+    ? breadcrumbList([
+        { name: "Accueil", url: "/" },
+        { name: categoryName, url: categoryPath(product.category) },
+        { name: product.name, url: `/produit/${product.slug}` },
+      ])
+    : null;
+
   // JSON-LD structured data for rich snippets
   const jsonLd = product
     ? {
@@ -93,6 +113,12 @@ export default async function ProductLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
+      {breadcrumbsJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
         />
       )}
       {children}

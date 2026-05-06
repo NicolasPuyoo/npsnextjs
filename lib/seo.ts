@@ -217,11 +217,31 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     keywords: [...COMMON_KEYWORDS, "sol école", "cour récréation", "crèche"],
   },
 
+  "/guide": {
+    title: `Guides experts isolation acoustique | ${BRAND}`,
+    description:
+      "Guides techniques pour architectes, BET et entreprises : isolation sous chape (DTU 52.10), sols sportifs EN 14904, anti-vibration industriel, NRA / NRT. Rédigés par des experts.",
+    keywords: [...COMMON_KEYWORDS, "guide isolation acoustique", "DTU 52.10", "EN 14904", "guide sous-chape ATE"],
+  },
   "/guide/fitness": {
     title: `Guide fitness : choisir son revêtement | ${BRAND}`,
     description:
       "Guide comparatif des revêtements pour cardio, musculation, yoga et fonctionnel. Trouvez le sol idéal selon votre activité et budget.",
     keywords: [...COMMON_KEYWORDS, "guide sol fitness", "comparatif sol gym"],
+  },
+
+  "/zone": {
+    title: `Zones desservies en France | ${BRAND}`,
+    description:
+      "NPS Acoustique livre toute la France depuis Mont-de-Marsan (Landes). Distributeur officiel Kraiburg pour Bordeaux, Toulouse, Paris, Lyon, Marseille et leurs régions.",
+    keywords: [...COMMON_KEYWORDS, "distributeur acoustique France", "isolation acoustique Bordeaux", "Kraiburg France"],
+  },
+
+  "/distributeur-kraiburg": {
+    title: `Distributeur officiel Kraiburg en France | ${BRAND}`,
+    description:
+      "NPS Acoustique est distributeur officiel Kraiburg Relastec en France : DAMTEC, KRAITEC, SPORTEC, PROFIMAT, VIBRAFOAM. 45 références en stock, livraison 48h, conseil expert.",
+    keywords: [...COMMON_KEYWORDS, "distributeur Kraiburg", "Kraiburg France", "DAMTEC distributeur", "KRAITEC distributeur"],
   },
 
   "/solutions": {

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
 import CookieBanner from "@/components/CookieBanner";
 import { AcousticExpertChat } from "@/components/AcousticExpertChat";
+import { localBusiness } from "@/lib/jsonLd";
 
 const SITE_URL = "https://nps-france.com";
 
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   description:
     "Spécialiste de l'isolation acoustique et anti-vibratoire depuis plus de 20 ans. Distributeur officiel Kraiburg, gammes Vibrafoam, Damtec, Kraitec et Sportec pour le bâtiment, le sport et le bricolage.",
   authors: [{ name: "NPS Acoustique" }],
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "fr_FR",
@@ -29,6 +31,7 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: "NPS Acoustique",
   alternateName: "NPS",
   url: SITE_URL,
@@ -53,6 +56,8 @@ const organizationJsonLd = {
   ],
 };
 
+const localBusinessJsonLd = localBusiness();
+
 export default function RootLayout({
   children,
 }: {
@@ -64,6 +69,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
       <body>

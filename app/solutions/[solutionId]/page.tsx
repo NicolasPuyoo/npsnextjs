@@ -11,6 +11,7 @@ import ChapeAcousticsChart from "@/components/ChapeAcousticsChart";
 import RevetementSolsChart from "@/components/RevetementSolsChart";
 import { Button } from "@/components/ui/button";
 import { getSolutionById } from "@/data/solutionProducts";
+import { solutionFaqs } from "@/data/solutionFaqs";
 
 // Cross-linking : chaque solution sectorielle pointe vers la sous-catégorie produit correspondante
 const RELATED_PATHS: Record<string, { label: string; href: string; reason: string }> = {
@@ -73,6 +74,7 @@ const SolutionDetail = () => {
 
   const heroImage = solutionImages[solution.id];
   const related = RELATED_PATHS[solution.id];
+  const faqs = solutionFaqs[solution.id] || [];
 
   // Déterminer quels schémas/graphiques afficher selon la solution
   const showVibraSchema = solution.id === "desolidarisation";
@@ -149,6 +151,37 @@ const SolutionDetail = () => {
           )}
         </div>
       </section>
+
+      {/* FAQ */}
+      {faqs.length > 0 && (
+        <section className="py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+              Questions fréquentes
+            </h2>
+            <p className="text-muted-foreground mb-10">
+              Les réponses précises aux questions techniques que se posent les pros
+              avant de choisir leur solution.
+            </p>
+            <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <details
+                  key={i}
+                  className="group rounded-2xl border border-border bg-card p-5 open:shadow-card transition-shadow"
+                >
+                  <summary className="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-foreground">
+                    <span>{faq.question}</span>
+                    <span className="text-primary text-2xl leading-none transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-4 text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Explore More */}
       <ExploreMore />

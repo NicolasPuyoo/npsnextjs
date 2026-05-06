@@ -34,10 +34,12 @@ const Footer = () => {
 
           {/* Liens utiles */}
           <div>
-            <h4 className="font-semibold mb-4">Aide</h4>
+            <h4 className="font-semibold mb-4">Ressources</h4>
             <ul className="space-y-2 text-sm text-background/70">
               <li><Link href="/contact" className="hover:text-background transition-colors">Demander un devis</Link></li>
-              <li><Link href="/guide/fitness" className="hover:text-background transition-colors">Guide Fitness</Link></li>
+              <li><Link href="/guide" className="hover:text-background transition-colors">Guides experts</Link></li>
+              <li><Link href="/distributeur-kraiburg" className="hover:text-background transition-colors">Distributeur Kraiburg</Link></li>
+              <li><Link href="/zone" className="hover:text-background transition-colors">Zones desservies</Link></li>
               <li><Link href="/mentions-legales" className="hover:text-background transition-colors">Mentions légales</Link></li>
             </ul>
           </div>

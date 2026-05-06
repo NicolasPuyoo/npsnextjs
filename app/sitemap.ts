@@ -1,9 +1,26 @@
 import type { MetadataRoute } from "next";
 import { allProducts } from "@/data/products";
 import { solutionsData } from "@/data/solutionProducts";
+import { guides } from "@/data/guides";
+import { zones } from "@/data/zones";
 import { PAGE_SEO } from "@/lib/seo";
 
 const SITE_URL = "https://nps-france.com";
+
+// Priority hierarchy:
+// 1.0 — homepage
+// 0.9 — pillar guides + Kraiburg distrib (highest commercial intent)
+// 0.85 — top hub pages (produits, solutions, guide, zone)
+// 0.8 — top categories, HQ city
+// 0.7 — sub-categories, products, secondary zones
+// 0.6 — leaf pages
+const sectionPriority = (path: string): number => {
+  if (path === "/") return 1.0;
+  const depth = path.split("/").filter(Boolean).length;
+  if (depth === 1) return 0.8;
+  if (depth === 2) return 0.7;
+  return 0.6;
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -13,7 +30,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}${path}`,
     lastModified: now,
     changeFrequency: (path === "/" ? "weekly" : "monthly") as "weekly" | "monthly",
-    priority: path === "/" ? 1.0 : path.split("/").length === 2 ? 0.8 : 0.6,
+    priority: sectionPriority(path),
+  }));
+
+  // New top-level pages (added by SEO foundation work)
+  const newTopLevel = [
+    { path: "/guide", priority: 0.85, freq: "weekly" as const },
+    { path: "/zone", priority: 0.85, freq: "monthly" as const },
+    { path: "/distributeur-kraiburg", priority: 0.9, freq: "monthly" as const },
+  ].map((p) => ({
+    url: `${SITE_URL}${p.path}`,
+    lastModified: now,
+    changeFrequency: p.freq,
+    priority: p.priority,
   }));
 
   // Dynamic product pages
@@ -32,5 +61,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...productRoutes, ...solutionRoutes];
+  // Dynamic guide pages — pillars get top priority
+  const guideRoutes = guides.map((g) => ({
+    url: `${SITE_URL}/guide/${g.slug}`,
+    lastModified: g.updatedAt ? new Date(g.updatedAt) : new Date(g.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  // Dynamic zone pages — HQ first
+  const zoneRoutes = zones.map((z) => ({
+    url: `${SITE_URL}/zone/${z.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: z.isHQ ? 0.8 : 0.7,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...newTopLevel,
+    ...productRoutes,
+    ...solutionRoutes,
+    ...guideRoutes,
+    ...zoneRoutes,
+  ];
 }
