@@ -35,7 +35,7 @@ const CookieBanner = () => {
     <div
       role="dialog"
       aria-label="Bannière de consentement cookies"
-      className="fixed bottom-20 lg:bottom-4 left-4 right-4 lg:left-auto lg:right-4 lg:max-w-md z-50 bg-background border border-border rounded-2xl shadow-2xl p-5"
+      className="fixed bottom-44 lg:bottom-24 left-4 right-4 lg:left-auto lg:right-4 lg:max-w-md z-50 bg-background border border-border rounded-2xl shadow-2xl p-5"
     >
       <button
         onClick={() => setConsent("rejected")}
