@@ -41,3 +41,6 @@ next-env.d.ts
 
 # bun
 bun.lockb
+
+# Supabase CLI local state
+supabase/.temp/
