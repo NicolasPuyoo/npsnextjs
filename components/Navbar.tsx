@@ -51,7 +51,6 @@ const navLinks: NavItem[] = [
   { name: "Sport", path: "/sport", submenu: sportSubLinks },
   { name: "Solutions", path: "/solutions", submenu: solutionsSubLinks },
   { name: "Produits", path: "/produits" },
-  { name: "Guides", path: "/guide" },
   { name: "Contact", path: "/contact" },
 ];
 

@@ -217,18 +217,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     keywords: [...COMMON_KEYWORDS, "sol école", "cour récréation", "crèche"],
   },
 
-  "/guide": {
-    title: `Guides experts isolation acoustique | ${BRAND}`,
-    description:
-      "Guides techniques pour architectes, BET et entreprises : isolation sous chape (DTU 52.10), sols sportifs EN 14904, anti-vibration industriel, NRA / NRT. Rédigés par des experts.",
-    keywords: [...COMMON_KEYWORDS, "guide isolation acoustique", "DTU 52.10", "EN 14904", "guide sous-chape ATE"],
-  },
-  "/guide/fitness": {
-    title: `Guide fitness : choisir son revêtement | ${BRAND}`,
-    description:
-      "Guide comparatif des revêtements pour cardio, musculation, yoga et fonctionnel. Trouvez le sol idéal selon votre activité et budget.",
-    keywords: [...COMMON_KEYWORDS, "guide sol fitness", "comparatif sol gym"],
-  },
+  // /guide and /guide/* hidden — contenu en cours de validation par un acousticien.
 
   "/solutions": {
     title: `Solutions acoustiques par secteur | ${BRAND}`,
@@ -256,12 +245,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description: "Mentions légales, politique de confidentialité et conditions générales de vente de NPS Acoustique.",
   },
 
-  "/notre-expertise": {
-    title: `Notre expertise acoustique | ${BRAND}`,
-    description:
-      "Plus de 20 ans d'expertise en isolation acoustique et anti-vibratoire. Conseil technique, gamme dédiée, accompagnement projet pour bâtiment, sport, hôtellerie, bricolage.",
-    keywords: [...COMMON_KEYWORDS, "expert acoustique", "spécialiste isolation phonique", "conseil acoustique"],
-  },
+  // /notre-expertise hidden — page contient des claims de service à valider avec NPS.
 };
 
 export function metaForRoute(route: string): Metadata {

@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { allProducts } from "@/data/products";
 import { solutionsData } from "@/data/solutionProducts";
-import { guides } from "@/data/guides";
 import { PAGE_SEO } from "@/lib/seo";
 
 const SITE_URL = "https://nps-france.com";
@@ -32,15 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: sectionPriority(path),
   }));
 
-  // New top-level hub pages
-  const newTopLevel = [
-    { path: "/guide", priority: 0.85, freq: "weekly" as const },
-  ].map((p) => ({
-    url: `${SITE_URL}${p.path}`,
-    lastModified: now,
-    changeFrequency: p.freq,
-    priority: p.priority,
-  }));
+  // (Guide hub temporarily hidden — pas inclus dans le sitemap tant que le
+  // contenu n'est pas validé par un acousticien.)
 
   // Dynamic product pages
   const productRoutes = allProducts.map((product) => ({
@@ -58,19 +50,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Dynamic guide pages — pillars get top priority
-  const guideRoutes = guides.map((g) => ({
-    url: `${SITE_URL}/guide/${g.slug}`,
-    lastModified: g.updatedAt ? new Date(g.updatedAt) : new Date(g.publishedAt),
-    changeFrequency: "monthly" as const,
-    priority: 0.9,
-  }));
-
   return [
     ...staticRoutes,
-    ...newTopLevel,
     ...productRoutes,
     ...solutionRoutes,
-    ...guideRoutes,
   ];
 }

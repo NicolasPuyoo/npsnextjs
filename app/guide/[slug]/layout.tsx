@@ -27,6 +27,9 @@ export async function generateMetadata({
   return {
     title: `${guide.title} | ${BRAND}`,
     description: guide.description.slice(0, 160),
+    // HIDDEN: contenu en cours de validation par un acousticien.
+    // Ne pas indexer / suivre tant que le contenu n'a pas été relu.
+    robots: { index: false, follow: false },
     alternates: { canonical: `${SITE_URL}/guide/${slug}` },
     openGraph: {
       type: "article",

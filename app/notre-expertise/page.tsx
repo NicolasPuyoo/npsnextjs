@@ -12,13 +12,9 @@ export const metadata: Metadata = {
   title: "Notre expertise acoustique | NPS Acoustique",
   description:
     "Plus de 20 ans d'expertise en isolation acoustique et anti-vibratoire. Conseil technique, accompagnement projet, gamme dédiée bâtiment, sport, hôtellerie et bricolage.",
+  // HIDDEN: page contient des claims de service à valider avec NPS avant publication.
+  robots: { index: false, follow: false },
   alternates: { canonical: `${SITE_URL}/notre-expertise` },
-  keywords: [
-    "expert acoustique",
-    "expertise isolation phonique",
-    "conseil acoustique",
-    "spécialiste isolation acoustique",
-  ],
 };
 
 const breadcrumbsJsonLd = breadcrumbList([

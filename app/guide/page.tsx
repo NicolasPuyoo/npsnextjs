@@ -9,15 +9,9 @@ export const metadata: Metadata = {
   title: "Guides experts isolation acoustique | NPS Acoustique",
   description:
     "Guides techniques pour architectes, BET et entreprises : isolation sous chape, sols sportifs EN 14904, anti-vibration industriel, réglementation NRA / NRT. Rédigés par des experts.",
+  // HIDDEN: contenu en cours de validation par un acousticien.
+  robots: { index: false, follow: false },
   alternates: { canonical: `${SITE_URL}/guide` },
-  keywords: [
-    "guide isolation acoustique",
-    "guide sous-chape ATE",
-    "guide sol salle de sport",
-    "guide anti-vibration",
-    "DTU 52.10",
-    "EN 14904",
-  ],
 };
 
 export default function GuideIndexPage() {
