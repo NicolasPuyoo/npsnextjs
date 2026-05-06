@@ -103,9 +103,14 @@ export const AcousticExpertChat = () => {
 
         try {
           const parsed = JSON.parse(jsonStr);
-          const content = parsed.choices?.[0]?.delta?.content as string | undefined;
-          if (content) {
-            assistantContent += content;
+          // Anthropic SSE: only content_block_delta events with text_delta carry chunks.
+          // Other events (message_start, content_block_start, message_stop, etc.) ignored.
+          const chunk: string | undefined =
+            parsed.type === "content_block_delta" && parsed.delta?.type === "text_delta"
+              ? parsed.delta.text
+              : undefined;
+          if (chunk) {
+            assistantContent += chunk;
             setMessages((prev) => {
               const last = prev[prev.length - 1];
               if (last?.role === "assistant") {
