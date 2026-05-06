@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "NPS Acoustique — Distributeur officiel Kraiburg, isolation acoustique et anti-vibratoire";
+export const alt = "NPS Acoustique — Isolation acoustique et anti-vibratoire";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -35,7 +35,7 @@ export default async function OpenGraphImage() {
         >
           <span>NPS Acoustique</span>
           <span style={{ opacity: 0.4 }}>•</span>
-          <span>Distributeur officiel Kraiburg</span>
+          <span>Expert depuis 20+ ans</span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
@@ -58,7 +58,7 @@ export default async function OpenGraphImage() {
               maxWidth: "780px",
             }}
           >
-            Solutions Vibrafoam, Damtec, Kraitec et Sportec pour le bâtiment, le sport et le bricolage.
+            Solutions pour le bâtiment, le sport, l'hôtellerie et le bricolage.
           </div>
         </div>
 

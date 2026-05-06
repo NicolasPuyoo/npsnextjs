@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { allProducts } from "@/data/products";
 import { solutionsData } from "@/data/solutionProducts";
 import { guides } from "@/data/guides";
-import { zones } from "@/data/zones";
 import { PAGE_SEO } from "@/lib/seo";
 
 const SITE_URL = "https://nps-france.com";
@@ -33,11 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: sectionPriority(path),
   }));
 
-  // New top-level pages (added by SEO foundation work)
+  // New top-level hub pages
   const newTopLevel = [
     { path: "/guide", priority: 0.85, freq: "weekly" as const },
-    { path: "/zone", priority: 0.85, freq: "monthly" as const },
-    { path: "/distributeur-kraiburg", priority: 0.9, freq: "monthly" as const },
   ].map((p) => ({
     url: `${SITE_URL}${p.path}`,
     lastModified: now,
@@ -69,20 +66,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  // Dynamic zone pages — HQ first
-  const zoneRoutes = zones.map((z) => ({
-    url: `${SITE_URL}/zone/${z.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: z.isHQ ? 0.8 : 0.7,
-  }));
-
   return [
     ...staticRoutes,
     ...newTopLevel,
     ...productRoutes,
     ...solutionRoutes,
     ...guideRoutes,
-    ...zoneRoutes,
   ];
 }

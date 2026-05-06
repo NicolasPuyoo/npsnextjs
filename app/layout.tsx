@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "NPS Acoustique | Isolation acoustique et anti-vibratoire",
   description:
-    "Spécialiste de l'isolation acoustique et anti-vibratoire depuis plus de 20 ans. Distributeur officiel Kraiburg, gammes Vibrafoam, Damtec, Kraitec et Sportec pour le bâtiment, le sport et le bricolage.",
+    "Spécialiste de l'isolation acoustique et anti-vibratoire depuis plus de 20 ans. Solutions pour le bâtiment, le sport, l'hôtellerie et le bricolage.",
   authors: [{ name: "NPS Acoustique" }],
   alternates: { canonical: "/" },
   openGraph: {
@@ -37,7 +37,7 @@ const organizationJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/icon.png`,
   description:
-    "Distributeur officiel Kraiburg en France. Solutions d'isolation acoustique et anti-vibratoire pour le bâtiment, le sport et le bricolage depuis plus de 20 ans.",
+    "Spécialiste de l'isolation acoustique et anti-vibratoire en France. Solutions pour le bâtiment, le sport, l'hôtellerie et le bricolage depuis plus de 20 ans.",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+33-5-58-77-55-89",

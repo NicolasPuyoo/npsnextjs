@@ -3,139 +3,130 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 
-// Calculateur épaisseur sous-chape : 4 questions → recommandation produit + ΔLw cible.
-// Logique simple, transparente. Aim is utility, not pseudoscience.
+// Calculateur d'orientation sous-couche : 4 questions → produit recommandé.
+// Mapping basé sur les vrais produits + specs de data/products.ts.
+// Indicatif uniquement — toujours valider avec la fiche technique fabricant.
 
-type Destination = "logement" | "hotel" | "ecole" | "bureau" | "renovation";
-type Chape = "ciment" | "anhydrite" | "seche";
+type Position = "sous-chape" | "sous-revetement";
+type Ouvrage = "neuf-dtu" | "renovation" | "erp";
 type Cible = "norme" | "premium";
 
+type Reco = {
+  product: string;
+  slug: string;
+  perf: string;
+  rationale: string;
+};
+
 const recommend = (
-  dest: Destination,
-  chape: Chape,
+  position: Position,
+  ouvrage: Ouvrage,
   cible: Cible,
   feu: boolean,
-): { product: string; slug: string; epaisseur: string; deltaLw: string; rationale: string } => {
-  if (feu || dest === "hotel" || dest === "ecole") {
+): Reco => {
+  // Sous chape (entre plancher porteur et chape flottante)
+  if (position === "sous-chape") {
     if (cible === "premium") {
       return {
-        product: "DAMTEC Estra 17 mm",
-        slug: "damtec-estra",
-        epaisseur: "17 mm",
-        deltaLw: "≈ 30 dB",
-        rationale:
-          "Performance premium + ATE. Pour ERP / hôtels visant un confort acoustique élevé (≤ 50 dB d'impact).",
-      };
-    }
-    return {
-      product: "DAMTEC Black Uni B1 8 mm",
-      slug: "damtec-black-uni-b1",
-      epaisseur: "8 mm",
-      deltaLw: "≈ 22-24 dB",
-      rationale:
-        "ATE + classement feu B1 obligatoire en ERP / hôtels. Bon compromis épaisseur / performance.",
-    };
-  }
-
-  if (dest === "renovation" || chape === "seche") {
-    if (cible === "premium") {
-      return {
-        product: "DAMTEC Wave 3D 7 mm",
+        product: "DAMTEC Wave 3D",
         slug: "damtec-wave-3d",
-        epaisseur: "7 mm",
-        deltaLw: "≈ 19-21 dB",
+        perf: "ΔLw 25-35 dB selon configuration",
         rationale:
-          "Profil 3D anti-tassement, idéal sous parquet flottant en rénovation. Performance acoustique élevée pour faible épaisseur.",
+          "Profilé 3D, performance élevée. ΔLw jusqu'à 35 dB en 17/8 mm sous chape ciment 80 mm.",
       };
     }
     return {
-      product: "TOP Rubbercork 6 mm",
-      slug: "top-rubbercork",
-      epaisseur: "6 mm",
-      deltaLw: "≈ 18 dB",
+      product: "DAMTEC Estra",
+      slug: "damtec-estra",
+      perf: "ΔLw 19-21 dB sous chape ciment 50 mm",
       rationale:
-        "Caoutchouc + liège, économique, polyvalent. Adapté rénovation hors champ DTU et sous parquet.",
+        "Granulat caoutchouc, polyvalent. Disponible en 4, 6 et 8 mm selon votre épaisseur cible.",
     };
   }
 
-  if (dest === "bureau") {
+  // Sous revêtement (entre chape ou plancher et revêtement final)
+  if (ouvrage === "renovation" && !feu) {
     return {
-      product: "DAMTEC Black Uni 8 mm",
-      slug: "damtec-black-uni",
-      epaisseur: "8 mm",
-      deltaLw: "≈ 22-24 dB",
+      product: "TOP Rubbercork",
+      slug: "top-rubbercork",
+      perf: "ΔLw 18-20 dB",
       rationale:
-        "ATE, performance ciblée pour open space NRT. Bon ratio épaisseur / dB.",
+        "Caoutchouc + liège, certifié A+ et Blue Angel. Adapté rénovation hors champ DTU.",
     };
   }
 
-  // dest === "logement"
+  if (feu || ouvrage === "erp") {
+    return {
+      product: "DAMTEC Black Uni B1",
+      slug: "damtec-black-uni-b1",
+      perf: "ΔLw 16-25 dB selon revêtement",
+      rationale:
+        "Classement feu B1 (ERP). Disponible en 2-6 mm, faible épaisseur possible.",
+    };
+  }
+
   if (cible === "premium") {
     return {
-      product: "DAMTEC Estra 17 mm",
-      slug: "damtec-estra",
-      epaisseur: "17 mm",
-      deltaLw: "≈ 30 dB",
+      product: "DAMTEC Standard",
+      slug: "damtec-standard",
+      perf: "ΔLw 18 dB (carrelage) à 29 dB (moquette)",
       rationale:
-        "ATE, performance haut de gamme. Idéal pour viser ≤ 50 dB d'impact en logement collectif.",
+        "Caoutchouc + liège, granulat fin. Performance dépend du revêtement final — voir fiche technique.",
     };
   }
+
   return {
-    product: "DAMTEC Standard 8 mm",
-    slug: "damtec-standard",
-    epaisseur: "8 mm",
-    deltaLw: "≈ 26 dB",
+    product: "DAMTEC Black Uni",
+    slug: "damtec-black-uni",
+    perf: "ΔLw 16-25 dB selon revêtement",
     rationale:
-      "ATE, polyvalent, conforme NRA L'nT,w ≤ 58 dB pour logement collectif neuf.",
+      "Mousse PU + liège, faible épaisseur (2-6 mm). Bon compromis pour parquet, stratifié, carrelage.",
   };
 };
 
 const EpaisseurCalculator = () => {
-  const [dest, setDest] = useState<Destination>("logement");
-  const [chape, setChape] = useState<Chape>("ciment");
+  const [position, setPosition] = useState<Position>("sous-chape");
+  const [ouvrage, setOuvrage] = useState<Ouvrage>("neuf-dtu");
   const [cible, setCible] = useState<Cible>("norme");
   const [feu, setFeu] = useState<boolean>(false);
 
-  const reco = useMemo(() => recommend(dest, chape, cible, feu), [dest, chape, cible, feu]);
+  const reco = useMemo(() => recommend(position, ouvrage, cible, feu), [position, ouvrage, cible, feu]);
 
   return (
     <aside className="my-12 rounded-3xl border border-primary/30 bg-card shadow-card p-6 lg:p-8">
       <div className="mb-6">
         <p className="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-2">
-          Calculateur expert
+          Orientation produit
         </p>
         <h3 className="text-2xl font-bold text-foreground">
           Quelle sous-couche pour votre projet ?
         </h3>
         <p className="text-sm text-muted-foreground mt-2">
-          Répondez à 4 questions, on vous indique le produit recommandé et la performance attendue.
+          Indication produit selon 4 critères. Pour le dimensionnement précis, voir la fiche technique du produit recommandé ou demandez un devis.
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-        <Field label="Destination">
+        <Field label="Position de la sous-couche">
           <select
-            value={dest}
-            onChange={(e) => setDest(e.target.value as Destination)}
+            value={position}
+            onChange={(e) => setPosition(e.target.value as Position)}
             className="w-full h-12 rounded-xl border border-border bg-background px-4 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
           >
-            <option value="logement">Logement collectif neuf (NRA)</option>
-            <option value="hotel">Hôtel / résidence service</option>
-            <option value="ecole">École / crèche / santé</option>
-            <option value="bureau">Bureau / open space (NRT)</option>
-            <option value="renovation">Rénovation (hors DTU)</option>
+            <option value="sous-chape">Sous chape flottante (gros oeuvre)</option>
+            <option value="sous-revetement">Sous revêtement (parquet, carrelage…)</option>
           </select>
         </Field>
 
-        <Field label="Type de chape">
+        <Field label="Type d'ouvrage">
           <select
-            value={chape}
-            onChange={(e) => setChape(e.target.value as Chape)}
+            value={ouvrage}
+            onChange={(e) => setOuvrage(e.target.value as Ouvrage)}
             className="w-full h-12 rounded-xl border border-border bg-background px-4 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
           >
-            <option value="ciment">Chape ciment / mortier</option>
-            <option value="anhydrite">Chape anhydrite (sulfate de calcium)</option>
-            <option value="seche">Chape sèche / parquet flottant</option>
+            <option value="neuf-dtu">Neuf sous DTU</option>
+            <option value="erp">ERP (hôtel, école, santé)</option>
+            <option value="renovation">Rénovation (hors DTU)</option>
           </select>
         </Field>
 
@@ -145,12 +136,12 @@ const EpaisseurCalculator = () => {
             onChange={(e) => setCible(e.target.value as Cible)}
             className="w-full h-12 rounded-xl border border-border bg-background px-4 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
           >
-            <option value="norme">Conformité norme (NRA / NRT)</option>
-            <option value="premium">Confort premium (5-8 dB de marge)</option>
+            <option value="norme">Conformité norme</option>
+            <option value="premium">Confort acoustique élevé</option>
           </select>
         </Field>
 
-        <Field label="Classement feu B1 requis ?">
+        <Field label="Classement feu requis ?">
           <div className="flex gap-2 h-12">
             <button
               type="button"
@@ -172,7 +163,7 @@ const EpaisseurCalculator = () => {
                   : "bg-background text-muted-foreground border-border hover:border-primary"
               }`}
             >
-              Oui (ERP)
+              Oui (B1 / Bfl-s1)
             </button>
           </div>
         </Field>
@@ -180,17 +171,10 @@ const EpaisseurCalculator = () => {
 
       <div className="rounded-2xl bg-primary/10 border border-primary/30 p-5">
         <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">
-          Recommandation
+          Produit suggéré
         </p>
         <h4 className="text-xl font-bold text-foreground mb-1">{reco.product}</h4>
-        <div className="flex flex-wrap gap-3 text-sm text-foreground mb-3">
-          <span className="bg-primary/20 rounded-full px-3 py-1 font-medium">
-            Épaisseur : {reco.epaisseur}
-          </span>
-          <span className="bg-primary/20 rounded-full px-3 py-1 font-medium">
-            ΔLw : {reco.deltaLw}
-          </span>
-        </div>
+        <p className="text-sm text-foreground mb-3 font-medium">{reco.perf}</p>
         <p className="text-sm text-muted-foreground mb-4">{reco.rationale}</p>
         <div className="flex flex-col sm:flex-row gap-2">
           <Link
@@ -209,7 +193,7 @@ const EpaisseurCalculator = () => {
       </div>
 
       <p className="text-xs text-muted-foreground mt-4">
-        Cette recommandation est indicative. Pour un dimensionnement précis, contactez notre équipe avec votre cahier des charges (DCE, surface, contraintes acoustiques).
+        Suggestion indicative. Les valeurs ΔLw varient selon la configuration (épaisseur de chape, type de revêtement). Toujours valider avec la fiche technique du produit et votre bureau de contrôle.
       </p>
     </aside>
   );

@@ -64,7 +64,7 @@ export function localBusiness() {
       { "@type": "AdministrativeArea", name: "Nouvelle-Aquitaine" },
     ],
     description:
-      "Distributeur officiel Kraiburg en France. Solutions d'isolation acoustique et anti-vibratoire pour le bâtiment, le sport, l'hôtellerie et le bricolage.",
+      "Spécialiste de l'isolation acoustique et anti-vibratoire en France. Solutions pour le bâtiment, le sport, l'hôtellerie et le bricolage.",
     sameAs: [],
   };
 }

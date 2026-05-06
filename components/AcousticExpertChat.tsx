@@ -187,7 +187,7 @@ export const AcousticExpertChat = () => {
         <div className="bg-primary text-primary-foreground px-4 py-3 flex items-center justify-between">
           <div>
             <h3 className="font-semibold text-sm">Expert Acoustique</h3>
-            <p className="text-xs opacity-80">NPS Acoustique • Distributeur officiel Kraiburg</p>
+            <p className="text-xs opacity-80">NPS Acoustique • Conseil acoustique</p>
           </div>
           <Button
             variant="ghost"

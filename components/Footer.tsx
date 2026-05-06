@@ -12,11 +12,8 @@ const Footer = () => {
               <img src={logoNps.src} alt="NPS Acoustique" className="h-16 w-auto brightness-0 invert" />
             </div>
             <p className="text-background/70 text-sm mb-3">
-              Experts en solutions acoustiques depuis plus de 20 ans.
+              Experts en solutions acoustiques et anti-vibratoires depuis plus de 20 ans.
               Nous accompagnons les professionnels et particuliers dans leurs projets d'isolation phonique.
-            </p>
-            <p className="text-background/50 text-xs uppercase tracking-wide">
-              Distributeur officiel Kraiburg Relastec
             </p>
           </div>
 
@@ -38,8 +35,6 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-background/70">
               <li><Link href="/contact" className="hover:text-background transition-colors">Demander un devis</Link></li>
               <li><Link href="/guide" className="hover:text-background transition-colors">Guides experts</Link></li>
-              <li><Link href="/distributeur-kraiburg" className="hover:text-background transition-colors">Distributeur Kraiburg</Link></li>
-              <li><Link href="/zone" className="hover:text-background transition-colors">Zones desservies</Link></li>
               <li><Link href="/mentions-legales" className="hover:text-background transition-colors">Mentions légales</Link></li>
             </ul>
           </div>
