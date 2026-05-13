@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Dumbbell, Shield, Footprints, CircleDot, Wrench, Volume2, CloudRain, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import CategoryFeatureList from "@/components/CategoryFeatureList";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
@@ -12,47 +12,38 @@ import pleinAirImage from "@/assets/categories/fitness/plein-air.webp";
 
 const features = [
   {
-    icon: Target,
     title: "haute résistance au chocs / rebond faible",
     description: "pour résister à la chute constante de poids et maximiser la protection des pieds et des tibias contre le rebond de poids"
   },
   {
-    icon: Dumbbell,
     title: "protection contre les détériorations du support",
     description: "afin que le sol (souvent dalle béton) ne soit pas endommagé par les forces d'impact élevées. Pas de frais pour les travaux de réparation"
   },
   {
-    icon: Shield,
     title: "protection contre les détériorations des appareils",
     description: "éviter d'abîmer les appareils. Pas de frais de réparation ou rachat de matériels"
   },
   {
-    icon: Footprints,
     title: "stabilité",
     description: "afin de bien soutenir l'athlète pendant le soulèvement des haltères et donc éviter des blessures"
   },
   {
-    icon: CircleDot,
     title: "revêtement amovible",
     description: "la zone d'haltérophilie peut être installée comme désiré et si besoin, peut être enlevée et réinstallée autre part"
   },
   {
-    icon: Wrench,
     title: "installation facile",
     description: "tous les dalles sont équipés de goujons préinstallés à l'usine"
   },
   {
-    icon: Volume2,
     title: "propriétés insonorisants",
     description: "réduction sonore de 26 dB avec une dalle de 30 mm d'épaisseur"
   },
   {
-    icon: CloudRain,
     title: "résistance aux intempéries",
     description: "le revêtement peut être utilisé dans tous les endroits et sous tous les climats du monde"
   },
   {
-    icon: Sparkles,
     title: "nettoyage et entretien facile",
     description: "Il suffit de balayer et d'essuyer avec de l'eau"
   }
@@ -89,34 +80,8 @@ const PleinAir = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-foreground">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                viewport={{ once: true }}
-                className="bg-foreground/95 rounded-2xl p-6 text-center"
-              >
-                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
-                  <feature.icon className="w-10 h-10 text-white/80" />
-                </div>
-                <h3 className="text-primary font-semibold text-lg mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Features (sober numbered list, replaces icon-card AI slop) */}
+      <CategoryFeatureList items={features} />
 
       {/* Products Section */}
       <section className="py-16 bg-foreground">
