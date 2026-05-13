@@ -1,0 +1,1 @@
+{"version":"0.0.1","configurations":[{"name":"npsnextjs-prod","runtimeExecutable":"bun","runtimeArgs":["run","start","--","-p","3014"],"port":3014}]}
