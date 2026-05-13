@@ -25,29 +25,31 @@ const vibraProducts: VibraProduct[] = [
   { name: "DAMTEC® vibra 1500", slug: "damtec-vibra-1500", pressureMin: "1,50", pressureMax: "4,00", bgColor: "bg-foreground", textColor: "text-white" },
 ];
 
+// Bars represent pressure thresholds on a log scale (0,1 → 4 N/mm²).
+// A bar is highlighted when its threshold falls inside the product's
+// [min, max] pressure window. Height scales with the threshold value
+// (log) so the visualization is meaningful instead of decorative.
+const PRESSURE_THRESHOLDS = [0.1, 0.2, 0.4, 0.8, 1.5, 3, 4];
+const MAX_HEIGHT = 56; // px
+const MIN_HEIGHT = 12;
+
 const PressureChart = ({ min, max, isLight }: { min: string; max: string; isLight: boolean }) => {
   const minVal = parseFloat(min.replace(",", "."));
   const maxVal = parseFloat(max.replace(",", "."));
 
-  const bars = [0.1, 0.2, 0.4, 0.8, 1.5, 3, 4].map((threshold, index) => {
-    const isInRange = threshold >= minVal && threshold <= maxVal;
-    const isHighlight = index === 0;
-    return { threshold, isInRange, isHighlight };
-  });
-
   return (
-    <div className="flex items-end gap-1 h-16">
-      {bars.map((_, index) => {
-        const height = 20 + (index * 8);
+    <div className="flex items-end gap-1 h-16" role="img" aria-label={`Pression admissible ${min} à ${max} N/mm²`}>
+      {PRESSURE_THRESHOLDS.map((threshold, index) => {
+        const isInRange = threshold >= minVal && threshold <= maxVal;
+        // Log-scale heights so 0.1 → 4 spreads visually.
+        const logFactor = Math.log10(threshold * 10 + 1) / Math.log10(41);
+        const height = Math.round(MIN_HEIGHT + (MAX_HEIGHT - MIN_HEIGHT) * logFactor);
+        const dimClass = isLight ? "bg-foreground/25" : "bg-background/30";
         return (
           <div
             key={index}
             className={`w-3 rounded-t transition-all ${
-              index === 0
-                ? "bg-primary"
-                : isLight
-                  ? "bg-foreground/40"
-                  : "bg-background/60"
+              isInRange ? "bg-primary" : dimClass
             }`}
             style={{ height: `${height}px` }}
           />
