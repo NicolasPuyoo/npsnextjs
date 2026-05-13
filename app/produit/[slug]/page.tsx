@@ -206,7 +206,7 @@ const ProductDetail = () => {
                     Notre équipe est à votre disposition pour répondre à toutes vos questions.
                   </p>
                   <Button asChild className="rounded-full">
-                    <Link href="/contact">Demander un devis</Link>
+                    <Link href={`/contact?produit=${product.slug}&type=${product.category}`}>Demander un devis</Link>
                   </Button>
                 </div>
               )}
@@ -278,7 +278,7 @@ const ProductDetail = () => {
                     Notre équipe est à votre disposition.
                   </p>
                   <Button asChild className="rounded-full w-full">
-                    <Link href="/contact">Demander un devis</Link>
+                    <Link href={`/contact?produit=${product.slug}&type=${product.category}`}>Demander un devis</Link>
                   </Button>
                 </div>
               </div>

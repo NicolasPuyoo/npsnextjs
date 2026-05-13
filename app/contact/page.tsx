@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,11 +10,24 @@ import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/Layout";
 import ExploreMore from "@/components/ExploreMore";
 import { toast } from "sonner";
+import { findProductBySlug } from "@/data/products";
 
 // Hero image - using batiment image as contact background
 import heroImage from "@/assets/categories/batiment.jpg";
 
-const Contact = () => {
+// Map URL category param to projectType select option
+const categoryToProjectType: Record<string, string> = {
+  batiment: "batiment",
+  sport: "sport",
+  fitness: "sport",
+  hotel: "hotel-commerce",
+  "hotel-commerce": "hotel-commerce",
+  commerce: "hotel-commerce",
+  bricolage: "bricolage",
+};
+
+const ContactInner = () => {
+  const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nom: "",
@@ -23,6 +37,40 @@ const Contact = () => {
     projectType: "",
     message: "",
   });
+
+  // Pre-fill from URL params:
+  //   ?produit=damtec-estra  → product name added to message
+  //   ?type=batiment         → projectType select pre-selected
+  // Both can be passed together from a "Demander un devis" CTA on
+  // a product fiche to remove all friction from the user.
+  useEffect(() => {
+    const produitSlug = searchParams.get("produit");
+    const typeParam = searchParams.get("type");
+    let nextProjectType = "";
+    let nextMessage = "";
+
+    if (typeParam && categoryToProjectType[typeParam]) {
+      nextProjectType = categoryToProjectType[typeParam];
+    }
+
+    if (produitSlug) {
+      const product = findProductBySlug(produitSlug);
+      if (product) {
+        nextMessage = `Bonjour,\n\nJe souhaite un devis pour le produit ${product.name}.\n\nDétails du projet : `;
+        if (!nextProjectType && product.category) {
+          nextProjectType = categoryToProjectType[product.category] || "";
+        }
+      }
+    }
+
+    if (nextProjectType || nextMessage) {
+      setFormData((prev) => ({
+        ...prev,
+        projectType: nextProjectType || prev.projectType,
+        message: nextMessage || prev.message,
+      }));
+    }
+  }, [searchParams]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -250,5 +298,12 @@ const Contact = () => {
     </Layout>
   );
 };
+
+// useSearchParams() requires a Suspense boundary in App Router static rendering.
+const Contact = () => (
+  <Suspense fallback={null}>
+    <ContactInner />
+  </Suspense>
+);
 
 export default Contact;
