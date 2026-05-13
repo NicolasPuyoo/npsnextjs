@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Heart, Hand, Shield, PersonStanding, Accessibility, Network, Volume2, Wrench } from "lucide-react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
-import CategoryFeatureList from "@/components/CategoryFeatureList";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
@@ -12,34 +12,42 @@ import reeducationImage from "@/assets/categories/commerce/reeducation.webp";
 
 const features = [
   {
+    icon: Heart,
     title: "confort",
     description: "adapté aux différentes méthodes d'entrainement et des cours de rééducation"
   },
   {
+    icon: Hand,
     title: "protection des articulations",
     description: "élasticité qui absorbe les chocs et protège les articulations"
   },
   {
+    icon: Shield,
     title: "absorption de choc",
     description: "Le revêtement de sol en caoutchouc élastique absorbe les chocs et contribue à réduire la charge sur le"
   },
   {
+    icon: PersonStanding,
     title: "anti-glisse",
     description: "la résistance au glissement R10 (DIN 51130) et Label DS"
   },
   {
+    icon: Accessibility,
     title: "fauteuil roulant",
     description: "faciliter l'accès pour les patients"
   },
   {
+    icon: Network,
     title: "design",
     description: "Créer un environnement coloré et positif pour les patients (découpage facile de sol possible avec designs et couleurs différents)"
   },
   {
+    icon: Volume2,
     title: "réduction du bruit de pas",
     description: "moins de bruit pour un environnement sonore plus confortable (réduction des bruits de pas d'environ -16 dB pour 6mm)"
   },
   {
+    icon: Wrench,
     title: "installation facile",
     description: "simplement dérouler, découper et coller (sans équipement particulier = économie de coûts d'installation)"
   }
@@ -76,8 +84,34 @@ const Reeducation = () => {
           </motion.div>
         </div>
       </section>
-      {/* Features (sober numbered list, replaces icon-card AI slop) */}
-      <CategoryFeatureList items={features} />
+
+      {/* Features Section */}
+      <section className="py-16 bg-foreground">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-foreground/95 rounded-2xl p-6 text-center"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
+                  <feature.icon className="w-10 h-10 text-white/80" />
+                </div>
+                <h3 className="text-primary font-semibold text-lg mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section className="py-16 bg-foreground">

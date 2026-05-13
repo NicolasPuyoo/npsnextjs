@@ -44,4 +44,3 @@ bun.lockb
 
 # Supabase CLI local state
 supabase/.temp/
-.claude/

@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { ShieldCheck, Palette, Dumbbell, Snowflake, Circle, Wrench, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
-import CategoryFeatureList from "@/components/CategoryFeatureList";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
@@ -12,30 +12,37 @@ import heroImage from "@/assets/categories/sport/outdoor.webp";
 
 const features = [
   {
+    icon: ShieldCheck,
     title: "protection de l'athlète",
     description: "ergonomie et diffusion de force pour les athlètes, assure la protection des articulations des athlètes et évites des blessures à cause des chutes"
   },
   {
+    icon: Palette,
     title: "options de design",
     description: "des couleurs variés augmente le plaisir de jouer (découpage facile de sol possible avec designs et couleurs différents)"
   },
   {
+    icon: Dumbbell,
     title: "résistance",
     description: "durable et résistant, grâce au système collé sur place composé d'une couche élastique robuste et d'une couche de finition résistante en EPDM"
   },
   {
+    icon: Snowflake,
     title: "résistance aux intempéries",
     description: "le revêtement peut être utilisé dans tous les endroits et sous tous les climats du monde"
   },
   {
+    icon: Circle,
     title: "caractéristiques de rebond élevés",
     description: "la surface est jouable pour les différents jeux de balles (rebond de balle de 100%)"
   },
   {
+    icon: Wrench,
     title: "installation facile",
     description: "simplement dérouler, découper et coller (sans équipement particulier = économie de coûts d'installation)"
   },
   {
+    icon: Sparkles,
     title: "nettoyage facile",
     description: "balayer et laver avec de l'eau clair est suffisant, découpe et remplacement simple des zones fortement usés"
   }
@@ -72,8 +79,34 @@ const Loisirs = () => {
           </motion.div>
         </div>
       </section>
-      {/* Features (sober numbered list, replaces icon-card AI slop) */}
-      <CategoryFeatureList items={features} />
+
+      {/* Features Section */}
+      <section className="py-16 bg-foreground">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-foreground/95 rounded-2xl p-6 text-center"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
+                  <feature.icon className="w-10 h-10 text-white/80" />
+                </div>
+                <h3 className="text-primary font-semibold text-lg mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section className="py-16 bg-foreground">

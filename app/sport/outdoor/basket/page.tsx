@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { Circle, PersonStanding, Snowflake, Dumbbell, Wrench, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
-import CategoryFeatureList from "@/components/CategoryFeatureList";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
@@ -12,26 +12,32 @@ import heroImage from "@/assets/categories/sport/outdoor.webp";
 
 const features = [
   {
+    icon: Circle,
     title: "caractéristiques de rebond élevés",
     description: "la surface est parfaitement adapté au basket (100% de rebondissement de la balle)"
   },
   {
+    icon: PersonStanding,
     title: "confort de jeu",
     description: "pour préserver le système musculo-squelettique et les articulations des athlètes et prévenir les blessures dû aux chutes"
   },
   {
+    icon: Snowflake,
     title: "résistance aux intempéries",
     description: "le revêtement peut être utilisé dans tous les endroits et sous tous les climats du monde"
   },
   {
+    icon: Dumbbell,
     title: "résistance",
     description: "pour répondre à des exigences différentes au cours du jeu dû à des mouvements dynamiques"
   },
   {
+    icon: Wrench,
     title: "installation facile",
     description: "il suffit de dérouler, couper et coller (sans équipement particulier = économie de coûts d'installation)"
   },
   {
+    icon: Sparkles,
     title: "nettoyage et entretien facile",
     description: "Il suffit de balayer et d'essuyer avec de l'eau"
   }
@@ -68,8 +74,34 @@ const Basket = () => {
           </motion.div>
         </div>
       </section>
-      {/* Features (sober numbered list, replaces icon-card AI slop) */}
-      <CategoryFeatureList items={features} />
+
+      {/* Features Section */}
+      <section className="py-16 bg-foreground">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="bg-foreground/95 rounded-2xl p-6 text-center"
+              >
+                <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
+                  <feature.icon className="w-10 h-10 text-white/80" />
+                </div>
+                <h3 className="text-primary font-semibold text-lg mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-white/70 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section className="py-16 bg-foreground">
