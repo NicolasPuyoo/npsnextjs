@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "npsnextjs",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-05-19",
+  // nodejs_compat: required by Next.js App Router SSR on Workers runtime.
+  // global_fetch_strictly_public: prevents internal Worker→Worker fetches
+  //   from bypassing Cloudflare's edge cache (recommended by OpenNext docs).
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}
