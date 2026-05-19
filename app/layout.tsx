@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   description:
     "Spécialiste de l'isolation acoustique et anti-vibratoire depuis plus de 20 ans. Solutions pour le bâtiment, le sport, l'hôtellerie et le bricolage.",
   authors: [{ name: "NPS Acoustique" }],
+  // Icons served as plain static assets from /public — works on Cloudflare
+  // Pages without the auto-generated icon route handler (which requires edge
+  // runtime). The PNG files live at public/icon.png + public/apple-icon.png.
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

@@ -44,3 +44,7 @@ bun.lockb
 
 # Supabase CLI local state
 supabase/.temp/
+
+# Cloudflare Pages build artifacts
+.vercel
+.wrangler
