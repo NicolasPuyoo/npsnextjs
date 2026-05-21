@@ -21,104 +21,92 @@ import sportecAbsorberPads from "@/assets/products/sport/SPORTEC_ABSORBER_PADS.p
 // Product lines data with products
 const productLines = [
   {
-    name: "BASIC LINE",
-    subtitle: "DALLES AUTONOMES AVEC DIFFÉRENTES POSSIBILITÉS DE DESIGN",
-    description: "Des dalles autonomes modulaires offrant une flexibilité maximale en termes de design et d'installation. Idéales pour les espaces nécessitant une solution simple et efficace.",
+    name: "FLOORING LINE",
+    subtitle: "REVÊTEMENT DE SOL EN ROULEAU POUR FITNESS",
+    description: "SPORTEC® color — revêtement caoutchouc EPDM en rouleau 4-12 mm, fini lisse à pores ouverts. Solution polyvalente pour salles de fitness, locaux commerciaux, showrooms, locaux techniques et patinoires. Densité ~1050 kg/m³, dureté Shore A 60 ± 5.",
     specs: [
-      { label: "Épaisseur", value: "20 mm" },
-      { label: "Absorption des chocs", value: "40%" },
-      { label: "Réduction du bruit", value: "27 dB" },
-      { label: "Dimensions", value: "500 x 500 mm" },
+      { label: "Épaisseur", value: "4, 6, 8, 10, 12 mm" },
+      { label: "Largeur rouleau", value: "1.500 mm" },
+      { label: "Réduction du bruit", value: "15 dB (4 mm) à 18 dB (8 mm)" },
+      { label: "Restitution énergie", value: "83-90 % selon épaisseur" },
     ],
     bgColor: "from-[#2a2a2a] to-[#3a3a3a]",
     products: [
       {
         name: "SPORTEC® color",
-        subtitle: "Dalles puzzle avec système d'emboîtement SPORTEC®2.0",
+        subtitle: "Revêtement rouleau EPDM — fitness, retail, patinoires (4-12 mm)",
         image: sportecColor.src,
         slug: "sportec-color"
       },
+    ]
+  },
+  {
+    name: "MODULAR LINE",
+    subtitle: "DALLES EMBOÎTABLES AMOVIBLES",
+    description: "Dalles SPORTEC® puzzle 2.0 — solution modulaire emboîtable sans colle pour installations rapides et réversibles. Idéale pour fitness, retail, showrooms, abords de patinoire. Variantes Color (15% EPDM, Efl) et Purcolor (100% EPDM, Cfl-s1).",
+    specs: [
+      { label: "Épaisseur", value: "6, 8, 10 mm" },
+      { label: "Format extérieur", value: "1030 × 1030 mm" },
+      { label: "Format couvrant", value: "1000 × 1000 mm" },
+      { label: "Réduction du bruit", value: "15-18 dB selon épaisseur" },
+    ],
+    bgColor: "from-[#3a3a3a] to-[#4a4a4a]",
+    products: [
+      {
+        name: "SPORTEC® puzzle 2.0",
+        subtitle: "Dalles emboîtables sans colle — Color ou Purcolor (100% EPDM)",
+        image: sportecPuzzle.src,
+        slug: "sportec-puzzle-2-0"
+      },
       {
         name: "SPORTEC® style",
-        subtitle: "Dalles puzzle avec système d'emboîtement SPORTEC®2.0",
+        subtitle: "Dalles 30 ou 70 mm — protection haltérophilie & chutes de poids",
         image: sportecStyle.src,
         slug: "sportec-style"
       }
     ]
   },
   {
-    name: "ALL-ROUND LINE",
-    subtitle: "ISOLATION ACOUSTIQUE ET ABSORPTION DES CHOCS",
-    description: "Une solution polyvalente combinant isolation acoustique performante et absorption des chocs. Parfaite pour les salles de fitness multi-activités.",
+    name: "ACOUSTIC LINE",
+    subtitle: "ISOLATION ACOUSTIQUE POUR ZONES DE CHUTE DE POIDS",
+    description: "Dalles de protection 30 mm pour zones d'haltérophilie indoor et outdoor. Granulés de caoutchouc recyclé (BASE MS) ou EPDM coupe-feu (BASE FR), avec excellentes propriétés d'isolation acoustique.",
     specs: [
-      { label: "Épaisseur", value: "25 mm" },
-      { label: "Absorption des chocs", value: "52%" },
-      { label: "Réduction du bruit", value: "31 dB" },
-      { label: "Dimensions", value: "1000 x 1000 mm" },
+      { label: "Épaisseur", value: "30 mm" },
+      { label: "Réduction du bruit", value: "jusqu'à 25 dB (BASE FR)" },
+      { label: "Format", value: "500×500, 1000×500, 1000×1000 mm" },
+      { label: "Feu", value: "Cfl-s1 (FR) / Efl (MS)" },
     ],
-    bgColor: "from-[#3a3a3a] to-[#4a4a4a]",
+    bgColor: "from-[#2a2a2a] to-[#3a3a3a]",
     products: [
       {
-        name: "SPORTEC® puzzle",
-        subtitle: "Dalles modulaires avec système d'emboîtement",
-        image: sportecPuzzle.src,
-        slug: "sportec-puzzle-2-0"
+        name: "SPORTEC® base MS",
+        subtitle: "Dalle protection haltérophilie 30 mm — granulés caoutchouc recyclé",
+        image: sportecBaseMS.src,
+        slug: "sportec-base-ms"
       },
       {
         name: "SPORTEC® base FR",
-        subtitle: "Sous-couche acoustique de désolidarisation",
+        subtitle: "Dalle coupe-feu Cfl-s1 — EPDM aggloméré PU, pour ERP",
         image: sportecBaseFR.src,
         slug: "sportec-base-fr"
       }
     ]
   },
   {
-    name: "ACOUSTIC LINE",
-    subtitle: "ISOLATION ACOUSTIQUE EXCEPTIONNELLE",
-    description: "Conçue pour les environnements exigeant une isolation acoustique maximale. Idéale pour les studios situés dans des bâtiments résidentiels ou commerciaux.",
+    name: "EQUIPMENT VIBRATION LINE",
+    subtitle: "ANTI-VIBRATION POUR ÉQUIPEMENTS CARDIO",
+    description: "Plots anti-vibration spécifiquement conçus pour isoler les vibrations des tapis de course et équipements cardio. Sandwich 3 couches (caoutchouc / âme métal + mousse PU / sous-face premium) pour absorber les micro-vibrations transmises au sol.",
     specs: [
-      { label: "Épaisseur", value: "30 mm" },
-      { label: "Absorption des chocs", value: "60%" },
-      { label: "Réduction du bruit", value: "35 dB" },
-      { label: "Dimensions", value: "1000 x 1000 mm" },
-    ],
-    bgColor: "from-[#2a2a2a] to-[#3a3a3a]",
-    products: [
-      {
-        name: "SPORTEC® base MS",
-        subtitle: "Sous-couche acoustique multi-usage",
-        image: sportecBaseMS.src,
-        slug: "sportec-base-ms"
-      },
-      {
-        name: "SPORTEC® absorber pads",
-        subtitle: "Plots d'absorption pour désolidarisation ponctuelle",
-        image: sportecAbsorberPads.src,
-        slug: "sportec-absorber-pads"
-      }
-    ]
-  },
-  {
-    name: "PERFORMANCE LINE",
-    subtitle: "ABSORPTION EXCEPTIONNELLE DES CHOCS",
-    description: "La solution ultime pour les zones à fort impact comme l'haltérophilie et le CrossFit. Protection maximale du sol et des équipements.",
-    specs: [
-      { label: "Épaisseur", value: "40 mm" },
-      { label: "Absorption des chocs", value: "70%" },
-      { label: "Réduction du bruit", value: "38 dB" },
-      { label: "Dimensions", value: "1000 x 1000 mm" },
+      { label: "Épaisseur", value: "25,5 mm" },
+      { label: "Dureté", value: "Shore A 60 ± 5" },
+      { label: "Kit", value: "4 plots (2 avant + 2 arrière)" },
+      { label: "Format", value: "380×160 mm + Ø 150 mm" },
     ],
     bgColor: "from-[#3a3a3a] to-[#4a4a4a]",
     products: [
       {
-        name: "SPORTEC® color",
-        subtitle: "Revêtement haute résistance pour zones intensives",
-        image: sportecColor.src,
-        slug: "sportec-color"
-      },
-      {
         name: "SPORTEC® absorber pads",
-        subtitle: "Plots haute performance pour absorption maximale",
+        subtitle: "Plots anti-vibration sous pieds de tapis de course (kit 4 plots)",
         image: sportecAbsorberPads.src,
         slug: "sportec-absorber-pads"
       }
