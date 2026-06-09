@@ -23,7 +23,6 @@ export const fitnessGymProducts = findAllBySlugs([
   "sportec-puzzle-2-0",
   "sportec-base-fr",
   "sportec-base-ms",
-  "sportec-absorber-pads",
 ]);
 
 // Hôtels - Isolation sous revêtements de sols + TOP RUBBERCORK + SONIC FIRE

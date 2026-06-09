@@ -16,7 +16,6 @@ import sportecStyle from "@/assets/products/sport/SPORTEC_STYLE.png";
 import sportecPuzzle from "@/assets/products/sport/SPORTEC_PUZZLE_2_0.png";
 import sportecBaseFR from "@/assets/products/sport/SPORTEC_BASE_FR.png";
 import sportecBaseMS from "@/assets/products/sport/SPORTEC_BASE_MS.png";
-import sportecAbsorberPads from "@/assets/products/sport/SPORTEC_ABSORBER_PADS.png";
 
 // Product lines data with products
 const productLines = [
@@ -89,26 +88,6 @@ const productLines = [
         subtitle: "Dalle coupe-feu Cfl-s1 — EPDM aggloméré PU, pour ERP",
         image: sportecBaseFR.src,
         slug: "sportec-base-fr"
-      }
-    ]
-  },
-  {
-    name: "EQUIPMENT VIBRATION LINE",
-    subtitle: "ANTI-VIBRATION POUR ÉQUIPEMENTS CARDIO",
-    description: "Plots anti-vibration spécifiquement conçus pour isoler les vibrations des tapis de course et équipements cardio. Sandwich 3 couches (caoutchouc / âme métal + mousse PU / sous-face premium) pour absorber les micro-vibrations transmises au sol.",
-    specs: [
-      { label: "Épaisseur", value: "25,5 mm" },
-      { label: "Dureté", value: "Shore A 60 ± 5" },
-      { label: "Kit", value: "4 plots (2 avant + 2 arrière)" },
-      { label: "Format", value: "380×160 mm + Ø 150 mm" },
-    ],
-    bgColor: "from-[#3a3a3a] to-[#4a4a4a]",
-    products: [
-      {
-        name: "SPORTEC® absorber pads",
-        subtitle: "Plots anti-vibration sous pieds de tapis de course (kit 4 plots)",
-        image: sportecAbsorberPads.src,
-        slug: "sportec-absorber-pads"
       }
     ]
   }

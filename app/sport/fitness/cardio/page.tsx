@@ -97,10 +97,10 @@ const Cardio = () => {
             </h2>
             <p className="text-white/75 max-w-3xl mx-auto leading-relaxed">
               Pour les zones cardio (tapis, vélos, elliptiques), notre référence est le
-              <strong className="text-white"> SPORTEC® ABSORBER PADS</strong> qui absorbe les chocs
-              sous les appareils. Le
-              <strong className="text-white"> SPORTEC® COLOR</strong> couvre les couloirs de
-              circulation et les zones de transition. Voici la gamme complète disponible.
+              <strong className="text-white"> SPORTEC® COLOR</strong> en rouleau 4 à 8 mm collé,
+              qui résiste à l'abrasion des roues et amortit les vibrations transmises au sol par les
+              équipements. Pour les couloirs de circulation et zones de transition, on reste sur
+              SPORTEC® COLOR avec inserts EPDM colorés. Voici la gamme complète disponible.
             </p>
           </motion.div>
           

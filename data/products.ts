@@ -52,7 +52,6 @@ import wheelprotectUsage from "@/assets/products/wheelprotect-usage.webp";
 import topVibWashUsage from "@/assets/products/top-vib-wash-usage.webp";
 
 // Sport products
-import sportecAbsorberPads from "@/assets/products/sport/SPORTEC_ABSORBER_PADS.png";
 import sportecBaseFr from "@/assets/products/sport/SPORTEC_BASE_FR.png";
 import sportecBaseMs from "@/assets/products/sport/SPORTEC_BASE_MS.png";
 import sportecColor from "@/assets/products/sport/SPORTEC_COLOR.png";
@@ -866,21 +865,6 @@ export const batimentProducts: Product[] = [
 export const industrieProducts: Product[] = [];
 
 export const sportProducts: Product[] = [
-  { name: "SPORTEC® ABSORBER PADS", slug: "sportec-absorber-pads", image: sportecAbsorberPads.src, category: "sport",
-    details: {
-      description: "SPORTEC® absorber pads sont un système anti-vibratoire conçu pour les équipements cardio. Un kit comprend 4 plots (2 avant + 2 arrière) à placer directement sous les pieds d'un tapis de course, afin d'isoler les vibrations transmises au sol pendant l'utilisation.",
-      specifications: [
-        { label: "Construction", value: "Sandwich 3 couches : surface SPORTEC color 15 / âme plaque métal + mousse PU / sous-face SPORTEC premium" },
-        { label: "Format", value: "Kit de 4 plots — 2 avant 380 × 160 mm + 2 arrière Ø 150 mm" },
-        { label: "Épaisseur", value: "25,5 mm (± 1,5 %)" },
-        { label: "Dureté", value: "Shore A 60 ± 5" },
-        { label: "Surface", value: "Anti-dérapante (classe R10)" },
-        { label: "Application", value: "Sous tapis de course et équipements cardio" },
-        { label: "Propriétés", value: "Isolation des vibrations transmises au sol pendant l'utilisation des appareils" },
-        { label: "Certifications", value: "A+, AgBB, Indoor Air Comfort Gold" },
-      ],
-    }
-  },
   { name: "SPORTEC® BASE FR", slug: "sportec-base-fr", image: sportecBaseFr.src, category: "sport",
     details: {
       description: "Comme la SPORTEC® base MS, la SPORTEC® base FR protège le support contre les impacts de poids lourds, mais présente en outre des valeurs de protection contre le feu plus élevées. Elle présente également d'excellentes propriétés d'isolation acoustique et peut être utilisée à l'intérieur comme à l'extérieur.",

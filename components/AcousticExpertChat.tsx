@@ -103,12 +103,15 @@ export const AcousticExpertChat = () => {
 
         try {
           const parsed = JSON.parse(jsonStr);
-          // Anthropic SSE: only content_block_delta events with text_delta carry chunks.
-          // Other events (message_start, content_block_start, message_stop, etc.) ignored.
-          const chunk: string | undefined =
+          // Accept both Anthropic native SSE (content_block_delta) and
+          // OpenAI-compatible streaming (chat.completion.chunk). The Supabase
+          // edge function may route via either provider.
+          const anthropicChunk =
             parsed.type === "content_block_delta" && parsed.delta?.type === "text_delta"
               ? parsed.delta.text
               : undefined;
+          const openaiChunk: string | undefined = parsed.choices?.[0]?.delta?.content;
+          const chunk: string | undefined = anthropicChunk ?? openaiChunk;
           if (chunk) {
             assistantContent += chunk;
             setMessages((prev) => {

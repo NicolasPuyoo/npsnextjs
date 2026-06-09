@@ -103,9 +103,10 @@ const Halterophilie = () => {
             <p className="text-white/75 max-w-3xl mx-auto leading-relaxed">
               Pour la musculation et l'haltérophilie, le
               <strong className="text-white"> SPORTEC® STYLE</strong> protège votre sol des chutes
-              de charges lourdes. Sur les zones de chute (deadlift, snatch), nous ajoutons des
-              <strong className="text-white"> SPORTEC® ABSORBER PADS</strong>. Voici la gamme
-              complète disponible.
+              de charges lourdes. Sur les zones de drop (deadlift, snatch), nous combinons une
+              plateforme bois sur
+              <strong className="text-white"> SPORTEC® BASE FR</strong>{" "}
+              (dalle 30 mm Cfl-s1, absorption choc 51 %). Voici la gamme complète disponible.
             </p>
           </motion.div>
           

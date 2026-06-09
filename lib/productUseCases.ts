@@ -9,7 +9,6 @@ export const PRODUCT_USE_CASE: Record<string, string> = {
   "sportec-puzzle-2-0": "Dalles emboîtables fitness amovibles",
   "sportec-base-fr": "Dalle EPDM coupe-feu Cfl-s1 (ERP)",
   "sportec-base-ms": "Dalle protection haltérophilie indoor",
-  "sportec-absorber-pads": "Plots anti-vibration sous tapis de course",
 
   // BRICOLAGE / PRO — Profimat
   "profimat-bumpy": "Butoir d'approche parking",

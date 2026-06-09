@@ -178,7 +178,7 @@ export const guides: Guide[] = [
           "Cardio (vélos, tapis, elliptiques) — sol fin (4-8 mm), résistant à l'abrasion. SPORTEC color en rouleau convient.",
           "Fonctionnel / fitness libre — sol moyen (8-12 mm), bonne absorption des chocs. SPORTEC color 8-12 mm ou puzzle 8-10 mm.",
           "Musculation — sol épais (10-30 mm), résistant aux chutes de poids. SPORTEC base FR ou puzzle 10 mm en sous-couche, finition au choix.",
-          "Haltérophilie / zones de drop — épaisseur 30-70 mm + plots de découplage. SPORTEC style 30-70 mm + SPORTEC absorber pads sous plateforme bois.",
+          "Haltérophilie / zones de drop — épaisseur 30-70 mm. SPORTEC style 30-70 mm avec SPORTEC base FR 30 mm en dalle de protection sous plateforme bois.",
           "Multisports / gymnase — surface conforme EN 14904, attention au coefficient de friction. À étudier au cas par cas.",
           "Outdoor (terrasse fitness, terrains multi-jeux) — version drainante. SPORTEC base MS ou SPORTEC style version UNI versa.",
         ],
@@ -189,10 +189,9 @@ export const guides: Guide[] = [
         bullets: [
           "SPORTEC style — dalles 500×500 ou 1000×500 mm, épaisseurs 30 et 70 mm. Réduction des bruits de pas jusqu'à 42 dB. Variantes feu Efl ou Cfl-s1.",
           "SPORTEC color — rouleaux 1500 mm de large, épaisseurs 4-12 mm. Réduction des bruits de pas jusqu'à 18 dB. Surface granuleuse avec inserts EPDM colorés.",
-          "SPORTEC base FR — sous-couche 3-12 mm, classement feu Cfl-s1 (ERP). ΔLw 17 dB en 6 mm. Certifié A+, AgBB, Blue Angel.",
-          "SPORTEC base MS — sous-couche élastique, drainante, 3-12 mm. Pour gazon synthétique et terrains multisports outdoor.",
+          "SPORTEC base FR — dalle 30 mm EPDM agglomérée PU, format 500×500 ou 1000×500 mm. Classement feu Cfl-s1 (B1) pour ERP. Absorption choc 51 %, ΔLw 25 dB. Posée sous plateforme bois pour zones de drop haltérophilie.",
+          "SPORTEC base MS — dalle 30 mm caoutchouc recyclé agglomérée PU, format 500×500, 1000×500 ou 1000×1000 mm. Protection contre les chutes de poids, intérieur comme extérieur.",
           "SPORTEC puzzle 2.0 — dalles emboîtables sans colle 1000×1000 mm, épaisseurs 6/8/10 mm. ΔLw 17-18 dB. Solution amovible.",
-          "SPORTEC absorber pads — plots haute densité pour zones de musculation lourde et haltérophilie. Réduction du bruit de structure 25-30 dB.",
         ],
       },
       {
@@ -207,10 +206,9 @@ export const guides: Guide[] = [
     products: [
       { slug: "sportec-style", why: "Dalles 30/70 mm pour zones haltérophilie, jusqu'à 42 dB" },
       { slug: "sportec-color", why: "Rouleau 4-12 mm pour cardio et fonctionnel, jusqu'à 18 dB" },
-      { slug: "sportec-base-fr", why: "Sous-couche Cfl-s1 (ERP), ΔLw 17 dB en 6 mm" },
-      { slug: "sportec-base-ms", why: "Sous-couche drainante pour outdoor multisports" },
+      { slug: "sportec-base-fr", why: "Dalle 30 mm Cfl-s1 pour zones drop haltérophilie (ERP)" },
+      { slug: "sportec-base-ms", why: "Dalle 30 mm protection chutes de poids, indoor/outdoor" },
       { slug: "sportec-puzzle-2-0", why: "Dalles modulaires sans colle, ΔLw 17-18 dB" },
-      { slug: "sportec-absorber-pads", why: "Plots musculation lourde, 25-30 dB structure" },
     ],
     faqs: [
       {
@@ -221,7 +219,7 @@ export const guides: Guide[] = [
       {
         question: "Faut-il une plateforme dédiée pour l'haltérophilie ?",
         answer:
-          "Pour les zones de drop (chute de barres olympiques), oui. La configuration recommandée combine une plateforme bois sur SPORTEC absorber pads + un revêtement SPORTEC style 30 ou 70 mm autour. Cela protège le sol porteur et réduit le bruit structurel transmis aux étages.",
+          "Pour les zones de drop (chute de barres olympiques), oui. La configuration recommandée combine une plateforme bois sur SPORTEC base FR (dalle 30 mm Cfl-s1, absorption choc 51 %) + un revêtement SPORTEC style 30 ou 70 mm autour. Cela protège le sol porteur et réduit le bruit structurel transmis aux étages.",
       },
       {
         question: "SPORTEC respecte-t-il la norme EN 14904 ?",
@@ -879,11 +877,11 @@ export const guides: Guide[] = [
       },
       {
         heading: "Dimensionnement par zone",
-        body: `**Zone de WOD / fonctionnel** : SPORTEC color en rouleau 8-12 mm collé, ou SPORTEC puzzle 2.0 en dalles emboîtables 8-10 mm pour une pose amovible. Réduction du bruit de pas selon fiche technique : jusqu'à 18 dB pour SPORTEC color.\n\n**Zone d'haltérophilie / drop** : la configuration recommandée combine :\n- Plateforme bois (multipli 2× 21 mm croisés) sur SPORTEC absorber pads (plots haute densité, réduction du bruit structurel 25-30 dB selon fiche).\n- Entourage en SPORTEC style 30 mm ou 70 mm pour la zone de drop libre.\n\n**Zone cardio** : SPORTEC color 4-6 mm en rouleau collé, finition fine pour passage de roues d'assault bike.\n\n**Périphérie / lignes** : SPORTEC color avec inserts EPDM colorés pour signaler les zones (start lines, lifting boxes, etc.).`,
+        body: `**Zone de WOD / fonctionnel** : SPORTEC color en rouleau 8-12 mm collé, ou SPORTEC puzzle 2.0 en dalles emboîtables 8-10 mm pour une pose amovible. Réduction du bruit de pas selon fiche technique : jusqu'à 18 dB pour SPORTEC color.\n\n**Zone d'haltérophilie / drop** : la configuration recommandée combine :\n- Plateforme bois (multipli 2× 21 mm croisés) sur SPORTEC base FR (dalle 30 mm EPDM, Cfl-s1, absorption choc 51 %, ΔLw 25 dB).\n- Entourage en SPORTEC style 30 mm ou 70 mm pour la zone de drop libre.\n\n**Zone cardio** : SPORTEC color 4-6 mm en rouleau collé, finition fine pour passage de roues d'assault bike.\n\n**Périphérie / lignes** : SPORTEC color avec inserts EPDM colorés pour signaler les zones (start lines, lifting boxes, etc.).`,
       },
       {
-        heading: "Pourquoi des plots sous la plateforme drop",
-        body: `Lors d'un drop d'haltérophilie (chute libre d'une barre depuis position haute), l'énergie cinétique transmise au sol est massive. Sans découplage spécifique, cette énergie se transmet sous forme de bruit structurel à toute la dalle béton et aux étages voisins.\n\nLes **SPORTEC absorber pads** sont des plots caoutchouc haute densité conçus pour absorber et diffuser cette énergie. Placés sous la plateforme bois, ils :\n- Réduisent le bruit structurel de 25-30 dB selon la configuration.\n- Protègent la dalle des fissures par fatigue.\n- Améliorent le ressenti pour le pratiquant (rebond contrôlé).\n\nC'est l'investissement le plus rentable pour une box CrossFit en immeuble (où la nuisance aux étages voisins est un risque commercial direct).`,
+        heading: "Pourquoi une dalle de protection sous la plateforme drop",
+        body: `Lors d'un drop d'haltérophilie (chute libre d'une barre depuis position haute), l'énergie cinétique transmise au sol est massive. Sans découplage spécifique, cette énergie se transmet sous forme de bruit structurel à toute la dalle béton et aux étages voisins.\n\nLa **SPORTEC base FR** (dalle 30 mm en granulés EPDM agglomérés au PU) est conçue pour absorber et diffuser cette énergie. Posée en pleine surface sous la plateforme bois, elle :\n- Absorbe environ 51 % de l'énergie d'impact (norme DIN V 18035-6).\n- Réduit les bruits de pas de 25 dB (jusqu'à 33 dB en combinaison avec SPORTEC supercell DC2).\n- Protège la dalle béton des fissures par fatigue.\n- Apporte un classement feu Cfl-s1 (B1) pour les ERP exigeants.\n\nC'est l'investissement le plus rentable pour une box CrossFit en immeuble (où la nuisance aux étages voisins est un risque commercial direct).`,
       },
       {
         heading: "Classement feu et certifications",
@@ -905,20 +903,19 @@ export const guides: Guide[] = [
       { slug: "sportec-color", why: "Rouleau 4-12 mm pour zones WOD et cardio" },
       { slug: "sportec-style", why: "Dalles 30-70 mm pour entourage zone drop" },
       { slug: "sportec-puzzle-2-0", why: "Dalles modulaires sans colle" },
-      { slug: "sportec-absorber-pads", why: "Plots sous plateforme haltérophilie, 25-30 dB" },
-      { slug: "sportec-base-fr", why: "Sous-couche Cfl-s1 pour ERP exigeants" },
+      { slug: "sportec-base-fr", why: "Dalle 30 mm Cfl-s1 sous plateforme haltérophilie, 25 dB" },
       { slug: "damtec-estra", why: "Sous chape pour box en immeuble" },
     ],
     faqs: [
       {
         question: "Quelle épaisseur de sol pour une zone de drop CrossFit ?",
         answer:
-          "Pour la zone de drop libre, viser un revêtement caoutchouc 30-50 mm minimum (SPORTEC style en 30 ou 70 mm). En complément, pour les barres lourdes, prévoir une plateforme bois sur SPORTEC absorber pads. La combinaison est plus efficace qu'une simple épaisseur de caoutchouc.",
+          "Pour la zone de drop libre, viser un revêtement caoutchouc 30-50 mm minimum (SPORTEC style en 30 ou 70 mm). En complément, pour les barres lourdes, prévoir une plateforme bois sur SPORTEC base FR (dalle 30 mm Cfl-s1). La combinaison est plus efficace qu'une simple épaisseur de caoutchouc.",
       },
       {
         question: "Box CrossFit en étage : comment éviter de gêner les voisins ?",
         answer:
-          "Trois leviers cumulables : (1) sous-couche acoustique sous chape avant pose du caoutchouc (DAMTEC Estra ou Wave 3D) ; (2) plateforme bois sur SPORTEC absorber pads pour la zone d'haltérophilie ; (3) horaires d'ouverture limités sur les drops lourds. Le diagnostic acoustique préalable est recommandé.",
+          "Trois leviers cumulables : (1) sous-couche acoustique sous chape avant pose du caoutchouc (DAMTEC Estra ou Wave 3D) ; (2) plateforme bois sur SPORTEC base FR (dalle 30 mm Cfl-s1) pour la zone d'haltérophilie ; (3) horaires d'ouverture limités sur les drops lourds. Le diagnostic acoustique préalable est recommandé.",
       },
       {
         question: "Le sol caoutchouc protège-t-il la dalle béton ?",

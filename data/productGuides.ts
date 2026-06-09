@@ -6,7 +6,6 @@ import sportecPuzzle from "@/assets/products/sport/SPORTEC_PUZZLE_2_0.png";
 import sportecStyle from "@/assets/products/sport/SPORTEC_STYLE.png";
 import sportecBaseFr from "@/assets/products/sport/SPORTEC_BASE_FR.png";
 import sportecBaseMs from "@/assets/products/sport/SPORTEC_BASE_MS.png";
-import sportecAbsorberPads from "@/assets/products/sport/SPORTEC_ABSORBER_PADS.png";
 
 export type ProductRating = "bestseller" | "recommended" | "appropriate" | null;
 
@@ -110,23 +109,6 @@ export const fitnessGuide: ProductGuide = {
             "halterophilie": "bestseller",
             "fonctionnel": null,
             "yoga": "recommended",
-          },
-        },
-      ],
-    },
-    {
-      title: "Sous-couches et accessoires",
-      products: [
-        {
-          name: "SPORTEC® absorber pads",
-          slug: "sportec-absorber-pads",
-          image: sportecAbsorberPads.src,
-          ratings: {
-            "cardio": "appropriate",
-            "musculation": "recommended",
-            "halterophilie": "bestseller",
-            "fonctionnel": "recommended",
-            "yoga": null,
           },
         },
       ],
@@ -278,23 +260,6 @@ export const sportGuide: ProductGuide = {
             "basket": "bestseller",
             "tennis": "bestseller",
             "athletisme": "recommended",
-            "ski": null,
-          },
-        },
-      ],
-    },
-    {
-      title: "Sous-couches et accessoires",
-      products: [
-        {
-          name: "SPORTEC® absorber pads",
-          slug: "sportec-absorber-pads",
-          image: sportecAbsorberPads.src,
-          ratings: {
-            "multi-jeux": "recommended",
-            "basket": "recommended",
-            "tennis": "appropriate",
-            "athletisme": "bestseller",
             "ski": null,
           },
         },
