@@ -111,7 +111,7 @@ const Magasins = () => {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sportProducts.map((product, index) => (
+            {sportProducts.filter((p) => !["sportec-base-fr", "sportec-base-ms", "sportec-style"].includes(p.slug)).map((product, index) => (
               <motion.div
                 key={product.slug}
                 initial={{ opacity: 0, y: 12 }}
