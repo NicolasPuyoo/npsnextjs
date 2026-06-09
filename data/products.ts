@@ -942,7 +942,9 @@ export const sportProducts: Product[] = [
         { label: "Résistance au glissement", value: "R10 (DIN 51130), R11 si scellé" },
         { label: "Réduction des bruits de pas", value: "15 dB (4 mm) — 16 dB (6 mm) — 18 dB (8 mm) (DIN EN ISO 10140-3:2015-11)" },
         { label: "Compatibilité chaises roulantes", value: "Adapté pour utilisation permanente (DIN EN 1307)" },
-        { label: "Certifications", value: "A+, AgBB, Indoor Air Comfort GOLD, Blue Angel (DE-UZ 120), BREEAM International (niveau exemplaire), E1 (formaldéhyde)" },
+        { label: "Marquage CE", value: "EN 14041 (revêtements de sol résilients)" },
+        { label: "Émissions dans l'air intérieur", value: "A+ (étiquetage sanitaire français), AgBB (santé indoor Allemagne), Indoor Air Comfort GOLD, E1 (formaldéhyde)" },
+        { label: "Certifications", value: "Blue Angel (DE-UZ 120), BREEAM International (niveau exemplaire)" },
       ],
       dataSheetUrl: "/fiches-techniques/fiche-technique-sportec-color.pdf",
     }
