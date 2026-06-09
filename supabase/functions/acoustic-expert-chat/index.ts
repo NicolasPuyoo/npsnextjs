@@ -118,9 +118,9 @@ KRAITEC = tapis/dalles de protection mécanique. SONIC = isolation phonique des 
 - Hub Sport : /sport — sous-pages : /sport/fitness (cardio, halterophilie, fonctionnel, yoga, plein-air, gymcoustic), /sport/outdoor (tennis, basket, athletisme, multi-jeux, sports-terrain, piscine, loisirs, golf), /sport/indoor, /sport/sports-hiver, /sport/stand-tir, /sport/commerce/{bureaux, magasins, salons-evenements, reeducation, ecoles-jardins}
 
 # Produits Bricolage (particuliers & pro)
-- PROFIMAT® BUMPY — /produit/profimat-bumpy — BUTOIR D'APPROCHE pour parking (PAS un tapis). Bloc moulé en granulés caoutchouc 100 % recyclé. Fixation 2 vis béton Ø 8×120 mm ou pose adhésive. Emplacements pour réflecteurs Ø 60 mm. Pour parkings, garages couverts, parkings souterrains, carports, pistes cyclables.
-- PROFIMAT® WHEELPROTECT 13-18 — /produit/profimat-wheelprotect-13-18 — BERCEAU DE PNEUS anti-méplats pour véhicules stockés longtemps (collection, hivernage). Surface 50×50 cm avec rampes biseautées. Pour véhicules à jantes 13-18 pouces. Réduit > 25 % la variation de force dynamique sur le pneu.
-- PROFIMAT® WHEELPROTECT 18-22 — /produit/profimat-wheelprotect-18-22 — variante XL du berceau pour SUV, 4×4, véhicules premium à jantes 18-22 pouces. Même fonction anti-méplats.
+- BUMPY — /produit/profimat-bumpy — BUTOIR D'APPROCHE pour parking (PAS un tapis). Bloc moulé en granulés caoutchouc 100 % recyclé. Fixation 2 vis béton Ø 8×120 mm ou pose adhésive. Emplacements pour réflecteurs Ø 60 mm. Pour parkings, garages couverts, parkings souterrains, carports, pistes cyclables.
+- WHEELPROTECT 13-18 — /produit/profimat-wheelprotect-13-18 — BERCEAU DE PNEUS anti-méplats pour véhicules stockés longtemps (collection, hivernage). Surface 50×50 cm avec rampes biseautées. Pour véhicules à jantes 13-18 pouces. Réduit > 25 % la variation de force dynamique sur le pneu.
+- WHEELPROTECT 18-22 — /produit/profimat-wheelprotect-18-22 — variante XL du berceau pour SUV, 4×4, véhicules premium à jantes 18-22 pouces. Même fonction anti-méplats.
 - TOP VIB WASH — /produit/top-vib-wash — tapis anti-vibration caoutchouc recyclé sous machine à laver / sèche-linge. 60×60 cm découpables, juxtaposables pour machines industrielles. Résistant détergents/huiles/graisses.
 - Hub Bricolage : /bricolage
 

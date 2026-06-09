@@ -1009,9 +1009,9 @@ export const sportProducts: Product[] = [
 ];
 
 export const bricolageProducts: Product[] = [
-  { name: "PROFIMAT® BUMPY", slug: "profimat-bumpy", image: profimatBumpy.src, category: "bricolage",
+  { name: "BUMPY", slug: "profimat-bumpy", image: profimatBumpy.src, category: "bricolage",
     details: {
-      description: "PROFIMAT® bumpy est un butoir d'approche en granulés de caoutchouc recyclé pour parkings, garages couverts, parkings souterrains et carports. Fixé au sol ou au mur avec des vis à béton, il protège murs, portières et pneus contre les chocs de stationnement. Emplacements intégrés pour réflecteurs Ø 60 mm.",
+      description: "BUMPY est un butoir d'approche en granulés de caoutchouc recyclé pour parkings, garages couverts, parkings souterrains et carports. Fixé au sol ou au mur avec des vis à béton, il protège murs, portières et pneus contre les chocs de stationnement. Emplacements intégrés pour réflecteurs Ø 60 mm.",
       specifications: [
         { label: "Matériau", value: "Granulés de caoutchouc recyclé 100%, entièrement recyclable" },
         { label: "Format", value: "Bloc moulé" },
@@ -1024,9 +1024,9 @@ export const bricolageProducts: Product[] = [
       ],
     }
   },
-  { name: "PROFIMAT® WHEELPROTECT 13-18", slug: "profimat-wheelprotect-13-18", image: profimatWheelprotect1318.src, category: "bricolage",
+  { name: "WHEELPROTECT 13-18", slug: "profimat-wheelprotect-13-18", image: profimatWheelprotect1318.src, category: "bricolage",
     details: {
-      description: "PROFIMAT® wheelprotect est un berceau de pneus en granulés de caoutchouc recyclé qui prévient l'apparition de méplats lors d'immobilisations prolongées (collection, hivernage, stockage saisonnier). Surface de contact 50 × 50 cm avec rampes biseautées avant et arrière. Variante Standard pour véhicules à jantes 13 à 18 pouces.",
+      description: "WHEELPROTECT est un berceau de pneus en granulés de caoutchouc recyclé qui prévient l'apparition de méplats lors d'immobilisations prolongées (collection, hivernage, stockage saisonnier). Surface de contact 50 × 50 cm avec rampes biseautées avant et arrière. Variante Standard pour véhicules à jantes 13 à 18 pouces.",
       specifications: [
         { label: "Matériau", value: "Granulés de caoutchouc recyclé" },
         { label: "Format", value: "Surface de contact 50 × 50 cm, rampes biseautées avant/arrière" },
@@ -1040,9 +1040,9 @@ export const bricolageProducts: Product[] = [
       usageImage: wheelprotectUsage.src,
     }
   },
-  { name: "PROFIMAT® WHEELPROTECT 18-22", slug: "profimat-wheelprotect-18-22", image: profimatWheelprotect1822.src, category: "bricolage",
+  { name: "WHEELPROTECT 18-22", slug: "profimat-wheelprotect-18-22", image: profimatWheelprotect1822.src, category: "bricolage",
     details: {
-      description: "PROFIMAT® wheelprotect XL est un berceau de pneus en granulés de caoutchouc recyclé qui prévient l'apparition de méplats lors d'immobilisations prolongées. Variante grandes dimensions pour SUV, 4×4, utilitaires et véhicules premium à jantes 18 à 22 pouces.",
+      description: "WHEELPROTECT XL est un berceau de pneus en granulés de caoutchouc recyclé qui prévient l'apparition de méplats lors d'immobilisations prolongées. Variante grandes dimensions pour SUV, 4×4, utilitaires et véhicules premium à jantes 18 à 22 pouces.",
       specifications: [
         { label: "Matériau", value: "Granulés de caoutchouc recyclé" },
         { label: "Format", value: "Surface de contact agrandie, rampes biseautées avant/arrière" },

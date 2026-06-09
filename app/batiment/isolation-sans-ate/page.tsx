@@ -9,9 +9,10 @@ import ExploreMore from "@/components/ExploreMore";
 import isolationSansAte from "@/assets/batiment/isolation-sans-ate.webp";
 
 const IsolationSansATE = () => {
-  // Filtrer tous les produits qui contiennent "Top" dans le nom
+  // Filtrer par la taxonomie réelle plutôt que par le mot "top" dans le nom
+  // (sinon les 4 KRAITEC TOP de la gamme protection toiture remontent ici par erreur).
   const products = batimentProducts.filter(
-    (p) => p.name.toLowerCase().includes("top")
+    (p) => p.subcategory === "isolation-sans-ate"
   );
 
   return (
