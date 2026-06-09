@@ -448,7 +448,7 @@ export const batimentProducts: Product[] = [
         { label: "Comportement au feu", value: "Efl (ISO 11925 / EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 18 dB avec 2 mm collé sous 5 mm LVT — ΔLw = 17 dB avec 2 mm collé sous 10 mm parquet" },
         { label: "Application", value: "Sous revêtements stratifiés, parquets, moquette, linoleum, PVC" },
-        { label: "Certifications", value: "ETA-21/0228, CE, EC1+, Blue Angel (uz156), AgBB" },
+        { label: "Certifications", value: "A+ (étiquetage sanitaire), EC1+, AgBB, Blue Angel (uz156), CE, ETA-21/0228" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Itapur.pdf",
     }
@@ -470,6 +470,7 @@ export const batimentProducts: Product[] = [
         { label: "Comportement au feu", value: "Bfl-s1 (ISO 11925 / EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 18 dB avec 2 mm collé sous 5 mm LVT — ΔLw = 17 dB avec 2 mm collé sous 10 mm parquet" },
         { label: "Application", value: "Sous revêtements stratifiés, parquets, moquette, linoleum, PVC en ERP / IGH" },
+        { label: "Certifications", value: "A+ (étiquetage sanitaire), EC1+, AgBB, Blue Angel (uz156), CE" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Itapur_B1.pdf",
     }
@@ -486,7 +487,10 @@ export const batimentProducts: Product[] = [
         { label: "Longueur de rouleau", value: "4mm: 20.000 mm / 6mm: 10.000 mm / 8mm: 8.000 mm (± 1,5 %)" },
         { label: "Epaisseur", value: "4, 6, 8 mm (± 0,3 mm)" },
         { label: "Densité", value: "680 - 750 kg/m³" },
-        { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8/ ISO 717-2) ΔLw = 19 dB avec 4 mm\n(sous chape ciment 50mm) | ΔLw = 19 dB avec 6 mm \n(sous chape ciment 35mm) | ΔLw = 20 dB avec 6 mm\n(sous chape ciment 50mm) | ΔLw = 21 dB avec 8 mm\n(sous chape ciment 50mm)" },
+        { label: "Compression maximale", value: "0,20 N/mm² (EN 826)" },
+        { label: "Comportement au feu", value: "Efl (EN 13501)" },
+        { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 19 dB (4 mm sous chape ciment 50 mm) — ΔLw = 19 dB (6 mm sous chape ciment 35 mm) — ΔLw = 20 dB (6 mm sous chape ciment 50 mm) — ΔLw = 21 dB (8 mm sous chape ciment 50 mm)" },
+        { label: "Certifications", value: "A+ (étiquetage sanitaire), EC1+, AgBB, CE, ETA-13/0342" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Estra.pdf",
     }
@@ -501,7 +505,10 @@ export const batimentProducts: Product[] = [
         { label: "Longueur de rouleau", value: "8.000 mm (± 1,5 %)" },
         { label: "Épaisseur", value: "8/4 mm (± 1 mm)" },
         { label: "Densité", value: "680 - 750 kg/m³" },
-        { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8/ ISO 717-2) | ΔLw = 22 dB sous chape ciment 50mm" },
+        { label: "Compression maximale", value: "0,10 N/mm² (EN 826)" },
+        { label: "Comportement au feu", value: "Efl (EN 13501)" },
+        { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 22 dB sous chape ciment 50 mm" },
+        { label: "Certifications", value: "A+ (étiquetage sanitaire), EC1+, AgBB, CE, ETA-13/0572" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Estra_3D.pdf",
     }
