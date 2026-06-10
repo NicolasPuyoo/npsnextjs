@@ -224,42 +224,51 @@ const ProductDetail = () => {
                   </div>
                   
                   <div className="space-y-4">
-                    {product.details?.specifications?.map((spec, index) => (
-                      <div 
-                        key={index} 
-                        className="border-b border-panel-foreground/20 pb-4 last:border-0 last:pb-0"
-                      >
-                        <span className="text-primary text-sm font-medium block mb-1">
-                          {spec.label}
-                        </span>
-                        <span className="text-panel-foreground text-sm">
-                          {spec.value.includes(' — ') || spec.value.includes(' | ') ? (
-                            <span className="block space-y-1">
-                              {(() => {
-                                const parts = spec.value.split(/ — | \| /);
-                                const header = parts[0].match(/^\(.*?\)\s*/) ? parts[0].match(/^\(.*?\)\s*/)?.[0] : null;
-                                const firstRest = header ? parts[0].replace(header, '') : null;
-                                const items = header && firstRest ? [firstRest, ...parts.slice(1)] : parts.slice(1);
-                                const displayHeader = header || parts[0];
-                                return (
-                                  <>
-                                    <span className="block text-panel-foreground/70 mb-2">{displayHeader}</span>
-                                    {(header && firstRest ? items : parts.slice(1)).map((item, i) => (
-                                      <span key={i} className="block whitespace-pre-line">{item.trim()}</span>
-                                    ))}
-                                    {!header && !firstRest && parts.length === 1 && (
-                                      <span className="block">{parts[0]}</span>
-                                    )}
-                                  </>
-                                );
-                              })()}
-                            </span>
-                          ) : (
-                            spec.value
-                          )}
-                        </span>
-                      </div>
-                    ))}
+                    {product.details?.specifications?.map((spec, index) => {
+                      // Parser le format spec :
+                      //  - "(ISO 140-8 / ISO 717-2) ΔLw = 22 dB ..." → header (norme) + 1 mesure
+                      //  - "(ISO 10140) ΔLw = 26 dB (50 mm) — ΔLw = 28 dB (60 mm)" → header + N mesures
+                      //  - "Granulats de caoutchouc..." → pas de header, valeur brute
+                      // L'idée : toujours afficher la norme entre parenthèses sur sa propre ligne,
+                      // en gris atténué, et chaque mesure sur une ligne propre en couleur normale.
+                      const value = spec.value;
+                      // Flag `s` (dotAll) pas dispo sous es2017 → on simule via [\s\S].
+                      const leadingHeaderMatch = value.match(/^\s*(\([^)]+\))\s+([\s\S]+)$/);
+                      const headerText = leadingHeaderMatch?.[1] ?? null;
+                      const bodyText = leadingHeaderMatch?.[2] ?? value;
+                      const measurements = bodyText.split(/\s+—\s+|\s+\|\s+/).map((s) => s.trim()).filter(Boolean);
+                      const hasMultipleMeasurements = measurements.length > 1;
+                      const shouldBreakLines = Boolean(headerText) || hasMultipleMeasurements;
+
+                      return (
+                        <div
+                          key={index}
+                          className="border-b border-panel-foreground/20 pb-4 last:border-0 last:pb-0"
+                        >
+                          <span className="text-primary text-sm font-medium block mb-1">
+                            {spec.label}
+                          </span>
+                          <span className="text-panel-foreground text-sm block">
+                            {shouldBreakLines ? (
+                              <span className="block space-y-1">
+                                {headerText && (
+                                  <span className="block text-panel-foreground/60 text-xs mb-2">
+                                    {headerText}
+                                  </span>
+                                )}
+                                {measurements.map((m, i) => (
+                                  <span key={i} className="block leading-relaxed">
+                                    {m}
+                                  </span>
+                                ))}
+                              </span>
+                            ) : (
+                              <span className="block leading-relaxed">{value}</span>
+                            )}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <ProductDocuments
