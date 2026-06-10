@@ -144,8 +144,8 @@ const Index = () => {
               </h2>
               <p className="text-lg text-white/70 mb-8 leading-relaxed">
                 Revêtements adaptés à chaque activité : cardio, musculation, haltérophilie,
-                yoga, entraînement fonctionnel, sport indoor et outdoor. Toute la gamme
-                SPORTEC pour les pros.
+                entraînement fonctionnel, fitness plein air, sport indoor et outdoor. Toute la
+                gamme SPORTEC pour les pros.
               </p>
               <Button asChild size="lg" className="rounded-full group">
                 <Link href="/sport/fitness" className="flex items-center gap-2">

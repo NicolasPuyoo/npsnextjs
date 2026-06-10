@@ -18,7 +18,7 @@ const RELATED_PATHS: Record<string, { label: string; href: string; reason: strin
   "fitness-gym": {
     label: "Voir le catalogue Fitness & Gym",
     href: "/sport/fitness",
-    reason: "Pour parcourir tous les produits SPORTEC adaptés à votre activité (cardio, musculation, yoga…).",
+    reason: "Pour parcourir tous les produits SPORTEC adaptés à votre activité (cardio, musculation, fonctionnel…).",
   },
   hotels: {
     label: "Voir l'isolation sous chape",

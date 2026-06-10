@@ -39,13 +39,12 @@ export interface ProductGuide {
 export const fitnessGuide: ProductGuide = {
   id: "fitness",
   name: "Guide Fitness",
-  description: "Solutions de revêtements pour salles de fitness, cardio et bien-être",
+  description: "Solutions de revêtements pour salles de fitness, cardio, musculation et entraînement fonctionnel",
   categories: [
     { id: "cardio", name: "Cardio" },
     { id: "musculation", name: "Musculation" },
     { id: "halterophilie", name: "Haltérophilie" },
     { id: "fonctionnel", name: "Entraînement fonctionnel" },
-    { id: "yoga", name: "Yoga / Pilates" },
   ],
   sections: [
     {
@@ -60,7 +59,6 @@ export const fitnessGuide: ProductGuide = {
             "musculation": "bestseller",
             "halterophilie": null,
             "fonctionnel": "recommended",
-            "yoga": null,
           },
         },
         {
@@ -72,7 +70,6 @@ export const fitnessGuide: ProductGuide = {
             "musculation": "bestseller",
             "halterophilie": "appropriate",
             "fonctionnel": "appropriate",
-            "yoga": null,
           },
         },
         {
@@ -84,7 +81,6 @@ export const fitnessGuide: ProductGuide = {
             "musculation": "recommended",
             "halterophilie": "bestseller",
             "fonctionnel": "appropriate",
-            "yoga": "bestseller",
           },
         },
         {
@@ -96,7 +92,6 @@ export const fitnessGuide: ProductGuide = {
             "musculation": "appropriate",
             "halterophilie": "bestseller",
             "fonctionnel": null,
-            "yoga": "recommended",
           },
         },
         {
@@ -108,7 +103,6 @@ export const fitnessGuide: ProductGuide = {
             "musculation": "appropriate",
             "halterophilie": "bestseller",
             "fonctionnel": null,
-            "yoga": "recommended",
           },
         },
       ],

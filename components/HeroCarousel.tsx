@@ -42,13 +42,13 @@ const slides: Slide[] = [
     video: "/videos/hero-yoga.mp4",
     title: (
       <>
-        Sols pour le yoga<br />et le bien-être
+        Sols pour le fitness<br />et l'entraînement fonctionnel
       </>
     ),
     description:
-      "Des revêtements souples et accueillants pour studios de yoga, pilates et fitness doux.",
+      "Des revêtements résistants et acoustiques pour salles de sport, cross-training et activités fonctionnelles.",
     ctaLabel: "Solutions fitness",
-    ctaTo: "/sport/fitness/yoga",
+    ctaTo: "/sport/fitness/fonctionnel",
   },
   {
     video: "/videos/hero-exterieur.mp4",

@@ -76,7 +76,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   "/sport/fitness": {
     title: `Sols pour salles de fitness et gym | ${BRAND}`,
     description:
-      "Revêtements anti-bruit et anti-vibration pour salles de fitness, musculation, cardio, yoga et entraînement fonctionnel. Gamme SPORTEC complète.",
+      "Revêtements anti-bruit et anti-vibration pour salles de fitness, musculation, cardio et entraînement fonctionnel. Gamme SPORTEC complète.",
     keywords: [...COMMON_KEYWORDS, "sol salle de sport", "sol musculation", "sol cardio"],
   },
   "/sport/fitness/cardio": {
@@ -102,12 +102,6 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description:
       "Revêtements résistants aux UV et intempéries pour équipements fitness extérieurs, parcours santé et zones outdoor.",
     keywords: [...COMMON_KEYWORDS, "fitness extérieur", "sol outdoor"],
-  },
-  "/sport/fitness/yoga": {
-    title: `Sols pour yoga, pilates et bien-être | ${BRAND}`,
-    description:
-      "Revêtements souples et accueillants pour studios de yoga, pilates, fitness doux et rééducation. Confort, hygiène et acoustique.",
-    keywords: [...COMMON_KEYWORDS, "sol yoga", "sol pilates", "studio bien-être"],
   },
   "/sport/fitness/gymcoustic": {
     title: `Solution Gymcoustic — gym 3D modulaire | ${BRAND}`,

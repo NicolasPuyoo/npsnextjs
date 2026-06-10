@@ -4,7 +4,7 @@ const SITE_URL = "https://nps-france.com";
 
 export const metadata: Metadata = {
   title: "Guide fitness | NPS Acoustique",
-  description: "Guide comparatif des revêtements pour cardio, musculation, yoga et fonctionnel.",
+  description: "Guide comparatif des revêtements pour cardio, musculation, haltérophilie et entraînement fonctionnel.",
   // HIDDEN: contenu en cours de validation par un acousticien.
   robots: { index: false, follow: false },
   alternates: { canonical: `${SITE_URL}/guide/fitness` },

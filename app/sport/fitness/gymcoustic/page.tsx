@@ -141,8 +141,8 @@ const Gymcoustic = () => {
               exceptionnelle, protégeant à la fois les athlètes, le sol et les pièces adjacentes.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Disponible en plusieurs gammes pour répondre à tous les besoins : de la salle de yoga au studio 
-              d'haltérophilie, en passant par les espaces cardio et les zones de cross-training.
+              Disponible en plusieurs gammes pour répondre à tous les besoins : du studio cardio
+              au studio d'haltérophilie, en passant par les zones d'entraînement fonctionnel.
             </p>
           </motion.div>
         </div>

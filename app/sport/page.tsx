@@ -27,20 +27,22 @@ import hiverImage from "@/assets/categories/sport/hiver.webp";
 import cardioImage from "@/assets/categories/fitness/cardio.webp";
 import halterophilieImage from "@/assets/categories/fitness/halterophilie.webp";
 import pleinAirImage from "@/assets/categories/fitness/plein-air.webp";
-import yogaImage from "@/assets/categories/fitness/yoga.webp";
 import gymcousticImage from "@/assets/categories/fitness/gymcoustic.webp";
 import fonctionnelImage from "@/assets/categories/fitness/fonctionnel.webp";
 
 type SubCategory = { id: string; name: string; description: string; image: string; path: string };
 
+// Sous-catégories Fitness alignées sur Kraiburg SPORTEC /applications/fitness/ :
+// tapis/spinning/musculation/haltéro/fonctionnel/crossfit. NPS regroupe tapis+spinning
+// sous "Cardio" et station-muscu+haltéro sous "Haltérophilie" pour rester pragmatique.
+// Yoga retiré (pas de gamme dédiée Kraiburg pour pratiques douces).
 const fitnessCategories: SubCategory[] = [
-  { id: "cardio", name: "Cardio", description: "Tapis, vélos, elliptiques", image: cardioImage.src, path: "/sport/fitness/cardio" },
+  { id: "fitness-poly", name: "Fitness général", description: "Salle multi-activités, vue d'ensemble", image: fitnessImage.src, path: "/sport/fitness" },
+  { id: "cardio", name: "Cardio", description: "Tapis, vélos, elliptiques, spinning", image: cardioImage.src, path: "/sport/fitness/cardio" },
   { id: "halterophilie", name: "Haltérophilie", description: "Musculation, soulevés de terre", image: halterophilieImage.src, path: "/sport/fitness/halterophilie" },
-  { id: "fonctionnel", name: "Cross-training", description: "Entraînement fonctionnel, HIIT", image: fonctionnelImage.src, path: "/sport/fitness/fonctionnel" },
-  { id: "yoga", name: "Yoga & Pilates", description: "Bien-être, fitness doux", image: yogaImage.src, path: "/sport/fitness/yoga" },
+  { id: "fonctionnel", name: "Entraînement fonctionnel", description: "Cross-training, CrossFit, HIIT", image: fonctionnelImage.src, path: "/sport/fitness/fonctionnel" },
   { id: "plein-air", name: "Fitness plein air", description: "Équipements outdoor", image: pleinAirImage.src, path: "/sport/fitness/plein-air" },
-  { id: "fitness-poly", name: "Salle polyvalente", description: "Multi-activités", image: fitnessImage.src, path: "/sport/fitness" },
-  { id: "gymcoustic", name: "Gymcoustic", description: "Salle modulaire 3D", image: gymcousticImage.src, path: "/sport/fitness/gymcoustic" },
+  { id: "gymcoustic", name: "Gymcoustic", description: "Concept modulaire haute performance", image: gymcousticImage.src, path: "/sport/fitness/gymcoustic" },
 ];
 
 const sportSubCategories: SubCategory[] = [
@@ -132,7 +134,7 @@ const Sport = () => {
           <div className="mb-10">
             <h2 className="text-3xl font-bold text-foreground mb-3">Fitness, gym et bien-être</h2>
             <p className="text-muted-foreground max-w-3xl">
-              Cardio, musculation, yoga, cross-training et concepts modulaires : trouvez la sous-couche acoustique adaptée à votre activité.
+              Cardio, musculation, haltérophilie, entraînement fonctionnel, plein air et concepts modulaires : trouvez la sous-couche acoustique adaptée à votre activité.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -194,7 +196,7 @@ const Sport = () => {
                 Trouvez le produit adapté à votre activité
               </h2>
               <p className="text-white/70 mb-6 leading-relaxed">
-                Notre guide comparatif vous aide à identifier le revêtement idéal pour cardio, musculation, yoga, entraînement fonctionnel et bien plus.
+                Notre guide comparatif vous aide à identifier le revêtement idéal pour cardio, musculation, haltérophilie, entraînement fonctionnel et bien plus.
               </p>
               <Link
                 href="/guide/fitness"

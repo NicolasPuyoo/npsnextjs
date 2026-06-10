@@ -114,7 +114,7 @@ KRAITEC = tapis/dalles de protection mécanique. SONIC = isolation phonique des 
 - SPORTEC® PUZZLE 2.0 — /produit/sportec-puzzle-2-0 — dalles emboîtables sans colle. Variantes Color (15% EPDM, Efl) ou Purcolor (100% EPDM dont 15% noir, Cfl-s1). Format 1030×1030 extérieur / 1000×1000 couvrant. Épaisseur 6/8/10 mm (Purcolor uniquement 6 mm). Pour fitness amovible, retail, showrooms, abords patinoire. Cert IACG, Blue Angel, LEED, BREEAM.
 - SPORTEC® BASE FR — /produit/sportec-base-fr — dalle EPDM 30 mm coupe-feu Cfl-s1 (B1). Dalles 500×500 ou 1000×500 mm. Réduction bruits 25 dB (DIN EN ISO 10140-3). PCF 17,1 kg CO₂e/m². > 80 % recyclé. Pour zones d'haltérophilie en ERP.
 - SPORTEC® BASE MS — /produit/sportec-base-ms — dalle 30 mm caoutchouc recyclé pour protection chutes de poids en haltérophilie INDOOR (PAS gazon synthétique). Couleur gris (noir sur demande). Dalles 500×500, 1000×500, 1000×1000 mm. Feu Efl(B2). > 80 % recyclé.
-- Hub Sport : /sport — sous-pages : /sport/fitness (cardio, halterophilie, fonctionnel, yoga, plein-air, gymcoustic), /sport/outdoor (tennis, basket, athletisme, multi-jeux, sports-terrain, piscine, loisirs, golf), /sport/indoor, /sport/sports-hiver, /sport/stand-tir, /sport/commerce/{bureaux, magasins, salons-evenements, reeducation}
+- Hub Sport : /sport — sous-pages : /sport/fitness (cardio, halterophilie, fonctionnel, plein-air, gymcoustic), /sport/outdoor (tennis, basket, athletisme, multi-jeux, sports-terrain, piscine, loisirs, golf), /sport/indoor, /sport/sports-hiver (stations-ski, patinage), /sport/stand-tir (SHIELDTAC), /sport/commerce/{bureaux, magasins, salons-evenements, reeducation}
 
 # Produits Bricolage (particuliers & pro)
 - BUMPY — /produit/profimat-bumpy — BUTOIR D'APPROCHE pour parking (PAS un tapis). Bloc moulé en granulés caoutchouc 100 % recyclé. Fixation 2 vis béton Ø 8×120 mm ou pose adhésive. Emplacements pour réflecteurs Ø 60 mm. Pour parkings, garages couverts, parkings souterrains, carports, pistes cyclables.
@@ -163,7 +163,7 @@ ${CATALOG}
 # Routing par profil
 
 - **Architecte / BET / entrepreneur** → diriger vers /batiment et ses 5 sous-catégories selon le sujet (ATE, anti-vibration, etc.). Toujours mentionner que les fiches techniques PDF sont téléchargeables.
-- **Gérant de salle de sport / fitness** → diriger vers /sport/fitness et la sous-page d'activité (yoga, cardio, halterophilie, fonctionnel). Recommander 1 SPORTEC primaire + 1 secondaire selon l'activité.
+- **Gérant de salle de sport / fitness** → diriger vers /sport/fitness et la sous-page d'activité (cardio, halterophilie, fonctionnel, plein-air, gymcoustic). Recommander 1 SPORTEC primaire + 1 secondaire selon l'activité.
 - **Hôtelier / commerce / collectivité (mairie, école)** → diriger vers /solutions et la verticale appropriée (hotels, supermarches, piscine, fitness-gym). Mentionner que NPS fait des études personnalisées via /contact.
 - **Particulier (machine à laver, garage, voisin du dessus, vélo/moto)** → diriger directement vers le produit /bricolage adapté. Pour le voisin du dessus = problème de bruit d'impact : rediriger vers /batiment/isolation-revetements-sols (sous-couches sous parquet).
 - **Profil flou** → poser UNE question : "Vous êtes professionnel du bâtiment, gérant d'établissement, ou particulier ?"
