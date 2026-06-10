@@ -59,13 +59,21 @@ import sportecPuzzle from "@/assets/products/sport/SPORTEC_PUZZLE_2_0.png";
 import sportecStyle from "@/assets/products/sport/SPORTEC_STYLE.png";
 import sportecMountain from "@/assets/products/sport/SPORTEC_MOUNTAIN.png";
 import sportecIcemat from "@/assets/products/sport/SPORTEC_ICEMAT.png";
+import sportecColorFr from "@/assets/products/sport/SPORTEC_COLOR_FR.png";
+import sportecGiga from "@/assets/products/sport/SPORTEC_GIGA.png";
 
 // SHIELDTAC — gamme dédiée stand de tir (marque Kraiburg distincte SPORTEC/DAMTEC)
 import shieldtacRicotile from "@/assets/products/shieldtac/SHIELDTAC_RICOTILE.png";
+import shieldtacRicotileFr from "@/assets/products/shieldtac/SHIELDTAC_RICOTILE_FR.png";
 import shieldtacRicosys from "@/assets/products/shieldtac/SHIELDTAC_RICOSYS_PU.png";
+import shieldtacSkirtingBoard from "@/assets/products/shieldtac/SHIELDTAC_SKIRTING_BOARD.png";
 import shieldtacPavers from "@/assets/products/shieldtac/SHIELDTAC_PAVERS.png";
 import shieldtacBlocks from "@/assets/products/shieldtac/SHIELDTAC_BLOCKS.png";
 import shieldtacFragsafe from "@/assets/products/shieldtac/SHIELDTAC_FRAGSAFE.png";
+
+// Accessoires SPORTEC pour les revêtements (utilisés notamment sur les stands de tir SHIELDTAC ricosys PU)
+import accessoireRzTurboProtect from "@/assets/products/accessoires/RZ_TURBO_PROTECT_ZERO.png";
+import accessoireSportec700Colle from "@/assets/products/accessoires/SPORTEC_700_COLLE.png";
 
 export type BatimentSubcategory = 
   | "isolation-acoustique-antivibratoire"
@@ -1097,6 +1105,49 @@ export const sportProducts: Product[] = [
       ],
     }
   },
+  { name: "SPORTEC® COLOR FR", slug: "sportec-color-fr", image: sportecColorFr.src, category: "sport",
+    details: {
+      description: "SPORTEC® color FR est la version coupe-feu de SPORTEC® color, équipée d'un retardateur de flamme et classée Cfl-s1. Conçue pour les ERP, salles de fitness exigeantes, zones de supervision de stands de tir, locaux commerciaux et patinoires nécessitant un classement feu élevé.",
+      specifications: [
+        { label: "Matériau", value: "Fins granulés de caoutchouc recyclé de pneus (noir) et granulés colorés d'EPDM agglomérés avec élastomère de polyuréthane, équipé d'un retardateur de flamme" },
+        { label: "Type de sol", value: "Revêtement de sol pour l'intérieur" },
+        { label: "Couleurs", value: "Gris, bleu, noir asphalte" },
+        { label: "Épaisseur", value: "4, 6, 8, 10 mm (± 0,3 mm)" },
+        { label: "Largeur", value: "1.500 mm (± 1,5 %)" },
+        { label: "Longueur", value: "30 m (4 mm) — 20 m (6 mm) — 15 m (8 mm) — 12 m (10 mm) (± 1,5 %)" },
+        { label: "Comportement au feu", value: "Cfl-s1 (EN 13501-1)" },
+        { label: "PCF (empreinte carbone)", value: "1,16 kg CO₂e par m²mm" },
+        { label: "Matériaux recyclés", value: "80 % (label NEW LIFE)" },
+        { label: "Application", value: "Fitness, cardio, crossfit, haltérophilie, locaux commerciaux, patinoires, salons professionnels, magasins, zones de supervision de stands de tir" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+        newLife80: "/assets/certifications/new-life-80.png",
+      },
+    }
+  },
+  { name: "SPORTEC® GIGA", slug: "sportec-giga", image: sportecGiga.src, category: "sport",
+    details: {
+      description: "SPORTEC® giga est un revêtement de sol caoutchouc rouleau avec gros granulés colorés EPDM. Surface granuleuse fermée à inserts colorés visibles, idéale pour salles de fitness, retail, halls d'exposition, entrepôts, patinoires et zones de supervision de stands de tir.",
+      specifications: [
+        { label: "Matériau", value: "Fins granulés de caoutchouc recyclé de pneus (noir) et gros granulés colorés d'EPDM agglomérés avec élastomère de polyuréthane" },
+        { label: "Type de sol", value: "Revêtement de sol pour l'intérieur" },
+        { label: "Couleurs", value: "Jaune fluo, bleu fluo, vert fluo, gris clair, gris foncé" },
+        { label: "Épaisseur", value: "6, 8, 10 mm (± 0,3 mm)" },
+        { label: "Largeur", value: "1.500 mm (± 1,5 %)" },
+        { label: "Longueur", value: "20 m (6 mm) — 15 m (8 mm) — 12 m (10 mm) (± 1,5 %)" },
+        { label: "Surface", value: "Lisse, fermée, granuleuse avec inserts d'EPDM colorés gros granulés" },
+        { label: "Propriétés", value: "Résistant à l'eau, facile à nettoyer, robuste" },
+        { label: "Application", value: "Fitness, retail, halls d'exposition, entrepôts, patinoires, zones de supervision de stands de tir" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), AgBB, Indoor Air Comfort Gold (Eurofins), Blue Angel (DE-UZ 120), CAM Edilizia Italie" },
+        { label: "Certifications", value: "BREEAM, LEED v4.1" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
 ];
 
 // SHIELDTAC — gamme dédiée stand de tir (marque Kraiburg balistique).
@@ -1105,20 +1156,38 @@ export const sportProducts: Product[] = [
 export const shieldtacProducts: Product[] = [
   { name: "SHIELDTAC® RICOTILE", slug: "shieldtac-ricotile", image: shieldtacRicotile.src, category: "sport",
     details: {
-      description: "SHIELDTAC® ricotile est un revêtement de sécurité pour sols, murs et plafonds de stands de tir intérieurs comme extérieurs. Absorbe de manière fiable les projectiles jusqu'à 10 000 joules, empêchant les ricochets et rebonds dangereux. Existe en versions standard (Efl) et FR coupe-feu (Cfl-s1) pour les stands soumis à exigences feu.",
+      description: "SHIELDTAC® ricotile est un revêtement de sécurité pour sols, murs et plafonds de stands de tir intérieurs comme extérieurs. Absorbe de manière fiable les projectiles jusqu'à 10 000 joules, empêchant les ricochets et rebonds dangereux. Pour les stands soumis à exigences feu élevées, voir la variante SHIELDTAC® ricotile FR (Cfl-s1).",
       specifications: [
         { label: "Matériau", value: "Caoutchouc lié au polyuréthane" },
         { label: "Format 40 mm", value: "1 000 × 500 × 40 mm (tolérance ± 0,8 % / épaisseur ± 2 mm)" },
         { label: "Format 43 mm", value: "1 000 × 500 × 43 mm (tolérance ± 0,8 % / épaisseur ± 2 mm)" },
         { label: "Format 70 mm", value: "500 × 500 × 70 mm (tolérance ± 0,8 % / épaisseur ± 2 mm)" },
         { label: "Application", value: "Sols, murs et plafonds de stands de tir — possibilité de revêtement PU au-dessus (système ricosys)" },
-        { label: "Résistance balistique standard", value: "200 à 10 000 J (normes DSB)" },
-        { label: "Résistance balistique version FR", value: "200 à 7 000 J (VPAM-ARG v3) — testée 90°, 25°, 10°" },
-        { label: "Comportement au feu", value: "Efl (standard) — Cfl-s1 (version FR)" },
-        { label: "Absorption acoustique αw", value: "Jusqu'à 0,75 (standard) — Jusqu'à 0,60 (FR)" },
+        { label: "Résistance balistique", value: "200 à 10 000 J (normes DSB)" },
+        { label: "Comportement au feu", value: "Efl (DIN EN 13501-1)" },
+        { label: "Absorption acoustique αw", value: "Jusqu'à 0,75" },
         { label: "Antiglisse", value: "R10 (DIN 51130)" },
         { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
         { label: "Conformité", value: "Exigences militaires, administratives et civiles (rapport B-31/2009)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
+  { name: "SHIELDTAC® RICOTILE FR", slug: "shieldtac-ricotile-fr", image: shieldtacRicotileFr.src, category: "sport",
+    details: {
+      description: "SHIELDTAC® ricotile FR est la version coupe-feu Cfl-s1 du SHIELDTAC® ricotile, conçue pour les stands de tir soumis à exigences feu élevées (ERP, sites militaires, centres de formation). Format 43 mm exclusivement, résistance balistique testée à 90°, 25° et 10°.",
+      specifications: [
+        { label: "Matériau", value: "Caoutchouc lié au polyuréthane avec traitement coupe-feu" },
+        { label: "Format", value: "1 000 × 500 × 43 mm (tolérance ± 0,8 % / épaisseur ± 2 mm)" },
+        { label: "Application", value: "Sols, murs et plafonds de stands de tir en ERP ou contextes à exigences feu élevées" },
+        { label: "Résistance balistique", value: "200 à 7 000 J (VPAM-ARG v3) — testée 90°, 25°, 10°" },
+        { label: "Comportement au feu", value: "Cfl-s1 (DIN EN 13501-1)" },
+        { label: "Absorption acoustique αw", value: "Jusqu'à 0,60" },
+        { label: "Antiglisse", value: "R10 (DIN 51130)" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+        { label: "Conformité", value: "Exigences militaires, administratives et civiles" },
       ],
       certifications: {
         vocAPlus: "/assets/certifications/voc-a-plus.png",
@@ -1142,6 +1211,19 @@ export const shieldtacProducts: Product[] = [
       certifications: {
         vocAPlus: "/assets/certifications/voc-a-plus.png",
       },
+    }
+  },
+  { name: "SHIELDTAC® SKIRTING BOARD", slug: "shieldtac-skirting-board", image: shieldtacSkirtingBoard.src, category: "sport",
+    details: {
+      description: "SHIELDTAC® skirting board est la plinthe polyuréthane qui accompagne le système ricosys PU pour créer une finition continue sans joints entre sol et murs. Empêche la pénétration de poussière, d'humidité ou de résidus de poudre, et facilite le nettoyage du stand de tir.",
+      specifications: [
+        { label: "Matériau", value: "Polyuréthane (PU)" },
+        { label: "Épaisseur", value: "Selon la configuration requise (sur mesure)" },
+        { label: "Couleurs disponibles", value: "8 teintes RAL (mêmes que ricosys PU) : 3020, 7005, 7035, 6011, 6021, 5009, 5014, 3003" },
+        { label: "Application", value: "Transition contrôlée entre sol et murs des stands de tir équipés du système ricosys PU" },
+        { label: "Propriétés", value: "Empêche la pénétration de poussière, d'humidité, de résidus de poudre. Facilite le nettoyage." },
+        { label: "Pose", value: "Continu sans joints avec le sol ricosys PU" },
+      ],
     }
   },
   { name: "SHIELDTAC® PAVERS", slug: "shieldtac-pavers", image: shieldtacPavers.src, category: "sport",
@@ -1198,6 +1280,27 @@ export const shieldtacProducts: Product[] = [
       certifications: {
         vocAPlus: "/assets/certifications/voc-a-plus.png",
       },
+    }
+  },
+  { name: "RZ TURBO PROTECT ZERO", slug: "accessoire-rz-turbo-protect-zero", image: accessoireRzTurboProtect.src, category: "sport",
+    details: {
+      description: "RZ TURBO PROTECT ZERO est un vernis polyuréthane bicomposant de finition et de protection à long terme pour les revêtements de sol caoutchouc SPORTEC® et SHIELDTAC®. Réduit la pénétration des saletés, facilite le nettoyage, et prolonge la durée de vie du revêtement (fitness, cardio, athlétisme, bureaux, retail, écoles, zones de supervision de stands de tir).",
+      specifications: [
+        { label: "Type de produit", value: "Vernis de finition bicomposant polyuréthane" },
+        { label: "Application", value: "Protection à long terme du revêtement de sol caoutchouc SPORTEC / SHIELDTAC" },
+        { label: "Usages", value: "Fitness, cardio, athlétisme, bureaux, retail, écoles, zones de supervision de stands de tir" },
+        { label: "Bénéfices", value: "Réduit pénétration saletés, facilite nettoyage, prolonge durée de vie" },
+      ],
+    }
+  },
+  { name: "SPORTEC® 700 — Colle PU bicomposant", slug: "accessoire-sportec-700-colle", image: accessoireSportec700Colle.src, category: "sport",
+    details: {
+      description: "SPORTEC® 700 est la colle polyuréthane bicomposant recommandée par Kraiburg pour le collage de tous les produits SPORTEC® et SHIELDTAC® sur support béton, chape ciment ou support stabilisé. Garantit une adhérence durable et homogène sur tous les supports plans intérieurs.",
+      specifications: [
+        { label: "Type de produit", value: "Colle polyuréthane bicomposant" },
+        { label: "Application", value: "Collage de tous les revêtements SPORTEC® et SHIELDTAC® ricotile / ricosys PU / pavers / blocks sur béton, chape ciment, support stabilisé" },
+        { label: "Pose", value: "Application au peigne cranté selon les recommandations Kraiburg" },
+      ],
     }
   },
 ];

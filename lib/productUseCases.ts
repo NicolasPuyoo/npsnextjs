@@ -11,13 +11,21 @@ export const PRODUCT_USE_CASE: Record<string, string> = {
   "sportec-base-ms": "Dalle protection haltérophilie indoor",
   "sportec-mountain": "Dalle outdoor stations de ski (Cfl-s1)",
   "sportec-icemat": "Dalle puzzle patinoires (bancs + abords)",
+  "sportec-color-fr": "Revêtement rouleau coupe-feu Cfl-s1 intérieur",
+  "sportec-giga": "Revêtement rouleau gros granulés EPDM fluo",
 
   // SPORT — gamme SHIELDTAC (stand de tir, marque Kraiburg balistique)
   "shieldtac-ricotile": "Dalle balistique (sols / murs / plafonds), jusqu'à 10 000 J",
+  "shieldtac-ricotile-fr": "Dalle balistique coupe-feu Cfl-s1, 200-7 000 J",
   "shieldtac-ricosys-pu": "Système PU sans joints, Bfl-s1, 200-7 000 J",
+  "shieldtac-skirting-board": "Plinthe PU pour finition continue ricosys",
   "shieldtac-pavers": "Pavés extérieurs antiglisse R10, jusqu'à 6 000 J",
   "shieldtac-blocks": "Piège à balles (zones dangereuses), 200-7 000 J",
   "shieldtac-fragsafe": "Rideau pare-éclats en rouleau, jusqu'à 7 000 J",
+
+  // SPORT — accessoires SPORTEC / SHIELDTAC
+  "accessoire-rz-turbo-protect-zero": "Vernis bicomposant PU finition + protection",
+  "accessoire-sportec-700-colle": "Colle PU bicomposant pour SPORTEC / SHIELDTAC",
 
   // BRICOLAGE / PRO — Profimat
   "profimat-bumpy": "Butoir d'approche parking",

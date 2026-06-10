@@ -22,7 +22,7 @@ import FeatureCardGrid from "@/components/FeatureCardGrid";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
 import ProductCard from "@/components/ProductCard";
-import { shieldtacProducts } from "@/data/products";
+import { shieldtacProducts, sportProducts } from "@/data/products";
 import heroImage from "@/assets/categories/sport/stand-tir.webp";
 
 // Avantages techniques — 10 points clés repris du site Kraiburg SHIELDTAC.fr.
@@ -225,11 +225,12 @@ const StandTir = () => {
               Gamme produits
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              5 produits SHIELDTAC
+              Gamme SHIELDTAC complète
             </h2>
             <p className="text-white/75 leading-relaxed">
-              Dalles caoutchouc-PU, système PU sans joints, pavés extérieurs, blocs de protection
-              et rideau pare-éclats. Chaque produit a son rôle et ils sont conçus pour fonctionner
+              Dalles balistiques caoutchouc-PU (ricotile standard ou coupe-feu FR), système PU sans
+              joints (ricosys PU + skirting board), pavés extérieurs, blocs de protection, rideau
+              pare-éclats et accessoires de pose. Chaque produit a son rôle, conçus pour fonctionner
               ensemble.
             </p>
           </motion.div>
@@ -246,6 +247,48 @@ const StandTir = () => {
                 <ProductCard product={product} />
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Produits SPORTEC pour zones de supervision et d'encadrement */}
+      <section className="py-16 lg:py-24 bg-foreground/95">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 max-w-3xl mx-auto"
+          >
+            <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold mb-3">
+              Zones de supervision et d'encadrement
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Revêtements SPORTEC complémentaires
+            </h2>
+            <p className="text-white/75 leading-relaxed">
+              Pour les postes d'observation, salles de contrôle et accès du stand de tir,
+              Kraiburg recommande les revêtements SPORTEC en rouleau. SPORTEC color pour les
+              zones standards, SPORTEC color FR pour les exigences feu Cfl-s1, SPORTEC giga pour
+              les ambiances plus visibles à gros granulés EPDM colorés.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {sportProducts
+              .filter((p) => ["sportec-color", "sportec-color-fr", "sportec-giga"].includes(p.slug))
+              .map((product, index) => (
+                <motion.div
+                  key={product.slug}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.08, duration: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <ProductCard product={product} />
+                </motion.div>
+              ))}
           </div>
         </div>
       </section>
