@@ -32,7 +32,6 @@ const sportSubLinks: SubLink[] = [
   { name: "Magasins & commerces", path: "/sport/commerce/magasins" },
   { name: "Salons & événements", path: "/sport/commerce/salons-evenements" },
   { name: "Rééducation & kiné", path: "/sport/commerce/reeducation" },
-  { name: "Écoles & jardins d'enfants", path: "/sport/commerce/ecoles-jardins" },
 ];
 
 const solutionsSubLinks: SubLink[] = [

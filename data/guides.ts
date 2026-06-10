@@ -91,7 +91,7 @@ export const guides: Guide[] = [
         heading: "Solutions NPS — sans ATE (rénovation)",
         body: `Pour les chantiers hors DTU ou en rénovation où l'ATE n'est pas exigé :`,
         bullets: [
-          "NPS TOP Acoustique Rubber Ecomat (2-20 mm) — granulé caoutchouc + PU, ΔLw 16-21 dB sous chape 45 mm, certifié A+",
+          "TOP Acoustique Rubber Ecomat (2-20 mm) — granulé caoutchouc + PU, ΔLw 16-21 dB sous chape 45 mm, certifié A+",
           "TOP Rubbercork (2-6 mm) — mélange caoutchouc + liège, ΔLw 18-20 dB, certifié A+ et Blue Angel",
         ],
       },
@@ -996,7 +996,7 @@ export const guides: Guide[] = [
     slug: "tapis-machine-a-laver-anti-vibration",
     title: "Tapis anti-vibration machine à laver : choisir un sous-machine efficace",
     description:
-      "Tapis anti-vibration pour machine à laver / sèche-linge : réduction des vibrations, du bruit, protection du sol. NPS TOP VIB WASH et alternatives, pose et dimensionnement.",
+      "Tapis anti-vibration pour machine à laver / sèche-linge : réduction des vibrations, du bruit, protection du sol. TOP VIB WASH et alternatives, pose et dimensionnement.",
     primaryKeyword: "tapis machine à laver anti-vibration",
     intro:
       "Une machine à laver à essorage rapide (1200-1600 tr/min) génère des vibrations qui peuvent se propager dans la dalle et résonner dans le logement, et même chez les voisins. Un tapis anti-vibration spécifique réduit ces vibrations de plusieurs dB, prolonge la durée de vie de la machine, et limite les déplacements de l'appareil pendant l'essorage.",
@@ -1009,7 +1009,7 @@ export const guides: Guide[] = [
       },
       {
         heading: "Solution NPS : TOP VIB WASH",
-        body: `**NPS TOP VIB WASH** est notre solution dédiée au calage anti-vibration des machines à laver et sèche-linge en environnement domestique. Caoutchouc densité élevée, format adapté aux machines standard.\n\nPose simple : poser le tapis au sol, positionner la machine dessus, vérifier l'horizontalité. Aucune fixation nécessaire.\n\nPour les usages plus exigeants (laverie collective, machines pro à fort essorage), des solutions plus dimensionnées peuvent être étudiées — nous contacter.`,
+        body: `**TOP VIB WASH** est notre solution dédiée au calage anti-vibration des machines à laver et sèche-linge en environnement domestique. Caoutchouc densité élevée, format adapté aux machines standard.\n\nPose simple : poser le tapis au sol, positionner la machine dessus, vérifier l'horizontalité. Aucune fixation nécessaire.\n\nPour les usages plus exigeants (laverie collective, machines pro à fort essorage), des solutions plus dimensionnées peuvent être étudiées — nous contacter.`,
       },
       {
         heading: "Limites d'un tapis simple",

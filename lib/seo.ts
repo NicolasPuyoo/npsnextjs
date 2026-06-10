@@ -211,12 +211,6 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description: "Revêtements adaptés aux cabinets de kinésithérapie, centres de rééducation et espaces médico-sportifs.",
     keywords: [...COMMON_KEYWORDS, "kinésithérapie", "rééducation"],
   },
-  "/sport/commerce/ecoles-jardins": {
-    title: `Sols pour écoles et jardins d'enfants | ${BRAND}`,
-    description: "Revêtements sécurisés pour cours d'écoles, crèches et jardins d'enfants. Antichoc, antidérapant, hygiénique.",
-    keywords: [...COMMON_KEYWORDS, "sol école", "cour récréation", "crèche"],
-  },
-
   // /guide and /guide/* hidden — contenu en cours de validation par un acousticien.
 
   "/solutions": {

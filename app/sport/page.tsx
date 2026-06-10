@@ -16,7 +16,6 @@ import bureauImage from "@/assets/categories/commerce/bureaux.webp";
 import magasinsImage from "@/assets/categories/commerce/magasins.webp";
 import salonsImage from "@/assets/categories/commerce/salons.webp";
 import reeducationImage from "@/assets/categories/commerce/reeducation.webp";
-import ecoleJardinImage from "@/assets/categories/commerce/ecole-jardin.webp";
 
 // Sport subcategory images
 import standTirImage from "@/assets/categories/sport/stand-tir.webp";
@@ -56,7 +55,6 @@ const commerceCategories: SubCategory[] = [
   { id: "magasins", name: "Magasins", description: "Commerces et boutiques", image: magasinsImage.src, path: "/sport/commerce/magasins" },
   { id: "salons-evenements", name: "Salons & événements", description: "Stands modulaires, hôtellerie", image: salonsImage.src, path: "/sport/commerce/salons-evenements" },
   { id: "reeducation", name: "Rééducation", description: "Kiné, médico-sportif", image: reeducationImage.src, path: "/sport/commerce/reeducation" },
-  { id: "ecoles-jardins", name: "Écoles & jardins", description: "Crèches, cours, jardins", image: ecoleJardinImage.src, path: "/sport/commerce/ecoles-jardins" },
 ];
 
 const SubCategoryCard = ({ item, index }: { item: SubCategory; index: number }) => (

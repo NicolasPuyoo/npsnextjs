@@ -876,9 +876,9 @@ export const batimentProducts: Product[] = [
   },
   
   // Isolation sous chape sans ATE (produits avec "Top" dans le nom)
-  { name: "NPS TOP ACOUSTIQUE RUBBER ECOMAT", slug: "top-acoustique-rubber-ecomat", image: topAcoustiqueEcomat.src, category: "batiment", subcategory: "isolation-sans-ate",
+  { name: "TOP ACOUSTIQUE RUBBER ECOMAT", slug: "top-acoustique-rubber-ecomat", image: topAcoustiqueEcomat.src, category: "batiment", subcategory: "isolation-sans-ate",
     details: {
-      description: "NPS TOP ACOUSTIC rubber ecomat est une sous-couche acoustique sous revêtements de sol pour la réduction des bruits d'impact.",
+      description: "TOP ACOUSTIQUE rubber ecomat est une sous-couche acoustique sous revêtements de sol pour la réduction des bruits d'impact.",
       specifications: [
         { label: "Matériau", value: "Granulés de caoutchouc avec agent de liaison PU élastomère" },
         { label: "Couleur", value: "noire" },
@@ -898,7 +898,7 @@ export const batimentProducts: Product[] = [
       dataSheetUrl: "/fiches-techniques/NPS_TOP_Acoustique_Rubber_Ecomat.pdf",
     }
   },
-  { name: "TOP RUBBERCORK", slug: "top-rubbercork", image: topRubbercork.src, category: "batiment", subcategory: "isolation-sans-ate",
+  { name: "TOP RUBBERCORK", slug: "top-rubbercork", image: topRubbercork.src, category: "batiment", subcategory: "isolation-revetements-sols",
     details: {
       description: "TOP RUBBERCORK est un mélange caoutchouc/liège haut de gamme pour isolation acoustique mince. Idéale sous parquet, stratifié ou moquette.",
       specifications: [

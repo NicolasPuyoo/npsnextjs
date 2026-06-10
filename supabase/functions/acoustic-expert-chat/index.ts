@@ -85,7 +85,7 @@ Sous-couches fines en pose libre directement sous le revêtement.
 - Hub de catégorie : /batiment/isolation-revetements-sols
 
 ## Sous-couches NPS (sans ATE)
-- NPS TOP ACOUSTIQUE RUBBER ECOMAT — /produit/top-acoustique-rubber-ecomat — granulés caoutchouc + PU. Épaisseur 2/3/4/5 mm. Densité 760-860. Comportement feu Efl. ΔLw 16-21 dB sous chape 45 mm. Cert A+.
+- TOP ACOUSTIQUE RUBBER ECOMAT — /produit/top-acoustique-rubber-ecomat — granulés caoutchouc + PU. Épaisseur 2/3/4/5 mm. Densité 760-860. Comportement feu Efl. ΔLw 16-21 dB sous chape 45 mm. Cert A+.
 - TOP RUBBERCORK — /produit/top-rubbercork — mélange caoutchouc/liège. Épaisseur 2-6 mm. ΔLw 18-20 dB. Sous parquet/stratifié/moquette.
 - Hub de catégorie : /batiment/isolation-sans-ate
 
@@ -114,7 +114,7 @@ KRAITEC = tapis/dalles de protection mécanique. SONIC = isolation phonique des 
 - SPORTEC® PUZZLE 2.0 — /produit/sportec-puzzle-2-0 — dalles emboîtables sans colle. Variantes Color (15% EPDM, Efl) ou Purcolor (100% EPDM dont 15% noir, Cfl-s1). Format 1030×1030 extérieur / 1000×1000 couvrant. Épaisseur 6/8/10 mm (Purcolor uniquement 6 mm). Pour fitness amovible, retail, showrooms, abords patinoire. Cert IACG, Blue Angel, LEED, BREEAM.
 - SPORTEC® BASE FR — /produit/sportec-base-fr — dalle EPDM 30 mm coupe-feu Cfl-s1 (B1). Dalles 500×500 ou 1000×500 mm. Réduction bruits 25 dB (DIN EN ISO 10140-3). PCF 17,1 kg CO₂e/m². > 80 % recyclé. Pour zones d'haltérophilie en ERP.
 - SPORTEC® BASE MS — /produit/sportec-base-ms — dalle 30 mm caoutchouc recyclé pour protection chutes de poids en haltérophilie INDOOR (PAS gazon synthétique). Couleur gris (noir sur demande). Dalles 500×500, 1000×500, 1000×1000 mm. Feu Efl(B2). > 80 % recyclé.
-- Hub Sport : /sport — sous-pages : /sport/fitness (cardio, halterophilie, fonctionnel, yoga, plein-air, gymcoustic), /sport/outdoor (tennis, basket, athletisme, multi-jeux, sports-terrain, piscine, loisirs, golf), /sport/indoor, /sport/sports-hiver, /sport/stand-tir, /sport/commerce/{bureaux, magasins, salons-evenements, reeducation, ecoles-jardins}
+- Hub Sport : /sport — sous-pages : /sport/fitness (cardio, halterophilie, fonctionnel, yoga, plein-air, gymcoustic), /sport/outdoor (tennis, basket, athletisme, multi-jeux, sports-terrain, piscine, loisirs, golf), /sport/indoor, /sport/sports-hiver, /sport/stand-tir, /sport/commerce/{bureaux, magasins, salons-evenements, reeducation}
 
 # Produits Bricolage (particuliers & pro)
 - BUMPY — /produit/profimat-bumpy — BUTOIR D'APPROCHE pour parking (PAS un tapis). Bloc moulé en granulés caoutchouc 100 % recyclé. Fixation 2 vis béton Ø 8×120 mm ou pose adhésive. Emplacements pour réflecteurs Ø 60 mm. Pour parkings, garages couverts, parkings souterrains, carports, pistes cyclables.
