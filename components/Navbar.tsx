@@ -24,10 +24,8 @@ const batimentSubLinks: SubLink[] = [
 
 const sportSubLinks: SubLink[] = [
   { name: "Fitness & Gym", path: "/sport/fitness" },
-  { name: "Sport extérieur (tennis, basket, athlé)", path: "/sport/outdoor" },
-  { name: "Sport indoor & gymnases", path: "/sport/indoor" },
   { name: "Sports d'hiver", path: "/sport/sports-hiver" },
-  { name: "Stand de tir", path: "/sport/stand-tir" },
+  { name: "Stand de tir (SHIELDTAC)", path: "/sport/stand-tir" },
   { name: "Bureaux & open space", path: "/sport/commerce/bureaux" },
   { name: "Magasins & commerces", path: "/sport/commerce/magasins" },
   { name: "Salons & événements", path: "/sport/commerce/salons-evenements" },

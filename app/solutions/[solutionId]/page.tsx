@@ -31,9 +31,9 @@ const RELATED_PATHS: Record<string, { label: string; href: string; reason: strin
     reason: "Gamme KRAITEC complète pour toitures et terrasses.",
   },
   piscine: {
-    label: "Voir le détail piscine sport",
-    href: "/sport/outdoor/piscine",
-    reason: "Plus de détails sur les revêtements antidérapants pour bassins et plages.",
+    label: "Demander un conseil personnalisé",
+    href: "/contact",
+    reason: "Pour étudier la configuration de votre projet d'abords de piscine.",
   },
   supermarches: {
     label: "Voir les sols magasins & commerces",

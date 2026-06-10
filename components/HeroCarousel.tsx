@@ -35,8 +35,8 @@ const slides: Slide[] = [
     ),
     description:
       "Revêtements drainants, confortables et durables pour les abords de piscine.",
-    ctaLabel: "Solutions piscine",
-    ctaTo: "/sport/outdoor/piscine",
+    ctaLabel: "Demander conseil",
+    ctaTo: "/contact",
   },
   {
     video: "/videos/hero-yoga.mp4",

@@ -19,8 +19,6 @@ import reeducationImage from "@/assets/categories/commerce/reeducation.webp";
 
 // Sport subcategory images
 import standTirImage from "@/assets/categories/sport/stand-tir.webp";
-import outdoorImage from "@/assets/categories/sport/outdoor.webp";
-import indoorImage from "@/assets/categories/sport/indoor.webp";
 import hiverImage from "@/assets/categories/sport/hiver.webp";
 
 // Fitness subcategory images
@@ -45,11 +43,14 @@ const fitnessCategories: SubCategory[] = [
   { id: "gymcoustic", name: "Gymcoustic", description: "Concept modulaire haute performance", image: gymcousticImage.src, path: "/sport/fitness/gymcoustic" },
 ];
 
+// Sport outdoor + indoor (tennis/basket/athlé/multi-jeux/piscine/...) retirés du hub :
+// le catalogue NPS actuel ne contient pas les produits Kraiburg UNI versa/UNI classic/
+// standard 2.0 qui sont les vraies références pour ces disciplines. Tant que ces SKU ne
+// sont pas validés par NPS, on évite d'afficher des produits techniquement faux. Reste
+// donc sports-hiver (mountain + icemat + style + color disponibles) et stand-tir (SHIELDTAC).
 const sportSubCategories: SubCategory[] = [
-  { id: "outdoor", name: "Sport outdoor", description: "Tennis, basket, athlétisme...", image: outdoorImage.src, path: "/sport/outdoor" },
-  { id: "indoor", name: "Sport indoor", description: "Gymnases et salles couvertes", image: indoorImage.src, path: "/sport/indoor" },
   { id: "sports-hiver", name: "Sports d'hiver", description: "Stations, patinoires", image: hiverImage.src, path: "/sport/sports-hiver" },
-  { id: "stand-tir", name: "Stand de tir", description: "Acoustique stands sportifs", image: standTirImage.src, path: "/sport/stand-tir" },
+  { id: "stand-tir", name: "Stand de tir", description: "Systèmes balistiques SHIELDTAC", image: standTirImage.src, path: "/sport/stand-tir" },
 ];
 
 const commerceCategories: SubCategory[] = [
@@ -149,9 +150,9 @@ const Sport = () => {
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-foreground mb-3">Sports indoor, outdoor et hiver</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-3">Sports d'hiver et stand de tir</h2>
             <p className="text-muted-foreground max-w-3xl">
-              Du terrain de tennis au stand de tir : revêtements et solutions acoustiques pour chaque discipline.
+              Revêtements et solutions balistiques pour stations de ski, patinoires et stands de tir : gamme SPORTEC outdoor et SHIELDTAC dédiée.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

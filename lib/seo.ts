@@ -116,59 +116,9 @@ export const PAGE_SEO: Record<string, PageSeo> = {
       "Solutions d'absorption acoustique et anti-vibratoire pour stands de tir sportif et professionnel. Réduction du niveau sonore et confort des tireurs.",
     keywords: [...COMMON_KEYWORDS, "stand de tir", "acoustique tir sportif"],
   },
-  "/sport/outdoor": {
-    title: `Sports extérieurs et terrains outdoor | ${BRAND}`,
-    description:
-      "Revêtements pour terrains de tennis, basket, athlétisme, multi-jeux, golf, piscine et loisirs. Solutions SPORTEC et KRAITEC outdoor.",
-    keywords: [...COMMON_KEYWORDS, "sol outdoor sport", "sol tennis", "sol multi-jeux"],
-  },
-  "/sport/outdoor/multi-jeux": {
-    title: `Sols pour terrains multi-jeux | ${BRAND}`,
-    description: "Revêtements polyvalents pour aires multi-jeux extérieures (city stade, playground, mini-terrain).",
-    keywords: [...COMMON_KEYWORDS, "city stade", "multi-jeux", "playground"],
-  },
-  "/sport/outdoor/basket": {
-    title: `Sols pour terrains de basket extérieurs | ${BRAND}`,
-    description: "Revêtements résistants aux chocs et aux UV pour terrains de basket-ball outdoor. Confort, sécurité, durabilité.",
-    keywords: [...COMMON_KEYWORDS, "sol basket", "terrain basket extérieur"],
-  },
-  "/sport/outdoor/tennis": {
-    title: `Sols pour courts de tennis | ${BRAND}`,
-    description: "Solutions de revêtements pour courts de tennis extérieurs et indoor. Absorption d'impact, drainage, longévité.",
-    keywords: [...COMMON_KEYWORDS, "sol tennis", "court de tennis", "revêtement tennis"],
-  },
-  "/sport/outdoor/athletisme": {
-    title: `Sols pour pistes et zones athlétisme | ${BRAND}`,
-    description: "Revêtements pour pistes d'athlétisme, sauts et lancers. Solutions homologuées et conformes IAAF.",
-    keywords: [...COMMON_KEYWORDS, "piste athlétisme", "sol athlétisme"],
-  },
-  "/sport/outdoor/sports-terrain": {
-    title: `Sols pour sports de terrain | ${BRAND}`,
-    description: "Revêtements pour terrains de football, rugby, hockey et autres sports de terrain. Drainage, durabilité, confort.",
-    keywords: [...COMMON_KEYWORDS, "sol football", "sol rugby", "sport de terrain"],
-  },
-  "/sport/outdoor/piscine": {
-    title: `Plages et abords de piscine antidérapants | ${BRAND}`,
-    description:
-      "Revêtements drainants et antidérapants pour plages de piscine, abords de bassins et espaces aquatiques. Confort pieds nus, hygiène, sécurité.",
-    keywords: [...COMMON_KEYWORDS, "plage piscine", "antidérapant piscine", "abord bassin"],
-  },
-  "/sport/outdoor/loisirs": {
-    title: `Sols pour aires de loisirs | ${BRAND}`,
-    description: "Revêtements pour aires de jeux, parcs publics et espaces de loisirs. Sécurité enfants, antidérapant, longévité.",
-    keywords: [...COMMON_KEYWORDS, "aire de jeux", "sol parc public"],
-  },
-  "/sport/outdoor/golf": {
-    title: `Sols et tapis pour practice de golf | ${BRAND}`,
-    description: "Revêtements pour zones de practice golf, putting green et chemins de circulation. Confort et durabilité.",
-    keywords: [...COMMON_KEYWORDS, "practice golf", "sol golf"],
-  },
-  "/sport/indoor": {
-    title: `Sports indoor : salles et gymnases | ${BRAND}`,
-    description:
-      "Revêtements de sols pour gymnases, salles de sport indoor et complexes multisport. Acoustique, antichoc, polyvalence.",
-    keywords: [...COMMON_KEYWORDS, "gymnase", "salle multisport"],
-  },
+  // /sport/outdoor (tennis/basket/athlé/multi-jeux/piscine/etc.) + /sport/indoor retirés :
+  // catalogue NPS actuel ne contient pas les SKU Kraiburg UNI versa/UNI classic/standard 2.0
+  // pour ces disciplines. Pages SEO supprimées en parallèle.
   "/sport/sports-hiver": {
     title: `Sports d'hiver : stations et patinoires | ${BRAND}`,
     description: "Solutions de revêtements pour stations de ski, patinoires et zones glissantes. Antidérapant, résistant au froid, drainant.",
