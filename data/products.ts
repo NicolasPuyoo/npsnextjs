@@ -57,6 +57,15 @@ import sportecBaseMs from "@/assets/products/sport/SPORTEC_BASE_MS.png";
 import sportecColor from "@/assets/products/sport/SPORTEC_COLOR.png";
 import sportecPuzzle from "@/assets/products/sport/SPORTEC_PUZZLE_2_0.png";
 import sportecStyle from "@/assets/products/sport/SPORTEC_STYLE.png";
+import sportecMountain from "@/assets/products/sport/SPORTEC_MOUNTAIN.png";
+import sportecIcemat from "@/assets/products/sport/SPORTEC_ICEMAT.png";
+
+// SHIELDTAC — gamme dédiée stand de tir (marque Kraiburg distincte SPORTEC/DAMTEC)
+import shieldtacRicotile from "@/assets/products/shieldtac/SHIELDTAC_RICOTILE.png";
+import shieldtacRicosys from "@/assets/products/shieldtac/SHIELDTAC_RICOSYS_PU.png";
+import shieldtacPavers from "@/assets/products/shieldtac/SHIELDTAC_PAVERS.png";
+import shieldtacBlocks from "@/assets/products/shieldtac/SHIELDTAC_BLOCKS.png";
+import shieldtacFragsafe from "@/assets/products/shieldtac/SHIELDTAC_FRAGSAFE.png";
 
 export type BatimentSubcategory = 
   | "isolation-acoustique-antivibratoire"
@@ -1048,6 +1057,149 @@ export const sportProducts: Product[] = [
       dataSheetUrl: "/fiches-techniques/fiche-technique-sportec-style.pdf",
     }
   },
+  { name: "SPORTEC® MOUNTAIN", slug: "sportec-mountain", image: sportecMountain.src, category: "sport",
+    details: {
+      description: "SPORTEC® mountain est une dalle de protection extérieure conçue pour les stations de ski, remontées mécaniques et magasins de location de ski. Haute élasticité adaptée aux chaussures de ski, supporte les roues de chariots de service. Granulés de caoutchouc recyclé armés d'un treillis avec surface en EPDM colorée.",
+      specifications: [
+        { label: "Matériau", value: "Granulés de caoutchouc recyclé de pneus agglomérés avec élastomère de polyuréthane, renforcés par treillis, surface en granules EPDM lié avec élastomère de polyuréthane" },
+        { label: "Type de sol", value: "Revêtement de sécurité extérieur (outdoor)" },
+        { label: "Format", value: "Dalles 500 × 500 mm (± 0,8 %)" },
+        { label: "Épaisseur", value: "30 mm (± 2 mm)" },
+        { label: "Surface", value: "Fermée, finition granuleuse EPDM colorée" },
+        { label: "Face inférieure", value: "Lisse avec profil de drainage et treillis d'armature" },
+        { label: "Couleurs disponibles", value: "Beige RAL 1014, Rouge RAL 3016, Vert RAL 6021, Gris RAL 7038, Gris foncé RAL 7011, Bleu RAL 5015" },
+        { label: "Propriétés", value: "Haute élasticité, résistance au glissement élevée, support roues de chariots de service" },
+        { label: "Application", value: "Stations de ski, remontées mécaniques (zones d'attente, accès), magasins de location de ski" },
+        { label: "Matériaux recyclés", value: "20 % (label NEW LIFE)" },
+        { label: "Comportement au feu", value: "Cfl-s1 (EN 13501-1)" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
+  { name: "SPORTEC® ICEMAT", slug: "sportec-icemat", image: sportecIcemat.src, category: "sport",
+    details: {
+      description: "SPORTEC® icemat est une dalle puzzle imperméable et robuste pour protéger les chaussures de patinage et de ski. Conçue pour les patinoires, stades et installations mobiles, elle préserve les lames des patins tout en protégeant le support contre les dommages. Pose flottante avec stabilité excellente même sur supports irréguliers.",
+      specifications: [
+        { label: "Matériau", value: "SBR (caoutchouc styrène-butadiène) à base recyclée avec profil fin gravillonné" },
+        { label: "Type de sol", value: "Dalle puzzle intérieur et extérieur" },
+        { label: "Format extérieur", value: "1 285 × 865 mm (± 1,5 %)" },
+        { label: "Format couvrant", value: "1 260 × 840 mm (± 1,5 %)" },
+        { label: "Épaisseur", value: "12 mm (+3 / -2 mm)" },
+        { label: "Surface", value: "Antidérapante, profil gravillonné" },
+        { label: "Pose", value: "Flottante (sans colle, sans fixation), assemblage par puzzle" },
+        { label: "Résistance", value: "Environnements froids, glace, neige, sollicitations intensives" },
+        { label: "Application", value: "Patinoires (bancs des joueurs, bancs de pénalité), stades, installations mobiles, abords de pistes" },
+        { label: "Propriétés", value: "Amélioration acoustique, isolation thermique, antidérapant, imperméable" },
+        { label: "Comportement au feu", value: "Efl (EN 13501-1)" },
+      ],
+    }
+  },
+];
+
+// SHIELDTAC — gamme dédiée stand de tir (marque Kraiburg balistique).
+// Catalogue séparé de sportProducts mais category="sport" pour rester compatible avec le type
+// Product et l'infrastructure existante (routes /produit/[slug] etc.).
+export const shieldtacProducts: Product[] = [
+  { name: "SHIELDTAC® RICOTILE", slug: "shieldtac-ricotile", image: shieldtacRicotile.src, category: "sport",
+    details: {
+      description: "SHIELDTAC® ricotile est un revêtement de sécurité pour sols, murs et plafonds de stands de tir intérieurs comme extérieurs. Absorbe de manière fiable les projectiles jusqu'à 10 000 joules, empêchant les ricochets et rebonds dangereux. Existe en versions standard (Efl) et FR coupe-feu (Cfl-s1) pour les stands soumis à exigences feu.",
+      specifications: [
+        { label: "Matériau", value: "Caoutchouc lié au polyuréthane" },
+        { label: "Format 40 mm", value: "1 000 × 500 × 40 mm (tolérance ± 0,8 % / épaisseur ± 2 mm)" },
+        { label: "Format 43 mm", value: "1 000 × 500 × 43 mm (tolérance ± 0,8 % / épaisseur ± 2 mm)" },
+        { label: "Format 70 mm", value: "500 × 500 × 70 mm (tolérance ± 0,8 % / épaisseur ± 2 mm)" },
+        { label: "Application", value: "Sols, murs et plafonds de stands de tir — possibilité de revêtement PU au-dessus (système ricosys)" },
+        { label: "Résistance balistique standard", value: "200 à 10 000 J (normes DSB)" },
+        { label: "Résistance balistique version FR", value: "200 à 7 000 J (VPAM-ARG v3) — testée 90°, 25°, 10°" },
+        { label: "Comportement au feu", value: "Efl (standard) — Cfl-s1 (version FR)" },
+        { label: "Absorption acoustique αw", value: "Jusqu'à 0,75 (standard) — Jusqu'à 0,60 (FR)" },
+        { label: "Antiglisse", value: "R10 (DIN 51130)" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+        { label: "Conformité", value: "Exigences militaires, administratives et civiles (rapport B-31/2009)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
+  { name: "SHIELDTAC® RICOSYS PU", slug: "shieldtac-ricosys-pu", image: shieldtacRicosys.src, category: "sport",
+    details: {
+      description: "SHIELDTAC® ricosys PU est un système de sol sans joints pour stands de tir, combinant un revêtement polyuréthane (2 mm) appliqué sur les dalles SHIELDTAC® ricotile. Crée une surface continue qui empêche les ricochets et l'infiltration des résidus de poudre. Disponible en 8 teintes RAL.",
+      specifications: [
+        { label: "Matériau", value: "Dalles ricotile (caoutchouc + PU) + revêtement polyuréthane appliqué de 2 mm" },
+        { label: "Épaisseur 42 mm", value: "Dalles ricotile 40 mm + revêtement PU 2 mm" },
+        { label: "Épaisseur 45 mm", value: "Dalles ricotile 43 mm + revêtement PU 2 mm" },
+        { label: "Tolérance épaisseur", value: "± 2 mm" },
+        { label: "Application", value: "Sol de stand de tir — surface continue sans joints" },
+        { label: "Résistance balistique", value: "200 à 7 000 J (VPAM-ARG v3) — testé et certifié par HTBVLA Ferlach (couvre angles de tir et projectiles sans plomb)" },
+        { label: "Comportement au feu", value: "Bfl-s1 (DIN EN 13501-1)" },
+        { label: "Couleurs disponibles", value: "8 teintes RAL : 3020, 7005, 7035, 6011, 6021, 5009, 5014, 3003" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
+  { name: "SHIELDTAC® PAVERS", slug: "shieldtac-pavers", image: shieldtacPavers.src, category: "sport",
+    details: {
+      description: "SHIELDTAC® pavers est un revêtement de sol de sécurité élastique à l'aspect pavé pour stands de tir intérieurs et extérieurs. Les dalles modulaires absorbent de manière contrôlée l'énergie des projectiles, prévenant les ricochets et rebonds au sol. Sensation de marche agréable, sûre et isolante.",
+      specifications: [
+        { label: "Matériau", value: "Caoutchouc lié au polyuréthane" },
+        { label: "Format pavé entier", value: "200 × 165 mm (± 0,8 %)" },
+        { label: "Format demi-pavé", value: "100 × 165 mm (± 0,8 %)" },
+        { label: "Format pavé de départ", value: "200 × 140 mm (± 0,8 %)" },
+        { label: "Épaisseur", value: "43 mm (± 2 mm)" },
+        { label: "Application", value: "Sols extérieurs de stands de tir — surface antiglisse aspect pavé" },
+        { label: "Résistance balistique", value: "Jusqu'à 6 000 J (norme BFR StOSchAnlBw v06/2022)" },
+        { label: "Comportement au feu", value: "Efl (DIN EN 13501-1)" },
+        { label: "Antiglisse", value: "R10 (DIN 51130)" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
+  { name: "SHIELDTAC® BLOCKS", slug: "shieldtac-blocks", image: shieldtacBlocks.src, category: "sport",
+    details: {
+      description: "SHIELDTAC® blocks (également appelés SPORTEC® shooting block) sont des éléments de protection conçus pour sécuriser les zones dangereuses des stands de tir intérieurs et extérieurs. Ils absorbent l'énergie des projectiles déviés, des éclats et des ricochets. Disponibles en rouge et noir.",
+      specifications: [
+        { label: "Matériau", value: "Caoutchouc lié au polyuréthane" },
+        { label: "Format option 1", value: "500 × 300 × 200 mm (largeur × épaisseur × longueur, tolérance ± 0,8 %)" },
+        { label: "Format option 2", value: "250 × 300 × 200 mm (largeur × épaisseur × longueur, tolérance ± 0,8 %)" },
+        { label: "Application", value: "Sécurisation des zones dangereuses — piège à balles pour stand de tir" },
+        { label: "Résistance balistique", value: "200 à 7 000 J — Contrôlé et évalué par Werner J. Wagner (rapport n° 210/2025)" },
+        { label: "Conformité", value: "Législation allemande sur les armes (WaffG)" },
+        { label: "Comportement au feu", value: "Efl (DIN EN 13501-1)" },
+        { label: "Couleurs disponibles", value: "Rouge, noir" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
+  { name: "SHIELDTAC® FRAGSAFE", slug: "shieldtac-fragsafe", image: shieldtacFragsafe.src, category: "sport",
+    details: {
+      description: "SHIELDTAC® fragsafe est un rideau pare-éclats pour stands de tir. Capable d'absorber les éclats et fragments de projectiles d'une énergie pouvant atteindre 7 000 joules, il complète le pare-balles comme protection supplémentaire. Disponible en rouleau, plusieurs épaisseurs.",
+      specifications: [
+        { label: "Matériau", value: "Caoutchouc lié au polyuréthane" },
+        { label: "Épaisseurs", value: "6, 8 et 10 mm (± 0,3 mm) — autres épaisseurs sur demande" },
+        { label: "Largeur de bande", value: "1 250 mm (± 1,5 %)" },
+        { label: "Longueur de rouleau", value: "20 m (6 mm) — 15 m (8 mm) — 12 m (10 mm)" },
+        { label: "Application", value: "Rideau pare-éclats en complément du pare-balles d'un stand de tir" },
+        { label: "Résistance projectiles", value: "200 à 7 000 J — Contrôlé selon la loi allemande sur les armes (WaffG), expert Werner J. Wagner, rapport n° 212/2025" },
+        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France)" },
+      ],
+      certifications: {
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
+    }
+  },
 ];
 
 export const bricolageProducts: Product[] = [
@@ -1119,6 +1271,7 @@ export const allProducts: Product[] = [
   ...batimentProducts,
   ...industrieProducts,
   ...sportProducts,
+  ...shieldtacProducts,
   ...bricolageProducts,
 ];
 

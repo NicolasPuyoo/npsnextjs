@@ -9,6 +9,15 @@ export const PRODUCT_USE_CASE: Record<string, string> = {
   "sportec-puzzle-2-0": "Dalles emboîtables fitness amovibles",
   "sportec-base-fr": "Dalle EPDM coupe-feu Cfl-s1 (ERP)",
   "sportec-base-ms": "Dalle protection haltérophilie indoor",
+  "sportec-mountain": "Dalle outdoor stations de ski (Cfl-s1)",
+  "sportec-icemat": "Dalle puzzle patinoires (bancs + abords)",
+
+  // SPORT — gamme SHIELDTAC (stand de tir, marque Kraiburg balistique)
+  "shieldtac-ricotile": "Dalle balistique (sols / murs / plafonds), jusqu'à 10 000 J",
+  "shieldtac-ricosys-pu": "Système PU sans joints, Bfl-s1, 200-7 000 J",
+  "shieldtac-pavers": "Pavés extérieurs antiglisse R10, jusqu'à 6 000 J",
+  "shieldtac-blocks": "Piège à balles (zones dangereuses), 200-7 000 J",
+  "shieldtac-fragsafe": "Rideau pare-éclats en rouleau, jusqu'à 7 000 J",
 
   // BRICOLAGE / PRO — Profimat
   "profimat-bumpy": "Butoir d'approche parking",

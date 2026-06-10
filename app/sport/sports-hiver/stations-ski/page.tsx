@@ -101,7 +101,11 @@ const StationsSki = () => {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sportProducts.filter((p) => p.slug !== "sportec-color").map((product, index) => (
+            {/* Stations de ski — Kraiburg recommande explicitement SPORTEC mountain (dalle
+                outdoor 30 mm Cfl-s1, dédiée stations de ski / remontées / magasins location) et
+                icemat (dalle puzzle imperméable pour protection chaussures ski/patin). On exclut
+                color (intérieur) et toutes les dalles haltéro (base FR/MS/style). */}
+            {sportProducts.filter((p) => ["sportec-mountain", "sportec-icemat"].includes(p.slug)).map((product, index) => (
               <motion.div
                 key={product.slug}
                 initial={{ opacity: 0, y: 12 }}

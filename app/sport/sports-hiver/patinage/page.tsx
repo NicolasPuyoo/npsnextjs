@@ -101,7 +101,11 @@ const Patinage = () => {
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sportProducts.map((product, index) => (
+            {/* Patinage indoor — gamme SPORTEC dédiée aux patinoires (bancs joueurs/pénalité,
+                abords pistes). icemat = dalle puzzle anti-coups de patins, style/color = revêtements
+                d'abord intérieurs robustes (Kraiburg les cite pour patinoires). On exclut color
+                des outdoor seulement, ici on est en hall donc OK. base FR/MS = haltéro, hors-sujet. */}
+            {sportProducts.filter((p) => ["sportec-icemat", "sportec-style", "sportec-color", "sportec-puzzle-2-0"].includes(p.slug)).map((product, index) => (
               <motion.div
                 key={product.slug}
                 initial={{ opacity: 0, y: 12 }}
