@@ -23,10 +23,6 @@ export const PRODUCT_USE_CASE: Record<string, string> = {
   "shieldtac-blocks": "Piège à balles (zones dangereuses), 200-7 000 J",
   "shieldtac-fragsafe": "Rideau pare-éclats en rouleau, jusqu'à 7 000 J",
 
-  // SPORT — accessoires SPORTEC / SHIELDTAC
-  "accessoire-rz-turbo-protect-zero": "Vernis bicomposant PU finition + protection",
-  "accessoire-sportec-700-colle": "Colle PU bicomposant pour SPORTEC / SHIELDTAC",
-
   // BRICOLAGE / PRO — Profimat
   "profimat-bumpy": "Butoir d'approche parking",
   "profimat-wheelprotect-13-18": "Berceau pneus 13-18\" (anti-méplats)",

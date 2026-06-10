@@ -71,9 +71,6 @@ import shieldtacPavers from "@/assets/products/shieldtac/SHIELDTAC_PAVERS.png";
 import shieldtacBlocks from "@/assets/products/shieldtac/SHIELDTAC_BLOCKS.png";
 import shieldtacFragsafe from "@/assets/products/shieldtac/SHIELDTAC_FRAGSAFE.png";
 
-// Accessoires SPORTEC pour les revêtements (utilisés notamment sur les stands de tir SHIELDTAC ricosys PU)
-import accessoireRzTurboProtect from "@/assets/products/accessoires/RZ_TURBO_PROTECT_ZERO.png";
-import accessoireSportec700Colle from "@/assets/products/accessoires/SPORTEC_700_COLLE.png";
 
 export type BatimentSubcategory = 
   | "isolation-acoustique-antivibratoire"
@@ -1280,27 +1277,6 @@ export const shieldtacProducts: Product[] = [
       certifications: {
         vocAPlus: "/assets/certifications/voc-a-plus.png",
       },
-    }
-  },
-  { name: "RZ TURBO PROTECT ZERO", slug: "accessoire-rz-turbo-protect-zero", image: accessoireRzTurboProtect.src, category: "sport",
-    details: {
-      description: "RZ TURBO PROTECT ZERO est un vernis polyuréthane bicomposant de finition et de protection à long terme pour les revêtements de sol caoutchouc SPORTEC® et SHIELDTAC®. Réduit la pénétration des saletés, facilite le nettoyage, et prolonge la durée de vie du revêtement (fitness, cardio, athlétisme, bureaux, retail, écoles, zones de supervision de stands de tir).",
-      specifications: [
-        { label: "Type de produit", value: "Vernis de finition bicomposant polyuréthane" },
-        { label: "Application", value: "Protection à long terme du revêtement de sol caoutchouc SPORTEC / SHIELDTAC" },
-        { label: "Usages", value: "Fitness, cardio, athlétisme, bureaux, retail, écoles, zones de supervision de stands de tir" },
-        { label: "Bénéfices", value: "Réduit pénétration saletés, facilite nettoyage, prolonge durée de vie" },
-      ],
-    }
-  },
-  { name: "SPORTEC® 700 — Colle PU bicomposant", slug: "accessoire-sportec-700-colle", image: accessoireSportec700Colle.src, category: "sport",
-    details: {
-      description: "SPORTEC® 700 est la colle polyuréthane bicomposant recommandée par Kraiburg pour le collage de tous les produits SPORTEC® et SHIELDTAC® sur support béton, chape ciment ou support stabilisé. Garantit une adhérence durable et homogène sur tous les supports plans intérieurs.",
-      specifications: [
-        { label: "Type de produit", value: "Colle polyuréthane bicomposant" },
-        { label: "Application", value: "Collage de tous les revêtements SPORTEC® et SHIELDTAC® ricotile / ricosys PU / pavers / blocks sur béton, chape ciment, support stabilisé" },
-        { label: "Pose", value: "Application au peigne cranté selon les recommandations Kraiburg" },
-      ],
     }
   },
 ];
