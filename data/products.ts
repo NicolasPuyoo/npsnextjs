@@ -70,12 +70,29 @@ export interface SpecificationGroup {
   specs: { label: string; value: string }[];
 }
 
+// Badges visuels de certification (PNGs Kraiburg téléchargés en local).
+// On affiche en image (style page Kraiburg) plutôt qu'en texte dans la fiche.
+// Chaque champ est l'URL absolue du badge dans /public/assets/certifications/.
+export interface CertificationBadges {
+  // Marquage CE avec code ATE intégré dans l'image (ex: ce-damtec-estra.png inclut "ETA-13/0342")
+  ceWithAte?: string;
+  // Logo EC1 GEV-EMICODE (very low emission) ou EC1+ (la version supérieure)
+  ec1?: string;
+  // Étiquetage sanitaire français A+ ("Émissions dans l'air intérieur")
+  vocAPlus?: string;
+  // Ange Bleu allemand UZ-156
+  blueAngelUz156?: string;
+  // Logo "New Life 80% recycling rate"
+  newLife80?: string;
+}
+
 export interface ProductDetails {
   description?: string;
   specifications?: { label: string; value: string }[];
   dataSheetUrl?: string;
   brochureUrl?: string;
   usageImage?: string;
+  certifications?: CertificationBadges;
 }
 
 export interface Product {
@@ -384,12 +401,14 @@ export const batimentProducts: Product[] = [
         { label: "Densité", value: "500 - 600 kg/m³" },
         { label: "Comportement au feu", value: "Efl (EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 16 dB (2 mm collé sous 2,5 mm linoleum ou sous 10 mm parquet contrecollé) — ΔLw = 17 dB (2 mm collé sous 3 mm revêtement caoutchouc ou sous 8 mm stratifié) — ΔLw = 18 dB (2 mm sous 10 mm parquet massif ou 3 mm sous 16 mm parquet massif) — ΔLw = 19 dB (2 mm collé sous 3 mm PVC ou sous 10 mm parquet 2 couches) — ΔLw = 20 dB (3 mm collé sous 3 mm PVC) — ΔLw = 25 dB (2 mm collé sous revêtement textile)" },
-        { label: "Marquage CE", value: "Oui (selon ATE)" },
-        { label: "Agrément Technique Européen (ATE)", value: "ETA-18/1054" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), EC1+ (GEV-Emicode), AgBB (santé indoor Allemagne)" },
-        { label: "Certifications", value: "Blue Angel UZ-156 (label environnemental allemand)" },
       ],
       dataSheetUrl: "/fiches-techniques/Black_Uni.pdf",
+      certifications: {
+        ceWithAte: "/assets/certifications/ce-damtec-black-uni-b1.png",
+        ec1: "/assets/certifications/ec1-plus.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+        blueAngelUz156: "/assets/certifications/blue-angel-uz156.png",
+      },
     }
   },
   { name: "DAMTEC® BLACK UNI B1", slug: "damtec-black-uni-b1", image: damtecBlackUniB1.src, category: "batiment", subcategory: "isolation-revetements-sols",
@@ -407,12 +426,14 @@ export const batimentProducts: Product[] = [
         { label: "Allongement à la rupture", value: "env. 30 % (ISO 1798)" },
         { label: "Classement feu", value: "Bfl-s1 (EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8/ISO 717-2) — ΔLw = 19 dB (2mm collé sous 3mm revêtement PVC) — ΔLw = 20 dB (3mm collé sous 3mm revêtement PVC) — ΔLw = 16 dB (2mm collé sous 2.5mm linoleum) — ΔLw = 25 dB (2mm collé sous revêtement textile) — ΔLw = 17 dB (2mm collé sous 3mm revêtement caoutchouc) — ΔLw = 17 dB (2mm sous 8mm revêtement stratifié) — ΔLw = 16 dB (2mm sous 10mm parquet contrecollé) — ΔLw = 18 dB (2mm collé sous 10mm parquet massif) — ΔLw = 18 dB (3mm collé sous 16mm parquet massif) — ΔLw = 19 dB (2mm collé sous 10mm parquet (2 couche))" },
-        { label: "Marquage CE", value: "Oui (selon ATE)" },
-        { label: "Agrément Technique Européen (ATE)", value: "ETA-18/1054" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), EC1 (GEV-Emicode), AgBB (santé indoor Allemagne)" },
-        { label: "Certifications", value: "Blue Angel UZ-156 (label environnemental allemand)" },
       ],
       dataSheetUrl: "/fiches-techniques/Black_Uni_B1.pdf",
+      certifications: {
+        ceWithAte: "/assets/certifications/ce-damtec-black-uni-b1.png",
+        ec1: "/assets/certifications/ec1.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+        blueAngelUz156: "/assets/certifications/blue-angel-uz156.png",
+      },
     }
   },
   { name: "DAMTEC® STANDARD", slug: "damtec-standard", image: damtecStandard.src, category: "batiment", subcategory: "isolation-revetements-sols",
@@ -453,12 +474,15 @@ export const batimentProducts: Product[] = [
         { label: "Comportement au feu", value: "Efl (ISO 11925 / EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 18 dB avec 2 mm collé sous 5 mm LVT — ΔLw = 17 dB avec 2 mm collé sous 10 mm parquet" },
         { label: "Application", value: "Sous revêtements stratifiés, parquets, moquette, linoleum, PVC" },
-        { label: "Marquage CE", value: "Oui (selon ATE)" },
-        { label: "Agrément Technique Européen (ATE)", value: "ETA-21/0228" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), EC1+ (GEV-Emicode), AgBB (santé indoor Allemagne)" },
-        { label: "Certifications", value: "Blue Angel UZ-156 (label environnemental allemand)" },
+        { label: "Marquage CE", value: "Oui — Agrément Technique Européen ETA-21/0228" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Itapur.pdf",
+      certifications: {
+        // CE badge spécifique non récupéré chez Kraiburg, ETA visible en spec.
+        ec1: "/assets/certifications/ec1-plus.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+        blueAngelUz156: "/assets/certifications/blue-angel-uz156.png",
+      },
     }
   },
   { name: "DAMTEC® ITAPUR B1", slug: "damtec-itapur-b1", image: damtecItapurB1.src, category: "batiment", subcategory: "isolation-revetements-sols",
@@ -478,12 +502,14 @@ export const batimentProducts: Product[] = [
         { label: "Comportement au feu", value: "Bfl-s1 (ISO 11925 / EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 18 dB avec 2 mm collé sous 5 mm LVT — ΔLw = 17 dB avec 2 mm collé sous 10 mm parquet" },
         { label: "Application", value: "Sous revêtements stratifiés, parquets, moquette, linoleum, PVC en ERP / IGH" },
-        { label: "Marquage CE", value: "Oui (à confirmer avec ATE ITAPUR B1)" },
-        { label: "Agrément Technique Européen (ATE)", value: "À confirmer avec NPS — version B1 dérivée de l'ETA-21/0228 ITAPUR" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), EC1+ (GEV-Emicode), AgBB (santé indoor Allemagne)" },
-        { label: "Certifications", value: "Blue Angel UZ-156 (label environnemental allemand)" },
+        { label: "Marquage CE", value: "Oui — Agrément Technique Européen à confirmer NPS (dérivée de l'ETA-21/0228 ITAPUR)" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Itapur_B1.pdf",
+      certifications: {
+        ec1: "/assets/certifications/ec1-plus.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+        blueAngelUz156: "/assets/certifications/blue-angel-uz156.png",
+      },
     }
   },
   
@@ -501,11 +527,13 @@ export const batimentProducts: Product[] = [
         { label: "Compression maximale", value: "0,20 N/mm² (EN 826)" },
         { label: "Comportement au feu", value: "Efl (EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 19 dB (4 mm sous chape ciment 50 mm) — ΔLw = 19 dB (6 mm sous chape ciment 35 mm) — ΔLw = 20 dB (6 mm sous chape ciment 50 mm) — ΔLw = 21 dB (8 mm sous chape ciment 50 mm)" },
-        { label: "Marquage CE", value: "Oui (selon ATE)" },
-        { label: "Agrément Technique Européen (ATE)", value: "ETA-13/0342" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), EC1+ (GEV-Emicode), AgBB (santé indoor Allemagne)" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Estra.pdf",
+      certifications: {
+        ceWithAte: "/assets/certifications/ce-damtec-estra.png",
+        ec1: "/assets/certifications/ec1-plus.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
     }
   },
   { name: "DAMTEC® ESTRA 3D", slug: "damtec-estra-3d", image: damtecEstra3D.src, category: "batiment", subcategory: "isolation-sous-chape",
@@ -521,11 +549,13 @@ export const batimentProducts: Product[] = [
         { label: "Compression maximale", value: "0,10 N/mm² (EN 826)" },
         { label: "Comportement au feu", value: "Efl (EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 22 dB sous chape ciment 50 mm" },
-        { label: "Marquage CE", value: "Oui (selon ATE)" },
-        { label: "Agrément Technique Européen (ATE)", value: "ETA-13/0572" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), EC1+ (GEV-Emicode), AgBB (santé indoor Allemagne)" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Estra_3D.pdf",
+      certifications: {
+        ceWithAte: "/assets/certifications/ce-damtec-estra-3d.png",
+        ec1: "/assets/certifications/ec1-plus.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
     }
   },
   { name: "DAMTEC® WAVE 3D", slug: "damtec-wave-3d", image: damtecWave3D8.src, category: "batiment", subcategory: "isolation-sous-chape",
@@ -548,11 +578,13 @@ export const batimentProducts: Product[] = [
         { label: "Température d'utilisation", value: "-30 à +80 °C" },
         { label: "Comportement au feu", value: "Efl (EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 140-8 / ISO 717-2) ΔLw = 35 dB (17/8, 80 mm chape ciment) — ΔLw = 32 dB (17/8, 50 mm) — ΔLw = 30 dB (8/4, 80 mm) — ΔLw = 25 dB (8/4, 50 mm)" },
-        { label: "Marquage CE", value: "Oui (selon ATE)" },
-        { label: "Agrément Technique Européen (ATE)", value: "ETA-15/0358" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), EC1+ (GEV-Emicode), AgBB (santé indoor Allemagne)" },
       ],
       dataSheetUrl: "/fiches-techniques/fiche-technique-damtec-wave-3d.pdf",
+      certifications: {
+        ceWithAte: "/assets/certifications/ce-damtec-wave-3d.png",
+        ec1: "/assets/certifications/ec1-plus.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
     }
   },
   { name: "DAMTEC® 3D 17/8", slug: "damtec-3d-17-8", image: damtec3D17.src, category: "batiment", subcategory: "isolation-sous-chape",
@@ -574,11 +606,12 @@ export const batimentProducts: Product[] = [
         { label: "Température d'utilisation", value: "-30 à +80 °C" },
         { label: "Comportement au feu", value: "Efl (EN 13501)" },
         { label: "Amélioration de l'isolation au bruit de choc", value: "(ISO 10140 / ISO 717) ΔLw = 26 dB (chape ciment 50 mm) — ΔLw = 28 dB (60 mm) — ΔLw = 31 dB (70 mm) — ΔLw = 32 dB (2× chape ciment 60 mm) — ΔLw = 34 dB (2× 80 mm). (ASTM E2179 / E989) ΔIIC = 29 dB (60 mm) — ΔIIC = 34 dB (2× 60 mm)" },
-        { label: "Marquage CE", value: "Oui (selon ATE)" },
-        { label: "Agrément Technique Européen (ATE)", value: "ETA-16/0481" },
-        { label: "Émissions dans l'air ambiant", value: "A+ (étiquetage sanitaire COV France), AgBB (santé indoor Allemagne)" },
       ],
       dataSheetUrl: "/fiches-techniques/Damtec_Estra_3D_17_8.pdf",
+      certifications: {
+        ceWithAte: "/assets/certifications/ce-damtec-3d-17-8.png",
+        vocAPlus: "/assets/certifications/voc-a-plus.png",
+      },
     }
   },
   

@@ -269,6 +269,57 @@ const ProductDetail = () => {
                   />
                 </div>
 
+                {/* Accréditation — badges visuels reprenant le rendu Kraiburg :
+                    CE+ATE par produit + EC1/EC1+ + A+ étiquetage sanitaire + Blue Angel + New Life.
+                    Affiché uniquement si au moins un badge est renseigné dans data/products.ts. */}
+                {product.details?.certifications && Object.values(product.details.certifications).some(Boolean) && (
+                  <div className="bg-panel text-panel-foreground rounded-3xl p-8">
+                    <h2 className="text-xl font-bold mb-6">Accréditation</h2>
+                    <div className="grid grid-cols-2 gap-6 items-center justify-items-center">
+                      {product.details.certifications.ceWithAte && (
+                        <img
+                          src={product.details.certifications.ceWithAte}
+                          alt={`Marquage CE avec Agrément Technique Européen — ${product.name}`}
+                          className="max-h-24 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      )}
+                      {product.details.certifications.ec1 && (
+                        <img
+                          src={product.details.certifications.ec1}
+                          alt="EC1 / EC1+ GEV-Emicode (very low emission)"
+                          className="max-h-24 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      )}
+                      {product.details.certifications.vocAPlus && (
+                        <img
+                          src={product.details.certifications.vocAPlus}
+                          alt="Émissions dans l'air intérieur — étiquetage sanitaire A+"
+                          className="max-h-24 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      )}
+                      {product.details.certifications.blueAngelUz156 && (
+                        <img
+                          src={product.details.certifications.blueAngelUz156}
+                          alt="Ange Bleu — label environnemental allemand UZ-156"
+                          className="max-h-24 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      )}
+                      {product.details.certifications.newLife80 && (
+                        <img
+                          src={product.details.certifications.newLife80}
+                          alt="New Life — taux de recyclage 80%"
+                          className="max-h-24 w-auto object-contain"
+                          loading="lazy"
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 {/* Contact CTA below sidebar */}
                 <div className="bg-primary/10 rounded-2xl p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-2">
