@@ -28,8 +28,10 @@ const categoryToProjectType: Record<string, string> = {
 type Step = "project" | "contact";
 
 type FormState = {
-  // Étape 1 — projet
-  surfaceM2: string;
+  // Étape 1 — projet. "volume" est un champ libre : selon le produit (revêtement,
+  // butoir parking, berceau de pneus, dalle anti-vibratoire…), l'utilisateur tape ce
+  // qu'il sait — surface en m², nombre d'unités, charge à supporter, etc.
+  volume: string;
   profil: string;
   delai: string;
   details: string;
@@ -42,7 +44,7 @@ type FormState = {
 };
 
 const initialForm: FormState = {
-  surfaceM2: "",
+  volume: "",
   profil: "",
   delai: "",
   details: "",
@@ -89,9 +91,10 @@ export const QuoteRequestDrawer = ({
   };
 
   // Validation simple par étape. On garde basique : tout est gentle, pas d'overlay
-  // rouge agressif — juste un bouton désactivé pour rester sobre.
-  const canGoNext =
-    form.surfaceM2.trim().length > 0 && form.profil.length > 0 && form.delai.length > 0;
+  // rouge agressif — juste un bouton désactivé pour rester sobre. Le champ "volume"
+  // est OPTIONNEL (certains visiteurs ne savent pas chiffrer leur besoin, surtout
+  // en phase information) — on ne bloque pas la progression dessus.
+  const canGoNext = form.profil.length > 0 && form.delai.length > 0;
   const canSubmit =
     form.nom.trim().length > 0 &&
     form.prenom.trim().length > 0 &&
@@ -104,7 +107,7 @@ export const QuoteRequestDrawer = ({
     lines.push(`Référence produit : ${product.slug}`);
     lines.push("");
     lines.push("--- Projet ---");
-    if (form.surfaceM2) lines.push(`Surface estimée : ${form.surfaceM2} m²`);
+    if (form.volume) lines.push(`Volume / quantité estimée : ${form.volume}`);
     if (form.profil) lines.push(`Profil demandeur : ${form.profil}`);
     if (form.delai) lines.push(`Délai souhaité : ${form.delai}`);
     if (form.details) {
@@ -205,16 +208,18 @@ export const QuoteRequestDrawer = ({
           <div className="flex-1 overflow-y-auto px-6 py-6 space-y-5">
             {step === "project" && (
               <>
-                <Field label="Surface estimée (m²)" htmlFor="qr-surface">
+                <Field label="Volume ou quantité estimée" htmlFor="qr-volume">
                   <Input
-                    id="qr-surface"
-                    type="number"
-                    inputMode="numeric"
-                    min={0}
-                    placeholder="ex. 250"
-                    value={form.surfaceM2}
-                    onChange={(e) => updateField("surfaceM2", e.target.value)}
+                    id="qr-volume"
+                    type="text"
+                    placeholder="ex. 250 m² / 4 unités / charge 500 kg/m²"
+                    value={form.volume}
+                    onChange={(e) => updateField("volume", e.target.value)}
                   />
+                  <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">
+                    Indiquez ce que vous savez : surface, nombre d'unités, charge à supporter ou
+                    configuration. Optionnel — vous pouvez préciser à l'oral plus tard.
+                  </p>
                 </Field>
 
                 <Field label="Vous êtes" htmlFor="qr-profil">
@@ -320,7 +325,7 @@ export const QuoteRequestDrawer = ({
                 <div className="rounded-2xl bg-muted/40 p-4 text-xs text-muted-foreground space-y-1">
                   <p className="font-medium text-foreground">Récap de votre demande</p>
                   <p>Produit : {product.name}</p>
-                  {form.surfaceM2 && <p>Surface : {form.surfaceM2} m²</p>}
+                  {form.volume && <p>Volume / quantité : {form.volume}</p>}
                   {form.profil && <p>Profil : {profileLabel(form.profil)}</p>}
                   {form.delai && <p>Délai : {delaiLabel(form.delai)}</p>}
                 </div>
