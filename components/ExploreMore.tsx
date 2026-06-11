@@ -3,7 +3,6 @@ import batimentImg from "@/assets/categories/batiment.jpg";
 import bricolageImg from "@/assets/categories/bricolage.jpg";
 import sportImg from "@/assets/categories/sport.webp";
 import produitsImg from "@/assets/categories/produits.webp";
-import solutionsImg from "@/assets/categories/solutions.webp";
 import isolationAcoustiqueImg from "@/assets/batiment/isolation-acoustique.jpg";
 import isolationChapeImg from "@/assets/batiment/isolation-chape.jpg";
 import isolationSansAteImg from "@/assets/batiment/isolation-sans-ate.webp";
@@ -39,12 +38,6 @@ const allItems: ExploreItem[] = [
     description: "Revêtements sportifs spécialisés",
     href: "/sport",
     image: sportImg.src,
-  },
-  {
-    title: "Nos Solutions",
-    description: "Découvrez toutes nos solutions",
-    href: "/solutions",
-    image: solutionsImg.src,
   },
   {
     title: "Tous les Produits",

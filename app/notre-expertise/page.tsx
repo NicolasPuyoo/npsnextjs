@@ -36,7 +36,7 @@ const sectors = [
   {
     title: "Hôtellerie & restauration",
     desc: "Chambres, restaurants, terrasses techniques, zones spa. Solutions adaptées à l'exploitation CHR.",
-    href: "/solutions/hotels",
+    href: "/batiment/isolation-sous-chape",
   },
   {
     title: "Anti-vibration industriel",

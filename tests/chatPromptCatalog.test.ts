@@ -2,12 +2,15 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { allProducts } from "@/data/products";
-import { solutionsData } from "@/data/solutionProducts";
 
-// Reads the edge function source as plain text and extracts every
-// /produit/<slug> and /solutions/<id> URL it cites in CATALOG. Verifies
-// each one resolves to a real product or solution. Catches drift when
-// the catalog goes stale after a data change.
+// Lit le source de l'edge function en texte brut et extrait toutes les URLs
+// /produit/<slug> citées dans le system prompt CATALOG. Vérifie qu'elles
+// renvoient toutes vers un vrai produit. Détecte la dérive quand le catalogue
+// devient obsolète après une modif data.
+//
+// Vérifie aussi qu'aucune URL /solutions/<id> ne traîne dans le prompt — la
+// rubrique /solutions a été supprimée du site, donc le chat ne doit jamais
+// l'inviter.
 
 const edgeSrc = readFileSync(
   resolve(__dirname, "../supabase/functions/acoustic-expert-chat/index.ts"),
@@ -22,13 +25,11 @@ describe("chat edge function catalog stays in sync with data", () => {
     expect(ghosts).toEqual([]);
   });
 
-  it("every /solutions/<id> mentioned in the system prompt exists", () => {
+  it("the system prompt no longer references the removed /solutions section", () => {
     const cited = [
-      ...edgeSrc.matchAll(/\/solutions\/([a-z0-9-]+)/g),
-    ].map((m) => m[1]);
-    const realIds = new Set(solutionsData.map((s) => s.id));
-    const ghosts = [...new Set(cited)].filter((s) => !realIds.has(s));
-    expect(ghosts).toEqual([]);
+      ...edgeSrc.matchAll(/\/solutions\/[a-z0-9-]+/g),
+    ].map((m) => m[0]);
+    expect(cited).toEqual([]);
   });
 
   it("the catalog cites at least 40 products (no major silent loss)", () => {

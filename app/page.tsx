@@ -192,8 +192,8 @@ const Index = () => {
                 ))}
               </ul>
               <Button asChild size="lg" className="rounded-full group">
-                <Link href="/solutions">
-                  Découvrir nos solutions
+                <Link href="/produits">
+                  Voir notre catalogue
                 </Link>
               </Button>
             </motion.div>

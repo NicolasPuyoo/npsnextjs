@@ -9,10 +9,9 @@ export const metadata: Metadata = {
 };
 
 const helpfulLinks = [
-  { href: "/produits", label: "Catalogue produits", desc: "45 produits Kraiburg, SPORTEC, DAMTEC, KRAITEC" },
-  { href: "/solutions", label: "Solutions par secteur", desc: "Fitness, hôtellerie, toitures, désolidarisation, piscine, supermarchés" },
+  { href: "/produits", label: "Catalogue produits", desc: "Tous les produits Kraiburg, SPORTEC, DAMTEC, KRAITEC, SHIELDTAC" },
   { href: "/batiment/isolation-sous-chape", label: "Isolation sous chape", desc: "Sous-couches certifiées ATE pour chape flottante" },
-  { href: "/sport/fitness", label: "Sols de salle de sport", desc: "Revêtements EN 14904 cardio, musculation, haltérophilie" },
+  { href: "/sport/fitness", label: "Sols de salle de sport", desc: "Revêtements SPORTEC cardio, musculation, haltérophilie" },
   { href: "/contact", label: "Demander un devis", desc: "Réponse expert sous 24h" },
 ];
 

@@ -32,21 +32,14 @@ const sportSubLinks: SubLink[] = [
   { name: "Rééducation & kiné", path: "/sport/commerce/reeducation" },
 ];
 
-const solutionsSubLinks: SubLink[] = [
-  { name: "Fitness / Gym", path: "/solutions/fitness-gym" },
-  { name: "Hôtels", path: "/solutions/hotels" },
-  { name: "Toitures et terrasses", path: "/solutions/toitures-terrasses" },
-  { name: "Piscine / Bassin aquatique", path: "/solutions/piscine" },
-  { name: "Supermarchés & commerces", path: "/solutions/supermarches" },
-  { name: "Désolidarisation bâtiment", path: "/solutions/desolidarisation" },
-];
+// Rubrique /solutions retirée du site (juin 2026) : entrée par secteur
+// d'activité jugée trop redondante avec /batiment et /sport.
 
 const navLinks: NavItem[] = [
   { name: "Accueil", path: "/" },
   { name: "Bâtiment & Industrie", path: "/batiment", submenu: batimentSubLinks },
   { name: "Bricolage", path: "/bricolage" },
   { name: "Sport", path: "/sport", submenu: sportSubLinks },
-  { name: "Solutions", path: "/solutions", submenu: solutionsSubLinks },
   { name: "Produits", path: "/produits" },
   { name: "Contact", path: "/contact" },
 ];

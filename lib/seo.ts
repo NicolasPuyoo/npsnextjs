@@ -157,12 +157,8 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   },
   // /guide and /guide/* hidden — contenu en cours de validation par un acousticien.
 
-  "/solutions": {
-    title: `Solutions acoustiques par secteur | ${BRAND}`,
-    description:
-      "Solutions clé en main par type d'établissement : fitness/gym, hôtels, piscines, supermarchés, toitures, désolidarisation.",
-    keywords: [...COMMON_KEYWORDS, "solution acoustique sectorielle"],
-  },
+  // /solutions retiré du site — entrée par secteur jugée redondante avec
+  // /batiment et /sport. Aucune metadata SEO publiée.
 
   "/produits": {
     title: `Catalogue produits acoustiques | ${BRAND}`,

@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { allProducts } from "@/data/products";
-import { solutionsData } from "@/data/solutionProducts";
 import { PAGE_SEO } from "@/lib/seo";
 
 const SITE_URL = "https://nps-france.com";
@@ -42,17 +41,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Dynamic solution pages
-  const solutionRoutes = solutionsData.map((s) => ({
-    url: `${SITE_URL}/solutions/${s.id}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  // /solutions retiré du site — pas de routes dynamiques à exposer.
 
   return [
     ...staticRoutes,
     ...productRoutes,
-    ...solutionRoutes,
   ];
 }

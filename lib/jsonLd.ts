@@ -129,8 +129,8 @@ export function website() {
 
 export type ItemListEntry = { name: string; url: string };
 
-// ItemList JSON-LD signals a curated list to Google. Used on /produits and
-// /solutions index pages to help Google understand the catalog structure.
+// ItemList JSON-LD signals a curated list to Google. Used on /produits index
+// page to help Google understand the catalog structure.
 export function itemList(name: string, items: ItemListEntry[]) {
   return {
     "@context": "https://schema.org",

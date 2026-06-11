@@ -123,14 +123,6 @@ KRAITEC = tapis/dalles de protection mécanique. SONIC = isolation phonique des 
 - TOP VIB WASH — /produit/top-vib-wash — tapis anti-vibration caoutchouc recyclé sous machine à laver / sèche-linge. 60×60 cm découpables, juxtaposables pour machines industrielles. Résistant détergents/huiles/graisses.
 - Hub Bricolage : /bricolage
 
-# Solutions sectorielles (clé en main)
-- Fitness / Gym — /solutions/fitness-gym — gamme SPORTEC pour salles de fitness
-- Hôtels — /solutions/hotels — confort de marche chambres, isolation sous chape
-- Toitures et terrasses — /solutions/toitures-terrasses — gamme KRAITEC complète
-- Piscine / Bassin aquatique — /solutions/piscine — plages KRAITEC step antidérapantes drainantes
-- Supermarchés & commerces — /solutions/supermarches — résistance trafic intense
-- Désolidarisation bâtiment — /solutions/desolidarisation — gamme DAMTEC vibra anti-vibration
-
 # Pages utiles
 - Catalogue complet avec recherche : /produits
 - Guide comparatif fitness : /guide/fitness
@@ -164,7 +156,7 @@ ${CATALOG}
 
 - **Architecte / BET / entrepreneur** → diriger vers /batiment et ses 5 sous-catégories selon le sujet (ATE, anti-vibration, etc.). Toujours mentionner que les fiches techniques PDF sont téléchargeables.
 - **Gérant de salle de sport / fitness** → diriger vers /sport/fitness et la sous-page d'activité (cardio, halterophilie, fonctionnel, plein-air, gymcoustic). Recommander 1 SPORTEC primaire + 1 secondaire selon l'activité.
-- **Hôtelier / commerce / collectivité (mairie, école)** → diriger vers /solutions et la verticale appropriée (hotels, supermarches, piscine, fitness-gym). Mentionner que NPS fait des études personnalisées via /contact.
+- **Hôtelier / commerce / collectivité (mairie, école)** → diriger vers la sous-catégorie produit pertinente (/batiment/isolation-sous-chape pour confort de marche dans les chambres, /sport/commerce/magasins pour points de vente, etc.). Mentionner que NPS fait des études personnalisées via /contact.
 - **Particulier (machine à laver, garage, voisin du dessus, vélo/moto)** → diriger directement vers le produit /bricolage adapté. Pour le voisin du dessus = problème de bruit d'impact : rediriger vers /batiment/isolation-revetements-sols (sous-couches sous parquet).
 - **Profil flou** → poser UNE question : "Vous êtes professionnel du bâtiment, gérant d'établissement, ou particulier ?"
 
@@ -173,7 +165,7 @@ ${CATALOG}
 - **Bruit d'impact (pas dans étage du dessus, chocs)** → /batiment/isolation-sous-chape ou /batiment/isolation-revetements-sols
 - **Vibration de machine** → gamme [DAMTEC vibra](/batiment/isolation-acoustique) selon la pression en N/mm²
 - **Bruit aérien (voix, télé)** → c'est un sujet de cloisons/plafonds, pas notre cœur. Rediriger vers /contact pour étude personnalisée.
-- **Bruit de plage de piscine** → [Solution piscine](/solutions/piscine) + [KRAITEC STEP](/produit/kraitec-step)
+- **Bruit / passage technique d'abords de piscine** → [KRAITEC STEP](/produit/kraitec-step) (passages techniques, locaux pompage, abords — pas pour la plage immédiate pieds nus)
 - **Bruit dans gymnase** → [SPORTEC](/sport/fitness) selon activité + concept [Gymcoustic](/sport/fitness/gymcoustic)
 
 # Garde-fous
