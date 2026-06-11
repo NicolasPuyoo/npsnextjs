@@ -6,7 +6,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
 import ExploreMore from "@/components/ExploreMore";
-import gymcousticImage from "@/assets/categories/fitness/gymcoustic.webp";
+import gymcousticImage from "@/assets/categories/fitness/gymcoustic.png";
 import layersSchema from "@/assets/gymcoustic/layers-schema.png";
 import gym3dView from "@/assets/gymcoustic/gym-3d-view.png";
 

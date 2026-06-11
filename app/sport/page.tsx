@@ -25,7 +25,7 @@ import hiverImage from "@/assets/categories/sport/hiver.webp";
 import cardioImage from "@/assets/categories/fitness/cardio.webp";
 import halterophilieImage from "@/assets/categories/fitness/halterophilie.webp";
 import pleinAirImage from "@/assets/categories/fitness/plein-air.webp";
-import gymcousticImage from "@/assets/categories/fitness/gymcoustic.webp";
+import gymcousticImage from "@/assets/categories/fitness/gymcoustic.png";
 import fonctionnelImage from "@/assets/categories/fitness/fonctionnel.webp";
 
 type SubCategory = { id: string; name: string; description: string; image: string; path: string };
@@ -133,7 +133,7 @@ const Sport = () => {
       <section id="fitness" className="py-16 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-foreground mb-3">Fitness, gym et bien-être</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-3">Fitness</h2>
             <p className="text-muted-foreground max-w-3xl">
               Cardio, musculation, haltérophilie, entraînement fonctionnel, plein air et concepts modulaires : trouvez la sous-couche acoustique adaptée à votre activité.
             </p>
@@ -150,7 +150,7 @@ const Sport = () => {
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-foreground mb-3">Sports d'hiver et stand de tir</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-3">Sports</h2>
             <p className="text-muted-foreground max-w-3xl">
               Revêtements et solutions balistiques pour stations de ski, patinoires et stands de tir : gamme SPORTEC outdoor et SHIELDTAC dédiée.
             </p>
@@ -167,7 +167,7 @@ const Sport = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-foreground mb-3">Commerce, bureaux et établissements</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-3">Commerce</h2>
             <p className="text-muted-foreground max-w-3xl">
               Solutions pour bureaux, magasins, salons, kinés, écoles : confort acoustique et durabilité dans tous vos espaces recevant du public.
             </p>

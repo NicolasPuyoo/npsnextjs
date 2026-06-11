@@ -7,7 +7,10 @@ import { Button } from "@/components/ui/button";
 import ProductSearch from "@/components/ProductSearch";
 import logoNps from "@/assets/logo-nps.png";
 
-type SubLink = { name: string; path: string };
+// `groupHeader` (optionnel) sépare le menu en sections — affiché en chip au-dessus
+// du lien. Utilisé sur Sport pour matcher la taxonomie Kraiburg (Fitness / Sports /
+// Commerce).
+type SubLink = { name: string; path: string; groupHeader?: string };
 type NavItem = {
   name: string;
   path: string;
@@ -22,11 +25,22 @@ const batimentSubLinks: SubLink[] = [
   { name: "Solutions extérieures", path: "/batiment/solutions-exterieures" },
 ];
 
+// Sport menu organisé selon la taxonomie Kraiburg SPORTEC :
+// — Fitness (cardio, haltérophilie, fonctionnel, plein-air, gymcoustic)
+// — Sports (sports d'hiver, stand de tir SHIELDTAC)
+// — Commerce (bureaux, magasins, salons, rééducation)
 const sportSubLinks: SubLink[] = [
-  { name: "Fitness & Gym", path: "/sport/fitness" },
-  { name: "Sports d'hiver", path: "/sport/sports-hiver" },
+  { groupHeader: "Fitness", name: "Vue d'ensemble", path: "/sport/fitness" },
+  { name: "Cardio", path: "/sport/fitness/cardio" },
+  { name: "Haltérophilie", path: "/sport/fitness/halterophilie" },
+  { name: "Entraînement fonctionnel", path: "/sport/fitness/fonctionnel" },
+  { name: "Plein air", path: "/sport/fitness/plein-air" },
+  { name: "Gymcoustic", path: "/sport/fitness/gymcoustic" },
+
+  { groupHeader: "Sports", name: "Sports d'hiver", path: "/sport/sports-hiver" },
   { name: "Stand de tir (SHIELDTAC)", path: "/sport/stand-tir" },
-  { name: "Bureaux & open space", path: "/sport/commerce/bureaux" },
+
+  { groupHeader: "Commerce", name: "Bureaux & open space", path: "/sport/commerce/bureaux" },
   { name: "Magasins & commerces", path: "/sport/commerce/magasins" },
   { name: "Salons & événements", path: "/sport/commerce/salons-evenements" },
   { name: "Rééducation & kiné", path: "/sport/commerce/reeducation" },
@@ -107,21 +121,32 @@ const Navbar = () => {
                       <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary rounded-full" />
                     )}
                   </Link>
-                  {/* Dropdown Menu */}
+                  {/* Dropdown Menu — supporte les groupHeader (chip de section au-dessus
+                      du 1er lien de chaque groupe) pour les menus structurés comme Sport. */}
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="bg-background border border-border rounded-xl shadow-lg py-2 min-w-[300px]">
-                      {link.submenu.map((subLink) => (
-                        <Link
-                          key={subLink.path}
-                          href={subLink.path}
-                          className={`block px-4 py-3 text-sm transition-colors hover:bg-muted ${
-                            pathname === subLink.path
-                              ? "text-primary font-medium"
-                              : "text-muted-foreground hover:text-foreground"
-                          }`}
-                        >
-                          {subLink.name}
-                        </Link>
+                      {link.submenu.map((subLink, i) => (
+                        <div key={subLink.path}>
+                          {subLink.groupHeader && (
+                            <div
+                              className={`px-4 pb-1 text-[10px] uppercase tracking-[0.2em] text-primary/80 font-semibold ${
+                                i === 0 ? "pt-1" : "pt-3 mt-1 border-t border-border/60"
+                              }`}
+                            >
+                              {subLink.groupHeader}
+                            </div>
+                          )}
+                          <Link
+                            href={subLink.path}
+                            className={`block px-4 py-2 text-sm transition-colors hover:bg-muted ${
+                              pathname === subLink.path
+                                ? "text-primary font-medium"
+                                : "text-muted-foreground hover:text-foreground"
+                            }`}
+                          >
+                            {subLink.name}
+                          </Link>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -218,26 +243,38 @@ const Navbar = () => {
                   </div>
                   {link.submenu && openMobileSubmenu === link.path && (
                     <div className={`pl-4 pb-2 ${showWhiteBg ? "border-l border-border ml-4" : "border-l border-white/20 ml-4"}`}>
-                      {link.submenu.map((sub) => (
-                        <Link
-                          key={sub.path}
-                          href={sub.path}
-                          onClick={() => {
-                            setIsOpen(false);
-                            setOpenMobileSubmenu(null);
-                          }}
-                          className={`block px-4 py-2 text-sm transition-colors ${
-                            pathname === sub.path
-                              ? showWhiteBg
-                                ? "text-primary"
-                                : "text-white"
-                              : showWhiteBg
-                                ? "text-muted-foreground hover:text-foreground"
-                                : "text-white/70 hover:text-white"
-                          }`}
-                        >
-                          {sub.name}
-                        </Link>
+                      {link.submenu.map((sub, i) => (
+                        <div key={sub.path}>
+                          {sub.groupHeader && (
+                            <div
+                              className={`px-4 ${i === 0 ? "pt-2" : "pt-4 mt-2 border-t"} pb-1 text-[10px] uppercase tracking-[0.2em] font-semibold ${
+                                showWhiteBg
+                                  ? "text-primary/80 border-border/60"
+                                  : "text-primary/90 border-white/15"
+                              }`}
+                            >
+                              {sub.groupHeader}
+                            </div>
+                          )}
+                          <Link
+                            href={sub.path}
+                            onClick={() => {
+                              setIsOpen(false);
+                              setOpenMobileSubmenu(null);
+                            }}
+                            className={`block px-4 py-2 text-sm transition-colors ${
+                              pathname === sub.path
+                                ? showWhiteBg
+                                  ? "text-primary"
+                                  : "text-white"
+                                : showWhiteBg
+                                  ? "text-muted-foreground hover:text-foreground"
+                                  : "text-white/70 hover:text-white"
+                            }`}
+                          >
+                            {sub.name}
+                          </Link>
+                        </div>
                       ))}
                     </div>
                   )}
