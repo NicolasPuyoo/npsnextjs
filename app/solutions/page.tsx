@@ -41,7 +41,7 @@ const solutions = [
   {
     id: "piscine",
     title: "Piscine / Bassin aquatique",
-    description: "Des solutions spécialement conçues pour les environnements humides. Nos produits résistent à l'eau et aux produits chimiques tout en offrant une excellente absorption des bruits d'impact.",
+    description: "Dalles KRAITEC step pour passages techniques, locaux de pompage, vestiaires et zones de circulation autour des bassins. Solutions résistantes à l'humidité pour les abords — pas pour la plage immédiate des bassins.",
     image: piscineImage.src,
   },
   {

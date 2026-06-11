@@ -31,9 +31,9 @@ const RELATED_PATHS: Record<string, { label: string; href: string; reason: strin
     reason: "Gamme KRAITEC complète pour toitures et terrasses.",
   },
   piscine: {
-    label: "Demander un conseil personnalisé",
-    href: "/contact",
-    reason: "Pour étudier la configuration de votre projet d'abords de piscine.",
+    label: "Voir la gamme KRAITEC step",
+    href: "/batiment/solutions-exterieures",
+    reason: "Dalles KRAITEC step pour passages techniques, locaux de pompage et abords de bassin.",
   },
   supermarches: {
     label: "Voir les sols magasins & commerces",

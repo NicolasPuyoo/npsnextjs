@@ -115,8 +115,8 @@ export const solutionsData: SolutionData[] = [
   {
     id: "piscine",
     title: "Piscine / Bassin aquatique",
-    description: "Revêtements extérieurs sécurisés et drainants.",
-    heroDescription: "Revêtements antidérapants et résistants à l'humidité pour piscines et espaces aquatiques. Sécurité, hygiène et durabilité garanties.",
+    description: "KRAITEC step pour passages techniques et abords de bassin.",
+    heroDescription: "Dalles KRAITEC step (résistantes à l'humidité, drainantes) pour les zones de circulation, locaux de pompage et abords de piscine. Solution adaptée aux passages techniques — pour la plage immédiate des bassins (pieds nus), une étude spécifique reste à valider.",
     products: piscineProducts,
   },
   {
