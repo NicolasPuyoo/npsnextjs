@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import ProductDocuments from "@/components/product/ProductDocuments";
 import VibraProductSchema from "@/components/VibraProductSchema";
+import { QuoteRequestDrawer } from "@/components/QuoteRequestDrawer";
 import { Button } from "@/components/ui/button";
 import { findProductBySlug, getSimilarProducts, categories } from "@/data/products";
 import { getUseCase } from "@/lib/productUseCases";
@@ -205,9 +206,7 @@ const ProductDetail = () => {
                   <p className="text-muted-foreground mb-4">
                     Notre équipe est à votre disposition pour répondre à toutes vos questions.
                   </p>
-                  <Button asChild className="rounded-full">
-                    <Link href={`/contact?produit=${product.slug}&type=${product.category}`}>Demander un devis</Link>
-                  </Button>
+                  <QuoteRequestDrawer product={product} />
                 </div>
               )}
             </div>
@@ -337,9 +336,7 @@ const ProductDetail = () => {
                   <p className="text-muted-foreground mb-4 text-sm">
                     Notre équipe est à votre disposition.
                   </p>
-                  <Button asChild className="rounded-full w-full">
-                    <Link href={`/contact?produit=${product.slug}&type=${product.category}`}>Demander un devis</Link>
-                  </Button>
+                  <QuoteRequestDrawer product={product} triggerFullWidth />
                 </div>
               </div>
             )}
