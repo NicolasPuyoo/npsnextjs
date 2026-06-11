@@ -335,8 +335,8 @@ const Gymcoustic = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Volume2, title: "Isolation acoustique", desc: "Jusqu'à 38 dB de réduction sonore" },
-              { icon: Target, title: "Absorption des chocs", desc: "Jusqu'à 70% d'absorption" },
+              { icon: Volume2, title: "Isolation acoustique", desc: "Jusqu'à 42 dB selon configuration (Basic 25 / All-Round 30 / Acoustic 34 / Performance 42 dB)" },
+              { icon: Target, title: "Absorption des chocs", desc: "Jusqu'à 74,3 % selon configuration (Basic 51,4 % / All-Round 55,6 % / Acoustic ≈60 % / Performance 67,3 à 74,3 %)" },
               { icon: Palette, title: "Design personnalisable", desc: "Large choix de couleurs et finitions" },
               { icon: Ruler, title: "Épaisseurs variées", desc: "De 20 à 40 mm selon les besoins" },
               { icon: Maximize, title: "Formats modulaires", desc: "Dalles et rouleaux disponibles" },

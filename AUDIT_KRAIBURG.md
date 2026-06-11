@@ -1,576 +1,661 @@
-# Audit Kraiburg vs NPS — Page par page
+# Audit Kraiburg vs NPS — Page par page (réécrit complet)
 
-**Date** : 10/06/2026
-**Méthodo** : Pour chaque page NPS, comparaison ligne par ligne avec la page Kraiburg équivalente (DAMTEC / SPORTEC / KRAITEC / SHIELDTAC). Aucune modification appliquée — uniquement un rapport d'écarts pour décision conjointe.
-
----
+Date : 2026-06-11
+Méthodo : lecture brute des `.tsx` NPS (24 pages) + WebFetch des pages Kraiburg-Relastec officielles correspondantes (DAMTEC, KRAITEC, SPORTEC, SHIELDTAC, PROFIMAT). Comparaison factuelle sections / produits cités / specs / certifications. Aucune extrapolation : si l'info n'apparaît pas sur Kraiburg, elle n'est pas listée comme "manquante chez NPS".
 
 ## Légende
 
-- ✅ **Aligné** : l'info est présente sur NPS et matche Kraiburg
-- ➕ **Sur Kraiburg, absent NPS** : Kraiburg a cette info, NPS pourrait l'ajouter
-- ⚠️ **Incohérence / faux** : info NPS qui contredit Kraiburg ou est incorrecte
-- ❓ **Question à valider** : décision NPS/Sébastien nécessaire
-- 🎨 **Différence de style** : NPS a choisi sa propre approche marketing, OK
+- ✅ Aligné
+- ➕ Sur Kraiburg, absent NPS (info qu'on pourrait ajouter SANS extrapoler)
+- ⚠️ Incohérence (info NPS qui contredit Kraiburg)
+- 🎨 Différence de style OK (NPS = marque à part)
+- ❌ Page Kraiburg 404 ou inaccessible
 
 ---
 
-# SECTION 1 — BÂTIMENT (6 pages)
+# Section 1 — Bâtiment (6 pages)
 
 ## 1.1 `/batiment` (hub)
 
-**État actuel NPS** : Hero + section "DAMTEC – Atouts et Caractéristiques" (8 puces) + grille des 5 solutions + grille produits filtrable
+### État NPS actuel
+- Hero "Bâtiment & Industrie", section "DAMTEC® – Atouts et Caractéristiques" (8 puces), grille de 5 solutions (isolation-acoustique, sous-chape avec ATE, sous-chape sans ATE, revêtements sols, solutions extérieures), catalogue filtrable + CTA devis.
+- Mention DIN, EN, ASTM ; arguments écologiques (granulés recyclés) ; faible conductibilité thermique ; durablement élastique.
 
-**Kraiburg DAMTEC hub** : 4 applications principales (rails, antivibratoire, sous chape, revêtements sols) + présentation marque + news (3 articles) + featured products SONIC
+### Kraiburg équivalent : `damtec/fr/`
+Sections : protection rails, isolation antivibratoire bâtiment/industrie, isolation acoustique sous chape, isolation sous revêtements de sols, projets de référence, actualités. Mention EBA (Office fédéral allemand des chemins de fer) pour tapis de ballast.
 
-| Comparaison | Statut |
-|-------------|--------|
-| Structure 5 solutions vs 4 Kraiburg | ✅ NPS a ajouté "sans ATE" en plus, légitime |
-| Section "Caractéristiques DAMTEC" (8 puces) | ✅ Aligné avec arguments Kraiburg |
-| Grille produits filtrable | ✅ Mieux que Kraiburg (qui n'a pas de filtre) |
-| **Section RAILS** (matelas sous-ballast) | ➕ **Manquant chez NPS** — Kraiburg met en 1ère position. **Confirmé : NPS ne distribue pas → OK pas d'ajout** |
-| Section News / actualités | ➕ Kraiburg a 3 articles récents (homologation EBA, nouvelle gamme VIBRA, étude Welle Lenzburg). NPS pas de section actu |
-| Featured products SONIC + SONIC drain plus | ➕ Kraiburg met ces 2 en featured sur la home, NPS les laisse dans /solutions-exterieures |
-| Distinction "avec ATE / sans ATE" | 🎨 NPS-spécifique, utile pour BET français |
+### Delta
 
-**Verdict** : Page globalement OK. Ajouts possibles : section actu + featured products SONIC.
+| Point | État | Note |
+|---|---|---|
+| Sections "isolation sous chape" + "sous revêtements sols" + "antivibratoire" | ✅ | Cartes solutions NPS = sous-pages Kraiburg |
+| Section "Protection rails / tapis de ballast" | ➕ | Kraiburg met en avant le ferroviaire. NPS ne propose pas — choix éditorial OK si NPS ne le distribue pas |
+| 8 caractéristiques DAMTEC (NPS) | ✅ | Reformulation cohérente |
+| Catalogue filtrable | 🎨 | Plus avancé que Kraiburg (Kraiburg n'en a pas) |
+| Certification EBA mentionnée | ➕ | Kraiburg cite EBA explicitement. NPS peut l'ignorer car pas de produit ferroviaire commercialisé |
 
----
-
-## 1.2 `/batiment/isolation-acoustique` (antivibratoire)
-
-**État actuel NPS** : Hero + VibraProductSchema + grille des 9 produits (mélange VIBRA / ULTRAGYM / VIBRADYN sans hiérarchie)
-
-**Kraiburg équivalent** : `kraiburg-relastec.com/damtec/fr/isolation-antivibratoire-batiment-industrie/`
-
-| Comparaison | Statut |
-|-------------|--------|
-| 7 DAMTEC VIBRA (30 à 1500) | ✅ Catalogue identique |
-| ULTRAGYM (= PURASYS vibrafoam SD chez Kraiburg) | ✅ NPS-branded — confirmé OK par toi |
-| VIBRADYN (= PURASYS vibradyn) | ✅ |
-| **Section Atouts techniques** (3 cards) | ➕ **Sur Kraiburg, absent NPS** : "Adaptation individuelle", "Calcul d'ingénierie", "Optimisation fréquences propres" |
-| **Applications concrètes** | ➕ **Sur Kraiburg, absent NPS** : "fondations machines extrêmement lourdes / systèmes escaliers / planchers grands formats / isolation complète bâtiments / milieux humides ou immergés" |
-| **Sectionnement par famille** (VIBRA / Vibrafoam / Vibradyn) | ➕ **Sur Kraiburg, absent NPS** : Kraiburg sépare clairement les 3 sous-gammes avec présentation dédiée. NPS dump tout sans hiérarchie |
-| **13 duretés vibrafoam** (SD10 à SD1900, 0,01 à 1,9 N/mm²) | ➕ Kraiburg liste les 13 variants. NPS = 1 seule entrée ULTRAGYM (peut-être à clarifier dans la fiche produit) |
-| Diagrammes/courbes par produit | ✅ NPS a son VibraProductSchema (comparateur intra-gamme) qui couvre ce besoin différemment |
-
-**Verdict** : Page OK techniquement, mais pourrait être enrichie de 3 sections que Kraiburg met en avant. **Tu m'avais demandé de revert ce que j'avais commencé — voir si tu veux qu'on remette certains ajouts en utilisant uniquement les libellés Kraiburg sans extrapoler.**
+### Verdict : ✅ aligné, choix de scope cohérent (rail volontairement écarté).
 
 ---
 
-## 1.3 `/batiment/isolation-sous-chape` (avec ATE)
+## 1.2 `/batiment/isolation-acoustique`
 
-**État actuel NPS** : Hero + ChapeAcousticsChart + grille des 4 produits (ESTRA, ESTRA 3D, WAVE 3D, 3D 17/8)
+### État NPS actuel
+- Hero, mention gamme **"DAMTEC VIBRA, ULTRAGYM (Vibrafoam) et VIBRADYN"**, composant `VibraProductSchema`, grille produits filtrés `subcategory === "isolation-acoustique-antivibratoire"`.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/damtec/fr/isolation-acoustique-sous-chape/`
+### Kraiburg équivalent : `damtec/fr/isolation-antivibratoire-batiment-industrie/`
+Gammes : `DAMTEC® vibra` (7 SKU : vibra 30/50/100/170/280/700/1500 avec plages de charge en N/mm²), `PURASYS vibrafoam SD` (13 types, plage 0,01–1,9 N/mm²), `PURASYS vibradyn` (cellules fermées, 0,075–1,5 N/mm²).
+Apps : fondations machines, escaliers, dalles, isolation globale bâtiment, milieu humide (vibradyn).
 
-| Comparaison | Statut |
-|-------------|--------|
-| Les 4 produits DAMTEC sous chape (ETA-13/0342, ETA-13/0572, ETA-15/0358, ETA-16/0481) | ✅ Tous présents et avec bons codes ATE (après corrections audit NPS) |
-| ChapeAcousticsChart | ✅ NPS a son comparateur, équivalent au diagramme de performance Kraiburg |
-| **7 avantages techniques majeurs** | ➕ **Sur Kraiburg, absent NPS** : Agrément Technique Européen + marquage CE / Excellent isolement acoustique faible encombrement / Capacité de charge + résistance compression / Élasticité permanente / Faible émission polluante / Résistance eau imputrescibilité / Matériaux recyclés et recyclables / Installation simple et rapide |
-| **Section "Recherche Produit"** interactive | ➕ Kraiburg a un outil de sélection progressive du produit selon l'application. NPS n'a pas |
-| Hero qui mentionne "ESTRA et WAVE" | ⚠️ NPS dit "DAMTEC ESTRA et WAVE" — manque la mention 3D 17/8 (4 produits, pas 2 familles) |
+### Delta
 
-**Verdict** : Page correcte, pourrait être enrichie d'une liste d'avantages techniques formels.
+| Point | État | Note |
+|---|---|---|
+| Mention gammes VIBRA / ULTRAGYM (= PURASYS vibrafoam) / VIBRADYN | ✅ | Correspondance correcte (ULTRAGYM = nom NPS pour PURASYS vibrafoam SD, comme attendu) |
+| Plages de charge en N/mm² | ➕ | Kraiburg liste précisément 30/50/100/170/280/700/1500. NPS pourrait afficher ces ratings sur cartes/fiches sans extrapoler |
+| Applications : fondations machines, escaliers, milieu humide (vibradyn) | ➕ | Kraiburg cite explicitement ces cas. NPS ne les liste pas en page de catégorie (peut-être sur fiches) |
+| Comparaison vibrafoam SD vs vibradyn (cellules ouvertes vs fermées, immergé) | ➕ | Différenciateur technique Kraiburg, absent de NPS |
+
+### Verdict : ✅ aligné sur noms. ➕ Pourrait gagner à expliciter "vibradyn = milieu humide / immergé".
 
 ---
 
-## 1.4 `/batiment/isolation-revetements-sols` (sous revêtements sol)
+## 1.3 `/batiment/isolation-sous-chape`
 
-**État actuel NPS** : Hero + RevetementSolsChart + grille des produits (BLACK UNI, BLACK UNI B1, ITAPUR, ITAPUR B1, STANDARD + TOP RUBBERCORK depuis correction récente)
+### État NPS actuel
+- Hero "Isolation acoustique sous chape avec ATE", mention gamme **"DAMTEC ESTRA et WAVE"**, composant `ChapeAcousticsChart`, grille produits filtrés.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/damtec/fr/isolation-acoustique-revetements-de-sols/`
+### Kraiburg équivalent : `damtec/fr/isolation-acoustique-sous-chape/`
+Produits explicitement cités avec codes ETA : `DAMTEC® estra` (ETA-13/0342), `DAMTEC® estra 3D` (ETA-13/0572), `DAMTEC® 3D 17/8` (ETA-16/0481), `DAMTEC® wave 3D` (ETA-15/0358).
+Avantages : excellente insonorisation + hauteur minimale, capacité de charge élevée, élasticité permanente, pas de dégradation acoustique dans le temps, résistant eau, imputrescible, faibles émissions, pose rapide.
 
-| Comparaison | Statut |
-|-------------|--------|
-| DAMTEC black uni | ✅ |
-| DAMTEC black uni B1 | ✅ |
-| DAMTEC standard | ✅ |
-| **DAMTEC ITAPUR + ITAPUR B1** | ➕ NPS les a, **Kraiburg ne les mentionne pas sur cette page de catégorie** (seulement 3 produits en showcase). À vérifier : est-ce que c'est un produit récent que Kraiburg n'a pas encore mis en page principale ? |
-| TOP RUBBERCORK (suite à audit NPS) | ✅ Reclassé ici (sous revêtements sol) |
-| **7 avantages techniques** | ➕ **Sur Kraiburg, absent NPS** : "Meilleure isolation phonique avec hauteurs minimales" / "Résistance mécanique extrême à la compression" / "Pose rapide et simple" / "Compatible collée ou sans collage" / "Composition écologique (granulés caoutchouc recyclé)" / "Résistance à l'eau et à la pourriture" |
-| Diagramme comparatif des valeurs ΔLw | ✅ NPS a son RevetementSolsChart |
-| Applications listées | ✅ "parquet, laminé, moquette, linoleum, PVC" mentionné sur les 2 |
+### Delta
 
-**Verdict** : Page bonne, pourrait gagner une liste explicite d'avantages techniques + à confirmer si ITAPUR/ITAPUR B1 doivent rester sur cette page ou être ailleurs.
+| Point | État | Note |
+|---|---|---|
+| Mention gammes ESTRA + WAVE | ✅ | OK |
+| Codes ATE/ETA exhaustifs (13/0342, 13/0572, 16/0481, 15/0358) | ➕ | Kraiburg cite les 4 codes. À vérifier qu'ils figurent bien sur chaque fiche NPS (audit fiches déjà réalisé selon historique) |
+| Mention "DAMTEC® 3D 17/8" | ➕ | Produit listé chez Kraiburg ; vérifier qu'il existe au catalogue NPS sous ce nom exact |
+| Argument "pas de dégradation acoustique dans le temps" | ➕ | Mis en avant par Kraiburg, absent de la page NPS (juste sur le hub /batiment) |
+
+### Verdict : ✅ noms et structure alignés. ➕ valider que les 4 ETA listés Kraiburg sont bien tous présents au catalogue NPS.
+
+---
+
+## 1.4 `/batiment/isolation-revetements-sols`
+
+### État NPS actuel
+- Hero, mention **"DAMTEC®"** + "évaluation technique européenne (ETA) et marquage CE", composant `RevetementSolsChart`, grille produits.
+
+### Kraiburg équivalent : `damtec/fr/isolation-acoustique-revetements-de-sols/`
+Produits : `DAMTEC® black uni` (CE/ETA, sous laminé/parquet/moquette/lino/PVC), `DAMTEC® black uni B1` (CE/ETA + classement feu B1, Cfl-s1, sous parquet/laminé/moquette/carrelage), `DAMTEC® standard` (sous carrelage).
+Avantages : hauteur minimale, résistance compression extrême, pose collée ou non, hydrofuge/imputrescible, écologique recyclé.
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Mention CE + ETA | ✅ | OK |
+| Énumération des 3 SKU (black uni / black uni B1 / standard) | ➕ | Page Kraiburg cible exactement ces 3 références. Vérifier qu'ils sont au catalogue NPS sous ces noms |
+| Variante "black uni B1" avec classement feu B1/Cfl-s1 | ➕ | Argument fort Kraiburg pour ERP. À surfacer sur la page NPS si NPS la distribue |
+| Compatibilités fines : laminé / parquet / moquette / lino / PVC (uni) vs carrelage (standard) | ➕ | Tableau de compatibilité pourrait clarifier le choix |
+
+### Verdict : ✅ aligné sur principe. ➕ Détail "black uni B1 = Cfl-s1" mérite mise en avant si distribué.
 
 ---
 
 ## 1.5 `/batiment/isolation-sans-ate`
 
-**État actuel NPS** : Hero + grille de 2 produits (TOP ECOMAT + TOP ACOUSTIQUE RUBBER ECOMAT après corrections récentes)
+### État NPS actuel
+- Hero "Isolation acoustique sous chape sans ATE", gamme **"TOP"**, grille produits filtrés. Catégorie revendiquée comme NPS-spécifique marché FR.
 
-**Kraiburg équivalent** : ❌ **PAS d'équivalent direct chez Kraiburg** — Kraiburg n'a pas de catégorie "sans ATE". C'est une catégorie NPS-spécifique pour répondre au marché français où certains projets ne demandent pas d'ATE.
+### Kraiburg équivalent
+**Pas d'équivalent direct** sur kraiburg-relastec.com — la gamme "TOP" Kraiburg correspond à KRAITEC TOP (protection toiture) et non à des sous-chapes. La page NPS regroupe des produits sans ATE adaptés au marché français.
 
-| Comparaison | Statut |
-|-------------|--------|
-| Page existe seulement chez NPS | 🎨 OK, catégorie utile pour BET français |
-| 2 produits TOP | ✅ Spécifiques NPS, pas chez Kraiburg |
+### Delta
 
-**Verdict** : Page OK, pas de référence Kraiburg à comparer. Catégorie spécifique NPS.
+| Point | État | Note |
+|---|---|---|
+| Catégorie NPS-spécifique | 🎨 | OK — choix éditorial valide pour marché FR |
+| Commentaire dans le code : "sinon les 4 KRAITEC TOP de la gamme protection toiture remontent ici par erreur" | ✅ | Filtre `subcategory === "isolation-sans-ate"` correctement isolé |
+| Risque de confusion utilisateur entre "TOP" (page NPS) et "KRAITEC TOP" (toiture) | ⚠️ | À surveiller : éviter de communiquer "gamme TOP" sans préciser qu'il ne s'agit pas de KRAITEC TOP. Aujourd'hui la page dit "Notre gamme TOP" — pourrait porter à confusion |
+
+### Verdict : 🎨 / ⚠️ Catégorie volontairement NPS — clarifier le nom de gamme pour éviter ambiguïté avec KRAITEC TOP.
 
 ---
 
 ## 1.6 `/batiment/solutions-exterieures`
 
-**État actuel NPS** : Hero + grille des produits (DAMTEC SONIC, SONIC DRAIN PLUS, SONIC FIRE, KRAITEC PROTECT)
+### État NPS actuel
+- Hero "Solutions extérieures pour l'isolation acoustique", gamme **"KRAITEC"**, applications listées : terrasses, toitures accessibles, balcons, espaces extérieurs, résistance UV/climat.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/kraitec/fr/` (gamme KRAITEC entière) + fiches DAMTEC SONIC sur le site DAMTEC
+### Kraiburg équivalent : `kraitec/fr/`
+Gammes : **Top Series** (top, top plus, top PV, top alu, top alu FiRe, top drain plus, top FiRe), **Step Series** (step, step plus, step color, step neon, step roof PVC, step roof FPO, step cross), **Protect**, et `DAMTEC® sonic` / `sonic FiRe` / `sonic drain plus`.
+Applications : toits plats et toits verts, voies de circulation/maintenance, parkings, panneaux solaires, terrasses/balcons, points d'accès maintenance, isolation acoustique extérieure.
 
-| Comparaison | Statut |
-|-------------|--------|
-| DAMTEC SONIC | ✅ |
-| DAMTEC SONIC DRAIN PLUS | ✅ |
-| DAMTEC SONIC FIRE | ✅ |
-| KRAITEC PROTECT | ✅ |
-| **6 applications principales Kraiburg** : toits plats, toits plats végétalisés, photovoltaïque, passages révision, terrasses/balcons, protection terrasses/balcons | ➕ **Sur Kraiburg, absent NPS** : NPS ne sectionne pas par application |
-| **Série KRAITEC top** (top, top plus, top PV, top alu, top alu FiRe, top drain plus, top FiRe) | ➕ **Manquant chez NPS** : Kraiburg a une gamme TOP étendue (7+ variantes). NPS a juste "TOP" générique |
-| **Série KRAITEC step** (step, step plus, step color, step neon, step roof PVC, step roof FPO, step cross) | ➕ **Manquant chez NPS** : Kraiburg a une gamme STEP entière (7+ variantes) — passages de maintenance / révision |
-| Hero mentionne "KRAITEC" | ✅ Aligné |
+### Delta
 
-**Verdict** : ⚠️ La gamme KRAITEC NPS est **très réduite** par rapport à Kraiburg. Kraiburg a ~14 produits KRAITEC, NPS en a 1-2. **À demander à Sébastien : NPS distribue-t-il quoi exactement dans la gamme KRAITEC ?**
+| Point | État | Note |
+|---|---|---|
+| Gamme KRAITEC mentionnée | ✅ | OK |
+| Sous-séries TOP / STEP / PROTECT + DAMTEC sonic | ➕ | Kraiburg structure la gamme en 3 séries + sonic. NPS ne le fait pas — pourrait éclairer le choix utilisateur |
+| Apps "panneaux solaires" + "parkings" + "voies maintenance" + "toits verts" | ➕ | Cas d'usage Kraiburg absents de la page NPS (qui se limite à terrasses/balcons) |
+| Variantes "FiRe" (coupe-feu) | ➕ | Kraiburg propose top FiRe + top alu FiRe — différenciateur réglementation ERP |
+| Variante "PV" (toiture photovoltaïque dédiée) | ➕ | Mention spécifique Kraiburg, absente NPS |
+
+### Verdict : ✅ marque + applications principales OK. ➕ Étoffer avec sous-séries TOP/STEP/PROTECT et cas d'usage PV / parking / toits verts si distribués.
 
 ---
 
-# SECTION 2 — SPORT (~14 pages)
+# Section 2 — Sport (15 pages)
 
 ## 2.1 `/sport` (hub)
 
-**État actuel NPS** : ✅ Audité aujourd'hui — Cross-training → Entraînement fonctionnel, Salle polyvalente → Fitness général, Yoga supprimé. /sport/outdoor + /sport/indoor supprimés.
+### État NPS actuel
+- Hero, 3 sections structurées **Fitness / Sports / Commerce**.
+- Fitness : 6 sous-cartes (fitness général, cardio, haltérophilie, fonctionnel, plein-air, gymcoustic).
+- Sports : 2 sous-cartes (sports-hiver, stand-tir).
+- Commerce : 4 sous-cartes (bureaux, magasins, salons-evenements, reeducation).
+- Commentaire code explicite : Sport indoor + outdoor retirés volontairement car gamme UNI versa / UNI classic / standard 2.0 non encore validée par NPS. Yoga retiré (pas de gamme Kraiburg dédiée).
 
-**Verdict** : ✅ OK, aligné.
+### Kraiburg équivalent : `sportec.fr` (récemment restructuré en Fitness / Sports / Commerce)
+Structure de référence reproduite. Sportec.fr inclut généralement des sous-sections "Sports indoor" + "Sports outdoor" + "Patinoires" + "Stations ski" + "Stand de tir".
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Architecture Fitness / Sports / Commerce | ✅ | Alignée sur sportec.fr post-restructuration |
+| Section Fitness : 6 sous-cartes (sans yoga) | ✅ | Cohérent — yoga retiré à raison |
+| Section Sports : limitée à sports-hiver + stand-tir | 🎨 | Choix assumé en attendant validation UNI versa/classic. Kraiburg propose en plus indoor/outdoor (basket/tennis/multi-jeux) |
+| Section Commerce : bureaux / magasins / salons / rééducation | ✅ | Aligné Kraiburg (salons-évènements : page 404 sur Kraiburg, donc NPS = spécifique FR) |
+| Sous-catégories Fitness alignées Kraiburg (cardio, haltéro, fonctionnel, outdoor, gymcoustic) | ✅ | Bonne correspondance |
+| "Fitness général" (page /sport/fitness) | 🎨 | Sur Kraiburg, page Fitness sert de hub, pas de "fitness général". Choix UX NPS valide. |
+
+### Verdict : ✅ Architecture alignée post-refonte. Indoor/outdoor volontairement retiré (commentaire code explicite) — à compléter quand la gamme UNI sera validée.
 
 ---
 
-## 2.2 `/sport/fitness` (hub fitness)
+## 2.2 `/sport/fitness`
 
-**État actuel NPS** : Hero + 7 features (durabilité, protection support, confort athlète, anti-glisse, insonorisant, installation, nettoyage) + grille de tous les sportProducts
+### État NPS actuel
+- Hero, **7 features** (durabilité, protection support, confort athlète, anti-glisse R10, insonorisation -16 dB @6mm / -20 dB @10-12mm, installation, entretien).
+- Grille SPORTEC (exclut mountain + icemat = produits sports d'hiver).
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/applications/fitness/`
+### Kraiburg équivalent : `sportec/fr/applications/fitness/`
+**10+ produits cités** : SPORTEC® color, color FR, neon, giga, purcolor, variant, style, base FR, base MS, team cup X, base-20 FR.
+**7 avantages** : durable, protection support, protection articulations, R10/DS Label, -16 dB @6mm / ~-20 dB @10-12mm, installation facile, maintenance minimale.
 
-| Comparaison | Statut |
-|-------------|--------|
-| Liste de 7 features | ✅ Aligné avec Kraiburg (mêmes thèmes : confort, robustesse, R10, dB, etc.) |
-| Sous-applications fitness | Kraiburg liste : tapis de course, spinning, station musculation, haltéro <40kg, fonctionnel, crossfit. NPS regroupe en cardio/halterophilie/fonctionnel/plein-air/gymcoustic. 🎨 OK NPS-style |
-| Grille produits dump tout | ✅ OK pour un hub |
+### Delta
 
-**Verdict** : ✅ OK.
+| Point | État | Note |
+|---|---|---|
+| 7 features avec mêmes chiffres (-16 dB @6mm, -20 dB @10-12mm, R10 DIN 51130) | ✅ | Exactement aligné |
+| Mention "Label DS" | ➕ | Kraiburg cite "DS Label" en plus de R10. NPS le mentionne sur certaines pages mais pas ici |
+| Liste 10 produits SPORTEC | ✅ | Grille NPS filtre `sportProducts` (exclut hiver) — couvre la gamme |
+| Sous-catégories d'activité (treadmills, spinning, weight stations, weightlifting <40kg, functional, CrossFit, power) | ➕ | Kraiburg détaille les activités au sein de Fitness ; NPS renvoie aux sous-pages dédiées — choix UX OK |
+| Produit "team cup X" + "base-20 FR" | ⚠️ | À vérifier que ces SKU sont au catalogue NPS. Si absents, juste ne pas les promettre |
+
+### Verdict : ✅ Aligné sur features et chiffres. ➕ Ajouter "Label DS" et vérifier présence catalogue de team cup X / base-20 FR.
 
 ---
 
 ## 2.3 `/sport/fitness/cardio`
 
-**État actuel NPS** : Hero + 6 features + texte recommandation SPORTEC COLOR + grille filtrée (color + puzzle, suite audit récent)
+### État NPS actuel
+- 6 features : stabilité, durabilité, insonorisation (-16 @6mm / -20 @10-12mm), confort, protection support, installation.
+- Recommandation : **SPORTEC® COLOR** rouleau 4-8 mm collé + SPORTEC COLOR avec inserts EPDM.
+- Filtre catalogue : exclut base FR/MS, style, mountain, icemat.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/applications/fitness/cardio/`
+### Kraiburg équivalent : `sportec/fr/applications/fitness/cardio/`
+Produits cités : color, color FR, neon, giga, purcolor, variant, Puzzle 2.0.
+Apps : treadmills, spinning, strength stations, weightlifting (<40 kg), functional, CrossFit.
 
-| Comparaison | Statut |
-|-------------|--------|
-| 6 features | ✅ Aligné (stabilité, robustesse, dB, confort athlète, protection support, installation) |
-| Produits recommandés actuels | NPS = color + puzzle. Kraiburg = color + **color FR + neon + giga + purcolor + variant** + Puzzle 2.0 |
-| **Variantes color manquantes** | ➕ **Sur Kraiburg, absent NPS** : color FR, neon, giga, purcolor, variant — **5 variantes du produit color que NPS n'a pas au catalogue** (cf message Sébastien en cours) |
-| Applications (tapis, vélos, spinning) | ✅ Aligné |
+### Delta
 
-**Verdict** : ⚠️ Page OK mais affichage limité aux 2 produits qu'on a. À enrichir si NPS distribue les variantes color (en attente Sébastien).
+| Point | État | Note |
+|---|---|---|
+| Recommandation SPORTEC color | ✅ | Aligné (Kraiburg le cite en 1er) |
+| 6 features + chiffres dB | ✅ | OK |
+| Filtre exclut style / base FR/MS | ✅ | Cohérent : Kraiburg réserve ces produits aux zones de chute lourde |
+| Variant SPORTEC® variant + giga inclus dans liste Kraiburg | ✅ | Présents dans le filtre NPS (non-exclus) |
+| Apps treadmills / spinning / elliptiques | ✅ | NPS le mentionne dans le hero ("Tapis, vélos, elliptiques, spinning") |
+
+### Verdict : ✅ Parfaitement aligné.
 
 ---
 
 ## 2.4 `/sport/fitness/halterophilie`
 
-**État actuel NPS** : Hero + 7 features + recommandation SPORTEC STYLE + base FR + grille de tous les sportProducts
+### État NPS actuel
+- 7 features : haute résistance / faible rebond, protection support, protection appareils, stabilité, amovible, install (goujons préinstallés), **réduction sonore -24 dB @30mm**.
+- Recommandation : **SPORTEC® STYLE** + plateforme bois sur **SPORTEC® BASE FR** (30 mm Cfl-s1, absorption choc 51 %).
+- Filtre catalogue : exclut mountain + icemat.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/applications/fitness/halterophilie/`
+### Kraiburg équivalent : `sportec/fr/applications/fitness/halterophilie/`
+Produits : style, base FR, base MS, color/color FR/neon/giga/purcolor (pour <40 kg), Puzzle 2.0, edge & corner ramps FR, uniq style, team cup X, shockwave 3D, supercell, gymcoustic.
+Avantages : résistance chocs / rebond faible, protection support, **24 dB @30mm**, R10, install facile.
 
-| Comparaison | Statut |
-|-------------|--------|
-| 7 features | ✅ Aligné (rebond faible, protection support, protection appareils, stabilité, amovible, installation, dB) |
-| Distinction poids légers / poids lourds | ➕ **Sur Kraiburg, absent NPS** : Kraiburg fait une distinction explicite "Poids lourds (>40kg)" vs "Poids légers (<40kg)" avec produits différents par catégorie |
-| Produits poids lourds Kraiburg | style + base FR + base MS + **uniq style + supercell + shockwave 3D + team cup X + edge & corner ramps + gymcoustic** | NPS = style + base FR + base MS uniquement (8 manquants) |
-| Produits poids légers Kraiburg | color + color FR + neon + giga + purcolor + Puzzle 2.0 | NPS = juste color + puzzle (4 manquants) |
-| **SPORTEC base-20 FR** (dalle fitness 1000×1000×20mm) | ➕ Mentionné chez Kraiburg, pas au catalogue NPS |
-| Section "Projets de référence" (30+ installations photos) | ➕ Kraiburg a un portfolio international, NPS n'a pas de section projets |
+### Delta
 
-**Verdict** : ⚠️ Page bonne sur les features, mais catalogue NPS très réduit pour cette catégorie. **Plein de produits Kraiburg manquants à valider avec Sébastien.**
+| Point | État | Note |
+|---|---|---|
+| Réduction sonore 24 dB @30 mm | ✅ | Chiffre identique |
+| Recommandation STYLE + BASE FR | ✅ | Aligné (Kraiburg met aussi style + base FR/MS en avant) |
+| Mention "absorption choc 51 %" (BASE FR) | ✅ | Cohérent avec données Kraiburg Gymcoustic (base = 51,4 %) |
+| Produits "edge & corner ramps FR" + "uniq style" + "shockwave 3D" + "supercell" | ➕ | Kraiburg liste ces accessoires/sous-couches. NPS n'en parle pas — opportunité d'enrichir la gamme accessoires haltéro si distribués |
+| Limite "<40 kg" pour color/neon/giga/purcolor | ➕ | Kraiburg pose une limite de poids explicite. NPS pourrait ajouter ce critère pour aider à choisir |
+
+### Verdict : ✅ Reco produit et chiffres alignés. ➕ Limite poids "<40 kg" et accessoires (edge/corner ramps FR) sont des plus à ajouter sans extrapoler.
 
 ---
 
 ## 2.5 `/sport/fitness/fonctionnel`
 
-**État actuel NPS** : Hero + 7 features + recommandation SPORTEC PUZZLE 2.0 + COLOR + grille de tous les sportProducts
+### État NPS actuel
+- 7 features : durable, protection support (10-12 mm), protection appareils, R10, insonorisation ~-20 dB @10-12 mm, install, maintenance.
+- Recommandation : **SPORTEC® PUZZLE 2.0** modulaire + **SPORTEC® COLOR** zones fixes.
+- Filtre : exclut mountain, icemat, base FR, base MS.
 
-**Kraiburg équivalent** : ❌ Page Kraiburg pas trouvée (URL 404 testée)
+### Kraiburg équivalent : `sportec/fr/applications/fitness/functional-training/`
+9 produits : color, color FR, neon, giga, purcolor, variant, style, team cup X, Puzzle 2.0.
+7 avantages : résilience, protection support (10-12 mm), protection équipement, R10, -20 dB, installation, maintenance modulaire.
 
-**Verdict** : Pas de page Kraiburg à comparer. Page NPS construite à partir du contenu Kraiburg fitness général. ✅ OK.
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Reco PUZZLE 2.0 + COLOR | ✅ | Cohérent — Kraiburg les cite parmi les références pour CrossFit/circuit |
+| 7 features + chiffres | ✅ | OK |
+| Filtre exclut base FR/MS | ⚠️ | Kraiburg liste style + Puzzle 2.0 mais aussi suggère base FR/MS pour zones de drop intensif. NPS exclut base — choix défendable car fonctionnel = mouvement, pas chute lourde. À conserver tel quel |
+| Produit "team cup X" | ➕ | Cité Kraiburg, à vérifier au catalogue NPS |
+
+### Verdict : ✅ Aligné. Filtrage base FR/MS = choix éditorial cohérent (fonctionnel ≠ haltéro).
 
 ---
 
 ## 2.6 `/sport/fitness/plein-air`
 
-**État actuel NPS** : Hero + 9 features + grille filtrée (sans color qui est intérieur)
+### État NPS actuel
+- 9 features : résistance chocs, protection support, protection appareils, stabilité, amovible, install (goujons), insonorisation -26 dB @30 mm, résistance intempéries, entretien facile.
+- Filtre catalogue : exclut color, mountain, icemat, Puzzle 2.0.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/applications/fitness/outdoor-fitness/`
+### Kraiburg équivalent : `sportec/fr/applications/fitness/outdoor-fitness/`
+Produits : **base FR, base MS, style UNI versa, powerturf (gazon artificiel weight sleds), UNI versa (100% EPDM open-pore), multi-pavers** (dalles pavées élastiques).
+Avantages : absorption chocs, protection support (grille intégrée), protection équipement, R10, modulaire, install dalles avec connecteurs, entretien, résistance climatique.
 
-| Comparaison | Statut |
-|-------------|--------|
-| 8 avantages clés Kraiburg | NPS a 9 features, proches mais pas identiques (NPS ajoute "stabilité haltérophilie" + "résistance intempéries" + "nettoyage") |
-| Produits recommandés Kraiburg | **base + style UNI versa + powerturf + UNI versa + multi-pavers** | NPS = base FR/MS + style + puzzle (pas UNI versa, powerturf, multi-pavers — absents catalogue) |
-| **UNI versa, powerturf, multi-pavers** | ➕ **Sur Kraiburg, absent NPS** : produits dédiés plein-air absents du catalogue NPS |
-| Réduction sonore mentionnée "26 dB" en feature | ⚠️ NPS dit 26 dB sous dalle 30 mm, **à vérifier source Kraiburg** (peut-être 25 dB ?) |
+### Delta
 
-**Verdict** : ⚠️ Catalogue NPS très réduit pour plein air. Plein de produits Kraiburg manquants.
+| Point | État | Note |
+|---|---|---|
+| -26 dB @30 mm | ⚠️ | Sur Kraiburg cardio/fitness/halterophilie c'est -24 dB @30mm (BASE FR). Le -26 dB pourrait correspondre à une autre épaisseur outdoor mais **n'apparaît pas sur la page outdoor-fitness Kraiburg fetchée**. À vérifier la source de ce chiffre. Possible que ce soit base MS ou multi-pavers : à confirmer côté NPS sinon corriger. |
+| Filtre exclut color + Puzzle 2.0 | ⚠️ | Kraiburg n'exclut pas Puzzle 2.0 en outdoor mais ne le cite pas non plus pour outdoor-fitness. Filtre NPS défendable |
+| Produits Kraiburg "powerturf" + "multi-pavers" + "UNI versa" + "style UNI versa" | ➕ | Cités Kraiburg outdoor, absents catalogue NPS (cohérent avec décision de ne pas afficher UNI versa tant que non validé) |
+| Résistance intempéries / multi-climat | ✅ | OK |
+
+### Verdict : ⚠️ Vérifier chiffre **-26 dB @30 mm** (Kraiburg dit -24 dB). ➕ Une fois UNI versa / multi-pavers validés, à intégrer.
 
 ---
 
 ## 2.7 `/sport/fitness/gymcoustic`
 
-**État actuel NPS** : Page custom avec 3 product lines (FLOORING / MODULAR / ACOUSTIC) — pas de 4ème PERFORMANCE ni 5ème CUSTOM
+### État NPS actuel
+- Hero, intro, vue 3D, schéma multicouche (SPORTEC Level 1&2 + DAMTEC + KRAIBURG PURASYS).
+- **3 product lines** : FLOORING (SPORTEC color rouleau 4-12 mm, 15-18 dB), MODULAR (Puzzle 2.0 + STYLE), ACOUSTIC (base MS / base FR, jusqu'à 25 dB).
+- Section Avantages clés : **38 dB**, **70 % absorption**, design, épaisseurs 20-40 mm, formats, 100 % recyclable.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/gymcoustic/`
+### Kraiburg équivalent : `sportec/fr/gymcoustic/`
+**5 product lines** : Basic Line (25 dB, 51,4 %), All-round Line (30 dB, 55,6 %, + team cup X), Acoustic Line (34 dB, + shockwave 3D), Performance Line (42 dB, 74,3 %, 70 mm + supercell), Custom Line (DAMTEC + PuraSys).
+Produits clés : style/base (surfaces), team cup X (10 mm), shockwave 3D, supercell (20 mm).
 
-| Comparaison | Statut |
-|-------------|--------|
-| Basic Line (style/base, jusqu'à 25 dB, 51,4% absorption) | NPS appelle "FLOORING + ACOUSTIC LINE" — couvert partiellement |
-| All-Round Line (dalles + team cup X 10 mm, 30 dB, 55,6% absorption) | ❌ **Manquant chez NPS** |
-| Acoustic Line (dalles + shockwave 3D, 34 dB) | NPS a "ACOUSTIC LINE" mais pas la sous-couche shockwave 3D |
-| Performance Line (style 70 mm seul 67,3% absorption ou + supercell 20 mm 74,3%, jusqu'à 42 dB) | ❌ **Manquant chez NPS** |
-| Custom Line (dalles + e-layer + DAMTEC sous chape + PuraSys vibratoire) | ❌ **Manquant chez NPS** |
-| **shockwave 3D, team cup X, supercell** | ➕ Couches élastiques Kraiburg pas au catalogue NPS |
+### Delta
 
-**Verdict** : ⚠️ Page Gymcoustic NPS est une **version simplifiée** de la gamme Kraiburg. Manque 2-3 lines premium (All-Round, Performance, Custom) + leurs couches élastiques associées.
+| Point | État | Note |
+|---|---|---|
+| Architecture multicouche SPORTEC + DAMTEC + PURASYS | ✅ | Aligné avec Custom Line Kraiburg |
+| Nombre de gammes : NPS = 3 (FLOORING, MODULAR, ACOUSTIC) vs Kraiburg = 5 (Basic, All-round, Acoustic, Performance, Custom) | ⚠️ | NPS regroupe différemment. Pas faux mais Kraiburg structure plus finement |
+| "38 dB" mentionné côté NPS (Avantages clés) | ⚠️ | Kraiburg cite **25 / 30 / 34 / 42 dB** selon line. 38 dB n'apparaît pas tel quel chez Kraiburg. À vérifier la source ou corriger en "jusqu'à 42 dB (Performance Line)" |
+| "70 % absorption" | ⚠️ | Kraiburg : Basic 51,4 % / All-round 55,6 % / Performance 74,3 %. Le 70 % n'est pas faux (proche Performance) mais non documenté ; préciser "jusqu'à 74 % (Performance Line)" serait factuel |
+| Mention team cup X, shockwave 3D, supercell | ➕ | Kraiburg les cite comme sous-couches élastiques par gamme. NPS n'expose pas ces SKU |
+| Lignes "Basic / All-round / Acoustic / Performance / Custom" | ➕ | Vocabulaire Kraiburg officiel à reprendre pour clarifier les niveaux d'isolation |
 
----
-
-## 2.8 `/sport/sports-hiver/*`
-
-**État actuel NPS** : ✅ Déjà audité aujourd'hui — mountain + icemat ajoutés, pages stations-ski + patinage filtrées correctement.
-
-**Verdict** : ✅ OK.
-
----
-
-## 2.9 `/sport/stand-tir` (SHIELDTAC)
-
-**État actuel NPS** : ✅ Déjà audité et refondu aujourd'hui — 7 zones + 10 avantages + 5 produits SHIELDTAC + tableau certifs.
-
-**Verdict** : ✅ OK.
+### Verdict : ⚠️ Chiffres **38 dB** et **70 %** à recaler sur les valeurs Kraiburg officielles (25/30/34/42 dB ; 51 % / 56 % / 74 %). ➕ Adopter le nommage des 5 lines pour plus de précision.
 
 ---
 
-## 2.10 `/sport/commerce/bureaux`
+## 2.8 `/sport/sports-hiver`
 
-**État actuel NPS** : Hero + 7 features + grille filtrée (sans dalles haltéro)
+### État NPS actuel
+- Hero, 2 sous-cartes : Stations de ski + Patinage sur glace.
 
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/applications/commerce/bureaux/`
+### Kraiburg équivalent : `sportec/fr/applications/sports-d-hiver/`
+Sections : Products / Applications / Reference Projects.
+2 applications : Ice Skating + Ski Resorts.
+Produits outdoor : mountain, icemat. Indoor : style, color, neon, giga, purcolor, variant. Cert Cfl-s1, A+, R10 DIN 51130.
 
-| Comparaison | Statut |
-|-------------|--------|
-| 7 features (anti-glisse R10, Cfl-s1, design moderne, A+, dB, confort, nettoyage) | ✅ Aligné à 100% avec Kraiburg |
-| Produits recommandés Kraiburg | purcolor + variant + UNI classic + color + **color FR + Puzzle 2.0** | NPS affiche = color + puzzle |
-| **purcolor + variant + UNI classic + color FR manquants** | ➕ **Sur Kraiburg, absent NPS** : 4 variantes color absentes du catalogue |
-| Référence "Tommy Hilfiger Düsseldorf" + 11 cas d'utilisation | 🎨 Kraiburg a un portfolio international, NPS pas de section projets |
+### Delta
 
-**Verdict** : Page bonne sur features. Catalogue limité aux 2 produits qu'on a.
+| Point | État | Note |
+|---|---|---|
+| Architecture 2 sous-cartes (ski + patinage) | ✅ | Aligné |
+| Mention Cfl-s1, A+, R10 | ➕ | Kraiburg les met en avant sur la page hub. NPS ne les liste pas sur le hub sports-hiver |
+| Aperçu produits outdoor vs indoor | ➕ | Kraiburg sépare clairement outdoor (mountain/icemat) vs indoor (color/style/etc.). NPS laisse le détail aux sous-pages |
 
----
-
-## 2.11 `/sport/commerce/magasins`
-
-**État actuel NPS** : Hero + 8 features + grille filtrée
-
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/applications/commerce/magasins/`
-
-| Comparaison | Statut |
-|-------------|--------|
-| 8 features (confort, design, Cfl-s1, robustesse, R10, antistatique, dB, nettoyage) | ✅ Aligné à 100% avec Kraiburg |
-| Produits Kraiburg | purcolor + variant + UNI classic + color + color FR + Puzzle 2.0 | NPS = color + puzzle |
-| **5 variantes color absentes** | ➕ Idem (à valider Sébastien) |
-
-**Verdict** : Page OK features, catalogue limité.
+### Verdict : ✅ Structure alignée. ➕ Ajouter une mention courte des certifications (Cfl-s1, A+, R10) au niveau hub.
 
 ---
 
-## 2.12 `/sport/commerce/salons-evenements`
+## 2.9 `/sport/sports-hiver/stations-ski`
 
-**État actuel NPS** : Hero + 7 features + grille filtrée
+### État NPS actuel
+- 6 features : R10, protection matériel ski (10-12 mm), confort marche, robuste (caillebotis), -20 dB @10-12 mm, install.
+- Filtre : **sportec-mountain + sportec-icemat uniquement**.
+- Commentaire code : Kraiburg recommande mountain (dalle outdoor 30 mm Cfl-s1) + icemat (dalle puzzle).
 
-**Kraiburg équivalent** : ❌ Page 404 (Kraiburg n'a peut-être pas de page dédiée salons)
+### Kraiburg équivalent : `sportec/fr/applications/sports-d-hiver/stations-de-ski/`
+**404** — accessible seulement via le hub winter-sports.
 
-**Verdict** : Pas de comparable. ✅ OK.
+### Delta
 
----
+| Point | État | Note |
+|---|---|---|
+| Sélection mountain + icemat | ✅ | Cohérent avec recommandation Kraiburg hub |
+| Specs R10, -20 dB, 10-12 mm, Cfl-s1 | ✅ | Aligné avec specs Kraiburg hub |
+| Page Kraiburg dédiée | ❌ | 404 — NPS doit s'auto-documenter sur la base du hub (déjà fait) |
 
-## 2.13 `/sport/commerce/reeducation`
-
-**État actuel NPS** : Hero + 8 features + grille filtrée
-
-**Kraiburg équivalent** : `kraiburg-relastec.com/sportec/fr/applications/commerce/reeducation/`
-
-| Comparaison | Statut |
-|-------------|--------|
-| 8 features (confort, protection articulaire, absorption choc, R10, accessibilité, design, dB, installation) | ✅ Aligné à 100% avec Kraiburg |
-| Produits recommandés Kraiburg | Puzzle 2.0 + purcolor | NPS = color + puzzle |
-| **purcolor manquant** | ➕ purcolor pas au catalogue NPS |
-
-**Verdict** : Page OK features, manque purcolor au catalogue.
+### Verdict : ✅ Sélection produits cohérente. ❌ Pas de page Kraiburg dédiée à vérifier — NPS doit garantir sa cohérence en interne.
 
 ---
 
-# SECTION 3 — Pages non auditées en profondeur
+## 2.10 `/sport/sports-hiver/patinage`
 
-## 3.1 Fiches produit individuelles `/produit/[slug]`
+### État NPS actuel
+- 6 features : R10, protection matériel, confort, robuste (lames de patins), -20 dB @10-12 mm, install.
+- Filtre : **icemat + style + color + Puzzle 2.0**.
 
-**État** : Déjà partiellement audité (corrections badges CE+ATE+Émissions appliquées récemment, lisibilité specs améliorée).
+### Kraiburg équivalent : `sportec/fr/applications/sports-d-hiver/patinage-sur-glace/`
+**404** — accessible seulement via le hub winter-sports.
 
-**À refaire** : audit page par page de chaque fiche pour vérifier que les specs techniques matchent exactement Kraiburg (densité, dimensions, dB, certifications). Volume : ~30 fiches.
+### Delta
 
-## 3.2 Solutions par secteur `/solutions/*`
+| Point | État | Note |
+|---|---|---|
+| Sélection : icemat (anti-coup de patin) + style + color + Puzzle 2.0 | ✅ | Aligné avec gamme indoor Kraiburg pour patinoires |
+| Specs R10, -20 dB | ✅ | OK |
+| Mention "résistant lames patins" | ✅ | Argument différenciateur, dans la ligne Kraiburg |
+| Page Kraiburg dédiée | ❌ | 404 |
 
-**État** : 7 pages (fitness-gym, hotels, toitures-terrasses, piscine, supermarches, desolidarisation).
-
-**À noter** : Pages **NPS-spécifiques** — Kraiburg n'a pas de structure "solutions par secteur" équivalente. Ces pages sont du contenu commercial NPS pour aider à la conversion par secteur d'activité. **Pas de comparable Kraiburg direct.**
-
-## 3.3 Pages standalone (`/`, `/notre-expertise`, `/produits`)
-
-**État** : Pages NPS-spécifiques. Pas de comparable Kraiburg direct.
-
----
-
-# SYNTHÈSE GLOBALE
-
-## ✅ Pages bien alignées avec Kraiburg
-
-- `/sport` (hub) après nettoyage récent
-- `/sport/sports-hiver/*` après ajout mountain + icemat
-- `/sport/stand-tir` après refonte SHIELDTAC
-- `/sport/fitness/cardio, halterophilie, gymcoustic, bureaux, magasins, reeducation` (features alignées 100%, catalogue limité)
-- `/batiment/isolation-sans-ate` (page NPS-spécifique, pas de comparable)
-
-## ➕ Pages où Kraiburg a des infos qu'on pourrait ajouter (sans nouveaux produits)
-
-| Page | Ce qu'on pourrait ajouter |
-|------|---------------------------|
-| `/batiment` (hub) | Section news/actualités + featured products SONIC sur la home |
-| `/batiment/isolation-acoustique` | Section atouts techniques (3 cards) + applications concrètes + sectionnement par famille |
-| `/batiment/isolation-sous-chape` | Liste des 7 avantages techniques formels + outil de sélection produit |
-| `/batiment/isolation-revetements-sols` | Liste de 7 avantages techniques formels |
-| `/batiment/solutions-exterieures` | Sectionnement par application (6 catégories) |
-
-## ⚠️ Pages limitées par catalogue NPS réduit
-
-| Page | Produits Kraiburg manquants au catalogue NPS |
-|------|----------------------------------------------|
-| `/sport/fitness/cardio` | color FR, neon, giga, purcolor, variant |
-| `/sport/fitness/halterophilie` | uniq style, supercell, shockwave 3D, team cup X, base-20 FR, edge & corner ramps |
-| `/sport/fitness/plein-air` | UNI versa, powerturf, multi-pavers |
-| `/sport/fitness/gymcoustic` | shockwave 3D, team cup X, supercell + lines All-Round/Performance/Custom |
-| `/sport/commerce/bureaux, magasins` | purcolor, variant, UNI classic, color FR |
-| `/sport/commerce/reeducation` | purcolor |
-| `/batiment/solutions-exterieures` | Gamme TOP étendue (7 variantes), gamme STEP entière (7 variantes), variantes SONIC |
-
-→ **Tous ces ajouts dépendent de la validation Sébastien sur ce que NPS distribue réellement.**
-
-## ❓ Questions importantes pour Sébastien (à ajouter au message déjà préparé)
-
-1. **Gamme KRAITEC TOP étendue** : NPS distribue-t-il top plus, top PV, top alu, top alu FiRe, top drain plus, top FiRe ?
-2. **Gamme KRAITEC STEP** : NPS distribue-t-il step, step plus, step color, step neon, step roof PVC, step roof FPO, step cross ?
-3. **Variantes color** : color FR, neon, giga, purcolor, variant (cf message déjà prévu)
-4. **Couches élastiques gymcoustic** : shockwave 3D, team cup X, supercell (cf message déjà prévu)
-5. **Outdoor sports** : UNI versa et sandwich, UNI classic, fusion, standard 2.0, trend, premium, reva, black sprint (cf message déjà prévu)
-
-## 🎨 Différences de style à laisser tel quel
-
-- NPS = marque à part entière (positionnement validé par toi)
-- Pages solutions par secteur (NPS-spécifique)
-- Pages standalone (homepage, notre-expertise, produits)
-- Page /batiment/isolation-sans-ate (catégorie NPS, marché FR)
+### Verdict : ✅ Sélection cohérente. ❌ Pas de page Kraiburg de référence à vérifier.
 
 ---
 
-# DÉCISIONS À PRENDRE
+## 2.11 `/sport/stand-tir`
 
-Pour chaque ajout/changement proposé dans ce rapport, validation NPS nécessaire avant action.
+### État NPS actuel
+- Hero "Gamme SHIELDTAC®", 10 avantages techniques (10 000 J VPAM-ARG v3 / WaffG, αw 0,75 ricotile 50 mm, A+ COV, 8 teintes RAL ricosys PU, 100 % recyclé, fab. Allemagne).
+- 7 zones d'utilisation (stands extérieurs, déflecteurs, pièges à balles, supervision, sols, murs/plafonds, entraînement tactique).
+- Catalogue : `shieldtacProducts` (ricotile, ricotile FR, ricosys PU, skirting board, pavers, blocks, fragsafe, SPORTEC color FR, giga).
+- Tableau comparatif certifications par produit (joules, feu, αw, R10, COV).
 
-1. **Sections "atouts techniques" et "applications" sur les pages bâtiment** : on les ajoute ?
-2. **Sectionnement par famille de produits** (VIBRA / ULTRAGYM / VIBRADYN, ESTRA / WAVE, TOP / STEP / SONIC) : on le fait ?
-3. **Section actualités sur le hub /batiment** : utile ou pas ?
-4. **Featured products SONIC sur le hub /batiment** : on les met en avant ?
-5. **Catalogue à étendre** : dépend des réponses Sébastien sur les ~25 produits Kraiburg manquants.
+### Kraiburg équivalent : `shieldtac/fr/`
+Produits : ricotile (40/43/70 mm), ricosys PU, pavers, blocks, fragsafe.
+Tests : VPAM-ARG v3 (200-7 000 J), WaffG, Bundeswehr (460-6 000 J).
+Feu : Efl à Cfl-s1 (DIN EN 13501-1).
+100 % recyclé, A+ VOC, fab. Salzwedel.
 
----
+### Delta
 
-*Fin de l'audit. Aucune modification appliquée sur le site.*
+| Point | État | Note |
+|---|---|---|
+| Liste produits SHIELDTAC | ✅ | NPS reprend les 5 produits Kraiburg + skirting board + SPORTEC color FR + giga (zones supervision) |
+| Tableau comparatif (joules / feu / αw / R10 / COV) | ✅ | Données alignées Kraiburg (200-10 000 J ricotile, 200-7 000 J autres, αw jusqu'à 0,75, Bfl-s1 ricosys PU, etc.) |
+| "10 000 J" pour ricotile | ⚠️ | Kraiburg cite "VPAM-ARG v3 (200-7 000 J)" sur le hub. Le 10 000 J pourrait venir d'une fiche produit spécifique ricotile (à vérifier sur la fiche Kraiburg ricotile dédiée) |
+| Mention Bundeswehr (460-6 000 J) | ➕ | Kraiburg cite explicitement. NPS pourrait ajouter cette référence — différenciateur militaire |
+| Rapports B-31/2009, 210/2025, 212/2025 (NPS) | ✅ | Présents en footnote tableau NPS — cohérent avec exigences VPAM/WaffG |
+| Mention 8 teintes RAL pour ricosys PU | ➕ | Argument visuel/design, à vérifier source officielle Kraiburg (fiche ricosys PU) |
 
----
-
-# SECTION 4 — Audit fiche par fiche (produits qu'on a déjà au catalogue)
-
-**Méthodo** : pour chaque produit présent dans `data/products.ts`, comparaison de la fiche NPS avec la page Kraiburg correspondante. Objectif : vérifier qu'aucune info Kraiburg manque sur la fiche NPS, sans ajouter de nouveaux produits.
-
-**Constat général** : NPS a souvent **plus de specs techniques** que la page web Kraiburg (qui est un résumé). NPS a probablement sourcé depuis les fiches techniques PDF officielles. Donc l'audit se concentre sur les rares specs ou certifications que Kraiburg met sur sa page web mais qui manquent chez NPS.
-
-## 4.1 — DAMTEC sous chape (4 produits)
-
-### `damtec-estra` — DAMTEC® ESTRA
-- **URL Kraiburg** : `kraiburg-relastec.com/damtec/fr/estra/`
-- ✅ NPS a : Matériau, Couleur, Largeur, Longueurs par épaisseur, Épaisseurs, Densité, Compression maximale, Comportement au feu, ΔLw par config
-- ✅ NPS certifications : CE+ATE-13/0342 (badge image), EC1+ (badge image), A+ COV (badge image)
-- ➕ **Manque** : mention **"NEW LIFE 80% taux de recyclage"** (Kraiburg l'affiche, NPS a le badge `new-life-80.png` téléchargé localement mais ne le référence pas dans les `certifications` de ce produit)
-- ❓ Kraiburg dit "EC1" sur sa page web, NPS utilise l'image EC1+. À confirmer via fiche technique PDF officielle (probablement EC1+ correct car les fiches PDF NPS sont fiables)
-
-### `damtec-estra-3d` — DAMTEC® ESTRA 3D
-- **URL Kraiburg** : `kraiburg-relastec.com/damtec/fr/estra-3d/`
-- ✅ NPS a : Matériau, Couleur, Largeur, Longueur, Épaisseur, Densité, Compression maximale, Comportement au feu, ΔLw 22 dB sous chape ciment 50 mm
-- ✅ Description NPS mentionne "bâtiments commerciaux ou industriels, par exemple les supermarchés et les entrepôts" — aligné Kraiburg (commercial buildings, industrial facilities, supermarkets, warehouses)
-- ✅ Certifications : CE+ATE-13/0572, EC1+, A+
-- ➕ **Manque** : mention **"NEW LIFE 80% taux de recyclage"**
-
-### `damtec-wave-3d` — DAMTEC® WAVE 3D
-- **URL Kraiburg** : `kraiburg-relastec.com/damtec/fr/wave-3D/`
-- ✅ NPS a : Matériau, Couleur, Surface, Largeur, Longueur, Épaisseurs (8/4 et 17/8), Poids superficiel, Densité, **Résistance à la traction, Allongement à la rupture, Compression max, Compressibilité, Rigidité dynamique, Température d'utilisation, Comportement au feu**, ΔLw par config
-- ✅ Certifications : CE+ATE-15/0358, EC1+, A+
-- ✅ **NPS a PLUS d'infos que la page web Kraiburg** (traction, allongement, rigidité dynamique, température, feu, compressibilité ne sont PAS sur la page Kraiburg — probablement dans la fiche PDF)
-- ✅ Kraiburg n'affiche pas de mention NEW LIFE 80% pour WAVE 3D → pas d'écart
-
-### `damtec-3d-17-8` — DAMTEC® 3D 17/8
-- **URL Kraiburg** : `kraiburg-relastec.com/damtec/fr/3d/`
-- ✅ NPS a : Matériau, Couleur, Surface, Dimensions, Densité, traction, allongement, compression, compressibilité, rigidité dynamique, température, comportement au feu, ΔLw + ΔIIC (ASTM)
-- ✅ Certifications : CE+ATE-16/0481, A+
-- ➕ **Manque 1** : mention **"NEW LIFE 80% taux de recyclage"**
-- ➕ **Manque 2** : Kraiburg mentionne EC1 (NPS n'a pas le badge EC1+ sur cette fiche — seulement A+). Peut-être à ajouter si confirmé par fiche PDF NPS.
-
-### Synthèse DAMTEC sous chape
-
-| Produit | Manques identifiés |
-|---------|---------------------|
-| ESTRA | NEW LIFE 80% |
-| ESTRA 3D | NEW LIFE 80% |
-| WAVE 3D | Aucun manque |
-| 3D 17/8 | NEW LIFE 80% + EC1 (à confirmer) |
-
-→ **Action proposée** : ajouter `newLife80: "/assets/certifications/new-life-80.png"` dans les certifications de ESTRA, ESTRA 3D, 3D 17/8 (l'image existe déjà). Vérifier si EC1+ s'applique à 3D 17/8.
-
-
-## 4.2 — DAMTEC revêtements sols (5 produits)
-
-### `damtec-black-uni` — DAMTEC® BLACK UNI
-- **URL Kraiburg** : `kraiburg-relastec.com/damtec/fr/black-uni/`
-- ✅ NPS a : Matériau, Couleur, Surface, Largeur, Longueur, Épaisseurs (2-6 mm), Densité, **Résistance traction, Allongement rupture**, Comportement feu Efl, ΔLw exhaustif (10 configs)
-- ✅ Certifications NPS : CE+ATE-18/1054, EC1+, A+, Blue Angel UZ-156
-- ✅ Applications NPS : laminé, parquet, moquette, linoléum, PVC
-- → **Pas d'écart majeur**
-
-### `damtec-black-uni-b1` — DAMTEC® BLACK UNI B1
-- **URL Kraiburg** : `kraiburg-relastec.com/damtec/fr/black-uni-b1/`
-- ✅ NPS a : Matériau, Couleur, Largeur, Longueur, Épaisseurs, Densité (535-635), Résistance traction, Allongement rupture, **Classement feu Bfl-s1**, ΔLw exhaustif
-- ✅ Certifications : CE+ATE-18/1054, EC1, A+, Blue Angel UZ-156
-- → **Pas d'écart majeur**
-
-### `damtec-standard` — DAMTEC® STANDARD
-- **URL Kraiburg** : `kraiburg-relastec.com/damtec/fr/standard/`
-- ✅ NPS a : Matériau (granulat caoutchouc + liège), Couleur, Surface, Dimensions, Densité (650-750), Résistance traction, Allongement rupture, Température, Comportement feu Efl, ΔLw (5 configs avec moquette/stratifié/parquet/carrelage)
-- ✅ Émissions A+ NPS
-- ➕ **Manque** : mention **"NEW LIFE 80% taux de recyclage"** (Kraiburg l'affiche explicitement pour STANDARD)
-
-### `damtec-itapur` — DAMTEC® ITAPUR
-- **URL Kraiburg** : ❌ Page produit **introuvable sur Kraiburg** (URL `/damtec/fr/damtec-itapur/` retourne 404, et tentatives alternatives échouent)
-- ⚠️ **Conséquence** : impossible de vérifier que la fiche NPS matche les infos officielles Kraiburg. NPS a sourcé depuis la fiche PDF ou ancienne version page web.
-- ✅ Fiche NPS complète (matériau, dimensions, densité 500-600, traction 0,5-1,0 N/mm², allongement 20-50%, température -30 à 80°C, feu Efl, ΔLw 17-18 dB, application sous parquet/stratifié/moquette/linoleum/PVC)
-- ✅ NPS Marquage CE ATE-21/0228
-- ✅ Émissions A+, EC1+, Blue Angel UZ-156
-- ❓ **À valider avec NPS** : la page Kraiburg n'étant plus en ligne, les specs NPS sont-elles à jour ? Confirmer via fiche PDF.
-
-### `damtec-itapur-b1` — DAMTEC® ITAPUR B1
-- **URL Kraiburg** : ❌ Page produit **introuvable sur Kraiburg** (404)
-- ⚠️ Idem ITAPUR — impossible de vérifier
-- ✅ Fiche NPS présente, mais NPS lui-même note "ETA à confirmer NPS"
-- ❓ **À valider avec NPS** : confirmer ATE + specs depuis fiche PDF officielle
-
-### Synthèse DAMTEC revêtements sols
-
-| Produit | Manques identifiés |
-|---------|---------------------|
-| BLACK UNI | Aucun manque |
-| BLACK UNI B1 | Aucun manque |
-| STANDARD | NEW LIFE 80% |
-| ITAPUR | Page Kraiburg 404 — pas comparable |
-| ITAPUR B1 | Page Kraiburg 404 — pas comparable, ATE à confirmer |
-
-
-## 4.3 à 4.7 — Synthèse (pattern récurrent sur 40+ produits)
-
-**Constat majeur** : J'ai fetché les fiches Kraiburg pour les autres familles (DAMTEC SONIC + KRAITEC + SPORTEC + SHIELDTAC) et un **pattern commun** ressort :
-
-### 🎯 Le seul manque transversal sur les fiches NPS = NEW LIFE 80%
-
-**TOUTES les fiches produit Kraiburg DAMTEC et KRAITEC mentionnent la certification "NEW LIFE — 80% taux de recyclage"** comme argument environnemental majeur. Vérifié sur :
-
-| Produit | NEW LIFE mentionné chez Kraiburg ? | Présent dans `certifications` NPS ? |
-|---------|-----------------------------------|--------------------------------------|
-| DAMTEC ESTRA | ✅ Oui | ❌ Non |
-| DAMTEC ESTRA 3D | ✅ Oui | ❌ Non |
-| DAMTEC WAVE 3D | (non mentionné explicitement) | n/a |
-| DAMTEC 3D 17/8 | ✅ Oui | ❌ Non |
-| DAMTEC STANDARD | ✅ Oui | ❌ Non |
-| DAMTEC BLACK UNI / B1 | (pas mentionné explicitement) | n/a |
-| DAMTEC SONIC | ✅ Oui | ❌ Non |
-| DAMTEC SONIC DRAIN PLUS | ✅ Oui | ❌ Non |
-| DAMTEC SONIC FIRE | (pas mentionné explicitement) | n/a |
-| KRAITEC PROTECT | ✅ Oui | ❌ Non |
-| KRAITEC TOP | ✅ Oui | ❌ Non |
-| KRAITEC STEP | ✅ Oui | ❌ Non |
-
-→ **Action proposée** : pour chaque produit Kraiburg dont la page mentionne NEW LIFE 80%, ajouter `newLife80: "/assets/certifications/new-life-80.png"` dans le bloc `certifications` de la fiche NPS. L'image est déjà téléchargée en local.
-
-### Autres manques mineurs identifiés
-
-**SONIC FIRE** :
-- ✅ NPS a : matériau, dimensions, comportement feu Cfl-s1
-- ➕ Kraiburg mentionne aussi **Broof(t1)** (DIN EN 13501-5) — classement résistance au feu en toiture. À vérifier si NPS l'affiche.
-
-**SONIC DRAIN PLUS** :
-- ✅ NPS a : matériau, dimensions 15/6 mm × 1200 mm
-- ➕ Kraiburg précise **"surface non-tissé textile"** + **"face inférieure profilée pour drainage"** + couleur "noir avec particules bleues" — à vérifier que NPS a cette description précise
-
-**KRAITEC STEP** :
-- ✅ NPS a : matériau, dimensions 500×500×30 mm, classement feu
-- ➕ Kraiburg mentionne **"goujons préinstallés (pré-percé bilatéralement, connecteurs plastique inclus)"** + **4 couleurs RAL (noir, gris, vert, rouge)** + **"compatibilité avec membranes d'étanchéité à valider par fabricant"** — à vérifier que NPS a ces specs
-
-**KRAITEC TOP** :
-- ✅ NPS a : matériau, dimensions, densité
-- ➕ Kraiburg précise **densité 810 kg/m³** exacte + **dimensions tile vs roll (différentes épaisseurs disponibles)** — à confirmer NPS
-
-**Produits ITAPUR / ITAPUR B1 / DAMTEC VIBRA / vibrafoam / vibradyn** :
-- ❌ Pages Kraiburg individuelles **introuvables (404)** ou affichées en image — pas comparable directement via WebFetch
-- ❓ NPS a probablement sourcé depuis fiches techniques PDF (qui sont plus complètes que les pages web Kraiburg)
-
-### SPORTEC + SHIELDTAC
-
-Les 7 SPORTEC (color, style, puzzle, base FR, base MS, mountain, icemat) et 5 SHIELDTAC (ricotile, ricosys PU, pavers, blocks, fragsafe) ont été récemment audités lors de leurs intégrations / refontes récentes. Les specs NPS sont alignées avec ce qui est sur les pages Kraiburg/SHIELDTAC actuelles.
-
-➕ **Manque possible** : NEW LIFE 80% peut s'appliquer à certains SPORTEC outdoor (mountain) qui le mentionne. À ajouter au cas par cas.
+### Verdict : ✅ Très complet et bien aligné. ⚠️ Vérifier source du "10 000 J" (vs 7 000 J hub Kraiburg). ➕ Ajouter mention Bundeswehr.
 
 ---
 
-# SYNTHÈSE FINALE DE L'AUDIT FICHE PAR FICHE
+## 2.12 `/sport/commerce/bureaux`
 
-## Constat global
+### État NPS actuel
+- 7 features : R10/DS Label, Cfl-s1 (purcolor/variant/UNI classic), design moderne, A+ AFFSET COV (purcolor), -16 dB @6 mm, confort marche, nettoyage facile.
+- Filtre : exclut base FR/MS, style, mountain, icemat.
 
-**NPS a en réalité des fiches très complètes**, souvent **plus exhaustives que les pages web Kraiburg** (parce que NPS a sourcé depuis les fiches techniques PDF officielles qui contiennent traction, allongement, rigidité dynamique, etc.).
+### Kraiburg équivalent : `sportec/fr/applications/commerce/bureaux/`
+6 produits : purcolor, variant, UNI classic, color, color FR, Puzzle 2.0.
+7 avantages : R10, Cfl-s1, intégration design, A+ COV, -16 dB @6mm, confort, entretien.
 
-## 1 seul vrai manque transversal
+### Delta
 
-**NEW LIFE 80% taux de recyclage** = certification environnementale Kraiburg systématiquement mise en avant, mais **absente des bloc `certifications` des fiches NPS** alors que l'image badge est déjà téléchargée localement (`public/assets/certifications/new-life-80.png`).
+| Point | État | Note |
+|---|---|---|
+| 7 features mot pour mot | ✅ | Aligné (chiffres et certifs identiques) |
+| Mention purcolor / variant / UNI classic = Cfl-s1 | ✅ | OK |
+| A+ AFFSET (purcolor) | ✅ | OK |
+| Produit "SPORTEC® UNI classic" | ⚠️ | Listé Kraiburg ; absent du catalogue NPS (décision assumée en hub /sport). Cohérent avec choix global de ne pas afficher UNI tant que non validé |
+| Filtre exclut base FR/MS, style, mountain, icemat | ✅ | Cohérent |
 
-**Produits concernés** : ~10 produits DAMTEC + KRAITEC où Kraiburg le mentionne explicitement (ESTRA, ESTRA 3D, 3D 17/8, STANDARD, SONIC, SONIC DRAIN PLUS, KRAITEC PROTECT, KRAITEC TOP, KRAITEC STEP, SPORTEC MOUNTAIN).
+### Verdict : ✅ Alignement excellent. UNI classic volontairement absent — cohérent avec politique NPS.
 
-## Action proposée
+---
 
-**1 seule action** : ajouter `newLife80: "/assets/certifications/new-life-80.png"` dans les blocs `certifications` de ces ~10 produits dans `data/products.ts`. ~10 lignes de code, pas d'ajout de nouveau produit, pas d'invention.
+## 2.13 `/sport/commerce/magasins`
 
-## Autres remarques
+### État NPS actuel
+- 8 features : confort marche, design, Cfl-s1 (purcolor/variant/UNI classic), robuste, R10/DS, **antistatique DIN EN 1815 (color, splash, giga)**, -16 dB @6 mm, nettoyage.
+- Filtre : exclut base FR/MS, style, mountain, icemat.
 
-- **Pages produit Kraiburg parfois 404** (ITAPUR, ITAPUR B1, page VIBRA en image) : NPS a probablement sourcé depuis PDF, fiches restent fiables
-- **SONIC FIRE Broof(t1)** : classement à ajouter si confirmé NPS
-- **SONIC DRAIN PLUS** : description "non-tissé textile + face profilée drainage" peut enrichir la fiche NPS
-- **KRAITEC STEP / TOP** : détails de format (tile vs roll, goujons, couleurs RAL) peuvent enrichir
+### Kraiburg équivalent : `sportec/fr/applications/commerce/magasins/`
+Produits : purcolor, variant, UNI classic, color, color FR, Puzzle 2.0.
+8 avantages : confort, design, Cfl-s1, durabilité, R10/DS, antistatique DIN EN 1815 (color/splash/giga), -16 dB @6mm, entretien.
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| 8 features identiques | ✅ | Aligné parfaitement (même formulation, mêmes normes) |
+| Mention SPORTEC® splash | ➕ | Cité Kraiburg dans le contexte antistatique. Vérifier présence catalogue NPS sinon ne pas le mentionner explicitement |
+| Mention UNI classic | ⚠️ | Cohérent avec décision NPS de ne pas afficher UNI |
+| Filtre catalogue NPS | ✅ | Cohérent |
+
+### Verdict : ✅ Alignement excellent. ➕ Vérifier statut "SPORTEC splash" au catalogue NPS.
+
+---
+
+## 2.14 `/sport/commerce/salons-evenements`
+
+### État NPS actuel
+- 7 features : R10/DS, Cfl-s1, options design, -16 dB @6 mm, confort, install temporaire, nettoyage facile.
+- Filtre : exclut base FR/MS, style, mountain, icemat.
+
+### Kraiburg équivalent
+**404** — page `sportec/fr/applications/commerce/salons-evenements/` n'existe pas chez Kraiburg.
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Page Kraiburg | ❌ | 404 — page NPS-spécifique pour marché FR |
+| Features dérivées des arguments standards commerce (R10, Cfl-s1, dB) | 🎨 | Cohérent avec ligne éditoriale Kraiburg commerce, transposé sur événementiel |
+| Argument "install/désinstall rapide pour temporaire" | 🎨 | Spécifique salons — pertinent et factuel |
+
+### Verdict : 🎨 Page NPS-spécifique légitime (404 Kraiburg). Contenu cohérent avec arguments génériques commerce Kraiburg.
+
+---
+
+## 2.15 `/sport/commerce/reeducation`
+
+### État NPS actuel
+- 8 features : confort, protection articulations, absorption choc, R10/DS, accès fauteuil roulant, design coloré, -16 dB @6 mm, install simple.
+- Filtre : exclut base FR/MS, style, mountain, icemat.
+
+### Kraiburg équivalent : `sportec/fr/applications/commerce/reeducation/`
+**8 avantages** : confort training, protection articulations, R10 DIN 51130, fauteuil roulant, design, -16 dB @6mm, install + entretien.
+Produits recommandés : Puzzle 2.0, purcolor.
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| 8 features alignées | ✅ | Aligné mot pour mot (R10, fauteuil, -16 dB, design coloré) |
+| Reco produit Puzzle 2.0 + purcolor | ✅ | NPS n'exclut pas ces deux SKU → cohérent |
+| Texte feature "absorption de choc" tronqué | ⚠️ | NPS : `"absorbe les chocs et contribue à réduire la charge sur le"` — phrase coupée ligne 28 du `.tsx`. Bug rédactionnel à corriger |
+
+### Verdict : ✅ Aligné sur features. ⚠️ **Phrase tronquée à corriger** dans le `.tsx` (ligne 28 : "...la charge sur le" sans suite).
+
+---
+
+# Section 3 — Bricolage (1 page)
+
+## 3.1 `/bricolage`
+
+### État NPS actuel
+- Hero "Bricolage" pour particuliers, grille produits `bricolageProducts`, CTA conseil + tél, fallback "produits à venir" si vide.
+
+### Kraiburg équivalent : `profimat.com` (site séparé Kraiburg pour DIY/particuliers)
+14 produits (en allemand) : Bumpy (cale parking), Reifenwiege, Reifenschoner, Gummi-Bordsteinrampe (rampe trottoir), Leiter-Antirutschmatte (antidérapant échelle), Fallschutzmatte (protection chute), Waschmaschinenmatte (tapis machine à laver), Kniekissen ergonomique, Arbeitsplatzmatte ergonomique, Universal-Gummimatte, Bautenschutzmatte (protection chantier), Akustik base, Fitness eco, Werkstatt-/Garagenmatte (atelier/garage).
+Public : grandes surfaces bricolage, pros bâtiment, particuliers.
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Mention "Tapis machine à laver, protections de sol, accessoires antichoc" (hero NPS) | ✅ | Cohérent avec Waschmaschinenmatte, Bautenschutzmatte, Fallschutzmatte |
+| Catalogue NPS | À auditer | À vérifier que `bricolageProducts` couvre les 14 SKU Profimat (Bumpy, Reifenwiege, etc.). Si seule une partie est commercialisée, OK ; sinon élargir |
+| Site séparé profimat.com | 🎨 | NPS regroupe sous /bricolage — choix UX valide |
+| Argument "Made in Germany / recyclé" | ➕ | Profimat le met en avant. NPS ne le mentionne pas sur cette page |
+| Mentions de la marque PROFIMAT | ⚠️ | NPS dit "Solutions...pour particuliers" sans nommer Profimat. Si NPS distribue effectivement Profimat, mentionner la marque crédibilise (sans citer Kraiburg si voulu) |
+
+### Verdict : 🎨 Architecture OK. ➕ Mentionner "marque PROFIMAT" et "Made in Germany / caoutchouc recyclé" pour crédibiliser. ⚠️ Vérifier exhaustivité catalogue vs 14 SKU Profimat.
+
+---
+
+# Section 4 — Pages standalone (NPS-spécifiques)
+
+## 4.1 `/` (homepage)
+
+### État NPS actuel
+- Hero carousel vidéo, 3 cartes services (Bâtiment, Bricolage, Sport), section Sport/Fitness avec lien `/sport/fitness`, section Solutions acoustiques avec image Kraiburg building, section Produits avec image Kraiburg production, bouton "Voir notre catalogue" → `/produits`.
+
+### Comparaison
+Pas de comparable Kraiburg direct (Kraiburg est un fabricant, NPS un distributeur multi-marques). Page est NPS-positioning.
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Affichage 3 verticales (Bâtiment, Bricolage, Sport) | ✅ | Reflète structure du site |
+| Mention images "Kraiburg building" + "Kraiburg production" | 🎨 | Cohérent pour distributeur ; assume la marque amont |
+| Section Sport renvoie vers `/sport/fitness` au lieu de `/sport` hub | ⚠️ | Le hub `/sport` est plus complet (Fitness + Sports + Commerce). Devrait renvoyer vers `/sport` plutôt que `/sport/fitness` |
+| Texte "sport indoor et outdoor" dans homepage | ⚠️ | Indoor/outdoor a été retiré du hub /sport. Texte homepage à mettre à jour pour rester cohérent ("cardio, muscu, haltéro, fonctionnel, plein-air, sports d'hiver, stand de tir") |
+
+### Verdict : 🎨 Page standalone légitime. ⚠️ **2 micro-corrections** : lien Sport → `/sport`, et texte mentionnant "sport indoor et outdoor" à mettre à jour.
+
+---
+
+## 4.2 `/notre-expertise`
+
+### État NPS actuel
+- Page `robots: noindex, nofollow` ("contient des claims de service à valider avec NPS").
+- 5 secteurs : Bâtiment, Sport, Hôtellerie (→ `/batiment/isolation-sous-chape`), Anti-vibration (→ `/batiment/isolation-acoustique`), Bricolage.
+- Mention DTU 52.10, EN 14904, ATE, A+, AgBB, Blue Angel.
+- 6 promesses service (conseil, gamme pro, doc, devis 24h, guides, échantillons).
+
+### Comparaison
+Pas de comparable Kraiburg (page de positionnement service NPS).
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Mention normes DTU 52.10, EN 14904 | ✅ | Spécifique marché FR — pertinent |
+| Mention AgBB, Blue Angel | ➕ | Certifications environnementales Kraiburg officielles. À vérifier que NPS dispose des docs avant de les promettre |
+| Page noindex | 🎨 | Claims à valider — décision prudente |
+| "Hôtellerie" pointe vers `/batiment/isolation-sous-chape` | ⚠️ | Pas de section dédiée hôtellerie ; lien correctif acceptable mais le titre induit l'utilisateur en erreur (s'attend à une vraie page CHR) |
+
+### Verdict : 🎨 Cohérent. ⚠️ Faire valider les claims avec NPS (déjà flaggé `noindex`) avant publication.
+
+---
+
+## 4.3 `/produits`
+
+### État NPS actuel
+- Catalogue complet filtrable par catégorie (Bâtiment / Sport / Bricolage), recherche texte, groupement par sous-catégorie, pagination "Voir plus".
+- Marques listées : DAMTEC, KRAITEC, SPORTEC, VIBRA, PROFIMAT.
+
+### Comparaison
+Pas de comparable Kraiburg (Kraiburg a des sites séparés par marque).
+
+### Delta
+
+| Point | État | Note |
+|---|---|---|
+| Catalogue unifié multi-marques | 🎨 | Valeur ajoutée NPS — Kraiburg n'a pas d'équivalent |
+| Liste marques : DAMTEC, KRAITEC, SPORTEC, VIBRA, PROFIMAT | ✅ | Couvre les 5 marques Kraiburg distribuées par NPS |
+| Marque SHIELDTAC absente de la liste BRANDS | ⚠️ | Le tableau `BRANDS` (lignes 19-27) ne contient pas SHIELDTAC. Or NPS distribue maintenant la gamme SHIELDTAC (cf. /sport/stand-tir). À ajouter |
+| Marque "TOP" listée par certaines pages bâtiment | ⚠️ | TOP n'est pas une marque autonome chez Kraiburg, juste un suffixe KRAITEC TOP. Conserver ou clarifier |
+
+### Verdict : 🎨 Bon outil de catalogue. ⚠️ **Ajouter SHIELDTAC à la liste des marques** filtrables.
+
+---
+
+# Synthèse globale
+
+## Statistiques
+
+| Catégorie | Nb pages |
+|---|---|
+| Pages auditées | 25 (22 sectorielles + 3 standalone) |
+| Pages parfaitement alignées ✅ | 13 — `/batiment` hub, isolation-acoustique, sous-chape, revêtements-sols, /sport hub, fitness, cardio, fonctionnel, halterophilie, bureaux, magasins, rééducation, sports-hiver hub |
+| Pages avec ajouts possibles ➕ (sans risque) | 5 — solutions-exterieures, stand-tir, bricolage, isolation-acoustique (vibradyn), revêtements-sols (B1) |
+| Pages avec incohérences à corriger ⚠️ | 5 — gymcoustic (38 dB / 70 %), plein-air (-26 dB), rééducation (phrase tronquée), homepage (lien `/sport/fitness` + texte indoor/outdoor), `/produits` (SHIELDTAC manquant marques) |
+| Pages avec style OK 🎨 | 5 — isolation-sans-ate, salons-evenements, notre-expertise, /produits, homepage, bricolage |
+| Pages Kraiburg 404 ❌ | 3 — stations-ski, patinage, salons-evenements |
+| Pages NPS-spécifiques (pas de comparable Kraiburg) | 4 — isolation-sans-ate, salons-evenements, homepage, notre-expertise, produits |
+
+## Audit fiches produit individuelles
+
+Voir précédent audit fiche par fiche (tâches #62-#68 : DAMTEC sous chape, DAMTEC revêtements sols, VIBRA + ULTRAGYM + VIBRADYN, DAMTEC SONIC + KRAITEC, Sans ATE, SPORTEC, SHIELDTAC). Cet audit-ci se concentre sur les pages de catégorie/landing.
+
+## Actions concrètes recommandées par priorité
+
+### Priorité 1 — Corriger les incohérences chiffrées (factuel)
+
+1. **`/sport/fitness/gymcoustic`** : recaler les chiffres "38 dB" et "70 % absorption" sur les valeurs Kraiburg officielles : **25 / 30 / 34 / 42 dB** selon line, et **51,4 % / 55,6 % / 74,3 %**. Idéalement adopter le nommage Kraiburg des 5 lines (Basic / All-round / Acoustic / Performance / Custom) ou justifier le regroupement actuel en 3 lines.
+
+2. **`/sport/fitness/plein-air`** : vérifier la source du **"-26 dB @30 mm"**. Kraiburg dit `-24 dB @30mm` (BASE FR sur la page haltéro). Soit corriger en `-24 dB`, soit citer la source précise du `-26 dB` (peut-être multi-pavers ?).
+
+3. **`/sport/stand-tir`** : confirmer le **"10 000 J"** ricotile. Hub SHIELDTAC.fr cite "VPAM-ARG v3 (200-7 000 J)". Le 10 000 J peut venir de la fiche ricotile dédiée — vérifier la source officielle ou ajuster à 7 000 J.
+
+### Priorité 2 — Corriger bugs rédactionnels
+
+4. **`/sport/commerce/reeducation`** : phrase tronquée ligne 28 du `.tsx` (`"absorbe les chocs et contribue à réduire la charge sur le"`) — compléter ("...sur les articulations" ou similaire).
+
+5. **`/` (homepage)** : changer le lien Sport `→ /sport/fitness` vers `→ /sport` (hub plus complet) ; mettre à jour le texte "sport indoor et outdoor" (ces catégories ont été retirées du hub) en `"cardio, muscu, haltéro, fonctionnel, plein-air, sports d'hiver, stand de tir"`.
+
+6. **`/produits`** : ajouter **SHIELDTAC** au tableau `BRANDS` (ligne 19) pour que les utilisateurs puissent filtrer la gamme balistique.
+
+### Priorité 3 — Enrichissements factuels (sans extrapoler)
+
+7. **`/batiment/isolation-acoustique`** : surfacer le différenciateur **"vibradyn = cellules fermées, milieu humide / immergé"** (fait par Kraiburg, absent NPS).
+
+8. **`/batiment/isolation-revetements-sols`** : mettre en avant la variante **"black uni B1"** avec classement feu B1 / Cfl-s1 (cible ERP) — Kraiburg en fait un argument fort.
+
+9. **`/batiment/solutions-exterieures`** : structurer la gamme KRAITEC en **3 séries TOP / STEP / PROTECT** comme Kraiburg, et ajouter cas d'usage **panneaux solaires, parkings, toits verts** si distribués.
+
+10. **`/sport/fitness/halterophilie`** : préciser la **limite "<40 kg"** pour color/neon/giga/purcolor (Kraiburg la pose explicitement) pour aider à choisir entre surface légère et dalle haltéro.
+
+11. **`/sport/stand-tir`** : ajouter mention **certification Bundeswehr (460-6 000 J)** — différenciateur militaire/police officiel Kraiburg.
+
+12. **`/bricolage`** : nommer explicitement la marque **PROFIMAT** + mention "Made in Germany / caoutchouc recyclé" pour crédibiliser.
+
+### Priorité 4 — Clarification éditoriale
+
+13. **`/batiment/isolation-sans-ate`** : changer "Notre gamme TOP" pour éviter confusion avec KRAITEC TOP (toiture). Proposer un nom plus distinct (ex: "Sous-couches sans ATE", "gamme NPS TOP rénovation"…).
+
+14. **`/notre-expertise`** : valider les claims de service avec NPS avant de retirer `noindex`. Vérifier disponibilité réelle de la documentation AgBB / Blue Angel avant de la promettre.
+
+15. **`/sport`** : envisager (quand UNI versa / UNI classic / standard 2.0 seront validés par NPS) d'ajouter les sections **Sport indoor** + **Sport outdoor** (basket, tennis, multi-jeux) pour atteindre la couverture complète Kraiburg.

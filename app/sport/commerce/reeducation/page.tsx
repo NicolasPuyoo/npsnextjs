@@ -25,7 +25,7 @@ const features = [
   {
     icon: Shield,
     title: "absorption de choc",
-    description: "Le revêtement de sol en caoutchouc élastique absorbe les chocs et contribue à réduire la charge sur le"
+    description: "Le revêtement de sol en caoutchouc élastique absorbe les chocs et contribue à réduire la charge sur les articulations des patients en rééducation."
   },
   {
     icon: PersonStanding,

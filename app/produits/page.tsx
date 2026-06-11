@@ -16,12 +16,14 @@ import heroImage from "@/assets/categories/produits.webp";
 
 const PRODUCTS_PER_PAGE = 24;
 
-// Brand list extracted from product names (DAMTEC, KRAITEC, SPORTEC, VIBRA, PROFIMAT, TOP)
+// Brand list extracted from product names (DAMTEC, KRAITEC, SPORTEC, SHIELDTAC,
+// VIBRA, PROFIMAT). Utilisé pour le futur filtre marques sur le catalogue.
 const BRANDS = [
   { id: "all", name: "Toutes marques" },
   { id: "damtec", name: "DAMTEC" },
   { id: "kraitec", name: "KRAITEC" },
   { id: "sportec", name: "SPORTEC" },
+  { id: "shieldtac", name: "SHIELDTAC" },
   { id: "vibra", name: "VIBRA" },
   { id: "profimat", name: "PROFIMAT" },
 ];

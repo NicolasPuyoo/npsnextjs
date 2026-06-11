@@ -101,12 +101,13 @@ const Halterophilie = () => {
               Notre recommandation
             </h2>
             <p className="text-white/75 max-w-3xl mx-auto leading-relaxed">
-              Pour la musculation et l'haltérophilie, le
-              <strong className="text-white"> SPORTEC® STYLE</strong> protège votre sol des chutes
-              de charges lourdes. Sur les zones de drop (deadlift, snatch), nous combinons une
-              plateforme bois sur
-              <strong className="text-white"> SPORTEC® BASE FR</strong>{" "}
-              (dalle 30 mm Cfl-s1, absorption choc 51 %). Voici la gamme complète disponible.
+              Kraiburg pose une <strong className="text-white">limite à 40 kg</strong> qui structure
+              la gamme : pour les <strong className="text-white">poids légers (&lt; 40 kg)</strong> on
+              utilise SPORTEC® COLOR / PUZZLE 2.0 ; pour les <strong className="text-white">poids
+              lourds et CrossFit (≥ 40 kg)</strong> on passe sur SPORTEC® STYLE qui protège votre sol
+              des chutes de charges lourdes. Sur les zones de drop (deadlift, snatch), nous combinons
+              une plateforme bois sur SPORTEC® BASE FR (dalle 30 mm Cfl-s1, absorption choc 51 %).
+              Voici la gamme complète disponible.
             </p>
           </motion.div>
           

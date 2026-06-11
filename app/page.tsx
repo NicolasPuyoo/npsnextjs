@@ -144,11 +144,11 @@ const Index = () => {
               </h2>
               <p className="text-lg text-white/70 mb-8 leading-relaxed">
                 Revêtements adaptés à chaque activité : cardio, musculation, haltérophilie,
-                entraînement fonctionnel, fitness plein air, sport indoor et outdoor. Toute la
-                gamme SPORTEC pour les pros.
+                entraînement fonctionnel, fitness plein air, sports d'hiver et stand de tir
+                (SHIELDTAC). Gammes SPORTEC et SHIELDTAC pour les pros.
               </p>
               <Button asChild size="lg" className="rounded-full group">
-                <Link href="/sport/fitness" className="flex items-center gap-2">
+                <Link href="/sport" className="flex items-center gap-2">
                   Voir les solutions
                   <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>

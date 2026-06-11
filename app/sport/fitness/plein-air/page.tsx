@@ -45,7 +45,7 @@ const features = [
   {
     icon: Volume2,
     title: "propriétés insonorisants",
-    description: "réduction sonore de 26 dB avec une dalle de 30 mm d'épaisseur"
+    description: "réduction sonore de 24 dB avec une dalle de 30 mm d'épaisseur (SPORTEC base FR)"
   },
   {
     icon: CloudRain,
