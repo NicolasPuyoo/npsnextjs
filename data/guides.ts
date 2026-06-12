@@ -269,8 +269,8 @@ export const guides: Guide[] = [
         ],
       },
       {
-        heading: "Vibrafoam (UltraGYM) et Vibradyn : élastomères PU",
-        body: `**Vibrafoam (UltraGYM)** est un élastomère de polyuréthane à cellules fermées. Disponible en 13 types de dureté (couleurs différentes), épaisseurs 12,5 et 25 mm. Charge admissible variable selon la dureté : 0,02 à 0,60 N/mm². Plage de fréquence à partir de 8 Hz. Réduction des bruits solidiens jusqu'à 35 dB.\n\n**Vibradyn** est un élastomère PU à cellules fermées haute résilience, conçu pour les charges dynamiques intenses (machines industrielles, fondations soumises à des charges variables). Réduction des bruits solidiens jusqu'à 35 dB.\n\nLes élastomères PU se distinguent du caoutchouc par leur capacité à travailler à des fréquences basses (à partir de 8 Hz pour Vibrafoam) et à supporter des charges dynamiques. Choix produit selon le diagnostic vibratoire de l'équipement.`,
+        heading: "Vibrafoam et Vibradyn : élastomères PU",
+        body: `**Vibrafoam** est un élastomère de polyuréthane à cellules fermées. Disponible en 13 types de dureté (couleurs différentes), épaisseurs 12,5 et 25 mm. Charge admissible variable selon la dureté : 0,02 à 0,60 N/mm². Plage de fréquence à partir de 8 Hz. Réduction des bruits solidiens jusqu'à 35 dB.\n\n**Vibradyn** est un élastomère PU à cellules fermées haute résilience, conçu pour les charges dynamiques intenses (machines industrielles, fondations soumises à des charges variables). Réduction des bruits solidiens jusqu'à 35 dB.\n\nLes élastomères PU se distinguent du caoutchouc par leur capacité à travailler à des fréquences basses (à partir de 8 Hz pour Vibrafoam) et à supporter des charges dynamiques. Choix produit selon le diagnostic vibratoire de l'équipement.`,
       },
       {
         heading: "Comment dimensionner",

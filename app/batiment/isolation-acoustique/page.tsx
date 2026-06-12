@@ -33,7 +33,7 @@ const IsolationAcoustique = () => {
                 et tertiaires.
               </p>
               <p className="text-lg text-muted-foreground">
-                La gamme DAMTEC VIBRA, ULTRAGYM (Vibrafoam) et VIBRADYN offre des performances acoustiques 
+                La gamme DAMTEC VIBRA, VIBRAFOAM et VIBRADYN offre des performances acoustiques
                 exceptionnelles, conformes aux exigences réglementaires les plus strictes.
               </p>
             </div>

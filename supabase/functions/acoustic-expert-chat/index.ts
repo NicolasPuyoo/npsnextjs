@@ -63,7 +63,7 @@ Choix du modèle = en fonction de la PRESSION STATIQUE de la machine/structure (
 - DAMTEC® VIBRA 280 — /produit/damtec-vibra-280 — granulés caoutchouc + caoutchouc cellulaire + PU. Jusqu'à 0,28 N/mm² (pic 1,50). Densité 600-700. Épaisseur 15/20/30 mm.
 - DAMTEC® VIBRA 700 — /produit/damtec-vibra-700 — granulés caoutchouc + élastomère PU. Jusqu'à 0,70 N/mm² (pic 3,00). Densité 800-900. Épaisseur 15/20 mm.
 - DAMTEC® VIBRA 1500 — /produit/damtec-vibra-1500 — granulés caoutchouc + élastomère PU. Jusqu'à 1,50 N/mm² (pic 4,00). Densité 950-1050. Épaisseur 10 mm.
-- ULTRAGYM (PURASYS vibrafoam) — /produit/vibrafoam — élastomère PU à cellules mixtes (Kraiburg PuraSys). 13 duretés SD10 à SD1900. Pression statique 0,010 à 1,900 N/mm². Épaisseurs 12,5 et 25 mm. Format tapis 0,5 ou 1,0 × 2,0 m.
+- VIBRAFOAM — /produit/vibrafoam — élastomère PU à cellules mixtes (Kraiburg PuraSys). 13 duretés SD10 à SD1900. Pression statique 0,010 à 1,900 N/mm². Épaisseurs 12,5 et 25 mm. Format tapis 0,5 ou 1,0 × 2,0 m.
 - VIBRADYN (PURASYS vibradyn) — /produit/vibradyn — élastomère PU à cellules fermées haute résilience (Kraiburg PuraSys). 5 duretés S75 à S1500. Pression statique 0,075 à 1,500 N/mm². Pour charges dynamiques élevées.
 - Hub de catégorie : /batiment/isolation-acoustique
 

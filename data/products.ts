@@ -163,7 +163,7 @@ export const batimentSubcategories = [
 ] as const;
 
 export const batimentProducts: Product[] = [
-  // Isolation acoustique et anti-vibratoire (DAMTEC VIBRA, ULTRAGYM, VIBRADYN uniquement)
+  // Isolation acoustique et anti-vibratoire (DAMTEC VIBRA, VIBRAFOAM, VIBRADYN uniquement)
 {
     name: "DAMTEC® VIBRA 30",
     slug: "damtec-vibra-30",
@@ -358,9 +358,9 @@ export const batimentProducts: Product[] = [
       dataSheetUrl: "/fiches-techniques/Vibra_1500.pdf",
     }
   },
-  { name: "ULTRAGYM", slug: "vibrafoam", image: vibrafoamBat.src, category: "batiment", subcategory: "isolation-acoustique-antivibratoire",
+  { name: "VIBRAFOAM", slug: "vibrafoam", image: vibrafoamBat.src, category: "batiment", subcategory: "isolation-acoustique-antivibratoire",
     details: {
-      description: "ULTRAGYM (PURASYS vibrafoam) est un élastomère de polyétheruréthane à structure cellulaire mixte pour l'isolation des vibrations et la réduction du bruit solidien. Disponible en 13 types de dureté (SD10 à SD1900) pour s'adapter à toute la gamme de charges. Utilisé sous les machines, les fondations et les structures de bâtiments.",
+      description: "VIBRAFOAM est un élastomère de polyétheruréthane à structure cellulaire mixte pour l'isolation des vibrations et la réduction du bruit solidien. Disponible en 13 types de dureté (SD10 à SD1900) pour s'adapter à toute la gamme de charges. Utilisé sous les machines, les fondations et les structures de bâtiments.",
       specifications: [
         { label: "Matériau", value: "Élastomère de polyétheruréthane à structure cellulaire mixte" },
         { label: "Épaisseur", value: "12,5 mm et 25 mm" },
