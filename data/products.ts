@@ -44,10 +44,11 @@ import vibrafoamBat from "@/assets/products/batiment/VIBRAFOAM.png";
 
 
 // Bricolage products
-import profimatBumpy from "@/assets/products/bricolage/PROFIMAT_BUMPY.png";
+import profimatBumpy from "@/assets/products/bricolage/PROFIMAT_BUMPY.jpg";
 import profimatWheelprotect1318 from "@/assets/products/bricolage/PROFIMAT_WHEELPROTECT_13_18.png";
 import profimatWheelprotect1822 from "@/assets/products/bricolage/PROFIMAT_WHEELPROTECT_18_22.png";
-import topVibWash from "@/assets/products/bricolage/TOP_VIB_WASH.png";
+import topVibWash from "@/assets/products/bricolage/TOP_VIB_WASH.jpg";
+import bumpyUsage from "@/assets/products/bumpy-usage.jpg";
 import wheelprotectUsage from "@/assets/products/wheelprotect-usage.webp";
 import topVibWashUsage from "@/assets/products/top-vib-wash-usage.webp";
 
@@ -1295,6 +1296,7 @@ export const bricolageProducts: Product[] = [
         { label: "Fabrication", value: "KRAIBURG Relastec, Salzwedel (Allemagne)" },
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
+      usageImage: bumpyUsage.src,
     }
   },
   { name: "WHEELPROTECT 13-18", slug: "profimat-wheelprotect-13-18", image: profimatWheelprotect1318.src, category: "bricolage",
@@ -1342,6 +1344,7 @@ export const bricolageProducts: Product[] = [
         { label: "Application", value: "Machines à laver, sèche-linge" },
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
+      dataSheetUrl: "/fiches-techniques/Top_Vib_Wash.pdf",
     }
   },
 ];
