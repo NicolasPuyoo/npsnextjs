@@ -45,8 +45,6 @@ import vibrafoamBat from "@/assets/products/batiment/VIBRAFOAM.png";
 
 // Bricolage products
 import profimatBumpy from "@/assets/products/bricolage/PROFIMAT_BUMPY.jpg";
-import profimatWheelprotect1318 from "@/assets/products/bricolage/PROFIMAT_WHEELPROTECT_13_18.png";
-import profimatWheelprotect1822 from "@/assets/products/bricolage/PROFIMAT_WHEELPROTECT_18_22.png";
 import topVibWash from "@/assets/products/bricolage/TOP_VIB_WASH.jpg";
 import bumpyUsage from "@/assets/products/bumpy-usage.jpg";
 import wheelprotectUsage from "@/assets/products/wheelprotect-usage.webp";
@@ -1300,7 +1298,7 @@ export const bricolageProducts: Product[] = [
       usageImage: bumpyUsage.src,
     }
   },
-  { name: "WHEELPROTECT 13-18", slug: "profimat-wheelprotect-13-18", image: profimatWheelprotect1318.src, category: "bricolage",
+  { name: "WHEELPROTECT 13-18", slug: "profimat-wheelprotect-13-18", image: wheelprotectUsage.src, category: "bricolage", imageFit: "cover",
     details: {
       description: "WHEELPROTECT est un berceau de pneus en granulés de caoutchouc recyclé qui prévient l'apparition de méplats lors d'immobilisations prolongées (collection, hivernage, stockage saisonnier). Surface de contact 50 × 50 cm avec rampes biseautées avant et arrière. Variante Standard pour véhicules à jantes 13 à 18 pouces.",
       specifications: [
@@ -1313,10 +1311,9 @@ export const bricolageProducts: Product[] = [
         { label: "Résistance", value: "Gel, UV, sel, chlore" },
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
-      usageImage: wheelprotectUsage.src,
     }
   },
-  { name: "WHEELPROTECT 18-22", slug: "profimat-wheelprotect-18-22", image: profimatWheelprotect1822.src, category: "bricolage",
+  { name: "WHEELPROTECT 18-22", slug: "profimat-wheelprotect-18-22", image: wheelprotectUsage.src, category: "bricolage", imageFit: "cover",
     details: {
       description: "WHEELPROTECT XL est un berceau de pneus en granulés de caoutchouc recyclé qui prévient l'apparition de méplats lors d'immobilisations prolongées. Variante grandes dimensions pour SUV, 4×4, utilitaires et véhicules premium à jantes 18 à 22 pouces.",
       specifications: [
@@ -1329,7 +1326,6 @@ export const bricolageProducts: Product[] = [
         { label: "Résistance", value: "Gel, UV, sel, chlore" },
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
-      usageImage: wheelprotectUsage.src,
     }
   },
   { name: "TOP VIB WASH", slug: "top-vib-wash", image: topVibWash.src, category: "bricolage", imageFit: "cover",
