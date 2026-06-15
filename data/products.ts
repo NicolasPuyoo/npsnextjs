@@ -117,6 +117,7 @@ export interface Product {
   category: "batiment" | "sport" | "bricolage";
   subcategory?: BatimentSubcategory;
   details?: ProductDetails;
+  imageFit?: "contain" | "cover";
 }
 
 // Helper function to generate slug from product name
@@ -1283,7 +1284,7 @@ export const shieldtacProducts: Product[] = [
 ];
 
 export const bricolageProducts: Product[] = [
-  { name: "BUMPY", slug: "profimat-bumpy", image: profimatBumpy.src, category: "bricolage",
+  { name: "BUMPY", slug: "profimat-bumpy", image: profimatBumpy.src, category: "bricolage", imageFit: "cover",
     details: {
       description: "BUMPY est un butoir d'approche en granulés de caoutchouc recyclé pour parkings, garages couverts, parkings souterrains et carports. Fixé au sol ou au mur avec des vis à béton, il protège murs, portières et pneus contre les chocs de stationnement. Emplacements intégrés pour réflecteurs Ø 60 mm.",
       specifications: [
@@ -1331,7 +1332,7 @@ export const bricolageProducts: Product[] = [
       usageImage: wheelprotectUsage.src,
     }
   },
-  { name: "TOP VIB WASH", slug: "top-vib-wash", image: topVibWash.src, category: "bricolage",
+  { name: "TOP VIB WASH", slug: "top-vib-wash", image: topVibWash.src, category: "bricolage", imageFit: "cover",
     details: {
       description: "TOP VIB WASH est un tapis spécifique pour machines à laver. Il réduit le bruit et empêche le déplacement de l'appareil pendant l'essorage.",
       usageImage: topVibWashUsage.src,

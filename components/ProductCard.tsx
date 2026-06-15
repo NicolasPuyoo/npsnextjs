@@ -36,13 +36,23 @@ const ProductCard = ({ product }: ProductCardProps) => {
       href={`/produit/${product.slug}`}
       className="block bg-card rounded-2xl shadow-card overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full flex flex-col"
     >
-      <div className="aspect-square bg-white p-4 flex items-center justify-center relative">
+      <div
+        className={
+          product.imageFit === "cover"
+            ? "aspect-square bg-white flex items-center justify-center relative overflow-hidden"
+            : "aspect-square bg-white p-4 flex items-center justify-center relative"
+        }
+      >
         <Image
           src={product.image}
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+          className={
+            product.imageFit === "cover"
+              ? "object-cover group-hover:scale-105 transition-transform duration-300"
+              : "object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+          }
         />
         {acousticDb && (
           <div className="absolute top-3 right-3 bg-primary text-primary-foreground rounded-full px-2.5 py-1 flex items-center gap-1 shadow-md z-10">

@@ -152,7 +152,13 @@ const ProductDetail = () => {
               </div>
 
               {/* Product image */}
-              <div className="bg-white rounded-3xl p-8 shadow-card relative overflow-hidden">
+              <div
+                className={
+                  product.imageFit === "cover"
+                    ? "bg-white rounded-3xl shadow-card relative overflow-hidden"
+                    : "bg-white rounded-3xl p-8 shadow-card relative overflow-hidden"
+                }
+              >
                 {acousticDb && (
                   <div className="absolute top-6 right-6 bg-primary text-primary-foreground rounded-2xl px-4 py-2 flex items-center gap-2 shadow-lg z-10">
                     <Volume2 className="h-5 w-5" />
@@ -163,10 +169,14 @@ const ProductDetail = () => {
                   </div>
                 )}
                 <div className="aspect-square flex items-center justify-center">
-                  <img 
-                    src={product.image} 
+                  <img
+                    src={product.image}
                     alt={product.name}
-                    className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain"
+                    className={
+                      product.imageFit === "cover"
+                        ? "w-full h-full object-cover"
+                        : "max-w-[85%] max-h-[85%] w-auto h-auto object-contain"
+                    }
                   />
                 </div>
               </div>
