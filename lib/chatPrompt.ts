@@ -1,54 +1,9 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
-
-// Simple in-memory rate limiting (resets on function cold start)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT_WINDOW_MS = 60 * 1000;
-const MAX_REQUESTS_PER_WINDOW = 12;
-
-function getRateLimitKey(req: Request): string {
-  const forwarded = req.headers.get("x-forwarded-for");
-  return forwarded ? forwarded.split(",")[0].trim() : "unknown";
-}
-
-function checkRateLimit(key: string): { allowed: boolean; remaining: number } {
-  const now = Date.now();
-  const record = rateLimitMap.get(key);
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(key, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
-    return { allowed: true, remaining: MAX_REQUESTS_PER_WINDOW - 1 };
-  }
-  if (record.count >= MAX_REQUESTS_PER_WINDOW) {
-    return { allowed: false, remaining: 0 };
-  }
-  record.count++;
-  return { allowed: true, remaining: MAX_REQUESTS_PER_WINDOW - record.count };
-}
-
-function validateMessages(messages: unknown): { valid: boolean; error?: string } {
-  if (!Array.isArray(messages)) return { valid: false, error: "Messages must be an array" };
-  if (messages.length === 0) return { valid: false, error: "Messages array cannot be empty" };
-  if (messages.length > 50) return { valid: false, error: "Too many messages in conversation" };
-  for (const msg of messages) {
-    if (typeof msg !== "object" || msg === null) return { valid: false, error: "Invalid message format" };
-    const { role, content } = msg as { role?: unknown; content?: unknown };
-    if (role !== "user" && role !== "assistant") return { valid: false, error: "Invalid message role" };
-    if (typeof content !== "string") return { valid: false, error: "Message content must be a string" };
-    if (content.length > 5000) return { valid: false, error: "Message content too long (max 5000 characters)" };
-  }
-  return { valid: true };
-}
-
 // ─────────────────────────────────────────────────────────────────────────
 // CATALOGUE PRODUITS NPS
 // Source de vérité : data/products.ts + lib/productUseCases.ts.
 // Mettre à jour cette section quand le catalogue change.
 // ─────────────────────────────────────────────────────────────────────────
-const CATALOG = `
+export const CATALOG = `
 NPS Acoustique est distributeur officiel Kraiburg Relastec en France depuis plus de 20 ans.
 45 produits répartis en 3 catégories (Bâtiment, Sport, Bricolage) + 6 solutions sectorielles.
 
@@ -131,9 +86,7 @@ KRAITEC = tapis/dalles de protection mécanique. SONIC = isolation phonique des 
 - Email direct : contact@nps-france.com
 `.trim();
 
-// ─────────────────────────────────────────────────────────────────────────
-
-const SYSTEM_PROMPT = `Tu es l'assistant expert acoustique de NPS Acoustique, distributeur officiel Kraiburg Relastec en France depuis plus de 20 ans.
+export const SYSTEM_PROMPT = `Tu es l'assistant expert acoustique de NPS Acoustique, distributeur officiel Kraiburg Relastec en France depuis plus de 20 ans.
 
 # Ton rôle
 
@@ -183,92 +136,3 @@ ${CATALOG}
 - Utiliser "vous". Pas de "nous" pompeux.
 - Mentionner "NPS" plutôt que "nous chez NPS Acoustique Solutions".
 `;
-
-serve(async (req) => {
-  if (req.method === "OPTIONS") {
-    return new Response(null, { headers: corsHeaders });
-  }
-
-  try {
-    const rateLimitKey = getRateLimitKey(req);
-    const { allowed, remaining } = checkRateLimit(rateLimitKey);
-
-    if (!allowed) {
-      return new Response(
-        JSON.stringify({ error: "Limite de requêtes atteinte. Veuillez patienter une minute." }),
-        {
-          status: 429,
-          headers: {
-            ...corsHeaders,
-            "Content-Type": "application/json",
-            "X-RateLimit-Remaining": "0",
-            "Retry-After": "60",
-          },
-        },
-      );
-    }
-
-    const body = await req.json();
-    const { messages } = body;
-
-    const validation = validateMessages(messages);
-    if (!validation.valid) {
-      return new Response(
-        JSON.stringify({ error: validation.error }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-      );
-    }
-
-    const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY");
-    if (!ANTHROPIC_API_KEY) {
-      throw new Error("ANTHROPIC_API_KEY is not configured");
-    }
-
-    // Anthropic Messages API (direct). Streaming SSE — frontend handles content_block_delta events.
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "x-api-key": ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5",
-        max_tokens: 1600,
-        system: SYSTEM_PROMPT,
-        messages,
-        stream: true,
-        temperature: 0.3, // bas pour rester ancré dans le catalogue, pas d'hallucinations
-      }),
-    });
-
-    if (!response.ok) {
-      if (response.status === 429) {
-        return new Response(JSON.stringify({ error: "Limite de requêtes atteinte, veuillez réessayer plus tard." }), {
-          status: 429,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        });
-      }
-      const errorText = await response.text();
-      console.error("Anthropic API error:", response.status, errorText);
-      return new Response(JSON.stringify({ error: "Erreur du service IA" }), {
-        status: 500,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-
-    return new Response(response.body, {
-      headers: {
-        ...corsHeaders,
-        "Content-Type": "text/event-stream",
-        "X-RateLimit-Remaining": String(remaining),
-      },
-    });
-  } catch (e) {
-    console.error("Chat error:", e);
-    return new Response(JSON.stringify({ error: "Erreur inconnue" }), {
-      status: 500,
-      headers: { ...corsHeaders, "Content-Type": "application/json" },
-    });
-  }
-});

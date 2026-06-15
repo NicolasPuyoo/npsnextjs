@@ -13,7 +13,7 @@ type Message = {
   content: string;
 };
 
-const CHAT_URL = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/acoustic-expert-chat`;
+const CHAT_URL = "/api/acoustic-expert-chat";
 
 // Suggestions au premier ouverture pour pré-router le visiteur sans qu'il ait à
 // rédiger une question — chaque clic envoie un message comme s'il avait tapé.
@@ -69,7 +69,6 @@ export const AcousticExpertChat = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY}`,
       },
       body: JSON.stringify({ messages: userMessages }),
     });
