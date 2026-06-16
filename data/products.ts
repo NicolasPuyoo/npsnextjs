@@ -48,7 +48,6 @@ import profimatBumpy from "@/assets/products/bricolage/PROFIMAT_BUMPY.jpg";
 import topVibWash from "@/assets/products/bricolage/TOP_VIB_WASH.jpg";
 import bumpyUsage from "@/assets/products/bumpy-usage.jpg";
 import wheelprotectUsage from "@/assets/products/wheelprotect-usage.webp";
-import topVibWashUsage from "@/assets/products/top-vib-wash-usage.webp";
 
 // Sport products
 import sportecBaseFr from "@/assets/products/sport/SPORTEC_BASE_FR.png";
@@ -1331,7 +1330,6 @@ export const bricolageProducts: Product[] = [
   { name: "TOP VIB WASH", slug: "top-vib-wash", image: topVibWash.src, category: "bricolage", imageFit: "cover",
     details: {
       description: "TOP VIB WASH est un tapis spécifique pour machines à laver. Il réduit le bruit et empêche le déplacement de l'appareil pendant l'essorage.",
-      usageImage: topVibWashUsage.src,
       specifications: [
         { label: "Matériau", value: "Caoutchouc recyclé haute densité" },
         { label: "Surface", value: "Antidérapante" },
