@@ -13,6 +13,9 @@ type Slide = {
   ctaTo: string;
 };
 
+// 4 slides en miroir des 3 grandes catégories du site (bâtiment, sport, bricolage)
+// + une slide "solutions extérieures" qui valorise la gamme KRAITEC/SONIC.
+// Toutes les CTA pointent vers une page hub réelle (pas de page supprimée).
 const slides: Slide[] = [
   {
     video: "/videos/hero-batiment.mp4",
@@ -22,57 +25,45 @@ const slides: Slide[] = [
       </>
     ),
     description:
-      "Solutions d'isolation phonique haute performance pour bureaux, immeubles et espaces de travail.",
-    ctaLabel: "Solutions bâtiment",
-    ctaTo: "/batiment/isolation-acoustique",
-  },
-  {
-    video: "/videos/hero-piscine.mp4",
-    title: (
-      <>
-        Plages de piscine<br />antidérapantes
-      </>
-    ),
-    description:
-      "Revêtements drainants, confortables et durables pour les abords de piscine.",
-    ctaLabel: "Demander conseil",
-    ctaTo: "/contact",
+      "Solutions d'isolation phonique haute performance pour bureaux, logements, ERP et environnements industriels.",
+    ctaLabel: "Voir le bâtiment",
+    ctaTo: "/batiment",
   },
   {
     video: "/videos/hero-yoga.mp4",
     title: (
       <>
-        Sols pour le fitness<br />et l'entraînement fonctionnel
+        Sols sportifs<br />et fitness
       </>
     ),
     description:
-      "Des revêtements résistants et acoustiques pour salles de sport, cross-training et activités fonctionnelles.",
-    ctaLabel: "Solutions fitness",
-    ctaTo: "/sport/fitness/fonctionnel",
+      "Revêtements SPORTEC et SHIELDTAC pour salles de fitness, haltérophilie, sports d'hiver, commerce et stand de tir.",
+    ctaLabel: "Voir le sport",
+    ctaTo: "/sport",
   },
   {
     video: "/videos/hero-exterieur.mp4",
     title: (
       <>
-        Solutions extérieures<br />et infrastructures
+        Solutions extérieures<br />et toitures
       </>
     ),
     description:
-      "Isolation et protection acoustique adaptées aux ouvrages d'art et environnements extérieurs.",
-    ctaLabel: "Solutions extérieures",
+      "Gamme KRAITEC et DAMTEC SONIC pour toitures plates, terrasses, balcons, supports photovoltaïques et abords de piscine.",
+    ctaLabel: "Voir les solutions extérieures",
     ctaTo: "/batiment/solutions-exterieures",
   },
   {
     video: "/videos/hero-hotellerie.mp4",
     title: (
       <>
-        Confort acoustique<br />pour l'hôtellerie
+        Solutions<br />pour la maison
       </>
     ),
     description:
-      "Améliorez l'expérience de vos clients avec des solutions discrètes et performantes.",
-    ctaLabel: "Solutions commerce",
-    ctaTo: "/sport/commerce/salons-evenements",
+      "Tapis machine à laver, butoirs de parking, berceaux de pneus : la gamme bricolage NPS pour les particuliers.",
+    ctaLabel: "Voir le bricolage",
+    ctaTo: "/bricolage",
   },
 ];
 
