@@ -30,7 +30,7 @@ const slides: Slide[] = [
     ctaTo: "/batiment",
   },
   {
-    video: "/videos/hero-yoga.mp4",
+    video: "/videos/hero-fitness.mp4",
     title: (
       <>
         Sols sportifs<br />et fitness
