@@ -7,6 +7,7 @@ import BackButton from "@/components/BackButton";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
 import ProductDocuments from "@/components/product/ProductDocuments";
+import ProductGallery, { type GalleryImage } from "@/components/ProductGallery";
 import VibraProductSchema from "@/components/VibraProductSchema";
 import { QuoteRequestDrawer } from "@/components/QuoteRequestDrawer";
 import { Button } from "@/components/ui/button";
@@ -151,35 +152,28 @@ const ProductDetail = () => {
                 )}
               </div>
 
-              {/* Product image */}
-              <div
-                className={
-                  product.imageFit === "cover"
-                    ? "bg-white rounded-3xl shadow-card relative overflow-hidden"
-                    : "bg-white rounded-3xl p-8 shadow-card relative overflow-hidden"
-                }
-              >
-                {acousticDb && (
-                  <div className="absolute top-6 right-6 bg-primary text-primary-foreground rounded-2xl px-4 py-2 flex items-center gap-2 shadow-lg z-10">
-                    <Volume2 className="h-5 w-5" />
-                    <div className="text-right">
-                      <span className="block text-xs opacity-80">Performance</span>
-                      <span className="block text-lg font-bold leading-tight">jusqu'à {acousticDb} dB</span>
-                    </div>
-                  </div>
-                )}
-                <div className="aspect-square flex items-center justify-center">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className={
-                      product.imageFit === "cover"
-                        ? "w-full h-full object-cover"
-                        : "max-w-[85%] max-h-[85%] w-auto h-auto object-contain"
-                    }
-                  />
-                </div>
-              </div>
+              {/* Galerie d'images : image principale + miniatures cliquables si plusieurs */}
+              <ProductGallery
+                productName={product.name}
+                acousticDb={acousticDb}
+                images={[
+                  {
+                    src: product.image,
+                    alt: product.name,
+                    fit: product.imageFit ?? "contain",
+                  },
+                  ...(product.details?.usageImage
+                    ? [{
+                        src: product.details.usageImage,
+                        alt:
+                          product.details.usageImageFit === "contain"
+                            ? `${product.name} - produit seul`
+                            : `${product.name} - mise en situation`,
+                        fit: product.details.usageImageFit ?? "cover",
+                      } satisfies GalleryImage]
+                    : []),
+                ]}
+              />
 
               {/* Key benefits row */}
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -195,27 +189,6 @@ const ProductDetail = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Usage / secondary image — "contain" = packshot fond blanc, "cover" (par défaut) = mise en situation pleine largeur */}
-              {product.details?.usageImage && (
-                product.details.usageImageFit === "contain" ? (
-                  <div className="rounded-3xl overflow-hidden shadow-card bg-white aspect-square flex items-center justify-center p-8">
-                    <img
-                      src={product.details.usageImage}
-                      alt={`${product.name} - produit seul`}
-                      className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain"
-                    />
-                  </div>
-                ) : (
-                  <div className="rounded-3xl overflow-hidden shadow-card">
-                    <img
-                      src={product.details.usageImage}
-                      alt={`${product.name} - mise en situation`}
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                )
-              )}
 
               {/* Contact CTA - only show when no specs sidebar */}
               {!hasSpecs && (
