@@ -46,8 +46,12 @@ import vibrafoamBat from "@/assets/products/batiment/VIBRAFOAM.png";
 // Bricolage products
 import profimatBumpy from "@/assets/products/bricolage/PROFIMAT_BUMPY.jpg";
 import topVibWash from "@/assets/products/bricolage/TOP_VIB_WASH.jpg";
-import bumpyUsage from "@/assets/products/bumpy-usage.jpg";
 import wheelprotectUsage from "@/assets/products/wheelprotect-usage.webp";
+// Packshots : photo produit seul, affichée en image secondaire sur la fiche produit
+import profimatBumpyPackshot from "@/assets/products/bricolage/packshots/PROFIMAT_BUMPY.png";
+import topVibWashPackshot from "@/assets/products/bricolage/packshots/TOP_VIB_WASH.png";
+import profimatWheelprotect1318Packshot from "@/assets/products/bricolage/packshots/PROFIMAT_WHEELPROTECT_13_18.png";
+import profimatWheelprotect1822Packshot from "@/assets/products/bricolage/packshots/PROFIMAT_WHEELPROTECT_18_22.png";
 
 // Sport products
 import sportecBaseFr from "@/assets/products/sport/SPORTEC_BASE_FR.png";
@@ -104,6 +108,7 @@ export interface ProductDetails {
   dataSheetUrl?: string;
   brochureUrl?: string;
   usageImage?: string;
+  usageImageFit?: "contain" | "cover";
   certifications?: CertificationBadges;
 }
 
@@ -1294,7 +1299,8 @@ export const bricolageProducts: Product[] = [
         { label: "Fabrication", value: "KRAIBURG Relastec, Salzwedel (Allemagne)" },
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
-      usageImage: bumpyUsage.src,
+      usageImage: profimatBumpyPackshot.src,
+      usageImageFit: "contain",
     }
   },
   { name: "WHEELPROTECT 13-18", slug: "profimat-wheelprotect-13-18", image: wheelprotectUsage.src, category: "bricolage", imageFit: "cover",
@@ -1310,6 +1316,8 @@ export const bricolageProducts: Product[] = [
         { label: "Résistance", value: "Gel, UV, sel, chlore" },
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
+      usageImage: profimatWheelprotect1318Packshot.src,
+      usageImageFit: "contain",
     }
   },
   { name: "WHEELPROTECT 18-22", slug: "profimat-wheelprotect-18-22", image: wheelprotectUsage.src, category: "bricolage", imageFit: "cover",
@@ -1325,6 +1333,8 @@ export const bricolageProducts: Product[] = [
         { label: "Résistance", value: "Gel, UV, sel, chlore" },
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
+      usageImage: profimatWheelprotect1822Packshot.src,
+      usageImageFit: "contain",
     }
   },
   { name: "TOP VIB WASH", slug: "top-vib-wash", image: topVibWash.src, category: "bricolage", imageFit: "cover",
@@ -1340,6 +1350,8 @@ export const bricolageProducts: Product[] = [
         { label: "Certifications", value: "A+, Indoor Air Comfort Gold" },
       ],
       dataSheetUrl: "/fiches-techniques/Top_Vib_Wash.pdf",
+      usageImage: topVibWashPackshot.src,
+      usageImageFit: "contain",
     }
   },
 ];

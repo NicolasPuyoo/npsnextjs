@@ -196,15 +196,25 @@ const ProductDetail = () => {
                 ))}
               </div>
 
-              {/* Usage image */}
+              {/* Usage / secondary image — "contain" = packshot fond blanc, "cover" (par défaut) = mise en situation pleine largeur */}
               {product.details?.usageImage && (
-                <div className="rounded-3xl overflow-hidden shadow-card">
-                  <img 
-                    src={product.details.usageImage} 
-                    alt={`${product.name} - mise en situation`}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
+                product.details.usageImageFit === "contain" ? (
+                  <div className="rounded-3xl overflow-hidden shadow-card bg-white aspect-square flex items-center justify-center p-8">
+                    <img
+                      src={product.details.usageImage}
+                      alt={`${product.name} - produit seul`}
+                      className="max-w-[85%] max-h-[85%] w-auto h-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <div className="rounded-3xl overflow-hidden shadow-card">
+                    <img
+                      src={product.details.usageImage}
+                      alt={`${product.name} - mise en situation`}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                )
               )}
 
               {/* Contact CTA - only show when no specs sidebar */}
