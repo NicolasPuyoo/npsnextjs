@@ -5,7 +5,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
 import CookieBanner from "@/components/CookieBanner";
-import { AcousticExpertChat } from "@/components/AcousticExpertChat";
+// Chatbot IA désactivé temporairement : en attente d'une clé ANTHROPIC_API_KEY
+// configurée en secret Cloudflare Worker. Le composant + la route API
+// /api/acoustic-expert-chat restent en place — remettre le mount ci-dessous
+// puis pousser la clé via `wrangler secret put ANTHROPIC_API_KEY` pour réactiver.
+// import { AcousticExpertChat } from "@/components/AcousticExpertChat";
 import { localBusiness, website } from "@/lib/jsonLd";
 
 const SITE_URL = "https://nps-france.com";
@@ -93,7 +97,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
-            <AcousticExpertChat />
+            {/* <AcousticExpertChat /> — désactivé en attente clé ANTHROPIC_API_KEY */}
             <MobileCTABar />
             <CookieBanner />
           </div>
