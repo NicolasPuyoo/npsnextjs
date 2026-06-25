@@ -1,10 +1,10 @@
-# 🎯 NPS Acoustique — SEO Action Plan priorisé
+# 🎯 NPS Acoustique — SEO Action Plan v2 (pivot NATIONAL distribution)
 
-> Plan d'exécution séquencé en 4 phases. Chaque action a son effort + impact + owner. Suivre l'ordre = ranker #1 sur les KW core en 4-8 semaines.
+> Plan d'exécution v2 — corrigé après confirmation user que NPS = distributeur **NATIONAL** France entière (pas commerce local Mont-de-Marsan). Suppression du local SEO classique (Map Pack, location pages), focus sur **brand authority + hubs secteur + AI search + Schema riche**.
 
 ---
 
-## ✅ Phase 0 — Done during audit (✓ fixed pendant la session)
+## ✅ Phase 0 — Done during audit
 
 | Action | Status | Évidence |
 |---|---|---|
@@ -12,6 +12,7 @@
 | Fix robots.txt host + sitemap URL | ✅ DONE | Vérif live OK |
 | Fix JSON-LD URL (Organization, LocalBusiness, WebSite) | ✅ DONE | curl JSON-LD bon domaine |
 | Fix metadataBase + canonicals 60 pages prerendered | ✅ DONE | Build OK |
+| Pivot stratégique : suppression local SEO + ré-orientation national | ✅ DONE | Audit v2 publié |
 | Audit complet 7 specialists | ✅ DONE | Findings dans `findings/` |
 
 ---
@@ -23,69 +24,87 @@
 
 **Impact :** débloque AI Overviews + ChatGPT + Perplexity + Bing Copilot. CRITIQUE pour SEO 2026.
 
-### P1.2 — Créer Google Business Profile ⚡ TOI (30 min + 7 jours wait)
-**Action :**
-1. business.google.com → Add Business → "NPS Acoustique" Mont-de-Marsan
-2. Catégorie principale : "Fournisseur de matériel acoustique"
-3. Adresse complète, tel 05 58 77 55 89, email
-4. Photos : entrepôt, équipe, showroom, produits (20+)
-5. Description 750 char (template dans findings/local.md)
-6. Vérif postale (carte sous 5-7 jours)
-
-**Impact :** unlock Map Pack + Knowledge Panel + collection avis.
-
-### P1.3 — Créer `public/llms.txt` ⚡ MOI (10 min)
+### P1.2 — Créer `public/llms.txt` ⚡ MOI (10 min)
 **Action :** je crée le fichier dans `public/llms.txt` selon le template dans findings/geo.md, déploie.
 
-**Impact :** signal moderne aux LLMs pour citation correcte.
+**Impact :** signal moderne aux LLMs pour citation correcte (positionnement distributeur national exclusif Kraiburg).
 
-### P1.4 — Récupérer adresse NPS complète + l'intégrer partout ⚡ TOI (envoi) + MOI (intégration 1 h)
-**TOI :** envoie-moi adresse complète NPS (numéro + rue + CP + ville) + SIRET si possible.
+### P1.3 — Récupérer adresse NPS complète + l'intégrer partout ⚡ TOI (envoi) + MOI (intégration 1 h)
+**TOI :** envoie-moi adresse complète NPS (numéro + rue + CP + ville) + SIRET si possible. **Utile pour transparence légale + trust national** (pas pour Map Pack local).
 
 **MOI :** intègre dans :
-- Footer
+- Footer (avec mention "Siège : XXX — Distributeur national France entière")
 - `app/mentions-legales/page.tsx` (3 placeholders "à compléter")
-- `lib/jsonLd.ts` LocalBusiness (address + geo + areaServed + openingHours)
-- Page `/contact` (carte Google Maps embed)
+- `lib/jsonLd.ts` Organization + LocalBusiness (address + areaServed=France)
+- Page `/contact` (mais SANS positionner comme commerce local)
 
-**Impact :** NAP consistency = trust signal Google.
+**Impact :** transparence légale + trust signals (pas local ranking).
 
-### P1.5 — Créer Google Search Console + soumettre sitemap ⚡ TOI (15 min)
+### P1.4 — Créer Google Search Console + soumettre sitemap ⚡ TOI (15 min)
 **Action :** search.google.com/search-console → Ajouter propriété nps-acoustique.fr → Vérif DNS ou meta tag → Sitemaps → soumettre `https://nps-acoustique.fr/sitemap.xml`.
 
 **Impact :** monitoring indexation + erreurs + KW performance (gratuit, indispensable).
 
-### P1.6 — Ajouter Bing Webmaster Tools + IndexNow ⚡ MOI (1 h)
-**Action :** créer compte Bing Webmaster, importer depuis GSC, activer IndexNow dans `next.config.ts` ou via Cloudflare Worker pour notification instantanée.
+### P1.5 — Ajouter badges "Livraison France entière" + areaServed schema ⚡ MOI (1 h)
+**Action :**
+- Composant Badge réutilisable "🚚 Livraison France 7-15 jours" sur fiches produit + hero
+- Footer : ligne explicite "Distributeur national — Livraison France entière"
+- Schema Organization : `areaServed: { @type: Country, name: France }` (au lieu de "LocalBusiness Mont-de-Marsan")
 
-**Impact :** indexation Bing (et Microsoft Copilot par extension) accélérée.
+**Impact :** lève l'ambiguïté "vous livrez chez moi ?" pour un BET Lille / Paris / Lyon.
+
+### P1.6 — Bing Webmaster Tools + IndexNow ⚡ MOI (1 h)
+**Action :** créer compte Bing Webmaster, importer depuis GSC, activer IndexNow dans `next.config.ts` ou via Cloudflare Worker.
+
+**Impact :** indexation Bing (+ Microsoft Copilot) accélérée.
 
 ---
 
-## 🟠 Phase 2 — High impact (Semaines 2-3, effort 5-7 jours)
+## 🟠 Phase 2 — High impact (Semaines 2-3, effort 7-9 jours)
 
-### P2.1 — Créer 5 hubs marque (CORE — récupération autorité)
-**Pages à créer :**
-- `/damtec` — hub DAMTEC, 12+ produits
+### P2.1 — Créer 5 hubs marque (CORE — récupération autorité ancien site)
+**Pages :**
+- `/damtec` — hub DAMTEC, 12+ produits, history brand + relation Kraiburg
 - `/sportec` — hub SPORTEC, 8 produits sport
 - `/kraitec` — hub KRAITEC, 11 produits outdoor
 - `/shieldtac` — hub SHIELDTAC, 8 produits stand de tir
 - `/profimat` — hub PROFIMAT, 4 produits bricolage
 
 **Format chaque hub :**
-- H1 + intro 200 mots (history brand + relation Kraiburg)
-- Tableau des sous-gammes (ESTRA / 3D / VIBRA / etc.)
-- Grille produits filtrable par application
-- Section "Pourquoi choisir [BRAND] ?" (3-5 arguments)
+- H1 + intro 200 mots (history brand + relation Kraiburg + ce qu'on distribue en France)
+- Tableau des sous-gammes
+- Grille produits filtrable
+- Section "Pourquoi choisir [BRAND] ?" + "Disponibilité en France"
 - FAQ 5-8 questions + FAQPage schema
 - CTA devis + échantillon
 
-**Effort :** 4-6 h/hub = ~5 jours total. **Owner :** MOI (contenu existe déjà dans `data/products.ts` et `lib/chatPrompt.ts`).
+**Effort :** 4-6 h/hub = ~5 jours total.
 
-### P2.2 — Généraliser Product schema sur 38 fiches manquantes (4-6 h)
+### P2.2 — Créer 2 hubs SECTEUR manquants : `/hotellerie` + `/industrie`
+**NEW (v2) :** ces 2 secteurs sont mentionnés sur `/notre-expertise` mais n'ont pas de hub. Capture KW B2B haute valeur.
+
+**`/hotellerie`** :
+- H1 "Solutions acoustiques pour l'hôtellerie et la restauration"
+- Réglementation CHR : NRA, NRT, DTU, AFNOR
+- Cas d'usage : chambres (sous-couche), restaurants (sols), terrasses (KRAITEC), zones spa
+- Produits recommandés filtrés du catalogue
+- 1-2 cas client si dispo (anonymisé OK)
+- FAQ secteur + FAQPage schema
+
+**`/industrie`** :
+- H1 "Solutions anti-vibration et désolidarisation pour l'industrie"
+- Cas : désolidarisation machine (DAMTEC vibra selon pression), CTA/groupes froids/compresseurs, fondations
+- Calculateur "Quelle dureté DAMTEC vibra pour ma machine ?" (mention pression statique N/mm²)
+- ICPE / normes industrie
+- Produits VIBRAFOAM / VIBRADYN / DAMTEC vibra mis en avant
+- FAQ + FAQPage schema
+
+**Effort :** 6-8 h/hub = ~2 jours total. **Impact :** débloque 2 segments business cibles à forte marge.
+
+### P2.3 — Généraliser Product schema sur 38 fiches manquantes (4-6 h)
 **Action :** créer `components/ProductSchema.tsx` réutilisable (basé sur VibraProductSchema), l'appliquer dans `app/produit/[slug]/page.tsx` pour TOUS les produits avec specs/brand/manufacturer/offers (template dans findings/schema.md).
 
-### P2.3 — Refondre les 6 hubs catégorie (800-1000 mots éditoriaux chacun)
+### P2.4 — Refondre les 6 hubs catégorie existants (800-1000 mots éditoriaux chacun)
 - `/batiment/isolation-acoustique`
 - `/batiment/isolation-sous-chape`
 - `/batiment/isolation-revetements-sols`
@@ -95,17 +114,23 @@
 
 **Format :** intro 200 mots → 4-6 H2 (problème, solutions, comparatif, certifications/normes, cas d'usage, FAQ) → grille produits → FAQ schema → CTA.
 
-**Effort :** 4-6 h/hub = ~24-36 h total. **Owner :** MOI (rédaction depuis chatPrompt.ts + specs produits).
+**Effort :** 4-6 h/hub = ~24-36 h total.
 
-### P2.4 — BreadcrumbList schema sur toutes pages profondes
-**Action :** créer `components/BreadcrumbSchema.tsx`, l'appliquer à toutes pages depth ≥ 2 (hubs catégorie, fiches produit, sous-pages sport).
+### P2.5 — BreadcrumbList schema sur toutes pages profondes
+**Action :** créer `components/BreadcrumbSchema.tsx`, l'appliquer à toutes pages depth ≥ 2.
 
 **Effort :** 2 h. **Impact :** breadcrumb visible en SERP Google.
 
-### P2.5 — FAQPage schema sur 5 hubs (cf P2.1 + P2.3)
-**Action :** ajouter FAQ 5-8 questions + schema sur chaque hub marque et hub catégorie.
+### P2.6 — Citations annuaires B2B nationaux (pour trust + backlinks)
+- **Pages Jaunes** (incontournable FR)
+- **Kompass** (B2B référence)
+- **Societe.com** (KBis + SIRET)
+- **Hellopro** (B2B intentions d'achat)
+- **batiproduits.com** (BTP)
+- **archiexpo** (visibilité architectes)
+- **materiaux.archi** (prescripteurs)
 
-**Effort :** déjà inclus dans P2.1 et P2.3.
+**Effort :** 4-6 h total. **Owner :** TOI ou freelance webmarketing. **Impact :** trust + backlinks (PAS local ranking).
 
 ---
 
@@ -118,62 +143,45 @@
 
 **Impact :** E-E-A-T authority + trustworthiness signals.
 
-**Effort :** 4 h. **Owner :** TOI fournir contenu (photos, bios, références) + MOI mise en page.
+### P3.2 — Google Business Profile minimal ⚡ TOI (30 min)
+**MAINTENANT que c'est descendu en P3 :** GBP utile UNIQUEMENT pour Knowledge Panel quand on tape "NPS Acoustique" (existence officielle + photos + tel). NE PAS investir dans Map Pack optimization. Juste créer, basique.
 
-### P3.2 — Lancer blog 1 article/mois (récurrent)
+**Action :** business.google.com → créer fiche, catégorie "Fournisseur de matériel acoustique", description courte, tel, email, 5-10 photos entrepôt/équipe. Vérif postale. Voilà.
+
+### P3.3 — Lancer blog 1 article/mois (récurrent)
 **Setup :** créer template `app/blog/[slug]/page.tsx` + index `/blog` + RSS feed.
 
 **1er article suggéré :** "Comment isoler le bruit des voisins du dessus : guide complet 2026" (drainage vers DAMTEC BLACK UNI).
 
 **Effort :** 1 jour template + 4-8 h/article. **Owner :** rédacteur freelance acoustique 250-400 €/article OU IA + revue NPS.
 
-### P3.3 — Page `/glossaire-acoustique` (citation LLM magnétique)
-**Action :** 30 termes définis (ΔLw, ATE, ETA, NRA 2025, AgBB, A+, dB, frequency masse-ressort, etc.).
+### P3.4 — Page `/glossaire-acoustique` (citation LLM magnétique)
+**Action :** 30 termes définis (ΔLw, ATE, ETA, NRA 2025, AgBB, A+, dB, frequency masse-ressort, etc.) avec schema DefinedTerm.
 
-**Format :** alphabétique, chaque terme avec définition courte (50 mots) + lien produit pertinent + schema DefinedTerm.
+**Effort :** 1 jour. **Impact :** citation LLM + KW long-tail.
 
-**Effort :** 1 jour. **Owner :** MOI (sources : chatPrompt.ts + Wikipedia acoustique + AFNOR).
-
-### P3.4 — Composant `RelatedProducts` + `SeeAlso` éditorial
-**Action :** sur chaque fiche produit, lien vers 3-5 produits similaires (même gamme) + 1-2 articles blog associés.
+### P3.5 — Composant `RelatedProducts` + `SeeAlso` éditorial
+**Action :** sur chaque fiche produit, lien vers 3-5 produits similaires + 1-2 articles blog associés.
 
 **Effort :** 4 h. **Impact :** internal linking + dwell time.
 
-### P3.5 — Citations annuaires français
-- Pages Jaunes (le plus important FR)
-- Kompass (B2B)
-- Societe.com (SIRET + KBis)
-- Hellopro (B2B intentions)
-- Europages (B2B européen)
-- batiproduits.com
-- archiexpo
-- materiaux.archi
-- ACOUTERA (annuaire acoustique pro)
-- CINOV (ingénieurs)
+### P3.6 — Annuaires acoustique pro
+- **ACOUTERA** : annuaire des acousticiens FR
+- **CINOV** : ingénieurs
+- **SFA** (Société Française d'Acoustique) : pro acoustique
 
-**Effort :** 4-6 h total. **Owner :** TOI ou stagiaire/freelance webmarketing.
+**Effort :** 2 h.
 
-### P3.6 — Campagne avis Google (cible 20 ★★★★★ en 3 mois)
-**Setup :** 
-- Email post-vente automatique avec lien direct page avis
-- Répondre à 100 % des avis sous 48 h
+### P3.7 — Campagne avis Google (cible 20 ★★★★★ en 3 mois)
+**Setup :** email post-vente automatique avec lien direct vers page avis Google. Répondre à 100 % des avis sous 48 h.
 
-**Effort :** 2 h setup. **Impact :** boost ranking local + conversion.
+**Note v2 :** utile pour reputation + Knowledge Panel, pas pour Map Pack ranking (qui n'est pas la cible).
 
 ---
 
 ## 🟢 Phase 4 — Optimisation continue (Mois 3-6)
 
-### P4.1 — 5-10 location pages agglos prioritaires
-**Pages :** `/zone/paris`, `/zone/lyon`, `/zone/bordeaux`, `/zone/toulouse`, `/zone/marseille`, etc.
-
-**Contenu unique requis :** projets référence zone, BET partenaires, délai livraison local, étude de cas.
-
-**ATTENTION :** thin content = piège. Ne faire QUE si vraiment contenu unique par ville.
-
-**Effort :** 1 jour/page = 5-10 jours total.
-
-### P4.2 — Performance fine-tuning
+### P4.1 — Performance fine-tuning
 - Self-host Satoshi fonts (vs Fontshare) — économie 200-400 ms LCP
 - Lazy-load vidéos hero (poster image + load on scroll)
 - Convertir packshots PNG en WebP
@@ -181,51 +189,48 @@
 
 **Effort :** 4-6 h. **Impact :** LCP -1s, Lighthouse perf 95+.
 
-### P4.3 — VideoObject schema + 5 vidéos demo
-**Action :** 5 vidéos courtes (cf brief créa ads-plan) : V1 pose DAMTEC ESTRA, V2 SPORTEC drop test, V3 TOP VIB WASH, V4 BUMPY parking, V5 brand NPS. Schema VideoObject sur chaque.
+### P4.2 — VideoObject schema + 5 vidéos demo
+**Action :** 5 vidéos courtes (cf brief créa ads-plan) avec VideoObject schema.
 
-**Effort :** prod vidéo séparée (cf ads-plan). Schema = 1 h.
-
-### P4.4 — Security headers complets
-Ajouter dans `next.config.ts` headers ou Cloudflare Worker :
-- HSTS preload
-- CSP frame-ancestors
-- Permissions-Policy
-- Referrer-Policy strict-origin-when-cross-origin
+### P4.3 — Security headers complets
+HSTS preload, CSP frame-ancestors, Permissions-Policy, Referrer-Policy.
 
 **Effort :** 2 h.
 
-### P4.5 — Sitemap split + lastmod réel
-**Action :** sitemap index avec sous-sitemaps par section. Lastmod basé sur git log de chaque page (non pas `now`).
+### P4.4 — Sitemap split + lastmod réel
+**Action :** sitemap index avec sous-sitemaps par section. Lastmod basé sur git log de chaque page.
 
 **Effort :** 4 h.
 
-### P4.6 — Monitoring SEO continu
-- Setup `seo-drift` baseline (skill claude-seo) après que toutes les pages soient propres
-- Comparaison hebdo via `/seo-drift` pour détecter régressions
+### P4.5 — Monitoring SEO continu
+- Setup `seo-drift` baseline (skill claude-seo) après pages propres
+- Comparaison hebdo via `/seo-drift`
 - Re-audit complet trimestriel via `/seo-audit`
-
-**Effort :** 30 min setup + récurrent.
 
 ---
 
-## 📊 Récap effort + impact estimés
+## ❌ Actions SUPPRIMÉES (v1 → v2 pivot national)
 
-| Phase | Effort total | Owner principal | Impact projeté health score |
+- ❌ **Location pages `/zone/paris`, `/zone/lyon` etc.** : piège thin content, NPS n'a pas de différenciation locale
+- ❌ **Optimisation Map Pack local Mont-de-Marsan** : volume KW zéro
+- ❌ **GBP comme priorité P1** : descendu en P3, minimal (juste pour exister, pas pour ranker local)
+- ❌ **Apple Maps / Bing Places en priorité** : marginal pour distributeur national
+
+## 📊 Récap effort + impact (v2)
+
+| Phase | Effort total | Owner principal | Health score |
 |---|---|---|---|
-| Phase 0 (done) | ~2 h | MOI | 56 → 65 |
-| Phase 1 (S1) | 1-2 jours dev + actions TOI | MOI + TOI | 65 → 78 |
-| Phase 2 (S2-3) | 5-7 jours dev | MOI | 78 → 87 |
-| Phase 3 (M2) | 5 jours + récurrent | MOI + freelance contenu | 87 → 92 |
-| Phase 4 (M3-6) | 10-15 jours étalés | MOI + équipe | 92 → 96+ |
+| Phase 0 (done) | ~2 h | MOI | 60 → 68 |
+| Phase 1 (S1) | 1-2 jours dev + actions TOI | MOI + TOI | 68 → 79 |
+| Phase 2 (S2-3) | 7-9 jours dev | MOI | 79 → 89 |
+| Phase 3 (M2) | 5 jours + récurrent | MOI + freelance contenu | 89 → 93 |
+| Phase 4 (M3-6) | 10-15 jours étalés | MOI + équipe | 93 → 96+ |
 
-## 🎯 Objectif "rank #1" — Timeline réaliste
+## 🎯 Objectif "rank #1" — Timeline (v2)
 
-- **Semaine 1** : domain fix live + AI crawlers débloqués + GBP créé → indexation s'accélère
-- **Semaines 2-4** : hubs marque + Product schema + hubs refondus → coverage KW double
-- **Mois 2-3** : Google découvre + classe + premiers rankings sur KW longs (long-tail) + brand
-- **Mois 4-6** : KW core (sous-chape, sol haltérophilie, anti-vibration) montent en page 1
-- **Mois 6-12** : top 3 sur KW brand (DAMTEC, SPORTEC, KRAITEC) + top 5 sur KW core
+- **Semaine 1** : domain fix live + AI crawlers débloqués + GSC créé → indexation s'accélère
+- **Semaines 2-3** : 5 hubs marque + 2 hubs secteur (hôtellerie + industrie) + Product schema → coverage KW double
+- **Mois 2-3** : Google découvre + classe + premiers rankings sur KW longs + brand
+- **Mois 4-6** : KW core (sous-chape, sol haltérophilie, anti-vibration machine) montent en page 1
+- **Mois 6-12** : top 3 sur KW brand (DAMTEC, SPORTEC, KRAITEC) + top 5 sur KW secteur (isolation acoustique hôtel, désolidarisation machine industrielle)
 - **Mois 12+** : position #1 sur KW competitor + KW brand + ranking solide top 3 KW core
-
-Note : SEO compose. Plus tu fais tôt, plus l'effet accumule.

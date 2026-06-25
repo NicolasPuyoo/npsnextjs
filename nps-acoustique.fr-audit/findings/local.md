@@ -1,137 +1,169 @@
-# Local SEO — Findings NPS Acoustique
+# National Distribution SEO — Findings NPS Acoustique
 
-## Score : 35/100 (Schema posé mais GBP absent, NAP incomplet)
+> **CORRECTION CRITIQUE :** NPS n'est PAS un commerce local. C'est un **distributeur national B2B/B2C** France entière. Pas de zone de chalandise géographique. Map Pack local, location pages par ville, GBP-centric strategy = INUTILES pour NPS. Cette page audit a été ré-orientée vers ce qui compte réellement.
 
-## Type business détecté
+## Score : 50/100 (positionnement national OK mais 2 secteurs majeurs sans hub)
 
-**Hybride** : brick-and-mortar (entrepôt + showroom Mont-de-Marsan, équipe physique) + Service Area Business (livraison France entière depuis le 40).
+## Type business réel
 
-NPS n'est pas un commerce de proximité walk-in (B2B principalement), donc le local SEO sert :
-- Capter "isolation acoustique Mont-de-Marsan" + villes alentour (Bordeaux, Toulouse, Pau)
-- Apparaître dans Google Maps quand prospect cherche un fournisseur acoustique en NA
-- Légitimité (adresse réelle + tel FR = trust signal)
+**Distributeur national B2B/B2C** :
+- Pas de showroom walk-in
+- Pas de zone géographique (livraison France entière)
+- Siège social à Mont-de-Marsan (juste l'adresse légale) — pas un argument commercial
+- Site dit explicitement "professionnels et particuliers", aucune mention géographique
 
-## ✅ Ce qui marche
+**5 secteurs cibles** (officiels via `/notre-expertise`) :
+1. **Bâtiment** ✅ a son hub `/batiment` + 5 sous-hubs
+2. **Sport** ✅ a son hub `/sport` + sous-pages fitness/sports-hiver/commerce/stand-tir
+3. **Hôtellerie** ❌ **PAS DE HUB DÉDIÉ** — uniquement mentionné sur `/notre-expertise`
+4. **Industrie** ❌ **PAS DE HUB DÉDIÉ** — uniquement mentionné sur `/notre-expertise`
+5. **Bricolage** ✅ a son hub `/bricolage`
 
-- **LocalBusiness schema** en place (via `lib/jsonLd.ts`) sur toutes les pages
-- **Téléphone** : 05 58 77 55 89 (FR format) visible footer + contact
-- **Email** : contact@nps-france.com visible
-- **JSON-LD `@type: LocalBusiness`** avec `@id`
+## 🔴 CRITICAL (vrais leviers nationaux)
 
-## 🔴 CRITICAL
+### C1 — 2 hubs secteur manquants (énorme gap KW)
 
-### C1 — Pas de Google Business Profile (GBP)
+NPS cible explicitement 5 secteurs mais 2 n'ont pas de page hub :
 
-NPS n'a vraisemblablement pas créé son GBP "NPS Acoustique" Mont-de-Marsan. Vérification : taper "NPS Acoustique" sur Google Maps → absent ou non vérifié.
+**`/hotellerie`** absent → rate les KW :
+- "isolation acoustique chambre hôtel"
+- "réglementation acoustique CHR"
+- "sous-couche acoustique hôtellerie"
+- "sol terrasse hôtel"
+- "isolation phonique restaurant"
+- Volume estimé : moyen (B2B niche mais haute valeur)
 
-**Impact :**
-- Pas de Knowledge Panel à droite des SERP Google
-- Pas de Map Pack pour les recherches locales BTP NA
-- Pas d'éligibilité aux Local Service Ads (LSA Google)
-- Pas de collection avis Google → pas d'aggregateRating dans schema
+**`/industrie`** absent → rate les KW :
+- "désolidarisation machine industrielle"
+- "antivibration compresseur"
+- "isolation vibration groupe froid"
+- "sol industriel acoustique"
+- "fondation machine vibration"
+- Volume estimé : moyen (B2B haute valeur, longue durée vente)
 
-**Fix :** créer un GBP, vérifier par carte postale (5-7 jours wait). Effort : 30 min + 1 semaine wait.
+**Fix :** créer ces 2 hubs sur le modèle existant `/batiment` et `/sport`.
+Format :
+- H1 + intro 200 mots (problématique secteur)
+- Section "Réglementation/normes applicables" (NRA pour hôtels, ICPE pour industrie, etc.)
+- Grille produits filtrée par pertinence secteur
+- 2-3 cas d'usage type
+- FAQ + FAQPage schema
+- CTA devis spécialisé secteur
 
-Champs à remplir :
-- Catégorie principale : "Fournisseur de matériel acoustique" (ou "Importateur")
-- Catégories secondaires : "Magasin de matériaux de construction", "Grossiste en équipement industriel"
-- Description (750 char max) : "NPS Acoustique est le distributeur officiel exclusif en France du fabricant allemand Kraiburg Relastec depuis plus de 20 ans. Nous fournissons des solutions caoutchouc d'isolation acoustique et anti-vibratoire pour le bâtiment (DAMTEC), le sport (SPORTEC), les stands de tir (SHIELDTAC) et les particuliers (PROFIMAT)."
-- Photos : entrepôt, équipe, showroom, produits en situation (20+ photos)
-- Services listés : 10-15 services principaux
-- Zone d'intervention : France entière
+**Effort :** 6-8 h/hub = ~2 jours. **Impact :** déblocage de 2 segments business à forte valeur ajoutée.
 
-### C2 — NAP (Name/Address/Phone) incomplet
+### C2 — Positionnement national pas explicite dans le copy
 
-L'adresse complète de NPS Mont-de-Marsan n'apparaît :
-- Pas dans le footer (juste tel + email)
-- Pas dans mentions-légales (marquée "à compléter")
-- Pas dans le LocalBusiness schema (placeholder)
+Le site dit "depuis plus de 20 ans" mais ne dit JAMAIS clairement "livraison France entière", "distributeur national exclusif", "stock en France". Pour un BET à Lille qui se demande "ce fournisseur livre-t-il chez moi ?" → réponse pas évidente.
 
-**Impact :** Google ne peut pas valider la cohérence NAP cross-platform → score local diminué. Citations annuaires impossibles à construire.
-
-**Fix :** récupérer l'adresse complète NPS (probablement à Mont-de-Marsan 40000 ou commune voisine) et la mettre :
-- Footer (composant)
-- Mentions légales
-- LocalBusiness schema (`lib/jsonLd.ts`)
-- Page /contact (carte Google Maps embed serait un plus)
+**Fix :** ajouter sur :
+- Footer : "Distributeur national — livraison France entière"
+- Homepage hero ou section dédiée : badge "🚚 Livraison France 7-15 jours"
+- `/contact` : carte France stylisée + "Nous livrons partout en France"
+- Fiches produit : "En stock — livraison France 7-15 jours"
+- LocalBusiness schema : `areaServed: { @type: Country, name: France }`
 
 ## 🟡 HIGH
 
-### H1 — Pas de citations annuaires français
+### H1 — NAP basique (pas pour Map Pack mais pour trust signal)
 
-NPS n'apparaît probablement pas sur :
-- Pages Jaunes (le plus important en FR)
-- Kompass (B2B référence)
-- Societe.com (SIRET + KBis)
-- Hellopro (B2B intentions d'achat)
-- Europages (B2B européen)
-- batiproduits.com (BTP)
+L'adresse complète NPS reste utile pour :
+- Mentions légales (obligation réglementaire FR)
+- Citations annuaires B2B (Pages Jaunes, Kompass, Hellopro, Societe.com) — pour trust + backlinks, pas pour local pack
+- LocalBusiness schema (Organization en réalité) avec adresse siège social
+- Page contact (carte siège + "Bureau de Mont-de-Marsan — équipe joignable au 05 58 77 55 89")
 
-Chaque citation = backlink + cohérence NAP cross-platform = signal trust pour Google.
+**Fix :** récupérer l'adresse complète (numéro + rue + CP + ville), l'intégrer aux 4 emplacements ci-dessus. **C'est différent de "local SEO" — c'est de la transparence légale + trust national.**
 
-**Fix :** créer/vérifier les fiches sur les 6 annuaires majeurs. Effort : 4-6 h.
+### H2 — Google Business Profile : utile mais PAS central
 
-### H2 — Pas d'avis Google (logique, sans GBP)
+GBP utile pour :
+- Apparaître dans la SERP "NPS Acoustique" recherche brand (Knowledge Panel à droite)
+- Existence officielle Google
+- Récolter quelques avis B2B
 
-Sans GBP, pas d'avis Google possible. Une fois GBP créé, lancer une campagne avis :
-- Email post-vente automatique avec lien direct vers la page avis
-- Cible : 20 avis ★★★★★ en 3 mois
-- Répondre à 100 % des avis sous 48 h (boost ranking local)
+GBP **NON utile pour :**
+- ❌ Map Pack local (personne ne tape "isolation acoustique Mont-de-Marsan")
+- ❌ Ranking sur KW métier (NPS rank sur des KW génériques nationaux, pas locaux)
 
-### H3 — Pas de présence sur annuaires acoustique spécialisés
+**Donc :** créer GBP minimal (catégorie, photos, description, tel) MAIS ne pas y investir des heures de SEO local. Effort 30 min total au lieu de 4-6 h de location optimization.
+
+### H3 — Annuaires français B2B (pour backlinks + trust national, pas local)
+
+Citations utiles :
+- **Pages Jaunes** : seul vrai "incontournable", utile autant pour B2B que particuliers
+- **Kompass** : annuaire B2B référence, lu par acheteurs / décideurs
+- **Societe.com** : KBis + SIRET visible (transparence trust)
+- **Hellopro** : intentions d'achat B2B
+- **batiproduits.com** : référencé par architectes/BET
+- **archiexpo** : visibilité architectes UE
+- **materiaux.archi** : encyclopédie matériaux pour prescripteurs
+
+**Ne pas faire :** Yelp, TripAdvisor (irrelevant B2B), annuaires SEO spammy.
+
+**Effort :** 4-6 h. **Impact :** trust signals + backlinks (pas local ranking).
+
+### H4 — Annuaires acoustique spécialisés
 
 - **ACOUTERA** : annuaire des acousticiens FR
-- **CINOV** (Confédération de l'ingénierie) : référencement BET
-- **SFA** (Société Française d'Acoustique) : annuaire pro
+- **CINOV** (Confédération de l'ingénierie) : BET référencement
+- **SFA** (Société Française d'Acoustique) : pro acoustique
 
-À démarcher pour référencement.
-
-### H4 — Pas de location pages
-
-NPS sert toute la France mais n'a pas de pages géographiques (`/zone/paris`, `/zone/lyon`, `/zone/bordeaux`). Sur des KW comme "isolation acoustique Paris" ou "sol salle musculation Lyon", impossible de ranker.
-
-**Attention :** location pages = piège programmatic SEO si mal fait. À implémenter QUE si vraiment contenu unique par ville (cas client local, prescripteur local, etc.). Sinon = thin content puni par Google.
-
-**Recommandation :** créer 5-10 location pages pour les **agglos prioritaires** (Paris, Lyon, Bordeaux, Toulouse, Marseille, Nantes, Lille, Strasbourg, Nice, Montpellier) avec contenu réel : "Livraison Paris en 3 jours ouvrés", projets locaux références, BET partenaires zone. Effort : 1 jour/page = 5-10 jours total.
+**Effort :** 2 h. **Impact :** notoriété pro + backlinks haute autorité topique.
 
 ## 🟢 MEDIUM
 
-### M1 — Apple Maps + Bing Places absents
+### M1 — areaServed dans LocalBusiness schema
 
-Au-delà de Google Maps, Apple Maps (Siri) et Bing Places (Bing search + Microsoft Copilot) doivent avoir leur fiche NPS. Cohérence NAP cross-platform = trust signal.
+Actuellement absent. Ajouter explicitement :
 
-### M2 — OpenStreetMap
-
-Vérifier que NPS Acoustique est sur OpenStreetMap (utilisé par certains outils + LLMs en background).
-
-### M3 — areaServed à compléter
-
-Dans `lib/jsonLd.ts`, ajouter dans LocalBusiness :
 ```jsonc
-"areaServed": {
-  "@type": "Country",
-  "name": "France"
+"areaServed": [
+  { "@type": "Country", "name": "France" }
+],
+"hasOfferCatalog": {
+  "@type": "OfferCatalog",
+  "name": "Catalogue NPS Acoustique",
+  "itemListElement": [...]
 }
 ```
 
+### M2 — Type Schema : Organization OU LocalBusiness ?
+
+Actuellement LocalBusiness. Pour un distributeur national, plus juste = `Organization` + `Distributor` (Schema.org additionalType).
+
+```jsonc
+{
+  "@type": ["Organization", "Distributor"],
+  "name": "NPS Acoustique",
+  "brand": { "@type": "Brand", "name": "Kraiburg Relastec" },
+  "areaServed": { "@type": "Country", "name": "France" }
+}
+```
+
+LocalBusiness reste utile en parallèle pour le siège physique + GBP (mais secondaire au positionnement national).
+
 ## 🟢 LOW
 
-### L1 — Pas de presence GBP Posts
+### L1 — Pas de location pages
 
-Une fois GBP créé, publier 1 post/semaine (nouveau produit, étude de cas, FAQ technique) = boost activité.
+**À NE PAS FAIRE.** NPS n'a pas de différenciation locale (pas de stock régional, pas de cas client localisé visible, pas de partenaires régionaux). Créer `/zone/paris`, `/zone/lyon` etc. sans contenu unique = thin content = pénalité Google. Skip.
 
-### L2 — Photos géolocalisées
+**Exception future :** si NPS développe des partenariats régionaux concrets (revendeur local, cas client phare) → créer la page seulement pour cette ville avec contenu unique. Cas par cas.
 
-Photos JPG avec EXIF GPS coordinates = trust + ranking local.
+### L2 — Apple Maps / Bing Places
 
-## 📊 Plan d'attaque Local SEO
+Utile pour cohérence NAP cross-platform mais marginal pour un distributeur national sans Map Pack ambition.
+
+## 📊 Plan d'attaque ajusté (NATIONAL, pas local)
 
 | Priorité | Action | Effort | Impact |
 |---|---|---|---|
-| 🔴 P0 | Créer Google Business Profile + vérif postale | 30 min + 7j wait | ÉNORME |
-| 🔴 P0 | Compléter NAP (adresse) partout (footer, mentions, schema) | 1 h | ÉNORME |
-| 🟡 P1 | Citer NPS sur Pages Jaunes + Kompass + Societe.com | 2 h | Fort |
-| 🟡 P1 | Lancer campagne 20 avis Google ★★★★★ | 2 h setup + 3 mois | Fort |
-| 🟡 P1 | Annuaires acoustique pro (ACOUTERA, CINOV) | 2 h | Moyen |
-| 🟢 P2 | 5-10 location pages agglos prioritaires (contenu réel) | 5-10 jours | Fort si bien fait |
-| 🟢 P2 | Apple Maps + Bing Places | 1 h | Faible mais utile |
+| 🔴 P0 | Créer hub `/industrie` (DAMTEC vibra + Vibrafoam, KW haute valeur B2B) | 6-8 h | ÉNORME |
+| 🔴 P0 | Créer hub `/hotellerie` (DAMTEC sous-couches CHR + KRAITEC terrasses) | 6-8 h | Fort |
+| 🟡 P1 | Compléter NAP partout (mentions, footer, schema) + Schema Organization avec areaServed France | 2 h | Trust signal |
+| 🟡 P1 | Citations annuaires B2B (Pages Jaunes, Kompass, batiproduits, archiexpo) | 4-6 h | Trust + backlinks |
+| 🟢 P2 | GBP minimal (existence, pas Map Pack) | 30 min | Brand SERP |
+| 🟢 P2 | Annuaires acoustique pro (ACOUTERA, CINOV) | 2 h | Notoriété pro |
+| ❌ DELETE | Location pages /zone/paris etc. | — | Piège thin content |
+| ❌ DELETE | Optimisation Map Pack Mont-de-Marsan | — | KW volume zéro |
