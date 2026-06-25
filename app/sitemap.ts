@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { allProducts } from "@/data/products";
 import { PAGE_SEO } from "@/lib/seo";
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 
 // Priority hierarchy:
 // 1.0 — homepage

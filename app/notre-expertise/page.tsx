@@ -6,7 +6,7 @@ import { breadcrumbList } from "@/lib/jsonLd";
 import { guides } from "@/data/guides";
 import { allProducts } from "@/data/products";
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 
 export const metadata: Metadata = {
   title: "Notre expertise acoustique | NPS Acoustique",

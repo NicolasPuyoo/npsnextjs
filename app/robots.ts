@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://nps-france.com/sitemap.xml",
-    host: "https://nps-france.com",
+    sitemap: "https://nps-acoustique.fr/sitemap.xml",
+    host: "https://nps-acoustique.fr",
   };
 }

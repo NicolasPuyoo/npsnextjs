@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { allProducts, findProductBySlug, categories } from "@/data/products";
 import { breadcrumbList } from "@/lib/jsonLd";
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 const BRAND = "NPS Acoustique";
 
 const categoryPath = (cat: string) => {

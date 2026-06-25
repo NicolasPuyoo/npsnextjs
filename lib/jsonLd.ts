@@ -4,7 +4,7 @@
 // Why centralize: Google ranks better with consistent, validated structured
 // data. One source of truth = no drift across pages.
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 const BRAND = "NPS Acoustique";
 
 export type Crumb = { name: string; url: string };

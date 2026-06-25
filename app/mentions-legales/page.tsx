@@ -14,7 +14,7 @@ export default function MentionsLegales() {
         <article className="prose prose-lg max-w-none text-foreground">
           <h2 className="text-2xl font-bold mt-8 mb-3">1. Éditeur du site</h2>
           <p className="text-base">
-            Le site <strong>nps-france.com</strong> est édité par <strong>NPS Acoustique</strong>.
+            Le site <strong>nps-acoustique.fr</strong> est édité par <strong>NPS Acoustique</strong>.
             <br />
             Adresse : à compléter
             <br />

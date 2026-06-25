@@ -12,7 +12,7 @@ import CookieBanner from "@/components/CookieBanner";
 // import { AcousticExpertChat } from "@/components/AcousticExpertChat";
 import { localBusiness, website } from "@/lib/jsonLd";
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

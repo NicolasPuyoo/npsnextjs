@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { allGuideSlugs, getGuideBySlug } from "@/data/guides";
 import { article, breadcrumbList, faqPage } from "@/lib/jsonLd";
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 const BRAND = "NPS Acoustique";
 
 export async function generateStaticParams() {

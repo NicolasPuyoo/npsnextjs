@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 
 export const metadata: Metadata = {
   title: "Guide fitness | NPS Acoustique",

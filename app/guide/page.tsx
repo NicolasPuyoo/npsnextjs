@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Layout from "@/components/Layout";
 import { guides } from "@/data/guides";
 
-const SITE_URL = "https://nps-france.com";
+const SITE_URL = "https://nps-acoustique.fr";
 
 export const metadata: Metadata = {
   title: "Guides experts isolation acoustique | NPS Acoustique",
