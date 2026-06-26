@@ -12,9 +12,13 @@ const Footer = () => {
               <img src={logoNps.src} alt="NPS Acoustique" className="h-16 w-auto brightness-0 invert" />
             </div>
             <p className="text-background/70 text-sm mb-3">
-              Experts en solutions acoustiques et anti-vibratoires depuis plus de 20 ans.
-              Nous accompagnons les professionnels et particuliers dans leurs projets d'isolation phonique.
+              Distributeur officiel exclusif <strong className="text-background">Kraiburg Relastec en France</strong> depuis plus de 20 ans.
+              Solutions caoutchouc d'isolation acoustique et anti-vibratoire pour professionnels et particuliers.
             </p>
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/15 text-background border border-primary/30 px-3 py-1.5 text-xs font-medium">
+              <span aria-hidden="true">🚚</span>
+              <span>Livraison France entière • Devis sous 24h</span>
+            </div>
           </div>
 
           {/* Catégories */}
