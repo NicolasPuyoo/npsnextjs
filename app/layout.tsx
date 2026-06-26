@@ -27,15 +27,27 @@ export const metadata: Metadata = {
     icon: "/icon.png",
     apple: "/apple-icon.png",
   },
-  alternates: { canonical: "/" },
+  // NB: PAS de canonical par défaut au niveau root layout — sinon il "leaked" sur
+  // toutes les pages enfants qui n'override pas leur canonical (silos /batiment,
+  // /sport, /bricolage → toutes pointaient vers la homepage = dé-indexation Google).
+  // Chaque page définit son propre canonical via generateMetadata.
   openGraph: {
     type: "website",
     locale: "fr_FR",
     siteName: "NPS Acoustique",
+    images: [
+      {
+        url: "/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NPS Acoustique — Distributeur officiel Kraiburg en France",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     site: "@npsacoustique",
+    images: ["/og-default.jpg"],
   },
 };
 

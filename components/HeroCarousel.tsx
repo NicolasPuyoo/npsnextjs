@@ -21,7 +21,7 @@ const slides: Slide[] = [
     video: "/videos/hero-batiment.mp4",
     title: (
       <>
-        Acoustique des<br />bâtiments tertiaires
+        Acoustique des bâtiments<br />tertiaires
       </>
     ),
     description:

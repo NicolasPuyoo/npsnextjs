@@ -3,7 +3,7 @@ import { allProducts, findProductBySlug, categories } from "@/data/products";
 import { breadcrumbList } from "@/lib/jsonLd";
 
 const SITE_URL = "https://nps-acoustique.fr";
-const BRAND = "NPS Acoustique";
+const BRAND = "NPS Acoustique"; // Distributeur (seller), pas la marque produit
 
 const categoryPath = (cat: string) => {
   switch (cat) {
@@ -12,6 +12,22 @@ const categoryPath = (cat: string) => {
     case "bricolage": return "/bricolage";
     default: return "/produits";
   }
+};
+
+// Détecte la VRAIE marque produit (DAMTEC, SPORTEC, etc.) depuis le slug.
+// Critique pour Schema.org Product.brand : doit être la marque fabricant,
+// pas le distributeur. Sinon Google rejette le rich snippet ou pollue le
+// graphe d'entités.
+const getProductBrand = (slug: string): { name: string; manufacturer: string } => {
+  if (slug.startsWith("damtec-")) return { name: "DAMTEC", manufacturer: "Kraiburg Relastec" };
+  if (slug.startsWith("sportec-")) return { name: "SPORTEC", manufacturer: "Kraiburg Relastec" };
+  if (slug.startsWith("kraitec-")) return { name: "KRAITEC", manufacturer: "Kraiburg Relastec" };
+  if (slug.startsWith("shieldtac-")) return { name: "SHIELDTAC", manufacturer: "Kraiburg Relastec" };
+  if (slug.startsWith("profimat-")) return { name: "PROFIMAT", manufacturer: "Kraiburg Relastec" };
+  if (slug === "vibrafoam") return { name: "VIBRAFOAM", manufacturer: "Kraiburg Relastec" };
+  if (slug === "vibradyn") return { name: "VIBRADYN", manufacturer: "Kraiburg Relastec" };
+  // Private label NPS (TOP RUBBERCORK, TOP VIB WASH, TOP ACOUSTIQUE *)
+  return { name: "NPS Acoustique", manufacturer: "NPS Acoustique" };
 };
 
 // Pre-generate every product page at build time → static HTML, instant page loads
@@ -73,17 +89,29 @@ export default async function ProductLayout({
       ])
     : null;
 
-  // JSON-LD structured data for rich snippets
-  const jsonLd = product
+  // JSON-LD structured data for rich snippets.
+  // Schema.org Product : `brand` = la VRAIE marque produit (DAMTEC, SPORTEC...),
+  // `manufacturer` = Kraiburg Relastec (sauf private label NPS),
+  // `offers.seller` = NPS Acoustique (qui vend).
+  // Image en URL absolue obligatoire pour Google rich results.
+  const productBrand = product ? getProductBrand(product.slug) : null;
+  const jsonLd = product && productBrand
     ? {
         "@context": "https://schema.org",
         "@type": "Product",
+        "@id": `${SITE_URL}/produit/${product.slug}`,
         name: product.name,
-        image: product.image,
+        image: [product.image.startsWith("http") ? product.image : `${SITE_URL}${product.image}`],
         description:
           product.details?.description ??
-          `${product.name} — Solution acoustique de NPS Acoustique`,
-        brand: { "@type": "Brand", name: BRAND },
+          `${product.name} — Solution acoustique distribuée par NPS Acoustique`,
+        sku: product.slug,
+        brand: { "@type": "Brand", name: productBrand.name },
+        manufacturer: {
+          "@type": "Organization",
+          name: productBrand.manufacturer,
+          url: productBrand.manufacturer === "Kraiburg Relastec" ? "https://www.kraiburg-relastec.com" : SITE_URL,
+        },
         category:
           product.category === "batiment"
             ? "Bâtiment & Industrie"
@@ -101,7 +129,8 @@ export default async function ProductLayout({
           "@type": "Offer",
           availability: "https://schema.org/InStock",
           priceCurrency: "EUR",
-          seller: { "@type": "Organization", name: BRAND },
+          seller: { "@type": "Organization", name: BRAND, url: SITE_URL },
+          areaServed: { "@type": "Country", name: "France" },
           url: `${SITE_URL}/contact`,
         },
       }
