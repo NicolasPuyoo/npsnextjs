@@ -10,7 +10,7 @@ import CookieBanner from "@/components/CookieBanner";
 // /api/acoustic-expert-chat restent en place — remettre le mount ci-dessous
 // puis pousser la clé via `wrangler secret put ANTHROPIC_API_KEY` pour réactiver.
 // import { AcousticExpertChat } from "@/components/AcousticExpertChat";
-import { localBusiness, website } from "@/lib/jsonLd";
+import { localBusiness, website, videoObject } from "@/lib/jsonLd";
 
 const SITE_URL = "https://nps-acoustique.fr";
 
@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     icon: "/icon.png",
     apple: "/apple-icon.png",
   },
+  manifest: "/manifest.json",
   // NB: PAS de canonical par défaut au niveau root layout — sinon il "leaked" sur
   // toutes les pages enfants qui n'override pas leur canonical (silos /batiment,
   // /sport, /bricolage → toutes pointaient vers la homepage = dé-indexation Google).
@@ -82,6 +83,45 @@ const organizationJsonLd = {
 const localBusinessJsonLd = localBusiness();
 const websiteJsonLd = website();
 
+// VideoObject schemas pour les 4 vidéos hero du HeroCarousel. Active rich
+// video snippet Google + carrousel vidéo dans les SERP (boost CTR sur les
+// recherches thématiques). uploadDate fixée à la migration Next.js
+// (la vraie date de prod des vidéos n'est pas connue).
+const heroVideosJsonLd = [
+  videoObject({
+    name: "Acoustique des bâtiments tertiaires NPS",
+    description:
+      "Solutions d'isolation phonique haute performance pour bureaux, logements, ERP et environnements industriels distribuées par NPS Acoustique.",
+    thumbnailUrl: "/og-default.jpg",
+    contentUrl: "/videos/hero-batiment.mp4",
+    uploadDate: "2026-05-04",
+  }),
+  videoObject({
+    name: "Sols sportifs et fitness SPORTEC NPS",
+    description:
+      "Revêtements SPORTEC et SHIELDTAC pour salles de fitness, haltérophilie, sports d'hiver, commerce et stand de tir.",
+    thumbnailUrl: "/og-default.jpg",
+    contentUrl: "/videos/hero-fitness.mp4",
+    uploadDate: "2026-06-16",
+  }),
+  videoObject({
+    name: "Solutions extérieures et toitures KRAITEC NPS",
+    description:
+      "Gamme KRAITEC et DAMTEC SONIC pour toitures plates, terrasses, balcons, supports photovoltaïques et abords de piscine.",
+    thumbnailUrl: "/og-default.jpg",
+    contentUrl: "/videos/hero-exterieur.mp4",
+    uploadDate: "2026-05-04",
+  }),
+  videoObject({
+    name: "Solutions acoustiques pour la maison NPS",
+    description:
+      "Tapis machine à laver, butoirs de parking, berceaux de pneus : la gamme bricolage NPS pour les particuliers.",
+    thumbnailUrl: "/og-default.jpg",
+    contentUrl: "/videos/hero-hotellerie.mp4",
+    uploadDate: "2026-05-04",
+  }),
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -90,6 +130,12 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        {/* Preconnect Fontshare : réduit le DNS+TLS handshake pour les fonts
+            Satoshi (économie 100-300ms sur connexion mobile). En attendant
+            le self-host (téléchargement requis depuis Fontshare). */}
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://api.fontshare.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -102,6 +148,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        {heroVideosJsonLd.map((v, i) => (
+          <script
+            key={`video-${i}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(v) }}
+          />
+        ))}
       </head>
       <body>
         <Providers>

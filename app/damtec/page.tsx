@@ -5,7 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import QuoteCTA from "@/components/QuoteCTA";
 import { Button } from "@/components/ui/button";
 import { batimentProducts } from "@/data/products";
-import { faqPage } from "@/lib/jsonLd";
+import { faqPage, collectionPage, speakable } from "@/lib/jsonLd";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Hub marque DAMTEC — page SEO P0 du plan (récupère l'autorité de l'ancien
@@ -129,12 +129,32 @@ const faqs = [
 
 const faqJsonLd = faqPage(faqs);
 
+// CollectionPage : signal Google "ceci est un hub listing de produits"
+const collectionJsonLd = collectionPage({
+  name: "DAMTEC® France — Sous-couches acoustiques Kraiburg",
+  description:
+    "Catalogue complet DAMTEC distribué en France par NPS Acoustique : 19 produits en 4 familles (anti-vibration VIBRA, sous chape ATE, revêtements sols, toitures SONIC).",
+  url: "/damtec",
+  numberOfItems: damtecProducts.length,
+});
+
+// Speakable : les FAQ sont lisibles à voix haute par Google Assistant / Siri.
+const speakableJsonLd = speakable([".faq-question", ".faq-answer"]);
+
 const DamtecHub = () => {
   return (
     <Layout>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableJsonLd) }}
       />
 
       {/* Hero */}
@@ -333,11 +353,11 @@ const DamtecHub = () => {
                 key={i}
                 className="group bg-muted/30 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden"
               >
-                <summary className="cursor-pointer font-semibold text-foreground flex items-center justify-between gap-4">
+                <summary className="cursor-pointer font-semibold text-foreground flex items-center justify-between gap-4 faq-question">
                   <span>{faq.question}</span>
                   <span className="text-primary text-2xl leading-none group-open:rotate-45 transition-transform">+</span>
                 </summary>
-                <p className="mt-4 text-muted-foreground leading-relaxed">{faq.answer}</p>
+                <p className="mt-4 text-muted-foreground leading-relaxed faq-answer">{faq.answer}</p>
               </details>
             ))}
           </div>

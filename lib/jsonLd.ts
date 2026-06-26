@@ -105,6 +105,77 @@ export function jsonLdScript(obj: object) {
   };
 }
 
+// CollectionPage : pour les hubs catégorie qui listent plusieurs produits.
+// Aide Google à comprendre que la page = listing, pas article. Active aussi
+// les rich results "produits associés".
+export function collectionPage(opts: {
+  name: string;
+  description: string;
+  url: string;
+  numberOfItems?: number;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": opts.url.startsWith("http") ? opts.url : `${SITE_URL}${opts.url}`,
+    name: opts.name,
+    description: opts.description,
+    url: opts.url.startsWith("http") ? opts.url : `${SITE_URL}${opts.url}`,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    ...(opts.numberOfItems !== undefined && {
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: opts.numberOfItems,
+      },
+    }),
+  };
+}
+
+// VideoObject : pour les vidéos hero du HeroCarousel. Active rich snippet
+// vidéo + carousel vidéo dans Google. Description + thumbnailUrl obligatoires.
+export type VideoMeta = {
+  name: string;
+  description: string;
+  thumbnailUrl: string; // poster image (ou screenshot 1ère frame)
+  contentUrl: string;   // URL du fichier MP4
+  uploadDate: string;   // ISO 8601
+  duration?: string;    // ISO 8601 duration (ex PT20S = 20 secondes)
+};
+
+export function videoObject(meta: VideoMeta) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: meta.name,
+    description: meta.description,
+    thumbnailUrl: meta.thumbnailUrl.startsWith("http")
+      ? meta.thumbnailUrl
+      : `${SITE_URL}${meta.thumbnailUrl}`,
+    contentUrl: meta.contentUrl.startsWith("http")
+      ? meta.contentUrl
+      : `${SITE_URL}${meta.contentUrl}`,
+    uploadDate: meta.uploadDate,
+    ...(meta.duration && { duration: meta.duration }),
+    publisher: {
+      "@type": "Organization",
+      name: BRAND,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
+    },
+  };
+}
+
+// SpeakableSpecification : pour les sections lisibles à voix haute par
+// Google Assistant, Siri lookup, etc. Cible des H2 + leur paragraphe
+// adjacent via CSS selector.
+export function speakable(cssSelectors: string[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SpeakableSpecification",
+    cssSelector: cssSelectors,
+  };
+}
+
 // WebSite + SearchAction enables Google sitelinks search box (rare but valuable
 // for branded queries). Targets the on-site /produits search.
 export function website() {
