@@ -110,7 +110,7 @@ const HeroCarousel = () => {
   const active = slides[currentSlide];
 
   return (
-    <section className="relative h-[100svh] lg:h-[85vh] lg:min-h-[600px] lg:max-h-[900px] overflow-hidden -mt-20 pt-20">
+    <section className="relative h-[100svh] lg:h-[85vh] lg:min-h-[600px] lg:max-h-[900px] overflow-hidden -mt-20 pt-20 pb-20 lg:pb-0">
       {/* Video Slides */}
       {slides.map((slide, index) => (
         <div
@@ -190,7 +190,7 @@ const HeroCarousel = () => {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-3">
+      <div className="absolute bottom-24 lg:bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-3">
         {slides.map((_, index) => (
           <button
             key={index}

@@ -163,7 +163,11 @@ export default function RootLayout({
         {/* GTM noscript fallback — capture les visiteurs sans JS (~1 %). */}
         <GTMNoScript />
         <Providers>
-          <div className="min-h-screen flex flex-col">
+          {/* min-h-[100svh] (pas min-h-screen) pour aligner avec le hero qui
+              utilise aussi svh. Sinon mismatch ~80px sur iOS Safari (svh =
+              small viewport sans URL bar, vh = large viewport avec URL bar)
+              → bande noire entre fin hero et MobileCTABar fixed bottom. */}
+          <div className="min-h-[100svh] flex flex-col">
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
