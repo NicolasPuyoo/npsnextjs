@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { useParams, usePathname, notFound } from "next/navigation";
 import { ChevronRight, Volume2, Shield, CheckCircle2 } from "lucide-react";
+import { trackEvent } from "@/lib/tracking";
 import BackButton from "@/components/BackButton";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
@@ -58,7 +60,17 @@ const ProductDetail = () => {
   const kraiburgBrand = getKraiburgBrand(product.name);
   const showVibraComparator = isDamtecVibra(product.slug);
   const useCase = getUseCase(product.slug);
-  
+
+  // Track view_product on mount — utilisé par GTM pour event GA4 + audience
+  // Google Ads (retargeting visiteurs fiche produit).
+  useEffect(() => {
+    trackEvent("view_product", {
+      product_id: product.slug,
+      product_name: product.name,
+      category: product.category,
+    });
+  }, [product.slug, product.name, product.category]);
+
   const getCategoryPath = () => {
     switch (product.category) {
       case "batiment": return "/batiment";
@@ -266,6 +278,7 @@ const ProductDetail = () => {
                   <ProductDocuments
                     dataSheetUrl={product.details?.dataSheetUrl}
                     brochureUrl={product.details?.brochureUrl}
+                    productSlug={product.slug}
                     variant="dark"
                   />
                 </div>

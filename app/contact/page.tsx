@@ -11,6 +11,7 @@ import Layout from "@/components/Layout";
 import ExploreMore from "@/components/ExploreMore";
 import { toast } from "sonner";
 import { findProductBySlug } from "@/data/products";
+import { trackEvent } from "@/lib/tracking";
 
 // Hero image - using batiment image as contact background
 import heroImage from "@/assets/categories/batiment.jpg";
@@ -90,6 +91,14 @@ const ContactInner = () => {
       });
 
       if (error) throw error;
+
+      // Conversion principale tracking → Google Ads + GA4 via GTM.
+      trackEvent("submit_quote", {
+        form_source: "contact_page",
+        project_type: formData.projectType || "non_specifie",
+        value: formData.projectType === "batiment" ? 3000 : formData.projectType === "sport" ? 2000 : 500,
+        currency: "EUR",
+      });
 
       toast.success("Votre message a été envoyé avec succès !");
       setFormData({ nom: "", prenom: "", email: "", telephone: "", projectType: "", message: "" });

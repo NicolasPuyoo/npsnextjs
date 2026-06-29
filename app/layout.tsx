@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MobileCTABar from "@/components/MobileCTABar";
 import CookieBanner from "@/components/CookieBanner";
+import ConsentManager, { GTMNoScript } from "@/components/ConsentManager";
 // Chatbot IA désactivé temporairement : en attente d'une clé ANTHROPIC_API_KEY
 // configurée en secret Cloudflare Worker. Le composant + la route API
 // /api/acoustic-expert-chat restent en place — remettre le mount ci-dessous
@@ -136,6 +137,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://api.fontshare.com" />
+        {/* Consent Mode V2 defaults + GTM container (no-op si NEXT_PUBLIC_GTM_ID absent). */}
+        <ConsentManager />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
@@ -157,6 +160,8 @@ export default function RootLayout({
         ))}
       </head>
       <body>
+        {/* GTM noscript fallback — capture les visiteurs sans JS (~1 %). */}
+        <GTMNoScript />
         <Providers>
           <div className="min-h-screen flex flex-col">
             <Navbar />

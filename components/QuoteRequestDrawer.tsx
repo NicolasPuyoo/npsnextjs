@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import type { Product } from "@/data/products";
+import { trackEvent } from "@/lib/tracking";
 
 // Map category → projectType select option (même mapping que /contact pour
 // que la edge function send-contact-email reçoive un payload cohérent).
@@ -80,7 +81,15 @@ export const QuoteRequestDrawer = ({
   // sur des champs d'une demande précédente — pas top en UX).
   const handleOpenChange = (next: boolean) => {
     setOpen(next);
-    if (!next) {
+    if (next) {
+      // Track open_quote_drawer : signal d'intention forte (lead chaud).
+      // Sert d'audience custom Google Ads ("a ouvert un drawer mais pas envoyé").
+      trackEvent("open_quote_drawer", {
+        product_id: product.slug,
+        product_name: product.name,
+        category: product.category,
+      });
+    } else {
       setStep("project");
       setForm(initialForm);
     }
@@ -143,6 +152,17 @@ export const QuoteRequestDrawer = ({
         body: payload,
       });
       if (error) throw error;
+
+      // Conversion principale : déclenche Google Ads conversion + GA4 + Pixel
+      // via GTM. Value estimée en € basée sur la catégorie (à affiner avec NPS).
+      trackEvent("submit_quote", {
+        product_id: product.slug,
+        product_name: product.name,
+        category: product.category,
+        form_source: "drawer",
+        value: product.category === "batiment" ? 3000 : product.category === "sport" ? 2000 : 100,
+        currency: "EUR",
+      });
 
       toast.success("Votre demande de devis a été envoyée. Nous revenons vers vous rapidement.");
       handleOpenChange(false);

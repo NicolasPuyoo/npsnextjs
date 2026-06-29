@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, FileText } from "lucide-react";
+import { trackPhoneClick } from "@/lib/tracking";
 
 const MobileCTABar = () => {
   return (
@@ -7,6 +10,7 @@ const MobileCTABar = () => {
       <div className="grid grid-cols-2 divide-x divide-border">
         <a
           href="tel:0558775589"
+          onClick={trackPhoneClick("mobile_cta_bar")}
           className="flex items-center justify-center gap-2 py-3 text-sm font-medium text-foreground hover:bg-muted transition-colors"
           aria-label="Appeler NPS Acoustique"
         >

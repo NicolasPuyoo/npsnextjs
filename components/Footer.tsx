@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import logoNps from "@/assets/logo-nps.png";
+import { trackPhoneClick, trackEmailClick } from "@/lib/tracking";
 
 const Footer = () => {
   return (
@@ -46,10 +49,10 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-background/70">
               <li>
-                <a href="tel:0558775589" className="hover:text-background transition-colors">05 58 77 55 89</a>
+                <a href="tel:0558775589" onClick={trackPhoneClick("footer")} className="hover:text-background transition-colors">05 58 77 55 89</a>
               </li>
               <li>
-                <a href="mailto:contact@nps-france.com" className="hover:text-background transition-colors">contact@nps-france.com</a>
+                <a href="mailto:contact@nps-france.com" onClick={trackEmailClick("footer")} className="hover:text-background transition-colors">contact@nps-france.com</a>
               </li>
             </ul>
           </div>
